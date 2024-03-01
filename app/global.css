@@ -1,0 +1,113 @@
+/*custom fonts*/
+@font-face {
+  font-family: "Franklin Gothic";
+  src: url('./../public/fonts/FRAMD.TTF') format("truetype");
+}
+
+@font-face {
+  font-family: "Optimus Princeps";
+  src: url('./../public/fonts/OPTIMUSPRINCEPS.TTF') format("truetype");
+}
+
+:root {
+  --bg-img: url('./../public/background2.png');
+  --bg-color: #1c1c1c;
+  --gold: #ffc000;
+}
+
+/*global default styling*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Franklin Gothic";
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/*styling for the hero component*/
+.hero {
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-direction: column;
+
+  background-image: var(--bg-img);
+  background-color: var(--bg-color);
+  background-position: center;
+  background-size: cover;
+
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 5vw;
+  animation: rise 1s;
+}
+
+.hero p {
+  font-size: 1.5vw;
+  animation: rise 1s;
+}
+
+/*styling for the navbar component*/
+.navbar {
+  width: 100vw;
+  height: 8vh;
+  padding: 20px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--bg-color);
+}
+
+.navbar-btn:hover {
+  border-bottom: 2px solid var(--gold);
+}
+
+.navbar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  height: 100%;
+  width: 20vw;
+
+  font-size: 25px;
+}
+
+.navbar-login {
+  font-size: 25px;
+}
+.navbar-login:hover,
+
+.navbar-login:hover * {
+  color: var(--gold);
+}
+
+.logo {
+  font-family: "Optimus Princeps";
+  font-size: 40px;
+}
+
+/*animation keyframes*/
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(2vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
