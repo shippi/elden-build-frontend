@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from "next/link"
 
 function NavBar() {
   return (
@@ -7,15 +7,15 @@ function NavBar() {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
     <div className="navbar">
-        <a className="logo">ELDEN BUILD</a>
+        <Link href="/" className="logo">ELDEN BUILDER</Link>
 
-        <a className="navbar-btn">VIEW BUILDS</a>
-        <a className="navbar-btn">BUILD CREATOR</a>
-        <a className="navbar-btn">ABOUT</a>
-        <a className="navbar-login">
+        <Link href="" className="navbar-btn">VIEW BUILDS</Link>
+        <Link href="/build-creator" scroll={true} className="navbar-btn">BUILD CREATOR</Link>
+        <Link href="" className="navbar-btn">ABOUT</Link>
+        <Link href="" className="navbar-login">
             <i className="fa fa-user-circle" aria-hidden="true" style={{fontSize: "25px", paddingRight: "20px"}}></i>
             LOGIN
-        </a>
+        </Link>
 
         <div></div>
     </div>

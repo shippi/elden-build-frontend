@@ -10,7 +10,7 @@
 }
 
 :root {
-  --bg-img: url('./../public/background2.png');
+  --bg-img: url('./../public/background3.png');
   --bg-color: #1c1c1c;
   --gold: #ffc000;
 }
@@ -22,10 +22,15 @@
   margin: 0;
   color: white;
   font-family: "Franklin Gothic";
+  text-decoration: none;
 }
 
 a:hover {
   cursor: pointer;
+}
+
+html {
+  background-color: var(--bg-color);
 }
 
 /*styling for the hero component*/
@@ -40,7 +45,6 @@ a:hover {
   flex-direction: column;
 
   background-image: var(--bg-img);
-  background-color: var(--bg-color);
   background-position: center;
   background-size: cover;
 
@@ -50,6 +54,7 @@ a:hover {
 .hero h1 {
   font-size: 5vw;
   animation: rise 1s;
+  
 }
 
 .hero p {
@@ -60,18 +65,22 @@ a:hover {
 /*styling for the navbar component*/
 .navbar {
   width: 100vw;
-  height: 8vh;
-  padding: 20px;
-  
+  height: 4vh;
+  min-height: 50px;
+  padding: 20px 20px 0px 20px;
+  margin-bottom: 50px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
-  background-color: var(--bg-color);
+.navbar * {
+  padding-bottom: 10px;
 }
 
 .navbar-btn:hover {
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
 }
 
 .navbar-btn {
@@ -83,12 +92,13 @@ a:hover {
   height: 100%;
   width: 20vw;
 
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .navbar-login {
-  font-size: 25px;
+  font-size: 20px;
 }
+
 .navbar-login:hover,
 
 .navbar-login:hover * {
@@ -97,8 +107,32 @@ a:hover {
 
 .logo {
   font-family: "Optimus Princeps";
-  font-size: 40px;
+  font-size: 35px;
 }
+
+/*styling for build creator page*/
+.build-creator, .loading-screen {
+  display: flex;
+  justify-content: center;
+
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.panels-container {
+  width: 75%;
+}
+
+/*styling for the character panel component*/
+.character-panel {
+  width: 500px;
+  padding: 10px;
+  background-color: black;
+}
+
+/*styling for loading*/
+
 
 /*animation keyframes*/
 @keyframes rise {

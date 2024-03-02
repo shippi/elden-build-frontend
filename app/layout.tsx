@@ -1,5 +1,8 @@
+import { NavBar } from "@/components"
+import './global.css'
+
 export const metadata = {
-  title: 'Elden Build',
+  title: 'Elden Builder',
   description: '',
 }
 
@@ -10,7 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <NavBar />  
+        {children}
+      </body>
     </html>
   )
 }
