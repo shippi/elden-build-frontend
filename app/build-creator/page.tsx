@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react'
 import { CharacterPanel } from '@/components'
-import useFetchClasses from '@/hooks/useFetchClasses()';
+import useFetchAllItems from '@/hooks/useFetchAllItems';
 
 function BuildCreator() {
-    const { classes, isLoading, error } = useFetchClasses();
+    const { classes, isLoading, error } = useFetchAllItems();
     const [ classIndex, setClassIndex ] = useState(0);
 
     if (classes.length > 0) {

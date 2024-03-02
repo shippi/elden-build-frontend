@@ -4,7 +4,7 @@ const delay = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-export default function useFetchClasses() {
+export default function useFetchAllItems() {
     const LIMIT: number = 9999;
 
     const [classes, setClasses] = useState([]);
@@ -21,7 +21,7 @@ export default function useFetchClasses() {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const handleFetchClasses = async () => {
+        const handleFetchAllItems = async () => {
             await(delay(200))
             setIsLoading(true);
             setError(null);
@@ -71,7 +71,7 @@ export default function useFetchClasses() {
                 setIsLoading(false);
             }
         };
-        handleFetchClasses();
+        handleFetchAllItems();
     }, []);
 
     return { classes, armours, weapons, shields, talismans, ashes, sorceries, ammos, spirits, isLoading, error };
