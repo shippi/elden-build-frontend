@@ -1,8 +1,4 @@
-import { use, useEffect, useState } from "react";
-
-const delay = (ms: number) => {
-    return new Promise((resolve) => setTimeout(resolve, ms))
-}
+import { useEffect, useState } from "react";
 
 export default function useFetchAllItems() {
     const LIMIT: number = 9999;
@@ -22,13 +18,12 @@ export default function useFetchAllItems() {
 
     useEffect(() => {
         const handleFetchAllItems = async () => {
-            await(delay(200))
             setIsLoading(true);
             setError(null);
             
             try {
                 // fetch classes
-                let res = await fetch(process.env.NEXT_PUBLIC_ER_API + 'classes', { method: 'GET' });
+                let res = await fetch(process.env.NEXT_PUBLIC_ER_API + 'classes?limit=10', { method: 'GET' });
                 let data = await res.json();        
                 setClasses(data.data);
                 // fetch armours

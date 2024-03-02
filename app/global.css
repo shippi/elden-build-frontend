@@ -16,7 +16,7 @@
   --gold: #ffc000;
 }
 
-/*global default styling*/
+/*global styling*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -34,10 +34,23 @@ html {
   background-color: var(--bg-color);
 }
 
-
 label {
   font-size: 13px;
   color: gray;
+}
+
+input[type=text] {
+  background-color: #262626;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+  
 }
 
 /*styling for the hero component*/
@@ -177,16 +190,24 @@ label {
 
 .selected-item {
   background-color: #ad8302;
-  color: var(--gold)
-};
+  color: var(--gold);
+}
 
-.selected:hover,
-.select-menu ul li {
+.select-menu ul li:hover,
+.selected:hover { 
   cursor: pointer;
 }
 
 .rotate {
   transform: rotate(180deg);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  padding-right: 5px;
 }
 
 /*animation keyframes*/
@@ -198,14 +219,5 @@ label {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(180deg);
   }
 }

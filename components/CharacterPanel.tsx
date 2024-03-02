@@ -32,6 +32,7 @@ function CharacterPanel({ classes, index, onChange } : Props) {
     <div className="character-panel">
       <div className="starting-class">
         <label>Starting Class: </label>
+
         <DropDown items={classes} index={index} onChange={onChange}/>
       </div>
 
