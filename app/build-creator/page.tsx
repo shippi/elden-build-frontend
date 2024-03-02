@@ -13,7 +13,7 @@ function BuildCreator() {
             <div className="build-creator">
                 <div className="panels-container">
                     <h1>ELDEN RING BUILD CREATOR</h1>
-                    <CharacterPanel classes={classes} currentIndex={classIndex}/>
+                    <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex}/>
                 </div>     
             </div>
         )

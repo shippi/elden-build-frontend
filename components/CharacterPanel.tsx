@@ -1,4 +1,5 @@
 import React from 'react'
+import DropDown from './DropDown'
 
 interface CharacterStats { 
     level: string, 
@@ -22,13 +23,19 @@ interface CharacterClass {
 
 interface Props {
     classes: CharacterClass[],
-    currentIndex: number
+    index: number,
+    onChange: Function
 }
 
-function CharacterPanel({ classes, currentIndex } : Props) {
+function CharacterPanel({ classes, index, onChange } : Props) {
   return (
     <div className="character-panel">
-        { classes[currentIndex].name }
+      <div className="starting-class">
+        <label>Starting Class: </label>
+        <DropDown items={classes} index={index} onChange={onChange}/>
+      </div>
+
+        
     </div>
   )
 }

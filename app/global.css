@@ -12,6 +12,7 @@
 :root {
   --bg-img: url('./../public/background3.png');
   --bg-color: #1c1c1c;
+  --panel-color: #1a1a1a;
   --gold: #ffc000;
 }
 
@@ -31,6 +32,12 @@ a:hover {
 
 html {
   background-color: var(--bg-color);
+}
+
+
+label {
+  font-size: 13px;
+  color: gray;
 }
 
 /*styling for the hero component*/
@@ -54,7 +61,6 @@ html {
 .hero h1 {
   font-size: 5vw;
   animation: rise 1s;
-  
 }
 
 .hero p {
@@ -100,7 +106,6 @@ html {
 }
 
 .navbar-login:hover,
-
 .navbar-login:hover * {
   color: var(--gold);
 }
@@ -115,7 +120,6 @@ html {
   display: flex;
   justify-content: center;
 
-
   width: 100vw;
   height: 100vh;
 }
@@ -126,13 +130,64 @@ html {
 
 /*styling for the character panel component*/
 .character-panel {
+  display: block;
+  border: 1px gray solid;
   width: 500px;
   padding: 10px;
-  background-color: black;
+  background-color: var(--panel-colour);
+}
+
+.character-panel * {
+  font-family: Arial;
+  display: block;
 }
 
 /*styling for loading*/
 
+/*styling for dropdown component*/
+.selected {
+  display: flex;
+  justify-content: space-between;
+
+  background-color: var(--bg-color);
+  padding: 5px;
+  border: none;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 1px gray solid;
+  margin: 5px 0px;
+}
+
+.select-menu ul {
+  background-color: var(--bg-color);
+  position: absolute;
+  width: 300px;
+  max-height: 500px;
+  padding: 5px;
+  overflow:auto;
+}
+
+.select-menu ul li {
+  padding: 10px;
+}
+
+.select-menu ul li:hover {
+  background-color: gray;
+}
+
+.selected-item {
+  background-color: #ad8302;
+  color: var(--gold)
+};
+
+.selected:hover,
+.select-menu ul li {
+  cursor: pointer;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
 
 /*animation keyframes*/
 @keyframes rise {
@@ -143,5 +198,14 @@ html {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
   }
 }
