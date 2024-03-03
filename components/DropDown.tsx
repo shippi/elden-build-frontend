@@ -17,22 +17,21 @@ function DropDown({ items, index, onChange }: Props) {
 
     return (
         <>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-        <div className="select-menu">
+        <div className="select-menu" ref={ref}>
             <div className="selected" onClick={() => setOpen(!open)} >
                 { items[index].name }
                 <i className={(!open ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
             </div>
             {
                 open && 
-                <ul  ref={ref}>
+                <ul  >
                     <div className="search-box">
                         <i className="fa fa-search" aria-hidden="true"></i>
                         <input 
                             type="text"
                             value={search}
                             placeholder="Search..."
-                            onChange={(e) => {setSearch(e.target.value.toLowerCase()); console.log(search)}}
+                            onChange={(e) => setSearch(e.target.value.toLowerCase())}
                         />
                     </div>
                     {

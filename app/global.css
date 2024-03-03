@@ -14,6 +14,8 @@
   --bg-color: #1c1c1c;
   --panel-color: #1a1a1a;
   --gold: #ffc000;
+  --dark-gold: #ad8302;
+  --grey-border: 1px gray solid;
 }
 
 /*global styling*/
@@ -26,10 +28,6 @@
   text-decoration: none;
 }
 
-a:hover {
-  cursor: pointer;
-}
-
 html {
   background-color: var(--bg-color);
 }
@@ -39,18 +37,21 @@ label {
   color: gray;
 }
 
-input[type=text] {
-  background-color: #262626;
-  padding: 5px;
-  margin: 5px;
-  border: none;
-  outline: none;
-  width: 100%;
+hr {
+  border-width: 1px;
+  color: grey;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 .hidden {
   display: none;
-  
 }
 
 /*styling for the hero component*/
@@ -83,12 +84,11 @@ input[type=text] {
 
 /*styling for the navbar component*/
 .navbar {
-  width: 100vw;
-  height: 4vh;
+  height: 5vh;
   min-height: 50px;
-  padding: 20px 20px 0px 20px;
-  margin-bottom: 50px;
-
+  padding-top: 2vh;
+  margin: auto;
+  width: 75vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -109,7 +109,7 @@ input[type=text] {
   text-align: center;
 
   height: 100%;
-  width: 20vw;
+  width: 15vw;
 
   font-size: 20px;
 }
@@ -132,7 +132,7 @@ input[type=text] {
 .build-creator, .loading-screen {
   display: flex;
   justify-content: center;
-
+  margin: auto;
   width: 100vw;
   height: 100vh;
 }
@@ -144,8 +144,8 @@ input[type=text] {
 /*styling for the character panel component*/
 .character-panel {
   display: block;
-  border: 1px gray solid;
-  width: 500px;
+  /*border: var(--grey-border);*/
+  width: 320px;
   padding: 10px;
   background-color: var(--panel-colour);
 }
@@ -155,29 +155,45 @@ input[type=text] {
   display: block;
 }
 
+.starting-class {
+  padding-bottom: 20px;
+}
+
+.level-container {
+  padding: 5px 0;
+}
+
+.level-container span {
+  padding: 5px 0;
+}
+
 /*styling for loading*/
 
 /*styling for dropdown component*/
+.select-menu,
+.select-menu ul {
+  width: 300px;
+}
+
 .selected {
   display: flex;
   justify-content: space-between;
-
   background-color: var(--bg-color);
   padding: 5px;
   border: none;
-  font-size: 18px;
-  width: 300px;
-  border-bottom: 1px gray solid;
+  font-size: 16px;
+  border-bottom: var(--grey-border);
   margin: 5px 0px;
 }
 
 .select-menu ul {
   background-color: var(--bg-color);
   position: absolute;
-  width: 300px;
   max-height: 500px;
   padding: 5px;
   overflow:auto;
+  border: var(--grey-border);
+  z-index: 100; 
 }
 
 .select-menu ul li {
@@ -208,6 +224,60 @@ input[type=text] {
   justify-content: space-between;
   font-size: 18px;
   padding-right: 5px;
+}
+
+.search-box input[type=text] {
+  background-color: #262626;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+/*styling for stat row*/
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 0 0 20px 0;
+}
+
+.number-container {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.number-input {
+  background-color: #262626;
+  border: 1px var(--dark-gold) solid;
+  text-align: center;
+  width: 50px;
+  font-size: 16px;
+  outline: none;
+  padding: 3px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.button-container button {
+  height: 18px;
+  width: 40px;
+  border: 0;
+  font-size: 15px;
+  background-color: var(--bg-color);
+}
+
+.button-container button:hover {
+  text-align: center;
+  background-color: gray;
+  cursor: pointer;
 }
 
 /*animation keyframes*/
