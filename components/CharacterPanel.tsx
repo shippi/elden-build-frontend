@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import DropDown from './DropDown'
 import StatRow from './StatRow'
-import useForceUpdate from '@/hooks/useForceUpdate'
 
 interface CharacterStats { 
     level: string, 
@@ -42,19 +41,21 @@ function CharacterPanel({ classes, index, onChange } : Props) {
   const [faith, setFaith] = useState(0);
   const [arcane, setArcane] = useState(0);
 
+  // calculates level based on base level of class and by adding up all added stats
   const selectedClass = classes[index];
   const level = +selectedClass.stats.level + vigor + mind + endurance + strength + dexterity + intelligence + faith + arcane;
 
   return (
     <div className="character-panel">
+      {/* div for selecting starting class */}
       <div className="starting-class">
         <label>Starting Class </label>
         <DropDown items={classes} index={index} onChange={onChange}/>
       </div>
-      
+
+      {/* div for modifying character stats */}
       <div className="character-stats">
         <label>Character Statistics </label>
-
         <StatRow type="Vigor" initialValue={selectedClass.stats.vigor} addedValue={vigor} onChange={setVigor}/>
         <StatRow type="Mind" initialValue={selectedClass.stats.mind} addedValue={mind} onChange={setMind}/>
         <StatRow type="Endurance" initialValue={selectedClass.stats.endurance} addedValue={endurance} onChange={setEndurance}/>
@@ -64,11 +65,13 @@ function CharacterPanel({ classes, index, onChange } : Props) {
         <StatRow type="Faith" initialValue={selectedClass.stats.faith} addedValue={faith} onChange={setFaith}/>
         <StatRow type="Arcane" initialValue={selectedClass.stats.arcane} addedValue={arcane} onChange={setArcane}/>
       </div>
+
+      {/* div for displaying level requirement for modified stats */}
       <div className="level-container">
           <label>Total Level: </label>
           <span>{level}</span>
           <hr></hr>
-        </div>
+      </div>
     </div>  
   )
 }
