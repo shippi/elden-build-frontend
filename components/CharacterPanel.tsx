@@ -1,6 +1,8 @@
 'use client'
-import { useState } from 'react'
+
+import React, { useEffect, useState } from 'react'
 import { DropDown, StatRow } from '.'
+
 
 interface CharacterStats { 
     level: string, 
@@ -25,10 +27,11 @@ interface CharacterClass {
 interface Props {
     classes: CharacterClass[],
     index: number,
-    onChange: Function
+    onChange: Function,
+    onStatChange: Function
 }
 
-function CharacterPanel({ classes, index, onChange } : Props) {
+function CharacterPanel({ classes, index, onChange, onStatChange } : Props) {
   // states for character added stats
   const [vigor, setVigor] = useState(0);
   const [mind, setMind] = useState(0);
@@ -38,6 +41,21 @@ function CharacterPanel({ classes, index, onChange } : Props) {
   const [intelligence, setIntelligence] = useState(0);
   const [faith, setFaith] = useState(0);
   const [arcane, setArcane] = useState(0);
+
+  // hook used to update the character stats stored in 
+  // the parent component (build creator page)
+  useEffect(() => {
+    onStatChange({
+      vigor: vigor,
+      mind: mind,
+      endurance: endurance,
+      strength: strength,
+      dexerity: dexterity,
+      intelligence: intelligence,
+      faith: faith,
+      arcane: arcane
+    });
+  }, [vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane]);
 
   // calculates level based on base level of class and by adding up all added stats
   const selectedClass = classes[index];
