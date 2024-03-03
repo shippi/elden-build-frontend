@@ -1,8 +1,6 @@
 'use client'
-
-import React, { useState } from 'react'
-import DropDown from './DropDown'
-import StatRow from './StatRow'
+import { useState } from 'react'
+import { DropDown, StatRow } from '.'
 
 interface CharacterStats { 
     level: string, 

@@ -1,14 +1,13 @@
 'use client'
-
-import React, { useState } from 'react'
-import { CharacterPanel } from '@/components'
-import useFetchAllItems from '@/hooks/useFetchAllItems';
+import { useState } from 'react'
+import { CharacterPanel, Loading } from '@/components'
+import { useFetchAllItems } from '@/hooks';
 
 function BuildCreator() {
     const { classes, isLoading, error } = useFetchAllItems();
     const [ classIndex, setClassIndex ] = useState(0);
 
-    if (classes.length > 0) {
+    if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">
                 <div className="panels-container">
@@ -21,9 +20,7 @@ function BuildCreator() {
     }
     else {
         return (
-            <div className="loading-screen">
-                loading...
-            </div>
+            <Loading />
         )
     }
 }

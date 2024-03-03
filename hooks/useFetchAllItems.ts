@@ -16,6 +16,8 @@ export default function useFetchAllItems() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+
+
     useEffect(() => {
         const handleFetchAllItems = async () => {
             setIsLoading(true);
@@ -63,7 +65,10 @@ export default function useFetchAllItems() {
                 setError('Error: ' + e);
             }
             finally {
-                setIsLoading(false);
+                setTimeout(() => {
+                    setIsLoading(false);
+                }, 750)
+                
             }
         };
         handleFetchAllItems();

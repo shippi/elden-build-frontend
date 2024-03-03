@@ -1,6 +1,5 @@
 'use client'
-import useClickOutside from "@/hooks/useClickOutside";
-
+import { useClickOutside } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
 
 interface Props {
@@ -73,7 +72,7 @@ function StatRow({ type, initialValue, addedValue, onChange}: Props) {
 
     return (
       <div className="stat-row" >
-        { type + ": " }
+        { type }
         <div className="number-container" ref={ref}>
             <input 
                 className="number-input" 

@@ -1,6 +1,5 @@
 'use client'
-
-import useClickOutside from '@/hooks/useClickOutside';
+import { useClickOutside } from '@/hooks';
 import { useRef, useState } from 'react'
 
 interface Props {
