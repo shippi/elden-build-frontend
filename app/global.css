@@ -158,7 +158,8 @@ a:hover {
 /*styling for the character panel component*/
 .character-panel,
 .armour-panel,
-.talismans-panel {
+.talismans-panel,
+.weapons-panel {
   display: block;
   width: 350px;
   padding: 10px;
@@ -202,7 +203,6 @@ a:hover {
 .select-menu,
 .select-menu ul {
   width: 100%;
-  
 }
 
 .selected {

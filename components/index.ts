@@ -5,6 +5,8 @@ import DropDown from "./DropDown";
 import Loading from "./Loading";
 import StatRow from "./StatRow";
 import ArmourPanel from "./ArmourPanel";
+import TalismansPanel from "./TalismansPanel";
+import WeaponsPanel from "./WeaponsPanel";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -14,5 +16,7 @@ export {
     Loading,
     NavBar,
     StatRow,
-    ArmourPanel
+    ArmourPanel,
+    TalismansPanel,
+    WeaponsPanel
 }

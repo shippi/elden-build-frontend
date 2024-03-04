@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Used to fetch all the necessary elden ring data for the build planner.
+ * VERY UGLY CODE WILL NEED TO REDO IN THE FUTURE BUT IT WORKS THO
+ * @returns 
+ */
 export default function useFetchAllItems() {
     const LIMIT: number = 9999;
     const LS_PREFIX = "elden-ring-";

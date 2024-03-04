@@ -1,14 +1,14 @@
 'use client'
 import { useState } from 'react'
-import { ArmourPanel, CharacterPanel, Loading } from '@/components'
+import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
-import TalismansPanel from '@/components/TalismansPanel';
 
 function BuildCreator() {
-    const {classes, armours, talismans, isLoading, error} = useFetchAllItems();
+    const {classes, armours, talismans, weapons, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
     const [armourIndices, setArmourIndices] = useState([-1, -1, -1, -1]);
     const [talismanIndices, setTalismanIndices] = useState([-1, -1, -1, -1]);
+    const [weaponsIndices, setWeaponIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [characterStats, setCharacterStats] = useState({
         vigor: 0, 
         mind: 0, 
@@ -29,6 +29,7 @@ function BuildCreator() {
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats}/>
                     <ArmourPanel armours={armours} indices={armourIndices} onChange={setArmourIndices} />
                     <TalismansPanel talismans={talismans} indices={talismanIndices} onChange={setTalismanIndices} />
+                    <WeaponsPanel weapons={weapons} indices={weaponsIndices} onChange={setWeaponIndices} />
                 </div>     
             </div>
         )
