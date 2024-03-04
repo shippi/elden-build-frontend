@@ -41,7 +41,7 @@ function TalismansPanel({talismans, indices, onChange} : Props) {
                 <ul>
                 {
                     indices.map((i, j) => (
-                        <li className={i > 0 ? "" : "hidden"}>{i > 0 ? talismans[i].effect : ""}</li>
+                        <li className={i > -1 ? "" : "hidden"}>{i > -1 ? talismans[i].effect : ""}</li>
                     ))
                 }
                 </ul>
