@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from "react"
 import { DropDown } from "."
 
 interface DamageNegation {
@@ -12,63 +15,55 @@ interface Armour {
     dmgNegation: DamageNegation[]
 }
 
-interface ArmourIndices {
-    helm: number,
-    chest: number,
-    gauntlets: number,
-    legs: number
-}
 
 interface Props {
     armours: Armour[],
-    indices: ArmourIndices,
+    indices: number[],
     onChange: Function
 }
 
 
 function ArmourPanel({armours, indices, onChange} : Props) {
-    const helms = [...armours].filter(armour => (armour.category == "Helm"))
-    const chestArmours = [...armours].filter(armour => (armour.category == "Chest Armor"))
-    const gauntlets = [...armours].filter(armour => (armour.category == "Gauntlets"))
-    const legArmours = [...armours].filter(armour => (armour.category == "Leg Armor"))
+    const armoursArr = [
+        [...armours].filter(armour => (armour.category == "Helm")),
+        [...armours].filter(armour => (armour.category == "Chest Armor")),
+        [...armours].filter(armour => (armour.category == "Gauntlets")),
+        [...armours].filter(armour => (armour.category == "Leg Armor"))
+    ]
 
-    const onHelmChange = (i: number) => {
-        onChange({...indices, helm: i});
+    const[currIndex, setCurrIndex] = useState(0);
+
+    const handleOnChange = (newIndex: number) => {
+        const newIndeces = [...indices];
+        newIndeces[currIndex] = newIndex;
+        onChange(newIndeces);
     }
-    const onChestChange = (i: number) => {
-        onChange({...indices, chest: i});
-    }
-    const onGauntletChange = (i: number) => {
-        onChange({...indices, gauntlets: i});
-    }
-    const onLegChange = (i: number) => {
-        onChange({...indices, legs: i});
+
+    const armourSwitch = (index: number) => {
+        switch(index) {
+            case 0:
+                return "Helmet"
+            case 1:
+                return "Chest"
+            case 2: 
+                return "Gauntlets"
+            case 3:
+                return "Legs"
+        }
     }
 
     return (
         <div className="armour-panel">
             {/* div for selecting chest armour */}
-            <div className="">
-                <label>Helmet </label>
-                <DropDown items={helms} index={indices.helm} isNullable={true} onChange={onHelmChange}/>
-            </div>
-
-            {/* div for selecting chest armour */}
-            <div className="">
-                <label>Chest </label>
-                <DropDown items={chestArmours} index={indices.chest} isNullable={true} onChange={onChestChange}/>
-            </div>
-
-            {/* div for selecting chest armour */}
-            <div className="">
-                <label>Gauntlets </label>
-                <DropDown items={gauntlets} index={indices.gauntlets} isNullable={true} onChange={onGauntletChange}/>
-            </div>
-
-            {/* div for selecting chest armour */}
-            <div className="">
-                <label>Gauntlets </label>
-                <DropDown items={legArmours} index={indices.legs} isNullable={true} onChange={onLegChange}/>
+            <div>
+                {
+                    indices.map((i, j) => (
+                        <div onClick={() => {setCurrIndex(j)}}>
+                            <label>{armourSwitch(j)}</label>
+                            <DropDown items={armoursArr[j]} index={indices[j]} isNullable={true} onChange={handleOnChange}/>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )

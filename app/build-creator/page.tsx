@@ -7,12 +7,7 @@ import TalismansPanel from '@/components/TalismansPanel';
 function BuildCreator() {
     const {classes, armours, talismans, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
-    const [armourIndices, setArmourIndices] = useState({
-        helm: -1,
-        chest: -1,
-        gauntlets: -1,
-        legs: -1
-    });
+    const [armourIndices, setArmourIndices] = useState([-1, -1, -1, -1]);
     const [talismanIndices, setTalismanIndices] = useState([-1, -1, -1, -1]);
     const [characterStats, setCharacterStats] = useState({
         vigor: 0, 

@@ -35,6 +35,7 @@ function TalismansPanel({talismans, indices, onChange} : Props) {
                     ))
                 }
             </div>
+            <br/>
             <div className="active-effects">
                 <label>Active Effects:</label>
                 <ul>
