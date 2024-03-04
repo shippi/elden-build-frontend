@@ -65,7 +65,7 @@ function CharacterPanel({ classes, index, onChange, onStatChange } : Props) {
       {/* div for selecting starting class */}
       <div className="starting-class">
         <label>Starting Class </label>
-        <DropDown items={classes} index={index} onChange={onChange}/>
+        <DropDown items={classes} index={index} isNullable={false} onChange={onChange}/>
       </div>
 
       {/* div for modifying character stats */}

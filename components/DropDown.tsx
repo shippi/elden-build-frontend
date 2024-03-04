@@ -5,26 +5,25 @@ import { useEffect, useRef, useState } from 'react'
 interface Props {
     items: any[],
     index: number,
+    isNullable: boolean,
     onChange: Function
 }
 
-function DropDown({ items, index, onChange }: Props) {  
+function DropDown({ items, index, isNullable, onChange }: Props) {  
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
-    const [selectedIndex, setSelectedIndex] = useState(0);
 
     const ref = useRef(null);
     useClickOutside(ref, () => setOpen(false));
 
     const selectedItem = document.getElementById("selected=item");
     selectedItem?.scrollIntoView();
-
     return (
         <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <div className="select-menu" ref={ref}>
-            <div className="selected" onClick={() => setOpen(!open)}>
-                { items[index].name }
+            <div className={"selected"} onClick={() => setOpen(!open)}>
+                { index > -1 ? items[index].name : "None" }
                 <i className={(!open ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
             </div>
             {
@@ -40,17 +39,25 @@ function DropDown({ items, index, onChange }: Props) {
                     </div>
                 
                 <ul>
+                    <li 
+                        className={isNullable == false ? "hidden" : "" + (index < 0 ? "selected-item" : "")}
+                        onClick={() => {
+                            onChange(-1);
+                            setOpen(false);
+                        }}
+                    >
+                        None
+                    </li>
                     {
                         items.map((item, i) => (
                             item.name.toLowerCase().indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 ? 
                             <li 
-                                className={ i == index ? "selected-item" : "" }
-                                id={ i == index ? "selected-item" : "" }
+                                className={i == index ? "selected-item" : ""}
+                                id={i == index ? "selected-item" : ""}
                                 key={i} 
                                 onClick={() => {
                                     onChange(i);
                                     setOpen(false);
-    
                             }}>
                                 {item.name}
                             </li>

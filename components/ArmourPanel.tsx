@@ -45,31 +45,30 @@ function ArmourPanel({armours, indices, onChange} : Props) {
         onChange({...indices, legs: i});
     }
 
-    document.getElementById
     return (
         <div className="armour-panel">
             {/* div for selecting chest armour */}
             <div className="">
                 <label>Helmet </label>
-                <DropDown items={helms} index={indices.helm} onChange={onHelmChange}/>
+                <DropDown items={helms} index={indices.helm} isNullable={true} onChange={onHelmChange}/>
             </div>
 
             {/* div for selecting chest armour */}
             <div className="">
                 <label>Chest </label>
-                <DropDown items={chestArmours} index={indices.chest} onChange={onChestChange}/>
+                <DropDown items={chestArmours} index={indices.chest} isNullable={true} onChange={onChestChange}/>
             </div>
 
             {/* div for selecting chest armour */}
             <div className="">
                 <label>Gauntlets </label>
-                <DropDown items={gauntlets} index={indices.gauntlets} onChange={onGauntletChange}/>
+                <DropDown items={gauntlets} index={indices.gauntlets} isNullable={true} onChange={onGauntletChange}/>
             </div>
 
             {/* div for selecting chest armour */}
             <div className="">
                 <label>Gauntlets </label>
-                <DropDown items={legArmours} index={indices.legs} onChange={onLegChange}/>
+                <DropDown items={legArmours} index={indices.legs} isNullable={true} onChange={onLegChange}/>
             </div>
         </div>
     )

@@ -157,9 +157,10 @@ a:hover {
 
 /*styling for the character panel component*/
 .character-panel,
-.armour-panel {
+.armour-panel,
+.talismans-panel {
   display: block;
-  width: 320px;
+  width: 350px;
   padding: 10px;
   background-color: var(--panel-colour);
 }
@@ -181,12 +182,26 @@ a:hover {
   padding: 10px 0;
 }
 
-/*styling for loading*/
+/*styling for talismans panel component*/
+.active-effects {
+  background-color: #191919;
+  padding: 10px;
+  border-bottom: 1px var(--dark-gold) solid;
+}
+
+.active-effects ul {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.active-effects ul li {
+  padding: 4px 0;
+}
 
 /*styling for dropdown component*/
 .select-menu,
 .select-menu ul {
-  width: 300px;
+  width: 100%;
   
 }
 
