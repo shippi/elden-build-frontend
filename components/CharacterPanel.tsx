@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import { DropDown, StatRow } from '.'
 
-
 interface CharacterStats { 
     level: string, 
     vigor: string, 
@@ -86,7 +85,6 @@ function CharacterPanel({ classes, index, onChange, onStatChange } : Props) {
       <div className="level-container">
           <label>Total Level: </label>
           <span>{level}</span>
-          <hr></hr>
       </div>
     </div>  
   )

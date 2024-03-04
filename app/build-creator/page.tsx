@@ -1,11 +1,17 @@
 'use client'
 import { useState } from 'react'
-import { CharacterPanel, Loading } from '@/components'
+import { ArmourPanel, CharacterPanel, Loading } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 
 function BuildCreator() {
-    const {classes, isLoading, error} = useFetchAllItems();
+    const {classes, armours, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
+    const [armourIndices, setArmourIndices] = useState({
+        helm: 0,
+        chest: 0,
+        gauntlets: 0,
+        legs: 0
+    });
 
     const [characterStats, setCharacterStats] = useState({
         vigor: 0, 
@@ -21,10 +27,13 @@ function BuildCreator() {
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">
-                <div className="panels-container">
                     <h1>ELDEN RING BUILD CREATOR</h1>
+                
+                <div className="panels-container">
+                    
                     <br />
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats}/>
+                    <ArmourPanel armours={armours} indices={armourIndices} onChange={setArmourIndices} />
                 </div>     
             </div>
         )

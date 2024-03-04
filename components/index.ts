@@ -4,6 +4,7 @@ import CharacterPanel from "./CharacterPanel";
 import DropDown from "./DropDown";
 import Loading from "./Loading";
 import StatRow from "./StatRow";
+import ArmourPanel from "./ArmourPanel";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -12,5 +13,6 @@ export {
     Hero,
     Loading,
     NavBar,
-    StatRow
+    StatRow,
+    ArmourPanel
 }

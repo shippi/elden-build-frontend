@@ -29,11 +29,11 @@ export default function useFetchAllItems() {
                 let data = await res.json();        
                 setClasses(data.data);
                 // fetch armours
-                res = await fetch(process.env.NEXT_PUBLIC_ER_API + 'armors?limit=' + LIMIT, { method: 'GET' });
-                data = await res.json();        
+                res = await fetch('https://elden-ring-test-api.vercel.app/api/armors?limit=999', { method: 'GET' });
+                data = await res.json();       
                 setArmours(data.data);
                 // fetch weapons
-                res = await fetch(process.env.NEXT_PUBLIC_ER_API + 'weapons?limit=' + LIMIT, { method: 'GET' });
+                res = await fetch('https://elden-ring-test-api.vercel.app/api/weapons?limit=999', { method: 'GET' });
                 data = await res.json();        
                 setWeapons(data.data);
                 // fetch shields

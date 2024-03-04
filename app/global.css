@@ -128,12 +128,17 @@ a:hover {
   font-size: 35px;
 }
 
-/*styling for build creator page*/
-.build-creator, .loading-screen {
+/**/
+.loading-screen {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+/*styling for build creator page*/
+.build-creator, .loading-screen {
   margin: auto;
-  width: 100vw;
+  width: 75vw;
   height: 100vh;
 }
 
@@ -144,13 +149,16 @@ a:hover {
 }
 
 .panels-container {
+  display: flex;
+
   width: 75%;
+  height: 1000px;
 }
 
 /*styling for the character panel component*/
-.character-panel {
+.character-panel,
+.armour-panel {
   display: block;
-  /*border: var(--grey-border);*/
   width: 320px;
   padding: 10px;
   background-color: var(--panel-colour);
@@ -158,7 +166,6 @@ a:hover {
 
 .character-panel * {
   font-family: Arial;
-  display: block;
 }
 
 .starting-class {
@@ -167,10 +174,11 @@ a:hover {
 
 .level-container {
   padding: 5px 0;
+  border-bottom: 1px gray solid;
 }
 
 .level-container span {
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
 /*styling for loading*/
@@ -192,13 +200,23 @@ a:hover {
   margin: 5px 0px;
 }
 
+.search-box {
+  border-right: var(--grey-border);
+  border-left: var(--grey-border);
+  border-top: var(--grey-border);
+  padding: 5px;
+}
+
 .select-menu ul {
   background-color: var(--bg-color);
+  border-bottom: var(--grey-border);
+  border-left: var(--grey-border);
+  border-right: var(--grey-border);
   position: absolute;
+  overflow: auto;
+
   max-height: 500px;
   padding: 5px;
-  overflow:auto;
-  border: var(--grey-border);
   z-index: 100; 
 }
 
