@@ -2,26 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { DropDown, StatRow } from '.'
-
-interface CharacterStats { 
-    level: string, 
-    vigor: string, 
-    mind: string, 
-    endurance: string, 
-    strength: string, 
-    dexterity: string, 
-    intelligence: string, 
-    faith: string, 
-    arcane: string
-}
-
-interface CharacterClass {
-    id: string,
-    name: string,
-    image: string,
-    description: string,
-    stats: CharacterStats
-}
+import { CharacterClass, CharacterStats } from './types'
 
 interface Props {
     classes: CharacterClass[],
@@ -49,7 +30,7 @@ function CharacterPanel({ classes, index, onChange, onStatChange } : Props) {
       mind: mind,
       endurance: endurance,
       strength: strength,
-      dexerity: dexterity,
+      dexterity: dexterity,
       intelligence: intelligence,
       faith: faith,
       arcane: arcane

@@ -49,12 +49,12 @@ export default function useFetchAllItems() {
                     setClasses(data.data);
                     window.localStorage.setItem(LS_PREFIX + "classes", JSON.stringify(data.data))
                     // fetch armours
-                    res = await fetch('https://elden-ring-test-api.vercel.app/api/armors?limit=999', { method: 'GET' });
+                    res = await fetch('https://elden-ring-api-seven.vercel.app/api/armors?limit=999', { method: 'GET' });
                     data = await res.json();       
                     setArmours(data.data);
                     window.localStorage.setItem(LS_PREFIX + "armours", JSON.stringify(data.data))
                     // fetch weapons
-                    res = await fetch('https://elden-ring-test-api.vercel.app/api/weapons?limit=999', { method: 'GET' });
+                    res = await fetch('https://elden-ring-api-seven.vercel.app/api/weapons?limit=999', { method: 'GET' });
                     data = await res.json();        
                     setWeapons(data.data);
                     window.localStorage.setItem(LS_PREFIX + "weapons", JSON.stringify(data.data))

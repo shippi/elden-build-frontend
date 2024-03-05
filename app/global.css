@@ -199,10 +199,21 @@ a:hover {
   padding: 4px 0;
 }
 
+/*styling for defences panel*/
+.defences-panel table{
+  width: 300px;
+  padding: 10px;
+}
+
+.defences-panel .value {
+  text-align: center;
+}
+
 /*styling for dropdown component*/
 .select-menu,
 .select-menu ul {
   width: 100%;
+
 }
 
 .selected {

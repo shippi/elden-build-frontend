@@ -2,19 +2,7 @@
 
 import { useState } from "react"
 import { DropDown } from "."
-
-interface DamageNegation {
-    name: string,
-    amount: number
-}
-
-interface Armour {
-    id: string,
-    name: string,
-    category: string,
-    dmgNegation: DamageNegation[]
-}
-
+import { Armour } from "./types"
 
 interface Props {
     armours: Armour[],

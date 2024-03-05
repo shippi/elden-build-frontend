@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel } from '@/components'
+import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 
 function BuildCreator() {
@@ -19,7 +19,7 @@ function BuildCreator() {
         faith: 0, 
         arcane: 0
     });
-
+    
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">
@@ -30,7 +30,8 @@ function BuildCreator() {
                     <ArmourPanel armours={armours} indices={armourIndices} onChange={setArmourIndices} />
                     <TalismansPanel talismans={talismans} indices={talismanIndices} onChange={setTalismanIndices} />
                     <WeaponsPanel weapons={weapons} indices={weaponsIndices} onChange={setWeaponIndices} />
-                </div>     
+                    <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={armours} armourIndices={armourIndices} />
+                </div>
             </div>
         )
     }
