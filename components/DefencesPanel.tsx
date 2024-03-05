@@ -28,7 +28,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, armourIndi
               <td>{stat}</td>
               <td className="value">{physicalDefences} /</td>
               <td className="value">
-                {calculatePhysicalNegations(selectedArmours)[i]}
+                {calculatePhysicalNegations(selectedArmours)[i].toFixed(3)}
               </td>
             </tr>
           ))
@@ -41,10 +41,17 @@ function DefencesPanel({characterClass, characterLevelStats, armours, armourIndi
 export default DefencesPanel
 
 function getSelectedArmours(armours: Armour[], armourIndices: number[]) {
+  const armoursArr = [
+    [...armours].filter(armour => (armour.category == "Helm")),
+    [...armours].filter(armour => (armour.category == "Chest Armor")),
+    [...armours].filter(armour => (armour.category == "Gauntlets")),
+    [...armours].filter(armour => (armour.category == "Leg Armor"))
+  ]
+
   let selectedArmours: Armour[] = [];
-  armourIndices.forEach(i => {
+  armourIndices.forEach((i, j) => {
     if (i > -1) {
-      selectedArmours.push(armours[i]);
+      selectedArmours.push(armoursArr[j][i]);
     }
    
   });
@@ -97,11 +104,12 @@ function calculatePhysicalDefences(characterClass: CharacterClass, characterLeve
 function calculatePhysicalNegations(selectedArmours: Armour[]) {
   let negationValues = [0, 0, 0, 0];
 
-  selectedArmours.forEach(armour => {
-    negationValues.forEach((value, i) => {
-      negationValues[i] += +armour.dmgNegation[i].amount;
+  selectedArmours.forEach((armour, i) => {
+    negationValues.forEach((currentValue, j) => {
+      negationValues[j] = currentValue - ((currentValue * armour.dmgNegation[j].amount)/100) + armour.dmgNegation[j].amount;
     })
   })
+  console.log(selectedArmours);
   console.log(negationValues);
   return negationValues;
 }
