@@ -209,6 +209,10 @@ a:hover {
   text-align: center;
 }
 
+td {
+  padding: 5px 0;
+}
+
 /*styling for dropdown component*/
 .select-menu,
 .select-menu ul {
