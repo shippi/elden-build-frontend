@@ -57,6 +57,17 @@ function ArmourPanel({armours, onChange} : Props) {
                     ))
                 }
             </div>
+            <div className="active-effects">
+                <label>Active Effects:</label>
+                <ul>
+                {
+                    getSelectedArmours(armours, indices).map((armour, i) => (
+                        armour?.specialEffect == null ? "" : 
+                        <li>{armour.specialEffect}</li>
+                    ))
+                }
+                </ul>
+            </div>
         </div>
     )
 }
