@@ -29,7 +29,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
               <td>{stat}</td>
               <td className="value">{physicalDefences} /</td>
               <td className="value">
-                {calculatePhysicalNegations(armours)[i].toFixed(3)}
+                {calculateNegations(armours)[i].toFixed(3)}
               </td>
             </tr>
           ))
@@ -40,7 +40,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
               <td>{stat}</td>
               <td className="value">{magicDefences[i]} /</td>
               <td className="value">
-                
+                {calculateNegations(armours)[i+4].toFixed(3)}
               </td>
           </tr>
           ))
@@ -95,8 +95,8 @@ function calculatePhysicalDefences(characterClass: CharacterClass, characterLeve
   return Math.floor(baseStat);
 }
 
-function calculatePhysicalNegations(selectedArmours: Armour[]) {
-  let negationValues = [0, 0, 0, 0];
+function calculateNegations(selectedArmours: Armour[]) {
+  let negationValues = [0, 0, 0, 0, 0, 0, 0, 0];
 
   selectedArmours.forEach((armour, i) => {
     if (armour != null) {
