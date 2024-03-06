@@ -6,12 +6,14 @@ import { Armour } from "./types"
 
 interface Props {
     armours: Armour[],
-    indices: number[],
     onChange: Function
 }
 
 
-function ArmourPanel({armours, indices, onChange} : Props) {
+function ArmourPanel({armours, onChange} : Props) {
+    const [indices, setIndices] = useState([-1, -1, -1, -1]);
+    const[currIndex, setCurrIndex] = useState(0);
+
     const armoursArr = [
         [...armours].filter(armour => (armour.category == "Helm")),
         [...armours].filter(armour => (armour.category == "Chest Armor")),
@@ -19,12 +21,14 @@ function ArmourPanel({armours, indices, onChange} : Props) {
         [...armours].filter(armour => (armour.category == "Leg Armor"))
     ]
 
-    const[currIndex, setCurrIndex] = useState(0);
-
     const handleOnChange = (newIndex: number) => {
-        const newIndeces = [...indices];
+        let newIndeces = [...indices];
         newIndeces[currIndex] = newIndex;
-        onChange(newIndeces);
+
+        const selectedArmours = getSelectedArmours(armours, newIndeces);
+
+        setIndices(newIndeces);
+        onChange(selectedArmours);
     }
 
     const armourSwitch = (index: number) => {
@@ -58,3 +62,21 @@ function ArmourPanel({armours, indices, onChange} : Props) {
 }
 
 export default ArmourPanel
+
+function getSelectedArmours(armours: Armour[], armourIndices: number[]) {
+    const armoursArr = [
+      [...armours].filter(armour => (armour.category == "Helm")),
+      [...armours].filter(armour => (armour.category == "Chest Armor")),
+      [...armours].filter(armour => (armour.category == "Gauntlets")),
+      [...armours].filter(armour => (armour.category == "Leg Armor"))
+    ]
+  
+    let selectedArmours: any[] = [null, null, null, null];
+    armourIndices.forEach((i, j) => {
+      if (i > -1) {
+        selectedArmours[j] = armoursArr[j][i];
+      }
+     
+    });
+    return selectedArmours;
+}

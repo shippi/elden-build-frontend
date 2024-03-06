@@ -6,9 +6,9 @@ import { useFetchAllItems } from '@/hooks';
 function BuildCreator() {
     const {classes, armours, talismans, weapons, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
-    const [armourIndices, setArmourIndices] = useState([-1, -1, -1, -1]);
-    const [talismanIndices, setTalismanIndices] = useState([-1, -1, -1, -1]);
-    const [weaponsIndices, setWeaponIndices] = useState([-1, -1, -1, -1, -1, -1]);
+    const [selectedArmours, setSelectedArmours] = useState([]);
+    const [selectedTalismans, setSelectedTalismans] = useState([]);
+    const [selectedWeapons, setSelectedWeapons] = useState([]);
     const [characterStats, setCharacterStats] = useState({
         vigor: 0, 
         mind: 0, 
@@ -27,10 +27,10 @@ function BuildCreator() {
                 <div className="panels-container">    
                     <br />
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats}/>
-                    <ArmourPanel armours={armours} indices={armourIndices} onChange={setArmourIndices} />
-                    <TalismansPanel talismans={talismans} indices={talismanIndices} onChange={setTalismanIndices} />
-                    <WeaponsPanel weapons={weapons} indices={weaponsIndices} onChange={setWeaponIndices} />
-                    <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={armours} armourIndices={armourIndices} />
+                    <ArmourPanel armours={armours} onChange={setSelectedArmours} />
+                    <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
+                    <WeaponsPanel weapons={weapons} onChange={setSelectedWeapons} />
+                    <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} />
                 </div>
             </div>
         )

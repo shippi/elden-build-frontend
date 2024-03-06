@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react"
 import { DropDown } from "."
+import { getSelectedItems } from "@/utils/BuildCreatorUtils"
 
 interface Stat {
     name: string,
@@ -25,17 +26,21 @@ interface Weapon {
 
 interface Props {
     weapons: Weapon[],
-    indices: number[],
     onChange: Function
 }
 
-function WeaponsPanel({weapons, indices, onChange} : Props) {
+function WeaponsPanel({weapons, onChange} : Props) {
+    const [indices, setIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const[currIndex, setCurrIndex] = useState(0);
 
     const handleOnChange = (newIndex: number) => {
-        const newIndeces = [...indices];
+        let newIndeces = [...indices];
         newIndeces[currIndex] = newIndex;
-        onChange(newIndeces);
+
+        const selectedTalismans = getSelectedItems(weapons, newIndeces);
+
+        setIndices(newIndeces);
+        onChange(selectedTalismans);
     }
 
     return (

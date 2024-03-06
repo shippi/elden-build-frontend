@@ -1,18 +1,17 @@
+'use client'
 
+import { useState } from 'react';
 import { Armour, CharacterClass, CharacterStats } from './types'
 
 interface Props {
     characterClass: CharacterClass,
     characterLevelStats: any,
-    armours: Armour[],
-    armourIndices: number[]
+    armours: Armour[]
 }
 
-function DefencesPanel({characterClass, characterLevelStats, armours, armourIndices} : Props) {
+function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
   const PHYSICAL_DEFENCE_NAMES = ["Physical", "VS Strike", "VS Slash", "VS Pierce"]
-  const selectedArmours = getSelectedArmours(armours, armourIndices);
-  const physicalDefences = calculatePhysicalDefences(characterClass, characterLevelStats, selectedArmours);
-
+  const physicalDefences = calculatePhysicalDefences(characterClass, characterLevelStats, armours);
 
   return (
     <div className="defences-panel">
@@ -28,7 +27,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, armourIndi
               <td>{stat}</td>
               <td className="value">{physicalDefences} /</td>
               <td className="value">
-                {calculatePhysicalNegations(selectedArmours)[i].toFixed(3)}
+                {calculatePhysicalNegations(armours)[i].toFixed(3)}
               </td>
             </tr>
           ))
@@ -40,23 +39,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, armourIndi
 
 export default DefencesPanel
 
-function getSelectedArmours(armours: Armour[], armourIndices: number[]) {
-  const armoursArr = [
-    [...armours].filter(armour => (armour.category == "Helm")),
-    [...armours].filter(armour => (armour.category == "Chest Armor")),
-    [...armours].filter(armour => (armour.category == "Gauntlets")),
-    [...armours].filter(armour => (armour.category == "Leg Armor"))
-  ]
 
-  let selectedArmours: Armour[] = [];
-  armourIndices.forEach((i, j) => {
-    if (i > -1) {
-      selectedArmours.push(armoursArr[j][i]);
-    }
-   
-  });
-  return selectedArmours;
-}
 
 function calculateLevel(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
   const level = +characterClass.stats.level + +characterLevelStats.vigor + +characterLevelStats.mind + 
@@ -105,9 +88,12 @@ function calculatePhysicalNegations(selectedArmours: Armour[]) {
   let negationValues = [0, 0, 0, 0];
 
   selectedArmours.forEach((armour, i) => {
-    negationValues.forEach((currentValue, j) => {
-      negationValues[j] = currentValue - ((currentValue * armour.dmgNegation[j].amount)/100) + armour.dmgNegation[j].amount;
-    })
+    if (armour != null) {
+      negationValues.forEach((currentValue, j) => {
+        negationValues[j] = currentValue - ((currentValue * armour.dmgNegation[j].amount)/100) + armour.dmgNegation[j].amount;
+      })
+    }
+
   })
   console.log(selectedArmours);
   console.log(negationValues);

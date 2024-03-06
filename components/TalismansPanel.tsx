@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { DropDown } from ".";
+import { getSelectedItems } from "@/utils/BuildCreatorUtils";
 
 interface Talisman {
     id: string,
@@ -11,17 +12,21 @@ interface Talisman {
 
 interface Props {
     talismans: Talisman[],
-    indices: number[],
     onChange: Function
 }
 
-function TalismansPanel({talismans, indices, onChange} : Props) {
+function TalismansPanel({talismans, onChange} : Props) {
+    const [indices, setIndices] = useState([-1, -1, -1, -1]);
     const[currIndex, setCurrIndex] = useState(0);
 
     const handleOnChange = (newIndex: number) => {
-        const newIndeces = [...indices];
+        let newIndeces = [...indices];
         newIndeces[currIndex] = newIndex;
-        onChange(newIndeces);
+
+        const selectedTalismans = getSelectedItems(talismans, newIndeces);
+
+        setIndices(newIndeces);
+        onChange(selectedTalismans);
     }
 
     return (
@@ -53,3 +58,4 @@ function TalismansPanel({talismans, indices, onChange} : Props) {
 }
 
 export default TalismansPanel
+

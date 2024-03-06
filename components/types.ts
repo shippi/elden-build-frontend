@@ -27,5 +27,7 @@ export interface Armour {
     id: string,
     name: string,
     category: string,
-    dmgNegation: DamageNegation[]
+    dmgNegation: DamageNegation[],
+    resistances: DamageNegation[],
+    specialEffect: string
 }
