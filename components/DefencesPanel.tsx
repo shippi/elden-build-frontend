@@ -12,8 +12,11 @@ interface Props {
 function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
   const PHYSICAL_DEFENCE_NAMES = ["Physical", "VS Strike", "VS Slash", "VS Pierce"]
   const MAGIC_DEFENCE_NAMES = ["Magic", "Fire", "Lightning", "Holy"]
+  const RESISTANCE_NAMES = ["Immunity", "Robustness", "Focus", "Vitality"]
+
   const physicalDefences = calculatePhysicalDefences(characterClass, characterLevelStats);
   const magicDefences = calculateMagicDefences(characterClass, characterLevelStats)
+  const resistances = calculateBaseResistances(characterClass, characterLevelStats)
 
   return (
     <div className="defences-panel">
@@ -43,6 +46,21 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
                 {calculateNegations(armours)[i+4].toFixed(3)}
               </td>
           </tr>
+          ))
+        }
+      </table>
+      <table>
+        <tr>
+          <th></th>
+          <th>Resistance</th>
+          <th>Armor</th>
+        </tr>
+        {
+          RESISTANCE_NAMES.map((stat, i)=> (
+            <tr>
+              <td>{stat}</td>
+              <td className="value">{resistances[i]} /</td>
+            </tr>
           ))
         }
       </table>
@@ -117,65 +135,126 @@ function calculateMagicDefences(characterClass: CharacterClass, characterLevelSt
 
   let baseStat = 0;
 
-    // calculates defense number based on given level
-    if (level < 72) {
-      baseStat = 40 + 60*((level + 78) / 149);
+  // calculates defense number based on given level
+  if (level < 72) {
+    baseStat = 40 + 60*((level + 78) / 149);
+  }
+  else if (level < 92) {
+    baseStat = 100 + 20*((level - 71) / 20);
+  }
+  else if (level < 162) {
+    baseStat = 120 + 15*((level - 91) / 70);
+  }
+  else {
+    baseStat = 135 + 20*((level - 161) / 552);
+  }
+
+  const calculationFormula1 = (level: number) => {
+    let stat = 0;
+    if (level < 21) {
+      stat += 40 * (level / 20)
     }
-    else if (level < 92) {
-      baseStat = 100 + 20*((level - 71) / 20);
+    else if (level < 36) {
+      stat += 40 + 10 * ((level - 20) / 20)
     }
-    else if (level < 162) {
-      baseStat = 120 + 15*((level - 91) / 70);
+    else if (level < 61) {
+      stat += 50 + 10 * ((level - 35) / 25)
     }
     else {
-      baseStat = 135 + 20*((level - 161) / 552);
+      stat += 60 + 10 * ((level - 60) / 39)
     }
+    return stat;
+  }
 
-    let magic = baseStat;
-    let fire = baseStat;
-    let lightning = baseStat;
-    let holy = baseStat;
-
-    // calculate magic defence based on intelligence level
-    if (intelligenceLevel < 21) {
-      magic += 40 * (intelligenceLevel / 20)
-    }
-    else if (intelligenceLevel < 36) {
-      magic += 40 + 10 * ((intelligenceLevel - 20) / 20)
-    }
-    else if (intelligenceLevel < 61) {
-      magic += 50 + 10 * ((intelligenceLevel - 35) / 25)
-    }
-    else {
-      magic += 60 + 10 * ((intelligenceLevel - 60) / 39)
-    }
-
-    // calculate holy defence based on arcane level
-    if (arcaneLevel < 21) {
-      holy += 40 * (arcaneLevel / 20)
-    }
-    else if (arcaneLevel < 36) {
-      holy += 40 + 10 * ((arcaneLevel - 20) / 20)
-    }
-    else if (arcaneLevel < 61) {
-      holy += 50 + 10 * ((arcaneLevel - 35) / 25)
-    }
-    else {
-      holy += 60 + 10 * ((arcaneLevel - 60) / 39)
-    }
-
-    // calculate fire defence based on vigor level
-    if (vigorLevel < 31) {
-      fire += 20 * (vigorLevel / 30)
+  const calculationFormula2 = (level: number) => {
+    let stat = 0;
+    if (level < 31) {
+      stat += 20 * (level  / 30)
     }
     else if (vigorLevel < 41) {
-      fire += 20 + 20 * ((vigorLevel - 30) / 10)
+      stat += 20 + 20 * ((level - 30) / 10)
     }
     else if (vigorLevel < 61) {
-      fire += 40 + 20 * ((vigorLevel - 40) / 20)
+      stat += 40 + 20 * ((level - 40) / 20)
     }
     else {
-      fire += 60 + 10 * ((vigorLevel - 60) / 39)
+      stat += 60 + 10 * ((level - 60) / 39)
     }
-    return [magic, fire, lightning, holy].map(i => Math.floor(i))
+    return stat;
+  }
+
+  let magic = baseStat + calculationFormula1(intelligenceLevel);
+  let fire = baseStat + calculationFormula2(vigorLevel);
+  let lightning = baseStat;
+  let holy = baseStat + calculationFormula1(arcaneLevel);
+
+  
+
+  return [magic, fire, lightning, holy].map(i => Math.floor(i))
+}
+
+function calculateBaseResistances(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
+  const level = calculateLevel(characterClass, characterLevelStats);
+
+  const vigorLevel = +characterClass.stats.vigor + +characterLevelStats.vigor;
+  const enduranceLevel = +characterClass.stats.endurance + +characterLevelStats.endurance;
+  const mindLevel = +characterClass.stats.mind + +characterLevelStats.mind;
+  const arcaneLevel = +characterClass.stats.arcane + +characterLevelStats.arcane;
+
+  let baseStat = 0;
+    
+  // calculates defense number based on given level
+  if (level < 72) {
+    baseStat = 75 + 30*((level + 78) / 149);
+  }
+  else if (level < 92) {
+    baseStat = 105 + 40*((level - 71) / 20);
+  }
+  else if (level < 162) {
+    baseStat = 145 + 15*((level - 91) / 70);
+  }
+  else {
+    baseStat = 160 + 20*((level - 161) / 552);
+  }
+
+  const calculationFormula1 = (level: number) => {
+    let stat = 0;
+    if (level < 31) {
+      stat = 0;
+    }
+    else if (level < 41) {
+      stat += 30 * ((level - 30) / 10)
+    }
+    else if (level < 61) {
+      stat += 30 + 10 * ((level - 40) / 20)
+    }
+    else {
+      stat += 40 + 10 * ((level - 60) / 39)
+    }
+    return stat;
+  }
+
+  const calculationFormula2 = (level: number) => {
+    let stat = 0;
+    if (level < 16) {
+      stat = level;
+    }
+    else if (level < 41) {
+      stat += 15 + 15*((level - 15) / 25)
+    }
+    else if (level < 61) {
+      stat += 30 + 10*((level - 40) / 20)
+    }
+    else {
+      stat += 40 + 10*((level - 60) / 39)
+    }
+    return stat;
+  }
+
+  let immunity = baseStat + calculationFormula1(vigorLevel);
+  let robustness = baseStat + calculationFormula1(enduranceLevel);
+  let focus = baseStat + calculationFormula1(mindLevel);
+  let vitality = baseStat + calculationFormula2(arcaneLevel);
+
+  return [immunity, robustness, focus, vitality].map(i => Math.floor(i));
 }
