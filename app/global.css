@@ -10,7 +10,7 @@
 }
 
 :root {
-  --bg-img: url('./../public/background3.png');
+  --bg-img: url('./../public/background2.png');
   --bg-color: #1c1c1c;
   --panel-color: #1a1a1a;
   --gold: #ffc000;
@@ -70,6 +70,11 @@ a:hover {
   background-size: cover;
 
   text-align: center;
+  
+}
+
+.hero:after {
+  background: linear-gradient(transparent, gray);
 }
 
 .hero h1 {
@@ -86,7 +91,7 @@ a:hover {
 .navbar {
   height: 5vh;
   min-height: 50px;
-  padding-top: 2vh;
+  padding-top: 1%;
   margin: auto;
   width: 75vw;
   display: flex;
@@ -98,29 +103,36 @@ a:hover {
   padding-bottom: 10px;
 }
 
+.navbar-buttons {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-btn:hover {
-  border-bottom: 1px solid var(--gold);
+  color: var(--gold);
+  transition: 0.4s;
 }
 
 .navbar-btn {
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  margin-left: 40px;
+  padding: 10px;
+  font-size: 18px;
+}
 
-  height: 100%;
-  width: 15vw;
-
-  font-size: 20px;
+.navbar-btn:last-child {
+  margin-left: 0px;
 }
 
 .navbar-login {
   font-size: 20px;
 }
 
-.navbar-login:hover,
-.navbar-login:hover * {
+.selected-page {
   color: var(--gold);
+  border-bottom: 1px var(--gold) solid;
 }
 
 .logo {

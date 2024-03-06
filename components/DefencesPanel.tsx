@@ -54,19 +54,23 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
         </tbody>
       </table>
       <table>
-        <tr>
-          <th></th>
-          <th>Resistance</th>
-          <th>Armor</th>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Resistance</th>
+            <th>Armor</th>
         </tr>
-        {
-          RESISTANCE_NAMES.map((stat, i)=> (
-            <tr>
-              <td>{stat}</td>
-              <td className="value">{resistances[i]} /</td>
-            </tr>
-          ))
-        }
+        </thead>
+        <tbody>
+          { 
+            RESISTANCE_NAMES.map((stat, i)=> (
+              <tr>
+                <td>{stat}</td>
+                <td className="value">{resistances[i]} /</td>
+              </tr>
+            ))
+          }
+        </tbody>
       </table>
     </div>
   )

@@ -66,8 +66,7 @@ function StatRow({ type, initialValue, addedValue, onChange}: Props) {
                 setValue((+value - 1).toString());
                 onChange(+value - +initialValue); // sends parent the added value
             }
-            else {
-                
+            else {       
                 setValue(initialValue)  
                 onChange(0);
             }
