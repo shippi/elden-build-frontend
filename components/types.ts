@@ -26,6 +26,7 @@ export interface DamageNegation {
 export interface Armour {
     id: string,
     name: string,
+    image: string,
     category: string,
     dmgNegation: DamageNegation[],
     resistance: DamageNegation[],

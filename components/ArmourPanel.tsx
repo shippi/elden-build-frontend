@@ -57,6 +57,8 @@ function ArmourPanel({armours, onChange} : Props) {
                     ))
                 }
             </div>
+            <br/>
+            {/* div for displaying active effects from armour */}
             <div className="active-effects">
                 <label>Active Effects:</label>
                 <ul>
@@ -74,17 +76,26 @@ function ArmourPanel({armours, onChange} : Props) {
 
 export default ArmourPanel
 
+/**
+ * Used to get the armours that a user has selected based on indices chosen in dropdown.
+ * @param armours 
+ * @param armourIndices 
+ * @returns 
+ */
 function getSelectedArmours(armours: Armour[], armourIndices: number[]) {
+    // organises each armor category into their own arrays
     const armoursArr = [
       [...armours].filter(armour => (armour.category == "Helm")),
       [...armours].filter(armour => (armour.category == "Chest Armor")),
       [...armours].filter(armour => (armour.category == "Gauntlets")),
       [...armours].filter(armour => (armour.category == "Leg Armor"))
     ]
-  
+    
     let selectedArmours: any[] = [null, null, null, null];
+
+    // goes through each value in armourIndices to grab armour from armoursArr
     armourIndices.forEach((i, j) => {
-      if (i > -1) {
+      if (i > -1) { // checks if index/value is -1, if so leaves value as null
         selectedArmours[j] = armoursArr[j][i];
       }
      

@@ -81,7 +81,11 @@ a:hover {
   font-size: 5vw;
   animation: rise 1s;
 }
-
+.hero h1 span {
+  font-family: "Optimus Princeps";
+  font-size: 4.4vw;
+  
+}
 .hero p {
   font-size: 1.5vw;
   animation: rise 1s;
@@ -117,7 +121,7 @@ a:hover {
 .navbar-btn {
   display: flex;
   align-items: center;
-  margin-left: 40px;
+  margin-left: 30px;
   padding: 10px;
   font-size: 18px;
 }
@@ -226,6 +230,11 @@ td {
 }
 
 /*styling for dropdown component*/
+img {
+  height: 35px;
+  margin-right: 10px;
+}
+
 .select-menu,
 .select-menu ul {
   width: 100%;
@@ -235,12 +244,18 @@ td {
 .selected {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--bg-color);
   padding: 5px;
   border: none;
   font-size: 16px;
   border-bottom: var(--grey-border);
   margin: 5px 0px;
+}
+
+.selected div {
+  display: flex;
+  align-items: center;
 }
 
 .search-box {
@@ -271,6 +286,8 @@ td {
 }
 
 .select-menu ul li {
+  display: flex;
+  align-items: center;
   padding: 10px;
 }
 

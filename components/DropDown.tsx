@@ -18,12 +18,17 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
 
     const selectedItem = document.getElementById("selected=item");
     selectedItem?.scrollIntoView();
+
     return (
         <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <div className="select-menu" ref={ref}>
-            <div className={"selected"} onClick={() => setOpen(!open)}>
+            <div className="selected" onClick={() => setOpen(!open)}>
+                <div>
+                { index > -1 ? <img src={items[index].image}/>:<></>}
                 { index > -1 ? items[index].name : "None" }
+                </div>
+                
                 <i className={(!open ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
             </div>
             {
@@ -39,18 +44,20 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                     </div>
                 
                 <ul>
-                    <li 
-                        className={isNullable == false ? "hidden" : "" + (index < 0 ? "selected-item" : "")}
-                        onClick={() => {
-                            onChange(-1);
-                            setOpen(false);
-                        }}
-                    >
-                        None
-                    </li>
+                    {
+                        isNullable == true &&
+                        <li 
+                            className={index < 0 ? "selected-item" : ""} 
+                            onClick={() => { 
+                                onChange(-1); 
+                                setOpen(false); 
+                        }}>
+                            None
+                        </li>
+                    }
                     {
                         items.map((item, i) => (
-                            item.name.toLowerCase().indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 ? 
+                            item.name.toLowerCase().indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 &&
                             <li 
                                 className={i == index ? "selected-item" : ""}
                                 id={i == index ? "selected-item" : ""}
@@ -59,10 +66,9 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                                     onChange(i);
                                     setOpen(false);
                             }}>
+                                <img src={item.image}/>
                                 {item.name}
                             </li>
-                            :
-                            ""
                         ))
                     }
                 </ul>

@@ -1,6 +1,3 @@
-'use client'
-
-import { useState } from 'react';
 import { Armour, CharacterClass, CharacterStats } from './types'
 
 interface Props {
