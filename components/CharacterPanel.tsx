@@ -37,6 +37,7 @@ function CharacterPanel({ classes, index, onChange, onStatChange } : Props) {
     });
   }, [vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane]);
 
+  console.log(vigor)
   // calculates level based on base level of class and by adding up all added stats
   const selectedClass = classes[index];
   const level = +selectedClass.stats.level + vigor + mind + endurance + strength + dexterity + intelligence + faith + arcane;

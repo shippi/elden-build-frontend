@@ -49,23 +49,27 @@ function StatRow({ type, initialValue, addedValue, onChange}: Props) {
     
     // handler for button clicks, will either increment or decrement number
     const handleButtonClick = (increment: boolean) => {
-        if (increment) {           
+        if (increment) {        
             if (+value + 1 > MAX) { // checks if inputted value exceeds the max
                 // sets value to max and sends parent the added value
                 setValue(MAX.toString());
                 onChange(MAX - +initialValue);
             }
             else {
-                setValue((+value + 1).toString())
+                setValue((+value + 1).toString())  
                 onChange(+value + 1 - +initialValue); // sends parent the added value
             }
             
         }
-        else if (!increment) {   
-            if (+value - 1 >= +initialValue) { // checks if inputted value less than class base
+        else if (!increment) {
+            if (+value - 1 > +initialValue) { // checks if inputted value greater than class base
                 setValue((+value - 1).toString());
-   
                 onChange(+value - +initialValue); // sends parent the added value
+            }
+            else {
+                
+                setValue(initialValue)  
+                onChange(0);
             }
         }
     }

@@ -21,33 +21,37 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
   return (
     <div className="defences-panel">
       <table>
-        <tr>
-          <th></th>
-          <th>Defence</th>
-          <th>Negation</th>
-        </tr>
-        {
-          PHYSICAL_DEFENCE_NAMES.map((stat, i) => (
-            <tr>
-              <td>{stat}</td>
-              <td className="value">{physicalDefences} /</td>
-              <td className="value">
-                {calculateNegations(armours)[i].toFixed(3)}
-              </td>
-            </tr>
-          ))
-        }
-        {
-          MAGIC_DEFENCE_NAMES.map((stat, i) => (
-            <tr>
-              <td>{stat}</td>
-              <td className="value">{magicDefences[i]} /</td>
-              <td className="value">
-                {calculateNegations(armours)[i+4].toFixed(3)}
-              </td>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Defence</th>
+            <th>Negation</th>
           </tr>
-          ))
-        }
+        </thead>
+          <tbody>
+          {
+            PHYSICAL_DEFENCE_NAMES.map((stat, i) => (
+              <tr>
+                <td>{stat}</td>
+                <td className="value">{physicalDefences} /</td>
+                <td className="value">
+                  {calculateNegations(armours)[i].toFixed(3)}
+                </td>
+              </tr>
+            ))
+          }
+          {
+            MAGIC_DEFENCE_NAMES.map((stat, i) => (
+              <tr>
+                <td>{stat}</td>
+                <td className="value">{magicDefences[i]} /</td>
+                <td className="value">
+                  {calculateNegations(armours)[i+4].toFixed(3)}
+                </td>
+            </tr>
+            ))
+          }
+        </tbody>
       </table>
       <table>
         <tr>
@@ -187,8 +191,6 @@ function calculateMagicDefences(characterClass: CharacterClass, characterLevelSt
   let fire = baseStat + calculationFormula2(vigorLevel);
   let lightning = baseStat;
   let holy = baseStat + calculationFormula1(arcaneLevel);
-
-  
 
   return [magic, fire, lightning, holy].map(i => Math.floor(i))
 }
