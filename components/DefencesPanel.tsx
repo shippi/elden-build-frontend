@@ -17,6 +17,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
   const physicalDefences = calculatePhysicalDefences(characterClass, characterLevelStats);
   const magicDefences = calculateMagicDefences(characterClass, characterLevelStats)
   const resistances = calculateBaseResistances(characterClass, characterLevelStats)
+  const armourResistances = calculateArmourResistances(armours);
 
   return (
     <div className="defences-panel">
@@ -67,6 +68,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
               <tr>
                 <td>{stat}</td>
                 <td className="value">{resistances[i]} /</td>
+                <td className="value">{armourResistances[i]}</td>
               </tr>
             ))
           }
@@ -263,4 +265,16 @@ function calculateBaseResistances(characterClass: CharacterClass, characterLevel
   let vitality = baseStat + calculationFormula2(arcaneLevel);
 
   return [immunity, robustness, focus, vitality].map(i => Math.floor(i));
+}
+
+function calculateArmourResistances(armours: Armour[]) {
+  let resistances = [0, 0, 0, 0];
+  armours.forEach(armour => {
+    if(armour != null) {
+      resistances.forEach((value, i) => {
+        resistances[i] += armour.resistance[i].amount;
+      });
+    }
+  });
+  return resistances;
 }
