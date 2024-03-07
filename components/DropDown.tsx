@@ -25,7 +25,7 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
         <div className="select-menu" ref={ref}>
             <div className="selected" onClick={() => setOpen(!open)}>
                 <div>
-                { index > -1 ? <img src={items[index].image}/>:<></>}
+                { index > -1 ? <img src={items[index].image}/>:<img/>}
                 { index > -1 ? items[index].name : "None" }
                 </div>
                 
@@ -52,6 +52,7 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                                 onChange(-1); 
                                 setOpen(false); 
                         }}>
+                            
                             None
                         </li>
                     }
