@@ -15,13 +15,28 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
 
     const ref = useRef(null);
     useClickOutside(ref, () => setOpen(false));
-    
+
+    const selectedRef = useRef(null);
+
+    const scrollToRef = (ref: any) => {
+        
+        if(ref.current && index > -1) {
+            console.log(index)
+            if(ref.current.children[index]) {
+                ref.current.children[index].scrollIntoView();
+            }
+        }   
+    };
+
+    useEffect(() => {
+        if(open) scrollToRef(selectedRef)
+    }, [open])
 
     return (
         <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <div className="select-menu" ref={ref}>
-            <div className="selected" onClick={() => setOpen(!open)}>
+            <div className="selected" onClick={() => { setOpen(!open); scrollToRef(selectedRef); }}>
                 <div>
                 { index > -1 ? <img src={items[index].image}/>:<img/>}
                 { index > -1 ? items[index].name : "None" }
@@ -42,7 +57,7 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                         />
                     </div>
                 
-                <ul>
+                <ul ref={selectedRef}>
                     {
                         isNullable == true &&
                         <li 

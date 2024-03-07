@@ -155,7 +155,7 @@ a:hover {
 .build-creator, .loading-screen {
   margin: auto;
   width: 75vw;
-  height: 100vh;
+  height: 100%;
 }
 
 .loading-screen {
