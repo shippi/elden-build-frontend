@@ -152,13 +152,16 @@ a:hover {
 }
 
 /*styling for build creator page*/
-.build-creator, .loading-screen {
+.build-creator{
   margin: auto;
   width: 75vw;
   height: 100%;
 }
 
 .loading-screen {
+  margin: auto;
+  width: 75vw;
+  height: 100vh;
   align-items: center;
   flex-direction: column;
   font-size: 25px;

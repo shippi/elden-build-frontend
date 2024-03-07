@@ -15,7 +15,7 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
   const equipLoad = calculateEquipLoad(characterClass, characterLevelStats);
   const totalWeight = calculateWeight(armours, talismans, weapons);
   const poise = calculatePoise(armours);
-
+  const discovery = calculateDiscovery(characterClass, characterLevelStats);
   return (
     <div className="stats-panel">
       <div>
@@ -32,6 +32,9 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
       </div>
       <div>
         <strong>Poise</strong> {poise}
+      </div>
+      <div>
+        <strong>Discovery</strong> {discovery}
       </div>
     </div>
   )
@@ -138,4 +141,11 @@ function calculatePoise(armours: Armour[]) {
   });
 
   return poise;
+}
+
+function calculateDiscovery(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
+  const arcaneLevel = +characterClass.stats.arcane + +characterLevelStats.arcane;
+  let discovery = 100;
+
+  return (discovery + arcaneLevel).toFixed(1);
 }

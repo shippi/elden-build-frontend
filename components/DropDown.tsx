@@ -77,7 +77,7 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                             item.name.toLowerCase().indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 &&
                             <li 
                                 className={i == index ? "selected-item" : ""}
-                                key={i} 
+                                key={i.toString()} 
                                 onClick={() => {
                                     onChange(i);
                                     setOpen(false);
