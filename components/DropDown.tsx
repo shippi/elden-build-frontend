@@ -20,12 +20,14 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
 
     const scrollToRef = (ref: any) => {
         
-        if(ref.current && index > -1) {
-            console.log(index)
+        if (ref.current && index > -1) {
             if(ref.current.children[index]) {
                 ref.current.children[index].scrollIntoView();
             }
         }   
+        else if (ref.current && index == -1) {
+            ref.current.scrollTo(0, 0);
+        }
     };
 
     useEffect(() => {
