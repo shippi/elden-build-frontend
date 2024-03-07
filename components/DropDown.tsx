@@ -36,7 +36,7 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
         <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <div className="select-menu" ref={ref}>
-            <div className="selected" onClick={() => { setOpen(!open); scrollToRef(selectedRef); }}>
+            <div className="selected" onClick={() => { setOpen(!open); }}>
                 <div>
                 { index > -1 ? <img src={items[index].image}/>:<img/>}
                 { index > -1 ? items[index].name : "None" }
