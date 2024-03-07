@@ -30,5 +30,34 @@ export interface Armour {
     category: string,
     dmgNegation: DamageNegation[],
     resistance: DamageNegation[],
+    weight: number,
     specialEffect: string
 }
+
+export interface Weapon {
+    id: string,
+    name: string,
+    attack: Stat[],
+    defence: Stat[],
+    scalesWith: ScalesWith[],
+    requiredAttributes: Stat[],
+    category: string,
+    weight: number
+}
+
+export interface Talisman {
+    id: string,
+    name: string,
+    effect: string
+}
+
+interface Stat {
+    name: string,
+    amount: number
+}
+
+interface ScalesWith {
+    name: string,
+    scaling: string
+}
+

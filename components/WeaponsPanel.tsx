@@ -2,27 +2,8 @@
 import { useState } from "react"
 import { DropDown } from "."
 import { getSelectedItems } from "@/utils/BuildCreatorUtils"
+import { Weapon } from "./types"
 
-interface Stat {
-    name: string,
-    amount: number
-}
-
-interface ScalesWith {
-    name: string,
-    scaling: string
-}
-
-interface Weapon {
-    id: string,
-    name: string,
-    attack: Stat[],
-    defence: Stat[],
-    scalesWith: ScalesWith[],
-    requiredAttributes: Stat[],
-    category: string,
-    weight: number
-}
 
 interface Props {
     weapons: Weapon[],

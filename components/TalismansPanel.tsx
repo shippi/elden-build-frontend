@@ -3,12 +3,8 @@
 import { useState } from "react";
 import { DropDown } from ".";
 import { getSelectedItems } from "@/utils/BuildCreatorUtils";
+import { Talisman } from "./types";
 
-interface Talisman {
-    id: string,
-    name: string,
-    effect: string
-}
 
 interface Props {
     talismans: Talisman[],

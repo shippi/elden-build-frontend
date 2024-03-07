@@ -166,8 +166,6 @@ a:hover {
 
 .panels-container {
   display: flex;
-
-  width: 75%;
   height: 1000px;
 }
 
@@ -175,7 +173,8 @@ a:hover {
 .character-panel,
 .armour-panel,
 .talismans-panel,
-.weapons-panel {
+.weapons-panel,
+.stats-panel {
   display: block;
   width: 350px;
   padding: 10px;
@@ -228,6 +227,11 @@ a:hover {
 td {
   padding: 5px 0;
 }
+/**/
+.stats-panel div {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*styling for dropdown component*/
 img {
@@ -238,7 +242,6 @@ img {
 .select-menu,
 .select-menu ul {
   width: 100%;
-
 }
 
 .selected {

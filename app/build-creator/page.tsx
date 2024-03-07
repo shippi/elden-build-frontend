@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel } from '@/components'
+import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 
 function BuildCreator() {
@@ -31,6 +31,7 @@ function BuildCreator() {
                     <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
                     <WeaponsPanel weapons={weapons} onChange={setSelectedWeapons} />
                     <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} />
+                    <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
                 </div>
             </div>
         )

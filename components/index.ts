@@ -8,6 +8,7 @@ import ArmourPanel from "./ArmourPanel";
 import TalismansPanel from "./TalismansPanel";
 import WeaponsPanel from "./WeaponsPanel";
 import DefencesPanel from "./DefencesPanel";
+import StatsPanel from "./StatsPanel";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -20,5 +21,6 @@ export {
     ArmourPanel,
     TalismansPanel,
     WeaponsPanel,
-    DefencesPanel
+    DefencesPanel,
+    StatsPanel
 }

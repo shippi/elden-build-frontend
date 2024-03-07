@@ -15,9 +15,7 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
 
     const ref = useRef(null);
     useClickOutside(ref, () => setOpen(false));
-
-    const selectedItem = document.getElementById("selected=item");
-    selectedItem?.scrollIntoView();
+    
 
     return (
         <>
@@ -32,7 +30,8 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                 <i className={(!open ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
             </div>
             {
-                <div className={"dropdown" + (!open ? " hidden" : "") }>
+                
+                <div className={"dropdown" + (open ? "": " hidden")} >
                     <div className="search-box">
                         <i className="fa fa-search" aria-hidden="true"></i>
                         <input 
@@ -51,8 +50,8 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                             onClick={() => { 
                                 onChange(-1); 
                                 setOpen(false); 
-                        }}>
-                            
+                            }}
+                        >
                             None
                         </li>
                     }
@@ -61,12 +60,13 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                             item.name.toLowerCase().indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 &&
                             <li 
                                 className={i == index ? "selected-item" : ""}
-                                id={i == index ? "selected-item" : ""}
                                 key={i} 
                                 onClick={() => {
                                     onChange(i);
                                     setOpen(false);
-                            }}>
+                                    setSearch("");
+                                }}
+                            >
                                 <img src={item.image}/>
                                 {item.name}
                             </li>
@@ -77,6 +77,7 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
             }
         </div>
         </>
+        
     )
 }
 
