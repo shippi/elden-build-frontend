@@ -30,8 +30,11 @@ function BuildCreator() {
                     <ArmourPanel armours={armours} onChange={setSelectedArmours} />
                     <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
                     <WeaponsPanel weapons={weapons} onChange={setSelectedWeapons} />
-                    <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} />
+                    <div>
                     <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
+                    <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} />
+                    </div>
+                    
                 </div>
             </div>
         )

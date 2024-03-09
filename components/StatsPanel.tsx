@@ -16,6 +16,7 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
   const totalWeight = calculateWeight(armours, talismans, weapons);
   const poise = calculatePoise(armours);
   const discovery = calculateDiscovery(characterClass, characterLevelStats);
+
   return (
     <div className="stats-panel">
       <div>
@@ -130,6 +131,9 @@ function calculateWeight(armours: Armour[], talismans: Talisman[], weapons: Weap
     if (weapon != null) totalWeight += weapon.weight;
   });
 
+  talismans.forEach(talisman => {
+    if(talisman != null) totalWeight += talisman.weight;
+  })
   return totalWeight.toFixed(1);
 }
 

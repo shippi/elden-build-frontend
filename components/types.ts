@@ -48,7 +48,10 @@ export interface Weapon {
 export interface Talisman {
     id: string,
     name: string,
-    effect: string
+    effect: string,
+    statChange?: any,
+    incompatible?: string[],
+    weight: number
 }
 
 interface Stat {
@@ -61,3 +64,20 @@ interface ScalesWith {
     scaling: string
 }
 
+interface StatChanges {
+    hp?: number,
+    fp?: number,
+    stamina?: number,
+    equipLoad?: number,
+    poise?: number,
+    discovery?: number,
+    physicalNegation?: number,
+    magicNegation?: number,
+    fireNegation?: number,
+    ligtNegation?: number,
+    holyNegation?: number,
+    immunity?: number,
+    robustness?: number,
+    focus?: number,
+    vitality?: number
+}

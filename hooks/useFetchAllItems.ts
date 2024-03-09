@@ -57,14 +57,9 @@ export default function useFetchAllItems() {
                     res = await fetch('https://elden-ring-api-seven.vercel.app/api/weapons?limit=999', { method: 'GET' });
                     data = await res.json();        
                     setWeapons(data.data);
-                    window.localStorage.setItem(LS_PREFIX + "weapons", JSON.stringify(data.data))
-                    // fetch shields
-                    res = await fetch(process.env.NEXT_PUBLIC_ER_API + 'shields?limit=' + LIMIT, { method: 'GET' });
-                    data = await res.json();        
-                    setShields(data.data);
-                    window.localStorage.setItem(LS_PREFIX + "shields", JSON.stringify(data.data))
+                    window.localStorage.setItem(LS_PREFIX + "weapons", JSON.stringify(data.data));
                     // fetch talismans
-                    res = await fetch(process.env.NEXT_PUBLIC_ER_API + 'talismans?limit=' + LIMIT, { method: 'GET' });
+                    res = await fetch("https://elden-ring-api-seven.vercel.app/api/talismans?limit=999", { method: 'GET' });
                     data = await res.json();        
                     setTalismans(data.data);
                     window.localStorage.setItem(LS_PREFIX + "talismans", JSON.stringify(data.data))
