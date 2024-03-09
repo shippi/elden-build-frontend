@@ -79,5 +79,13 @@ interface StatChanges {
     immunity?: number,
     robustness?: number,
     focus?: number,
-    vitality?: number
+    vitality?: number,
+    vigor?: number,
+    mind?: number,
+    endurance?: number,
+    strength?: number,
+    dexterity?: number,
+    intelligence?: number,
+    faith?: number,
+    arcane?: number
 }

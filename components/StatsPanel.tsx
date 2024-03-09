@@ -44,7 +44,10 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
 export default StatsPanel
 
 function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-  const vigorLevel = +characterClass.stats.vigor + +characterLevelStats.vigor;
+  const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, talismans.map(talisman => {
+    if (talisman && talisman.statChange?.vigor) return talisman.statChange?.vigor;
+    else return 0;
+  }));
 
   let hp = 0;
   if (vigorLevel < 26) {
@@ -70,7 +73,10 @@ function calculateHP(characterClass: CharacterClass, characterLevelStats: Charac
 }
 
 function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-  const mindLevel = +characterClass.stats.mind + +characterLevelStats.mind;
+  const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, talismans.map(talisman => {
+    if (talisman && talisman.statChange?.mind) return talisman.statChange?.mind;
+    else return 0;
+  }));
 
   let fp = 0;
   if (mindLevel < 16) {
@@ -96,7 +102,10 @@ function calculateFP(characterClass: CharacterClass, characterLevelStats: Charac
 }
 
 function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-  const enduranceLevel = +characterClass.stats.endurance + +characterLevelStats.endurance;
+  const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, talismans.map(talisman => {
+    if (talisman && talisman.statChange?.endurance) return talisman.statChange?.endurance;
+    else return 0;
+  }));
 
   let stamina = 0;
   if (enduranceLevel < 16) {
@@ -122,7 +131,10 @@ function calculateStamina(characterClass: CharacterClass, characterLevelStats: C
 }
 
 function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-  const enduranceLevel = +characterClass.stats.endurance + +characterLevelStats.endurance;
+  const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, talismans.map(talisman => {
+    if (talisman && talisman.statChange?.endurance) return talisman.statChange?.endurance;
+    else return 0;
+  }));
 
   let equipLoad = 0;
   
@@ -177,12 +189,27 @@ function calculatePoise(armours: Armour[], talismans: Talisman[]) {
 }
 
 function calculateDiscovery(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-  const arcaneLevel = +characterClass.stats.arcane + +characterLevelStats.arcane;
+  const arcaneLevel = calculateLevel(+characterClass.stats.arcane, +characterLevelStats.arcane, talismans.map(talisman => {
+    if (talisman && talisman.statChange?.arcane) return talisman.statChange?.arcane;
+    else return 0;
+  }));
   let discovery = 100;
+
 
   talismans.forEach(talisman => {
     if (talisman && talisman.statChange?.discovery != null) discovery += talisman.statChange.discovery;
   });
 
   return (discovery + arcaneLevel).toFixed(1);
+}
+
+function calculateLevel(classLevel: number, levelStat: number, talismanLevels?: number[]) {
+  let totalLevel = classLevel + levelStat;
+
+  talismanLevels?.forEach(level => {
+    if (level) totalLevel += level;
+  })
+
+  if (totalLevel > 99) return 99;
+  else return totalLevel;
 }
