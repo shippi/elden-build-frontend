@@ -13,7 +13,7 @@ interface Props {
 
 function TalismansPanel({talismans, onChange} : Props) {
     const [indices, setIndices] = useState([-1, -1, -1, -1]);
-    const[currIndex, setCurrIndex] = useState(0);
+    const [currIndex, setCurrIndex] = useState(0);
 
     const handleOnChange = (newIndex: number) => {
         let newIndeces = [...indices];
@@ -33,7 +33,7 @@ function TalismansPanel({talismans, onChange} : Props) {
                     indices.map((i, j) => (
                         <div onClick={() => {setCurrIndex(j)}}>
                             <label>Talisman {j+1} </label>
-                            <DropDown items={talismans} index={indices[j]} isNullable={true} onChange={handleOnChange}/>
+                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices} onChange={handleOnChange}/>
                         </div>
                     ))
                 }

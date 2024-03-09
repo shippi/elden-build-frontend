@@ -6,13 +6,14 @@ interface Props {
     items: any[],
     index: number,
     isNullable: boolean,
+    incompatibilities?: number[],
     onChange: Function
 }
 
-function DropDown({ items, index, isNullable, onChange }: Props) {  
+function DropDown({ items, index, isNullable, incompatibilities, onChange }: Props) {  
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
-
+    
     const ref = useRef(null);
     useClickOutside(ref, () => setOpen(false));
 
@@ -33,6 +34,20 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
     useEffect(() => {
         if(open) scrollToRef(selectedRef)
     }, [open])
+
+    const isCompatible = (currItem: any, currIndex: number) => {
+        let compatible = true;
+        
+        if (incompatibilities?.includes(currIndex) && currIndex > -1) return false;
+
+        incompatibilities?.forEach(i => {
+            
+            let item = items[i];
+            if(item?.incompatible?.includes(currItem.name) && i != index) compatible = false;;
+        });
+        
+        return compatible;
+    }
 
     return (
         <>
@@ -76,12 +91,14 @@ function DropDown({ items, index, isNullable, onChange }: Props) {
                         items.map((item, i) => (
                             item.name.toLowerCase().indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 &&
                             <li 
-                                className={i == index ? "selected-item" : ""}
+                                className={i == index ? "selected-item" : isCompatible(item, i) == false ? "disabled" : ""}
                                 key={i.toString()} 
                                 onClick={() => {
-                                    onChange(i);
-                                    setOpen(false);
-                                    setSearch("");
+                                    if(isCompatible(item, i)) {
+                                        onChange(i);
+                                        setOpen(false);
+                                        setSearch("");
+                                    }
                                 }}
                             >
                                 <img src={item.image}/>

@@ -184,8 +184,6 @@ a:hover {
   background-color: var(--panel-colour);
 }
 
-
-
 .starting-class {
   padding-bottom: 20px;
 }
@@ -262,6 +260,15 @@ img {
   align-items: center;
 }
 
+.disabled {
+  background-color: #4f4f4f;
+  color: #3d3d3d;
+}
+
+.disabled:hover {
+  cursor:default;
+}
+
 .search-box {
   background-color: var(--bg-color);
   border-right: var(--grey-border);
@@ -295,7 +302,7 @@ img {
   padding: 10px;
 }
 
-.select-menu ul li:hover {
+.select-menu ul li:not(.disabled):hover {
   background-color: gray;
 }
 
@@ -304,7 +311,7 @@ img {
   color: var(--gold);
 }
 
-.select-menu ul li:hover,
+.select-menu ul li:not(.disabled):hover,
 .selected:hover { 
   cursor: pointer;
 }
