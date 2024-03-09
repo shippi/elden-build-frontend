@@ -49,7 +49,7 @@ export interface Talisman {
     id: string,
     name: string,
     effect: string,
-    statChange?: any,
+    statChange?: StatChanges,
     incompatible?: string[],
     weight: number
 }
