@@ -49,7 +49,7 @@ export interface Talisman {
     id: string,
     name: string,
     effect: string,
-    statChange?: StatChanges,
+    statChange?: StatChange,
     incompatible?: string[],
     weight: number
 }
@@ -64,7 +64,7 @@ interface ScalesWith {
     scaling: string
 }
 
-interface StatChanges {
+interface StatChange {
     hp?: number,
     fp?: number,
     stamina?: number,
