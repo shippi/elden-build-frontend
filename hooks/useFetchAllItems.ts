@@ -25,7 +25,7 @@ export default function useFetchAllItems() {
             setError(null);
             
             try {
-                setClasses(classesData);
+                setClasses(classesData.slice(0, 10));
                 setArmours(armorsData);
                 setWeapons(weaponsData);
                 setTalismans(talismansData);
