@@ -43,7 +43,7 @@ function DropDown({ items, index, isNullable, incompatibilities, onChange }: Pro
         incompatibilities?.forEach(i => {
             
             let item = items[i];
-            if(item?.incompatible?.includes(currItem.name) && i != index) compatible = false;;
+            if(currItem.group == item?.group && i != index) compatible = false;
         });
         
         return compatible;

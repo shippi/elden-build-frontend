@@ -45,7 +45,7 @@ export default StatsPanel
 
 function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
   const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, talismans.map(talisman => {
-    if (talisman && talisman.statChange?.vigor) return talisman.statChange?.vigor;
+    if (talisman && talisman.statChanges?.vigor) return talisman.statChanges?.vigor;
     else return 0;
   }));
 
@@ -66,7 +66,7 @@ function calculateHP(characterClass: CharacterClass, characterLevelStats: Charac
   hp = Math.floor(hp);
 
   talismans.forEach(talisman => {
-    if (talisman && talisman.statChange?.hp != null) hp *= talisman.statChange.hp;
+    if (talisman && talisman.statChanges?.maxHp != null) hp *= talisman.statChanges.maxHp;
   });
 
   return Math.floor(hp);
@@ -74,7 +74,7 @@ function calculateHP(characterClass: CharacterClass, characterLevelStats: Charac
 
 function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
   const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, talismans.map(talisman => {
-    if (talisman && talisman.statChange?.mind) return talisman.statChange?.mind;
+    if (talisman && talisman.statChanges?.mind) return talisman.statChanges?.mind;
     else return 0;
   }));
 
@@ -95,7 +95,7 @@ function calculateFP(characterClass: CharacterClass, characterLevelStats: Charac
   fp = Math.floor(fp);
 
   talismans.forEach(talisman => {
-    if (talisman && talisman.statChange?.fp != null) fp *= talisman.statChange.fp;
+    if (talisman && talisman.statChanges?.maxFp != null) fp *= talisman.statChanges.maxFp;
   });
 
   return Math.floor(fp);
@@ -103,7 +103,7 @@ function calculateFP(characterClass: CharacterClass, characterLevelStats: Charac
 
 function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
   const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, talismans.map(talisman => {
-    if (talisman && talisman.statChange?.endurance) return talisman.statChange?.endurance;
+    if (talisman && talisman.statChanges?.endurance) return talisman.statChanges?.endurance;
     else return 0;
   }));
 
@@ -124,7 +124,7 @@ function calculateStamina(characterClass: CharacterClass, characterLevelStats: C
   stamina = Math.floor(stamina);
 
   talismans.forEach(talisman => {
-    if (talisman && talisman.statChange?.stamina != null) stamina *= talisman.statChange.stamina;
+    if (talisman && talisman.statChanges?.maxStamina != null) stamina *= talisman.statChanges.maxStamina;
   });
 
   return Math.floor(stamina);
@@ -132,7 +132,7 @@ function calculateStamina(characterClass: CharacterClass, characterLevelStats: C
 
 function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
   const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, talismans.map(talisman => {
-    if (talisman && talisman.statChange?.endurance) return talisman.statChange?.endurance;
+    if (talisman && talisman.statChanges?.endurance) return talisman.statChanges?.endurance;
     else return 0;
   }));
 
@@ -151,7 +151,7 @@ function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats:
   equipLoad = Math.floor(equipLoad);
 
   talismans.forEach(talisman => {
-    if (talisman && talisman.statChange?.equipLoad != null) equipLoad *= talisman.statChange.equipLoad;
+    if (talisman && talisman.statChanges?.maxEquipLoad != null) equipLoad *= talisman.statChanges.maxEquipLoad;
   });
 
   return equipLoad.toFixed(1);
@@ -182,7 +182,7 @@ function calculatePoise(armours: Armour[], talismans: Talisman[]) {
   });
   
   talismans.forEach(talisman => {
-    if (talisman && talisman.statChange?.poise != null) poise *= talisman.statChange.poise;
+    if (talisman && talisman.statChanges?.maxPoise != null) poise *= talisman.statChanges.maxPoise;
   });
 
   return Math.floor(poise);
@@ -190,14 +190,14 @@ function calculatePoise(armours: Armour[], talismans: Talisman[]) {
 
 function calculateDiscovery(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
   const arcaneLevel = calculateLevel(+characterClass.stats.arcane, +characterLevelStats.arcane, talismans.map(talisman => {
-    if (talisman && talisman.statChange?.arcane) return talisman.statChange?.arcane;
+    if (talisman && talisman.statChanges?.arcane) return talisman.statChanges?.arcane;
     else return 0;
   }));
   let discovery = 100;
 
 
   talismans.forEach(talisman => {
-    if (talisman && talisman.statChange?.discovery != null) discovery += talisman.statChange.discovery;
+    if (talisman && talisman.statChanges?.discovery != null) discovery += talisman.statChanges.discovery;
   });
 
   return (discovery + arcaneLevel).toFixed(1);
