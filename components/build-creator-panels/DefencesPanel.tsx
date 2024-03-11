@@ -15,7 +15,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans}
 
   const physicalDefences = calculatePhysicalDefences(characterClass, characterLevelStats);
   const magicDefences = calculateMagicDefences(characterClass, characterLevelStats)
-  const resistances = calculateBaseResistances(characterClass, characterLevelStats, talismans)
+  const resistances = calculateBaseResistances(characterClass, characterLevelStats, armours, talismans)
   const armourResistances = calculateArmourResistances(armours);
 
   return (
@@ -219,7 +219,7 @@ function calculateMagicDefences(characterClass: CharacterClass, characterLevelSt
   return [magic, fire, lightning, holy].map(i => Math.floor(i))
 }
 
-function calculateBaseResistances(characterClass: CharacterClass, characterLevelStats: CharacterStats, selectedTalismans: Talisman[]) {
+function calculateBaseResistances(characterClass: CharacterClass, characterLevelStats: CharacterStats, selectedArmours: Armour[], selectedTalismans: Talisman[]) {
   const level = calculateLevel(characterClass, characterLevelStats);
 
   const vigorLevel = +characterClass.stats.vigor + +characterLevelStats.vigor;
@@ -277,10 +277,12 @@ function calculateBaseResistances(characterClass: CharacterClass, characterLevel
     return stat;
   }
 
-  let immunity = baseStat + calculationFormula1(vigorLevel);
-  let robustness = baseStat + calculationFormula1(enduranceLevel);
-  let focus = baseStat + calculationFormula1(mindLevel);
-  let vitality = baseStat + calculationFormula2(arcaneLevel);
+  const armourResistances = calculateArmourResistances(selectedArmours);
+
+  let immunity = baseStat + calculationFormula1(vigorLevel) + armourResistances[0];
+  let robustness = baseStat + calculationFormula1(enduranceLevel)+ armourResistances[1];
+  let focus = baseStat + calculationFormula1(mindLevel)+ armourResistances[2];
+  let vitality = baseStat + calculationFormula2(arcaneLevel)+ armourResistances[3];
 
   selectedTalismans.forEach((talisman, i) => {
     if (talisman?.statChanges?.immunity) immunity += +talisman.statChanges.immunity;
