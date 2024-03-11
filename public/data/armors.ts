@@ -9084,12 +9084,6 @@ export const armorsData = [
     },
     "poise": 15,
     "effect": "Strengthens jump attacks",
-    "statChanges": {
-      "magicDmg": 1.1,
-      "fireDmg": 1.1,
-      "lightningDmg": 1.1,
-      "holyDmg": 1.1
-    },
     "weight": 7.7
   },
   {
@@ -10632,6 +10626,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
+    "effect": "Increases intelligence",
     "statChanges": {
       "intelligence": 2
     },
@@ -10659,6 +10654,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
+    "effect": "Increases strength",
     "statChanges": {
       "strength": 2
     },
@@ -10686,6 +10682,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
+    "effect": "Increases dexterity",
     "statChanges": {
       "dexterity": 2
     },
@@ -10740,6 +10737,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
+    "effect": "Increases endurance",
     "statChanges": {
       "endurance": 2
     },
@@ -10767,6 +10765,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
+    "effect": "Increases arcane",
     "statChanges": {
       "arcane": 2
     },
@@ -13354,7 +13353,7 @@ export const armorsData = [
   {
     "id": "1930100",
     "name": "Deathbed Dress",
-    "category": "Head",
+    "category": "Chest",
     "image": "https://static.wikia.nocookie.net/eldenring/images/f/f1/ER_Icon_Armor_Deathbed_Dress.png/",
     "dmgNegation": {
       "physical": 0.6,
