@@ -2,17 +2,18 @@
 
 import React, { useEffect, useState } from 'react'
 import { DropDown, StatRow } from '..'
-import { CharacterClass, CharacterStats, Talisman } from '../types'
+import { Armour, CharacterClass, CharacterStats, Talisman } from '../types'
 
 interface Props {
     classes: CharacterClass[],
     index: number,
     talismans: Talisman[],
+    armours: Armour[]
     onChange: Function,
     onStatChange: Function
 }
 
-function CharacterPanel({ classes, index, talismans, onChange, onStatChange } : Props) {
+function CharacterPanel({ classes, index, talismans, armours, onChange, onStatChange } : Props) {
   // states for character added stats
   const [vigor, setVigor] = useState(0);
   const [mind, setMind] = useState(0);
@@ -54,14 +55,14 @@ function CharacterPanel({ classes, index, talismans, onChange, onStatChange } : 
       {/* div for modifying character stats */}
       <div className="character-stats">
         <label>Character Statistics </label>
-        <StatRow type="Vigor" initialValue={selectedClass.stats.vigor} addedValue={vigor} onChange={setVigor} talismans={talismans}/>
-        <StatRow type="Mind" initialValue={selectedClass.stats.mind} addedValue={mind} onChange={setMind} talismans={talismans}/>
-        <StatRow type="Endurance" initialValue={selectedClass.stats.endurance} addedValue={endurance} onChange={setEndurance} talismans={talismans}/>
-        <StatRow type="Strength" initialValue={selectedClass.stats.strength} addedValue={strength} onChange={setStrength} talismans={talismans}/>
-        <StatRow type="Dexterity" initialValue={selectedClass.stats.dexterity} addedValue={dexterity} onChange={setDexterity} talismans={talismans}/>
-        <StatRow type="Intelligence" initialValue={selectedClass.stats.intelligence} addedValue={intelligence} onChange={setIntelligence} talismans={talismans}/>
-        <StatRow type="Faith" initialValue={selectedClass.stats.faith} addedValue={faith} onChange={setFaith} talismans={talismans}/>
-        <StatRow type="Arcane" initialValue={selectedClass.stats.arcane} addedValue={arcane} onChange={setArcane} talismans={talismans}/>
+        <StatRow type="Vigor" initialValue={selectedClass.stats.vigor} addedValue={vigor} onChange={setVigor} talismans={talismans} armours={armours}/>
+        <StatRow type="Mind" initialValue={selectedClass.stats.mind} addedValue={mind} onChange={setMind} talismans={talismans} armours={armours}/>
+        <StatRow type="Endurance" initialValue={selectedClass.stats.endurance} addedValue={endurance} onChange={setEndurance} talismans={talismans} armours={armours}/>
+        <StatRow type="Strength" initialValue={selectedClass.stats.strength} addedValue={strength} onChange={setStrength} talismans={talismans} armours={armours}/>
+        <StatRow type="Dexterity" initialValue={selectedClass.stats.dexterity} addedValue={dexterity} onChange={setDexterity} talismans={talismans} armours={armours}/>
+        <StatRow type="Intelligence" initialValue={selectedClass.stats.intelligence} addedValue={intelligence} onChange={setIntelligence} talismans={talismans} armours={armours}/>
+        <StatRow type="Faith" initialValue={selectedClass.stats.faith} addedValue={faith} onChange={setFaith} talismans={talismans} armours={armours}/>
+        <StatRow type="Arcane" initialValue={selectedClass.stats.arcane} addedValue={arcane} onChange={setArcane} talismans={talismans} armours={armours}/>
       </div>
 
       {/* div for displaying level requirement for modified stats */}

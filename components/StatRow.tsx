@@ -1,7 +1,7 @@
 'use client'
 import { useClickOutside } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
-import { Talisman } from "./types";
+import { Armour, Talisman } from "./types";
 import { calculateLevel } from "@/utils/BuildCreatorUtils";
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
     initialValue: string,
     addedValue: number,
     talismans: Talisman[],
+    armours: Armour[],
     onChange: Function
 }
 
@@ -18,7 +19,7 @@ interface Props {
  * @param param0 
  * @returns 
  */
-function StatRow({ type, initialValue, addedValue, talismans, onChange}: Props) {
+function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}: Props) {
     const MAX = 99; // highest value that a single stat can go
 
     // state for the value in the number input
@@ -77,20 +78,20 @@ function StatRow({ type, initialValue, addedValue, talismans, onChange}: Props) 
         }
     }
 
-    const getTalismanValues = (selectedTalismans: Talisman[], type: string) => {
-        let talismanValues: number[] = [];
+    const getEquipmentValues = (selectedEquipment: any[], type: string) => {
+        let itemValues: number[] = [];
 
-        selectedTalismans.forEach(talisman => {
-            if (talisman?.statChanges?.hasOwnProperty(type.toLowerCase())) {
-                let talismanValue = talisman.statChanges[type.toLowerCase() as keyof typeof talisman.statChanges];
-                if (talismanValue != null)
-                    talismanValues.push(+talismanValue);
+        selectedEquipment.forEach(item => {
+            if (item?.statChanges?.hasOwnProperty(type.toLowerCase())) {
+                let itemValue = item.statChanges[type.toLowerCase() as keyof typeof item.statChanges];
+                if (itemValue != null)
+                    itemValues.push(+itemValue);
             }
         });
 
-        return talismanValues;
+        return itemValues;
     }
-    
+
     return (
       <div className="stat-row" >
         <div className='label'>{ type }</div>
@@ -114,7 +115,7 @@ function StatRow({ type, initialValue, addedValue, talismans, onChange}: Props) 
             </div>
         </div>
         <div className="number-input">
-            { calculateLevel(+initialValue, +addedValue, getTalismanValues(talismans, type)) }
+            { calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type)) }
         </div>
       </div>
     )
