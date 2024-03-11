@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { DropDown, StatRow } from '.'
-import { CharacterClass, CharacterStats } from './types'
+import { DropDown, StatRow } from '..'
+import { CharacterClass, CharacterStats } from '../types'
 
 interface Props {
     classes: CharacterClass[],

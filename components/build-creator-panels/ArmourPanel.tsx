@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from "react"
-import { DropDown } from "."
-import { Armour } from "./types"
+import { DropDown } from ".."
+import { Armour } from "../types"
 
 interface Props {
     armours: Armour[],

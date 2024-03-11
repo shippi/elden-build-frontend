@@ -1,4 +1,4 @@
-import { Armour, CharacterClass, CharacterStats } from './types'
+import { Armour, CharacterClass, CharacterStats } from '../types'
 
 interface Props {
     characterClass: CharacterClass,

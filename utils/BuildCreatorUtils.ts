@@ -10,3 +10,14 @@ export function getSelectedItems(items: any[], indices: number[]) {
 
     return selectedItems;
 }
+
+export function calculateLevel(classLevel: number, levelStat: number, talismanLevels?: number[]) {
+  let totalLevel = classLevel + levelStat;
+
+  talismanLevels?.forEach(level => {
+    if (level) totalLevel += level;
+  })
+
+  if (totalLevel > 99) return 99;
+  else return totalLevel;
+}

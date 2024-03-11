@@ -9,7 +9,6 @@ export default function useFetchAllItems() {
     const [classes, setClasses] = useState<any[]>([]);
     const [armours, setArmours] = useState<any[]>([]);
     const [weapons, setWeapons] = useState<any[]>([]);
-    const [shields, setShields] = useState<any[]>([]);
     const [talismans, setTalismans] = useState<any[]>([]);
     const [ashes, setAshes] = useState<any[]>([]);
     const [sorceries, setSorceries] = useState<any[]>([]);
@@ -35,15 +34,11 @@ export default function useFetchAllItems() {
                 setError('Error: ' + e);
             }
             finally {
-                
-             
-                setIsLoading(false);
-              
-                
+                setIsLoading(false);  
             }
         };
         handleFetchAllItems();
     }, []);
 
-    return { classes, armours, weapons, shields, talismans, ashes, sorceries, ammos, spirits, isLoading, error };
+    return { classes, armours, weapons, talismans, ashes, sorceries, ammos, spirits, isLoading, error };
 }

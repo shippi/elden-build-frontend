@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react";
-import { DropDown } from ".";
+import { DropDown } from "..";
 import { getSelectedItems } from "@/utils/BuildCreatorUtils";
-import { Talisman } from "./types";
+import { Talisman } from "../types";
 
 
 interface Props {

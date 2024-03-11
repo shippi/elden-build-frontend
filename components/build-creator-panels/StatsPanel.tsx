@@ -1,4 +1,5 @@
-import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "./types"
+import { calculateLevel } from "@/utils/BuildCreatorUtils";
+import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "../types"
 
 interface Props {
     characterClass: CharacterClass,
@@ -201,15 +202,4 @@ function calculateDiscovery(characterClass: CharacterClass, characterLevelStats:
   });
 
   return (discovery + arcaneLevel).toFixed(1);
-}
-
-function calculateLevel(classLevel: number, levelStat: number, talismanLevels?: number[]) {
-  let totalLevel = classLevel + levelStat;
-
-  talismanLevels?.forEach(level => {
-    if (level) totalLevel += level;
-  })
-
-  if (totalLevel > 99) return 99;
-  else return totalLevel;
 }

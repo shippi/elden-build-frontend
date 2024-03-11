@@ -15,7 +15,7 @@ function DropDown({ items, index, isNullable, incompatibilities, onChange }: Pro
     const [search, setSearch] = useState("");
     
     const ref = useRef(null);
-    useClickOutside(ref, () => setOpen(false));
+    useClickOutside(ref, () => {setOpen(false); setSearch("")});
 
     const selectedRef = useRef(null);
 

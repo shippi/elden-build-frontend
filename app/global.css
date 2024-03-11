@@ -10,7 +10,7 @@
 }
 
 :root {
-  --bg-img: url('./../public/background2.png');
+  --bg-img: url('./../public/background4.png');
   --bg-color: #1c1c1c;
   --panel-color: #1a1a1a;
   --gold: #ffc000;
@@ -65,7 +65,8 @@ a:hover {
   align-items: center; 
   flex-direction: column;
 
-  background-image: var(--bg-img);
+  background-image: linear-gradient(to top, #1c1c1c00, #1c1c1cFF), 
+  var(--bg-img);
   background-position: center;
   background-size: cover;
 
