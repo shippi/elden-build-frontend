@@ -15,10 +15,10 @@ function ArmourPanel({armours, onChange} : Props) {
     const[currIndex, setCurrIndex] = useState(0);
 
     const armoursArr = [
-        [...armours].filter(armour => (armour.category == "Helm")),
-        [...armours].filter(armour => (armour.category == "Chest Armor")),
-        [...armours].filter(armour => (armour.category == "Gauntlets")),
-        [...armours].filter(armour => (armour.category == "Leg Armor"))
+        [...armours].filter(armour => (armour.category == "Head")),
+        [...armours].filter(armour => (armour.category == "Chest")),
+        [...armours].filter(armour => (armour.category == "Arms")),
+        [...armours].filter(armour => (armour.category == "Legs"))
     ]
 
     const handleOnChange = (newIndex: number) => {
@@ -64,8 +64,8 @@ function ArmourPanel({armours, onChange} : Props) {
                 <ul>
                 {
                     getSelectedArmours(armours, indices).map((armour, i) => (
-                        armour?.specialEffect == null ? "" : 
-                        <li>{armour.specialEffect}</li>
+                        armour?.effect == null ? "" : 
+                        <li>{armour.effect}</li>
                     ))
                 }
                 </ul>
@@ -85,10 +85,10 @@ export default ArmourPanel
 function getSelectedArmours(armours: Armour[], armourIndices: number[]) {
     // organises each armor category into their own arrays
     const armoursArr = [
-      [...armours].filter(armour => (armour.category == "Helm")),
-      [...armours].filter(armour => (armour.category == "Chest Armor")),
-      [...armours].filter(armour => (armour.category == "Gauntlets")),
-      [...armours].filter(armour => (armour.category == "Leg Armor"))
+        [...armours].filter(armour => (armour.category == "Head")),
+        [...armours].filter(armour => (armour.category == "Chest")),
+        [...armours].filter(armour => (armour.category == "Arms")),
+        [...armours].filter(armour => (armour.category == "Legs"))
     ]
     
     let selectedArmours: any[] = [null, null, null, null];

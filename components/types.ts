@@ -19,8 +19,21 @@ export interface CharacterClass {
 }
 
 export interface DamageNegation {
-    name: string,
-    amount: number
+    physical: number,
+    slash: number,
+    strike: number,
+    pierce: number,
+    magic: number,
+    fire: number,
+    lightning: number,
+    holy: number,
+}
+
+export interface Resistances {
+    immunity: number,
+    robustness: number,
+    focus: number,
+    vitality: number
 }
 
 export interface Armour {
@@ -28,10 +41,12 @@ export interface Armour {
     name: string,
     image: string,
     category: string,
-    dmgNegation: DamageNegation[],
-    resistance: DamageNegation[],
-    weight: number,
-    specialEffect: string
+    dmgNegation: DamageNegation,
+    resistance: Resistances,
+    poise: number,
+    effect?: string,
+    statChanges?: StatChange,
+    weight: number
 }
 
 export interface Weapon {

@@ -179,7 +179,7 @@ function calculatePoise(armours: Armour[], talismans: Talisman[]) {
   let poise = 0;
 
   armours.forEach(armour => {
-    if (armour != null) poise += armour.resistance[4].amount;
+    if (armour != null) poise += armour.poise;
   });
   
   talismans.forEach(talisman => {

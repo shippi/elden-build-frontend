@@ -128,22 +128,36 @@ function calculatePhysicalDefences(characterClass: CharacterClass, characterLeve
 }
 
 function calculateNegations(selectedArmours: Armour[], selectedTalismans: Talisman[]) {
-  const NEGATION_NAMES = ["physicalNegation", "slashNegation", "strikeNegation", "pierceNegation", 
-  "magicNegation", "fireNegation", "lightningNegation", "holyNegation"];
+  const NEGATION_NAMES = ["physical", "strike", "slash", "pierce", "magic", "fire", "lightning", "holy"];
 
   let negationValues = [0, 0, 0, 0, 0, 0, 0, 0];
 
-  selectedArmours.forEach((armour, i) => {
+  selectedArmours.forEach((armour) => {
+    
     if (armour != null) {
-      negationValues.forEach((currentValue, j) => {
-        negationValues[j] = currentValue - ((currentValue * armour.dmgNegation[j].amount)/100) + armour.dmgNegation[j].amount;
+      NEGATION_NAMES.forEach((name, i) => {
+        negationValues[i] = negationValues[i] - ((negationValues[i] * armour.dmgNegation[name as keyof typeof armour.dmgNegation])/100) + armour.dmgNegation[name as keyof typeof armour.dmgNegation];
       })
     }
   })
   
+  selectedArmours.forEach((armour) => {
+    if (armour != null) {
+      NEGATION_NAMES.forEach((name, i) => {
+        name += "Negation"
+        if (armour.statChanges?.hasOwnProperty(name)) {
+          let armourValue = armour.statChanges[name as keyof typeof armour.statChanges]
+          if (armourValue != undefined)
+            negationValues[i] = negationValues[i] - ((negationValues[i] * armourValue)/100) + armourValue;
+        }
+      })
+    }
+  })
+
   selectedTalismans.forEach((talisman, i) => {
     if (talisman != null) {
       NEGATION_NAMES.forEach((name, i) => {
+        name += "Negation"
         if (talisman.statChanges?.hasOwnProperty(name)) {
           let talismanValue = talisman.statChanges[name as keyof typeof talisman.statChanges];
           if (talismanValue != undefined) 
@@ -296,12 +310,6 @@ function calculateBaseResistances(characterClass: CharacterClass, characterLevel
 
 function calculateArmourResistances(armours: Armour[]) {
   let resistances = [0, 0, 0, 0];
-  armours.forEach(armour => {
-    if(armour != null) {
-      resistances.forEach((value, i) => {
-        resistances[i] += armour.resistance[i].amount;
-      });
-    }
-  });
+
   return resistances;
 }
