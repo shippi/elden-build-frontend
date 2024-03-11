@@ -1,14 +1,14 @@
 import NavBar from "./NavBar";
 import Hero from "./Hero";
-import DropDown from "./DropDown";
+import DropDown from "./BuildCreatorPanels/DropDown";
 import Loading from "./Loading";
-import StatRow from "./StatRow";
-import CharacterPanel from "./build-creator-panels/CharacterPanel";
-import ArmourPanel from "./build-creator-panels/ArmourPanel";
-import TalismansPanel from "./build-creator-panels/TalismansPanel";
-import WeaponsPanel from "./build-creator-panels/WeaponsPanel";
-import DefencesPanel from "./build-creator-panels/DefencesPanel";
-import StatsPanel from "./build-creator-panels/StatsPanel";
+import StatRow from "./BuildCreatorPanels/StatRow";
+import CharacterPanel from "./BuildCreatorPanels/CharacterPanel";
+import ArmourPanel from "./BuildCreatorPanels/ArmourPanel";
+import TalismansPanel from "./BuildCreatorPanels/TalismansPanel";
+import WeaponsPanel from "./BuildCreatorPanels/WeaponsPanel";
+import DefencesPanel from "./BuildCreatorPanels/DefencesPanel";
+import StatsPanel from "./BuildCreatorPanels/StatsPanel";
 
 // index.ts file is used to export all components for ease of importing
 export {

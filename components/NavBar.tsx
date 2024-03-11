@@ -15,7 +15,7 @@ function NavBar() {
           <Link href="/build-creator" className={"navbar-btn" + (currPage == "1" ? " selected-page" : "")} onClick={() => setCurrPage("1")}>Build Creator</Link>
           <Link href="" className={"navbar-btn" + (currPage == "2" ? " selected-page" : "")} onClick={() => setCurrPage("2")}>About</Link>
           <Link href="" className="navbar-btn">Login</Link>
-          <div style={{borderLeft: "1px solid gray", height:"23px"}}></div>
+          <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
           <Link href="" className="navbar-btn">Sign Up</Link>
         </div>
     </div>

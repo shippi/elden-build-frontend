@@ -13,7 +13,7 @@
   --bg-img: url('./../public/background4.png');
   --bg-color: #1c1c1c;
   --panel-color: #1a1a1a;
-  --gold: #ffc000;
+  --gold: #edc947;
   --dark-gold: #ad8302;
   --grey-border: 1px gray solid;
 }
@@ -94,9 +94,9 @@ a:hover {
 
 /*styling for the navbar component*/
 .navbar {
-  height: 5vh;
+  height: 3vh;
   min-height: 50px;
-  padding-top: 1%;
+  padding-top: 0.8%;
   margin: auto;
   width: 75vw;
   display: flex;
@@ -109,9 +109,7 @@ a:hover {
 }
 
 .navbar-buttons {
-  height: 100%;
   display: flex;
-  align-items: center;
 }
 
 .navbar-btn:hover {
@@ -123,16 +121,12 @@ a:hover {
   display: flex;
   align-items: center;
   margin-left: 30px;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   font-size: 18px;
 }
 
 .navbar-btn:last-child {
   margin-left: 0px;
-}
-
-.navbar-login {
-  font-size: 20px;
 }
 
 .selected-page {
