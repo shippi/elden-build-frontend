@@ -26,7 +26,7 @@ function BuildCreator() {
                     <h1>ELDEN RING BUILD CREATOR</h1>
                 <div className="panels-container">    
                     <br />
-                    <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats}/>
+                    <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans}/>
                     <ArmourPanel armours={armours} onChange={setSelectedArmours} />
                     <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
                     <WeaponsPanel weapons={weapons} onChange={setSelectedWeapons} />

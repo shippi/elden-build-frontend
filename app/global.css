@@ -180,7 +180,7 @@ a:hover {
 .weapons-panel,
 .stats-panel {
   display: block;
-  width: 250px;
+  width: 350px;
   padding: 10px;
   background-color: var(--panel-colour);
 }
@@ -345,6 +345,10 @@ img {
   justify-content: space-between;
   font-size: 16px;
   padding: 0 0 20px 0;
+}
+
+.stat-row .label {
+  width: 100px;
 }
 
 .number-container {

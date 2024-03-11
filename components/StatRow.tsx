@@ -1,11 +1,14 @@
 'use client'
 import { useClickOutside } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
+import { Talisman } from "./types";
+import { calculateLevel } from "@/utils/BuildCreatorUtils";
 
 interface Props {
     type: string,
     initialValue: string,
     addedValue: number,
+    talismans: Talisman[],
     onChange: Function
 }
 
@@ -15,7 +18,7 @@ interface Props {
  * @param param0 
  * @returns 
  */
-function StatRow({ type, initialValue, addedValue, onChange}: Props) {
+function StatRow({ type, initialValue, addedValue, talismans, onChange}: Props) {
     const MAX = 99; // highest value that a single stat can go
 
     // state for the value in the number input
@@ -73,9 +76,23 @@ function StatRow({ type, initialValue, addedValue, onChange}: Props) {
         }
     }
 
+    const getTalismanValues = (selectedTalismans: Talisman[], type: string) => {
+        let talismanValues: number[] = [];
+
+        selectedTalismans.forEach(talisman => {
+            if (talisman?.statChanges?.hasOwnProperty(type.toLowerCase())) {
+                let talismanValue = talisman.statChanges[type.toLowerCase() as keyof typeof talisman.statChanges];
+                if (talismanValue != null)
+                    talismanValues.push(+talismanValue);
+            }
+        });
+
+        return talismanValues;
+    }
+    
     return (
       <div className="stat-row" >
-        { type }
+        <div className='label'>{ type }</div>
         <div className="number-container" ref={ref}>
             <input 
                 className="number-input" 
@@ -95,7 +112,9 @@ function StatRow({ type, initialValue, addedValue, onChange}: Props) {
                 </button>
             </div>
         </div>
-        
+        <div className="number-input">
+            { calculateLevel(+initialValue, +addedValue, getTalismanValues(talismans, type)) }
+        </div>
       </div>
     )
   }
