@@ -1,19 +1,21 @@
-import { Armour, CharacterClass, CharacterStats } from '../types'
+import { talismansData } from '@/public/data'
+import { Armour, CharacterClass, CharacterStats, Talisman } from '../types'
 
 interface Props {
     characterClass: CharacterClass,
     characterLevelStats: any,
-    armours: Armour[]
+    armours: Armour[],
+    talismans: Talisman[]
 }
 
-function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
+function DefencesPanel({characterClass, characterLevelStats, armours, talismans} : Props) {
   const PHYSICAL_DEFENCE_NAMES = ["Physical", "VS Strike", "VS Slash", "VS Pierce"]
   const MAGIC_DEFENCE_NAMES = ["Magic", "Fire", "Lightning", "Holy"]
   const RESISTANCE_NAMES = ["Immunity", "Robustness", "Focus", "Vitality"]
 
   const physicalDefences = calculatePhysicalDefences(characterClass, characterLevelStats);
   const magicDefences = calculateMagicDefences(characterClass, characterLevelStats)
-  const resistances = calculateBaseResistances(characterClass, characterLevelStats)
+  const resistances = calculateBaseResistances(characterClass, characterLevelStats, talismans)
   const armourResistances = calculateArmourResistances(armours);
 
   return (
@@ -31,9 +33,9 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
             PHYSICAL_DEFENCE_NAMES.map((stat, i) => (
               <tr>
                 <td>{stat}</td>
-                <td className="value">{physicalDefences} /</td>
+                <td className="value">{physicalDefences[i]} /</td>
                 <td className="value">
-                  {calculateNegations(armours)[i].toFixed(3)}
+                  {calculateNegations(armours, talismans)[i].toFixed(3)}
                 </td>
               </tr>
             ))
@@ -44,7 +46,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours} : Props) {
                 <td>{stat}</td>
                 <td className="value">{magicDefences[i]} /</td>
                 <td className="value">
-                  {calculateNegations(armours)[i+4].toFixed(3)}
+                  {calculateNegations(armours, talismans)[i+4].toFixed(3)}
                 </td>
             </tr>
             ))
@@ -117,10 +119,18 @@ function calculatePhysicalDefences(characterClass: CharacterClass, characterLeve
     baseStat += 30 + 10*((strengthLevel - 60) / 39);
   }
 
-  return Math.floor(baseStat);
+  let physical = baseStat;
+  let strike = baseStat;
+  let slash = baseStat;
+  let pierce = baseStat;
+
+  return [physical, strike, slash, pierce].map(i => Math.floor(i));
 }
 
-function calculateNegations(selectedArmours: Armour[]) {
+function calculateNegations(selectedArmours: Armour[], selectedTalismans: Talisman[]) {
+  const NEGATION_NAMES = ["physicalNegation", "slashNegation", "strikeNegation", "pierceNegation", 
+  "magicNegation", "fireNegation", "lightningNegation", "holyNegation"];
+
   let negationValues = [0, 0, 0, 0, 0, 0, 0, 0];
 
   selectedArmours.forEach((armour, i) => {
@@ -129,7 +139,18 @@ function calculateNegations(selectedArmours: Armour[]) {
         negationValues[j] = currentValue - ((currentValue * armour.dmgNegation[j].amount)/100) + armour.dmgNegation[j].amount;
       })
     }
-
+  })
+  
+  selectedTalismans.forEach((talisman, i) => {
+    if (talisman != null) {
+      NEGATION_NAMES.forEach((name, i) => {
+        if (talisman.statChanges?.hasOwnProperty(name)) {
+          let talismanValue = talisman.statChanges[name as keyof typeof talisman.statChanges];
+          if (talismanValue != undefined) 
+            negationValues[i] = negationValues[i]- ((negationValues[i] *  +talismanValue) / 100) + +talismanValue;
+        }
+      });
+    }
   })
   return negationValues;
 }
@@ -198,7 +219,7 @@ function calculateMagicDefences(characterClass: CharacterClass, characterLevelSt
   return [magic, fire, lightning, holy].map(i => Math.floor(i))
 }
 
-function calculateBaseResistances(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
+function calculateBaseResistances(characterClass: CharacterClass, characterLevelStats: CharacterStats, selectedTalismans: Talisman[]) {
   const level = calculateLevel(characterClass, characterLevelStats);
 
   const vigorLevel = +characterClass.stats.vigor + +characterLevelStats.vigor;
@@ -261,6 +282,13 @@ function calculateBaseResistances(characterClass: CharacterClass, characterLevel
   let focus = baseStat + calculationFormula1(mindLevel);
   let vitality = baseStat + calculationFormula2(arcaneLevel);
 
+  selectedTalismans.forEach((talisman, i) => {
+    if (talisman?.statChanges?.immunity) immunity += +talisman.statChanges.immunity;
+    if (talisman?.statChanges?.robustness) robustness += +talisman.statChanges.robustness;
+    if (talisman?.statChanges?.focus) focus += +talisman.statChanges.focus;
+    if (talisman?.statChanges?.vitality) vitality += +talisman.statChanges.vitality;
+  })
+  
   return [immunity, robustness, focus, vitality].map(i => Math.floor(i));
 }
 
