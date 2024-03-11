@@ -66,8 +66,9 @@ function StatRow({ type, initialValue, addedValue, talismans, onChange}: Props) 
         }
         else if (!increment) {
             if (+value - 1 > +initialValue) { // checks if inputted value greater than class base
+                console.log("test")
                 setValue((+value - 1).toString());
-                onChange(+value - +initialValue); // sends parent the added value
+                onChange((+value - 1) - +initialValue); // sends parent the added value
             }
             else {       
                 setValue(initialValue)  
