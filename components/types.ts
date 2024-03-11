@@ -42,7 +42,7 @@ export interface Armour {
     image: string,
     category: string,
     dmgNegation: DamageNegation,
-    resistance: Resistances,
+    resistances: Resistances,
     poise: number,
     effect?: string,
     statChanges?: StatChange,

@@ -310,6 +310,13 @@ function calculateBaseResistances(characterClass: CharacterClass, characterLevel
 
 function calculateArmourResistances(armours: Armour[]) {
   let resistances = [0, 0, 0, 0];
-
+  armours.forEach((armour) => {
+    if (armour != null) {
+      resistances[0] += armour.resistances.immunity
+      resistances[1] += armour.resistances.robustness
+      resistances[2] += armour.resistances.focus
+      resistances[3] += armour.resistances.vitality
+    }
+  })
   return resistances;
 }
