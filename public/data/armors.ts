@@ -2703,7 +2703,7 @@ export const armorsData = [
     "id": "290200",
     "name": "Nox Bracelets",
     "category": "Arms",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5f/ER_Icon_Armor_Nox_Monk_Bracelets.png/",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 2.3,
@@ -2727,7 +2727,7 @@ export const armorsData = [
     "id": "290300",
     "name": "Nox Greaves",
     "category": "Legs",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Nox_Monk_Greaves.png/",
     "dmgNegation": {
       "physical": 5.4,
       "strike": 5.8,
@@ -2775,7 +2775,7 @@ export const armorsData = [
     "id": "291100",
     "name": "Nox Monk Armor (Altered)",
     "category": "Chest",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d2/Nox_Monk_Armor_%28Altered%29_-_MENU_Knowledge_13401.png/",
     "dmgNegation": {
       "physical": 8.6,
       "strike": 9.3,
@@ -2895,7 +2895,7 @@ export const armorsData = [
     "id": "294000",
     "name": "Nox Swordstress Crown (Altered)",
     "category": "Head",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/1/15/Nox_Swordstress_Crown_%28Altered%29_-_MENU_Knowledge_15470.png/",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.8,
@@ -3162,7 +3162,7 @@ export const armorsData = [
     "id": "311100",
     "name": "Gravekeeper Cloak (Altered)",
     "category": "Chest",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/9/93/ER_Icon_Armor_Gravekeeper_Cloak_(Altered)_Type_A.png/",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 8,
@@ -5651,54 +5651,6 @@ export const armorsData = [
     },
     "poise": 3,
     "weight": 3.1
-  },
-  {
-    "id": "611000",
-    "name": "Ragged Hat (Altered)",
-    "category": "Head",
-    "image": null,
-    "dmgNegation": {
-      "physical": 2.8,
-      "strike": 3.1,
-      "slash": 2.8,
-      "pierce": 2.8,
-      "magic": 3.4,
-      "fire": 3.6,
-      "lightning": 3.8,
-      "holy": 3.4
-    },
-    "resistances": {
-      "immunity": 21,
-      "robustness": 13,
-      "focus": 18,
-      "vitality": 18
-    },
-    "poise": 3,
-    "weight": 3
-  },
-  {
-    "id": "611100",
-    "name": "Ragged Armor (Altered)",
-    "category": "Chest",
-    "image": null,
-    "dmgNegation": {
-      "physical": 9.1,
-      "strike": 9.8,
-      "slash": 9.1,
-      "pierce": 9.1,
-      "magic": 10.5,
-      "fire": 11.2,
-      "lightning": 11.7,
-      "holy": 10.5
-    },
-    "resistances": {
-      "immunity": 60,
-      "robustness": 38,
-      "focus": 50,
-      "vitality": 50
-    },
-    "poise": 16,
-    "weight": 8.5
   },
   {
     "id": "620000",
@@ -10803,7 +10755,7 @@ export const armorsData = [
     "id": "1100000",
     "name": "Chain Coif",
     "category": "Head",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/3/31/ER_Icon_Armor_Chain_Coif_Type_A.png/",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 3.1,
@@ -10827,7 +10779,7 @@ export const armorsData = [
     "id": "1100100",
     "name": "Chain Armor",
     "category": "Chest",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Chain_Armor_Type_A.png/",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 8.8,
@@ -13669,7 +13621,7 @@ export const armorsData = [
     "id": "2001100",
     "name": "Rotten Gravekeeper Cloak (Altered)",
     "category": "Chest",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a2/ER_Icon_Armor_Rotten_Gravekeeper_Cloak_(Altered)_Type_A.png/",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.1,
