@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
-import { Ash, Weapon } from '@/components/types';
 
 function BuildCreator() {
     const {classes, armours, talismans, weapons, ashes, affinities, isLoading, error} = useFetchAllItems();
@@ -32,7 +31,6 @@ function BuildCreator() {
         setSelectedWepLvls(wepLvls);
     };
 
-    console.log(selectedWepLvls)
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">
@@ -47,7 +45,6 @@ function BuildCreator() {
                     <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
                     <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
                     </div>
-                    
                 </div>
             </div>
         )
