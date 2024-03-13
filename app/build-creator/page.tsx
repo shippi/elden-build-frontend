@@ -11,6 +11,8 @@ function BuildCreator() {
     const [selectedTalismans, setSelectedTalismans] = useState([]);
     const [selectedWeapons, setSelectedWeapons] = useState<any[]>([]);
     const [selectedAshes, setSelectedAshes] = useState<any[]>([]);
+    const [selectedAffinities, setSelectedAffinities] = useState<any[]>([]);
+    
     const [characterStats, setCharacterStats] = useState({
         vigor: 0, 
         mind: 0, 
@@ -22,11 +24,12 @@ function BuildCreator() {
         arcane: 0
     });
 
-    const handleWepChange = (weps: any[], ashes: any[]) => {
+    const handleWepChange = (weps: any[], ashes: any[], affinities: any[]) => {
         setSelectedWeapons(weps)
         setSelectedAshes(ashes)
+        setSelectedAffinities(affinities)
     }
-
+    console.log(selectedAffinities)
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">

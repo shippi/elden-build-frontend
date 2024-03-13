@@ -21,8 +21,11 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
     const handleWepOnChange = (newIndex: number) => {
         let newIndices = [...wepIndices];
         newIndices[currIndex] = newIndex;
-        
         const selectedWeapons = getSelectedItems(weapons, newIndices);
+
+        let newAffIndices = [...affIndices];
+        newAffIndices[currIndex] = 0;
+        const selectedAffinities = getSelectedItems(affinities, newAffIndices);
 
         if (newIndex > -1 && !weapons[newIndex].unique) {
             const availableAshes = getAvailableAshes(ashes, weapons[newIndex].type)
@@ -32,12 +35,12 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
             setAshIndices(newAshIndices);
             const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newAshIndices)
             setWepIndices(newIndices);
-            onChange(selectedWeapons, selectedAshes);
+            onChange(selectedWeapons, selectedAshes, selectedAffinities);
         }
         else {
-            const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices)
+            const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);
             setWepIndices(newIndices);
-            onChange(selectedWeapons, selectedAshes);
+            onChange(selectedWeapons, selectedAshes, selectedAffinities);
         }
     }
 
@@ -48,13 +51,19 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
 
         const selectedWeapons = getSelectedItems(weapons, wepIndices);
         const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newIndices);
-        onChange(selectedWeapons, selectedAshes);
+        const selectedAffinities = getSelectedItems(affinities, affIndices);
+        onChange(selectedWeapons, selectedAshes, selectedAffinities);
     }
 
     const handleAffOnChange = (newIndex: number) => {
         let newIndices = [...affIndices];
         newIndices[currIndex] = newIndex;
         setAffIndices(newIndices);
+
+        const selectedWeapons = getSelectedItems(weapons, wepIndices);
+        const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);
+        const selectedAffinities = getSelectedItems(affinities, newIndices);
+        onChange(selectedWeapons, selectedAshes, selectedAffinities);
     }
 
     return (
@@ -78,6 +87,8 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
                                         <DropDown items={affinities} index={affIndices[j]} isNullable={false} hasImages={false} onChange={handleAffOnChange} /> :
                                         <DisabledDropDown value={"Affinity"} />
                                     }
+                                </div>
+                                <div>
                                 </div>
                             </div>
                             <br/>
