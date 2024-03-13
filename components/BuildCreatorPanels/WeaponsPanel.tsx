@@ -28,16 +28,27 @@ function WeaponsPanel({weapons, ashes, onChange} : Props) {
             let newAshIndices = [...ashIndices];
             newAshIndices[currIndex] = currentAshIndex;
             setAshIndices(newAshIndices);
+            const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newAshIndices)
+            setWepIndices(newIndices);
+            onChange(selectedWeapons, selectedAshes);
         }
+        else {
+            const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices)
+            setWepIndices(newIndices);
+            onChange(selectedWeapons, selectedAshes);
+        }
+        
 
-        setWepIndices(newIndices);
-        onChange(selectedWeapons);
     }
 
     const handleAshOnChange = (newIndex: number) => {
         let newIndices = [...ashIndices];
         newIndices[currIndex] = newIndex;
         setAshIndices(newIndices);
+
+        const selectedWeapons = getSelectedItems(weapons, wepIndices);
+        const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newIndices);
+        onChange(selectedWeapons, selectedAshes);
     }
 
     return (
@@ -74,4 +85,16 @@ function getAshIndex(ashes: Ash[], ashName: string) {
         if (ash.name == ashName) index = i
     })
     return index;
+}
+
+function getSelectedAshes(weps: Weapon[], ashes: Ash[], ashIndices: number[]) {
+    let selectedAshes = new Array(weps.length).fill(null);
+
+    weps.forEach((wep, i) => {
+        if (wep && !wep.unique) {
+            selectedAshes[i] = getAvailableAshes(ashes, wep.type)[ashIndices[i]]
+        }
+    })
+
+    return selectedAshes;
 }
