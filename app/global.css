@@ -223,7 +223,24 @@ a:hover {
 
 td {
   padding: 5px 0;
+
 }
+
+/**/
+
+.weapon-options {
+  display: flex;
+  align-items: center;
+}
+
+.affinity {
+  width: 40%;
+}
+
+.affinity {
+  margin-left: 5px;
+}
+
 /**/
 .stats-panel div {
   display: flex;

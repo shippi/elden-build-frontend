@@ -8,12 +8,14 @@ import { Ash, Weapon } from "../types"
 interface Props {
     weapons: Weapon[],
     ashes: Ash[],
+    affinities: any[],
     onChange: Function
 }
 
-function WeaponsPanel({weapons, ashes, onChange} : Props) {
+function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
-    const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1])
+    const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
+    const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [currIndex, setCurrIndex] = useState(0);
 
     const handleWepOnChange = (newIndex: number) => {
@@ -37,8 +39,6 @@ function WeaponsPanel({weapons, ashes, onChange} : Props) {
             setWepIndices(newIndices);
             onChange(selectedWeapons, selectedAshes);
         }
-        
-
     }
 
     const handleAshOnChange = (newIndex: number) => {
@@ -51,6 +51,12 @@ function WeaponsPanel({weapons, ashes, onChange} : Props) {
         onChange(selectedWeapons, selectedAshes);
     }
 
+    const handleAffOnChange = (newIndex: number) => {
+        let newIndices = [...affIndices];
+        newIndices[currIndex] = newIndex;
+        setAffIndices(newIndices);
+    }
+
     return (
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
@@ -60,12 +66,23 @@ function WeaponsPanel({weapons, ashes, onChange} : Props) {
                         <div onClick={() => {setCurrIndex(j)}}>
                             <label>{(j < 3 ? "Left Hand " : "Right Hand ") + (j % 3 + 1)} </label>
                             <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
-                            { 
-                                weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
-                                wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
-                                <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
-                            }
+                            <div className="weapon-options">
+                                { 
+                                    weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
+                                    wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
+                                    <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
+                                }
+                                <div className="affinity">
+                                    {
+                                        weapons[wepIndices[j]]?.changeAffinity ?
+                                        <DropDown items={affinities} index={affIndices[j]} isNullable={false} hasImages={false} onChange={handleAffOnChange} /> :
+                                        <DisabledDropDown value={"Affinity"} />
+                                    }
+                                </div>
+                            </div>
+                            <br/>
                         </div>
+                        
                     ))
                 }
             </div>

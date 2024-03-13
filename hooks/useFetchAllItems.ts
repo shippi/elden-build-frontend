@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { armorsData, ashesData, classesData, talismansData, weaponsData } from "@/public/data";
+import { affinitiesData } from "@/public/data/affinities";
 /**
  * Used to fetch all the necessary elden ring data for the build planner.
  * VERY UGLY CODE WILL NEED TO REDO IN THE FUTURE BUT IT WORKS THO
@@ -11,6 +12,7 @@ export default function useFetchAllItems() {
     const [weapons, setWeapons] = useState<any[]>([]);
     const [talismans, setTalismans] = useState<any[]>([]);
     const [ashes, setAshes] = useState<any[]>([]);
+    const [affinities, setAffinities] = useState<any[]>([]);
     const [sorceries, setSorceries] = useState<any[]>([]);
     const [ammos, setAmmos] = useState<any[]>([]);
     const [spirits, setSpirits] = useState<any[]>([]);
@@ -29,6 +31,7 @@ export default function useFetchAllItems() {
                 setWeapons(weaponsData);
                 setTalismans(talismansData);
                 setAshes(ashesData);
+                setAffinities(affinitiesData)
             }
             catch (e) {
                 setError('Error: ' + e);
@@ -40,5 +43,5 @@ export default function useFetchAllItems() {
         handleFetchAllItems();
     }, []);
 
-    return { classes, armours, weapons, talismans, ashes, sorceries, ammos, spirits, isLoading, error };
+    return { classes, armours, weapons, talismans, ashes, affinities, sorceries, ammos, spirits, isLoading, error };
 }
