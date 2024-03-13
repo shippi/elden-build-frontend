@@ -3,7 +3,7 @@ import { useState } from "react"
 import { DisabledDropDown, DropDown } from ".."
 import { getSelectedItems } from "@/utils/BuildCreatorUtils"
 import { Ash, Weapon } from "../types"
-
+import { wepLevelsData } from "@/public/data"
 
 interface Props {
     weapons: Weapon[],
@@ -16,6 +16,7 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
+    const [lvlIndices, setLvlIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [currIndex, setCurrIndex] = useState(0);
 
     const handleWepOnChange = (newIndex: number) => {
@@ -25,7 +26,11 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
 
         let newAffIndices = [...affIndices];
         newAffIndices[currIndex] = 0;
-        const selectedAffinities = getSelectedItems(affinities, newAffIndices);
+        const selectedAffinities = getSelectedItems(affinities, newAffIndices).map(aff => aff.name);
+
+        let newLvlIndices = [...lvlIndices];
+        newAffIndices[currIndex] = 0;
+        const selectedLvls = getSelectedItems(wepLevelsData, newLvlIndices).map(lvl => lvl.name);
 
         if (newIndex > -1 && !weapons[newIndex].unique) {
             const availableAshes = getAvailableAshes(ashes, weapons[newIndex].type)
@@ -51,8 +56,9 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
 
         const selectedWeapons = getSelectedItems(weapons, wepIndices);
         const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newIndices);
-        const selectedAffinities = getSelectedItems(affinities, affIndices);
-        onChange(selectedWeapons, selectedAshes, selectedAffinities);
+        const selectedAffinities = getSelectedItems(affinities, affIndices).map(aff => aff.name);
+        const selectedLvls = getSelectedItems(wepLevelsData, lvlIndices).map(lvl => lvl.name);
+        onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
     }
 
     const handleAffOnChange = (newIndex: number) => {
@@ -62,10 +68,23 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
 
         const selectedWeapons = getSelectedItems(weapons, wepIndices);
         const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);
-        const selectedAffinities = getSelectedItems(affinities, newIndices);
-        onChange(selectedWeapons, selectedAshes, selectedAffinities);
+        const selectedAffinities = getSelectedItems(affinities, newIndices).map(aff => aff.name);
+        const selectedLvls = getSelectedItems(wepLevelsData, lvlIndices).map(lvl => lvl.name);
+        onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
     }
 
+    const handleLvlOnChange = (newIndex: number) => {
+        let newIndices = [...lvlIndices];
+        newIndices[currIndex] = newIndex;
+        setLvlIndices(newIndices);
+
+        const selectedWeapons = getSelectedItems(weapons, wepIndices);
+        const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);
+        const selectedAffinities = getSelectedItems(affinities, affIndices).map(aff => aff.name);
+        const selectedLvls = getSelectedItems(wepLevelsData, newIndices).map(lvl => lvl.name);
+
+        onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
+    }
     return (
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
@@ -88,7 +107,12 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
                                         <DisabledDropDown value={"Affinity"} />
                                     }
                                 </div>
-                                <div>
+                                <div className="levels">
+                                    {
+                                        wepIndices[j] > -1 && !weapons[wepIndices[j]]?.unique ? <DropDown items={wepLevelsData} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                                        wepIndices[j] > -1 && weapons[wepIndices[j]].unique ? <DropDown items={wepLevelsData.slice(0, 11)} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                                        <DisabledDropDown value={"+0"} />
+                                    }
                                 </div>
                             </div>
                             <br/>

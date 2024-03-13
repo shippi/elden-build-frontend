@@ -227,6 +227,9 @@ td {
 }
 
 /**/
+.weapons-panel {
+  width: 370px;
+}
 
 .weapon-options {
   display: flex;
@@ -234,10 +237,15 @@ td {
 }
 
 .affinity {
-  width: 40%;
+  width: 50%;
 }
 
-.affinity {
+.levels {
+  width: 30%;
+}
+
+.affinity,
+.levels {
   margin-left: 5px;
 }
 

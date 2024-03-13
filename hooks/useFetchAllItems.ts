@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { armorsData, ashesData, classesData, talismansData, weaponsData } from "@/public/data";
-import { affinitiesData } from "@/public/data/affinities";
+import { affinitiesData, armorsData, ashesData, classesData, talismansData, weaponsData } from "@/public/data";
+
 /**
  * Used to fetch all the necessary elden ring data for the build planner.
- * VERY UGLY CODE WILL NEED TO REDO IN THE FUTURE BUT IT WORKS THO
  * @returns 
  */
 export default function useFetchAllItems() {
