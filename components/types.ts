@@ -39,8 +39,8 @@ export interface Resistances {
 export interface Armour {
     id: string,
     name: string,
-    image: string,
     category: string,
+    image: string,
     dmgNegation: DamageNegation,
     resistances: Resistances,
     poise: number,
@@ -52,32 +52,34 @@ export interface Armour {
 export interface Weapon {
     id: string,
     name: string,
-    attack: Stat[],
-    defence: Stat[],
-    scalesWith: ScalesWith[],
+    image: string,
+    type: string,
     requiredAttributes: Stat[],
-    category: string,
-    weight: number
+    weight: number,
+    changeAffinity: boolean,
+    unique: boolean,
+    defaultSkill: string
 }
 
 export interface Talisman {
     id: string,
     group: string,
     name: string,
+    image: string,
     effect: string,
     statChanges?: StatChange,
-    incompatible?: string[],
     weight: number
+}
+
+export interface Ash {
+    id: string,
+    name: string,
+    availability: Availability
 }
 
 interface Stat {
     name: string,
     amount: number
-}
-
-interface ScalesWith {
-    name: string,
-    scaling: string
 }
 
 interface StatChange {
@@ -104,4 +106,41 @@ interface StatChange {
     intelligence?: number,
     faith?: number,
     arcane?: number
+}
+
+interface Availability {
+    dagger: boolean,
+    straightSword: boolean,
+    greatsword: boolean,
+    colossalSword: boolean,
+    curvedSword: boolean,
+    curvedGreatsword: boolean,
+    katana: boolean,
+    twinblade: boolean,
+    thrustingBlade: boolean,
+    heavyThrustingBlade: boolean,
+    axe: boolean,
+    greataxe: boolean,
+    hammer: boolean,
+    greatHammer: boolean,
+    flail: boolean,
+    spear: boolean,
+    heavySpear: boolean,
+    halberd: boolean,
+    scythe: boolean,
+    fist: boolean,
+    claw: boolean,
+    whip: boolean,
+    colossalWeapon: boolean,
+    lightBow: boolean,
+    bow: boolean,
+    greatbow: boolean,
+    crossbow: boolean,
+    ballista: boolean,
+    staff: boolean,
+    seal: boolean,
+    smallShield: boolean,
+    mediumShield: boolean,
+    greatshield: boolean,
+    torch: boolean
 }

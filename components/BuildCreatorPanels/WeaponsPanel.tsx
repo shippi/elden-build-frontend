@@ -1,38 +1,59 @@
 'use client'
 import { useState } from "react"
-import { DropDown } from ".."
+import { DisabledDropDown, DropDown } from ".."
 import { getSelectedItems } from "@/utils/BuildCreatorUtils"
-import { Weapon } from "../types"
+import { Ash, Weapon } from "../types"
 
 
 interface Props {
     weapons: Weapon[],
+    ashes: Ash[],
     onChange: Function
 }
 
-function WeaponsPanel({weapons, onChange} : Props) {
-    const [indices, setIndices] = useState([-1, -1, -1, -1, -1, -1]);
-    const[currIndex, setCurrIndex] = useState(0);
+function WeaponsPanel({weapons, ashes, onChange} : Props) {
+    const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
+    const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1])
+    const [currIndex, setCurrIndex] = useState(0);
 
-    const handleOnChange = (newIndex: number) => {
-        let newIndeces = [...indices];
-        newIndeces[currIndex] = newIndex;
+    const handleWepOnChange = (newIndex: number) => {
+        let newIndices = [...wepIndices];
+        newIndices[currIndex] = newIndex;
+        
+        const selectedWeapons = getSelectedItems(weapons, newIndices);
 
-        const selectedTalismans = getSelectedItems(weapons, newIndeces);
+        if (newIndex > -1 && !weapons[newIndex].unique) {
+            const availableAshes = getAvailableAshes(ashes, weapons[newIndex].type)
+            const currentAshIndex = getAshIndex(availableAshes, weapons[newIndex].defaultSkill)
+            let newAshIndices = [...ashIndices];
+            newAshIndices[currIndex] = currentAshIndex;
+            setAshIndices(newAshIndices);
+        }
 
-        setIndices(newIndeces);
-        onChange(selectedTalismans);
+        setWepIndices(newIndices);
+        onChange(selectedWeapons);
+    }
+
+    const handleAshOnChange = (newIndex: number) => {
+        let newIndices = [...ashIndices];
+        newIndices[currIndex] = newIndex;
+        setAshIndices(newIndices);
     }
 
     return (
         <div className="weapons-panel">
-            {/* div for selecting talismans*/}
+            {/* div for selecting weapons*/}
             <div>
                 {
-                    indices.map((i, j) => (
+                    wepIndices.map((i, j) => (
                         <div onClick={() => {setCurrIndex(j)}}>
                             <label>{(j < 3 ? "Left Hand " : "Right Hand ") + (j % 3 + 1)} </label>
-                         <DropDown items={weapons} index={indices[j]} isNullable={true} onChange={handleOnChange}/>
+                            <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
+                            { 
+                                weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
+                                wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
+                                <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
+                            }
                         </div>
                     ))
                 }
@@ -42,3 +63,15 @@ function WeaponsPanel({weapons, onChange} : Props) {
 }
 
 export default WeaponsPanel
+
+function getAvailableAshes(ashes: Ash[], wepType: string) {
+    return ashes.filter(ash => ash.availability[wepType as keyof typeof ash.availability] == true);
+}
+
+function getAshIndex(ashes: Ash[], ashName: string) {
+    let index = 0;
+    ashes.forEach((ash, i) => {
+        if (ash.name == ashName) index = i
+    })
+    return index;
+}

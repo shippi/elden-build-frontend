@@ -4,7 +4,7 @@ import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, Def
 import { useFetchAllItems } from '@/hooks';
 
 function BuildCreator() {
-    const {classes, armours, talismans, weapons, isLoading, error} = useFetchAllItems();
+    const {classes, armours, talismans, weapons, ashes, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
     const [selectedArmours, setSelectedArmours] = useState([]);
     const [selectedTalismans, setSelectedTalismans] = useState([]);
@@ -29,7 +29,7 @@ function BuildCreator() {
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans} armours={selectedArmours}/>
                     <ArmourPanel armours={armours} onChange={setSelectedArmours} />
                     <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
-                    <WeaponsPanel weapons={weapons} onChange={setSelectedWeapons} />
+                    <WeaponsPanel weapons={weapons} onChange={setSelectedWeapons} ashes={ashes} />
                     <div>
                     <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
                     <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />

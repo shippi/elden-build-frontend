@@ -6,11 +6,12 @@ interface Props {
     items: any[],
     index: number,
     isNullable: boolean,
+    hasImages: boolean,
     incompatibilities?: number[],
     onChange: Function
 }
 
-function DropDown({ items, index, isNullable, incompatibilities, onChange }: Props) {  
+function DropDown({ items, index, isNullable, incompatibilities, hasImages, onChange }: Props) {  
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
     
@@ -41,9 +42,8 @@ function DropDown({ items, index, isNullable, incompatibilities, onChange }: Pro
         if (incompatibilities?.includes(currIndex) && currIndex > -1) return false;
 
         incompatibilities?.forEach(i => {
-            
             let item = items[i];
-            if(currItem.group == item?.group && i != index) compatible = false;
+            if (currItem.group == item?.group && i != index) compatible = false;
         });
         
         return compatible;
@@ -55,10 +55,9 @@ function DropDown({ items, index, isNullable, incompatibilities, onChange }: Pro
         <div className="select-menu" ref={ref}>
             <div className="selected" onClick={() => { setOpen(!open); }}>
                 <div>
-                { index > -1 ? <img src={items[index].image}/>:<img/>}
-                { index > -1 ? items[index].name : "None" }
+                    { index > -1 && hasImages ? <img src={items[index].image}/> : hasImages ? <img/> : "" }
+                    { index > -1 ? items[index].name : "None" }
                 </div>
-                
                 <i className={(!open ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
             </div>
             {
@@ -101,7 +100,7 @@ function DropDown({ items, index, isNullable, incompatibilities, onChange }: Pro
                                     }
                                 }}
                             >
-                                <img src={item.image}/>
+                                {item.image && <img src={item.image}/>}
                                 {item.name}
                             </li>
                         ))

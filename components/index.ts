@@ -1,6 +1,7 @@
 import NavBar from "./NavBar";
 import Hero from "./Hero";
 import DropDown from "./BuildCreatorPanels/DropDown";
+import DisabledDropDown from "./BuildCreatorPanels/DisabledDropDown";
 import Loading from "./Loading";
 import StatRow from "./BuildCreatorPanels/StatRow";
 import CharacterPanel from "./BuildCreatorPanels/CharacterPanel";
@@ -14,6 +15,7 @@ import StatsPanel from "./BuildCreatorPanels/StatsPanel";
 export {
     CharacterPanel,
     DropDown,
+    DisabledDropDown,
     Hero,
     Loading,
     NavBar,

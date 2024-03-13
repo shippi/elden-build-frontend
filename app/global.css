@@ -258,12 +258,14 @@ img {
   align-items: center;
 }
 
-.disabled {
+.disabled,
+.disabled * {
   background-color: #4f4f4f;
   color: #3d3d3d;
 }
 
-.disabled:hover {
+.disabled:hover,
+.disabled *:hover {
   cursor:default;
 }
 
@@ -310,7 +312,7 @@ img {
 }
 
 .select-menu ul li:not(.disabled):hover,
-.selected:hover { 
+.selected:not(.disabled):hover{ 
   cursor: pointer;
 }
 

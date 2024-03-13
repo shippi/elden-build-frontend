@@ -33,7 +33,7 @@ function TalismansPanel({talismans, onChange} : Props) {
                     indices.map((i, j) => (
                         <div onClick={() => {setCurrIndex(j)}}>
                             <label>Talisman {j+1} </label>
-                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices} onChange={handleOnChange}/>
+                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices}  hasImages={true} onChange={handleOnChange}/>
                         </div>
                     ))
                 }
