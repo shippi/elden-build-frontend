@@ -9,10 +9,13 @@ interface Props {
     weapons: Weapon[],
     ashes: Ash[],
     affinities: any[],
-    onChange: Function
+    onWepChange: Function,
+    onAffChange: Function,
+    onAshChange: Function,
+    onLvlChange: Function
 }
 
-function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
+function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onAshChange, onLvlChange} : Props) {
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
@@ -23,6 +26,7 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
         let newIndices = [...wepIndices];
         newIndices[currIndex] = newIndex;
         const selectedWeapons = getSelectedItems(weapons, newIndices);
+        setWepIndices(newIndices);
 
         let newAffIndices = [...affIndices];
         newAffIndices[currIndex] = 0;
@@ -31,24 +35,24 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
         let newLvlIndices = [...lvlIndices];
         newLvlIndices[currIndex] = 0;
         const selectedLvls = getSelectedItems(wepLevelsData, newLvlIndices).map(lvl => lvl.name);
+        setLvlIndices(newLvlIndices);
 
-        setLvlIndices(newLvlIndices)
+        let selectedAshes;
 
         if (newIndex > -1 && !weapons[newIndex].unique) {
             const availableAshes = getAvailableAshes(ashes, weapons[newIndex].type)
             const currentAshIndex = getAshIndex(availableAshes, weapons[newIndex].defaultSkill)
+           
             let newAshIndices = [...ashIndices];
             newAshIndices[currIndex] = currentAshIndex;
             setAshIndices(newAshIndices);
-            const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newAshIndices)
-            setWepIndices(newIndices);
-            onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
+            selectedAshes = getSelectedAshes(selectedWeapons, ashes, newAshIndices)
         }
         else {
-            const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);
+            selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);  
             setWepIndices(newIndices);
-            onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
         }
+        onWepChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
     }
 
     const handleAshOnChange = (newIndex: number) => {
@@ -58,9 +62,8 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
 
         const selectedWeapons = getSelectedItems(weapons, wepIndices);
         const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newIndices);
-        const selectedAffinities = getSelectedItems(affinities, affIndices).map(aff => aff.name);
-        const selectedLvls = getSelectedItems(wepLevelsData, lvlIndices).map(lvl => lvl.name);
-        onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
+
+        onAshChange(selectedAshes);
     }
 
     const handleAffOnChange = (newIndex: number) => {
@@ -68,11 +71,9 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
         newIndices[currIndex] = newIndex;
         setAffIndices(newIndices);
 
-        const selectedWeapons = getSelectedItems(weapons, wepIndices);
-        const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);
         const selectedAffinities = getSelectedItems(affinities, newIndices).map(aff => aff.name);
-        const selectedLvls = getSelectedItems(wepLevelsData, lvlIndices).map(lvl => lvl.name);
-        onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
+       
+        onAffChange(selectedAffinities);
     }
 
     const handleLvlOnChange = (newIndex: number) => {
@@ -80,12 +81,9 @@ function WeaponsPanel({weapons, ashes, affinities, onChange} : Props) {
         newIndices[currIndex] = newIndex;
         setLvlIndices(newIndices);
 
-        const selectedWeapons = getSelectedItems(weapons, wepIndices);
-        const selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);
-        const selectedAffinities = getSelectedItems(affinities, affIndices).map(aff => aff.name);
         const selectedLvls = getSelectedItems(wepLevelsData, newIndices).map(lvl => lvl.name);
 
-        onChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
+        onLvlChange(selectedLvls);
     }
     return (
         <div className="weapons-panel">
@@ -151,4 +149,8 @@ function getSelectedAshes(weps: Weapon[], ashes: Ash[], ashIndices: number[]) {
     })
 
     return selectedAshes;
+}
+
+function calculateAttackPower() {
+    const weaponName = "Cold Dagger +5"
 }

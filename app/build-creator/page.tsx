@@ -40,7 +40,7 @@ function BuildCreator() {
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans} armours={selectedArmours}/>
                     <ArmourPanel armours={armours} onChange={setSelectedArmours} />
                     <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
-                    <WeaponsPanel weapons={weapons} onChange={handleWepChange} ashes={ashes} affinities={affinities}/>
+                    <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls}/>
                     <div>
                     <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
                     <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
