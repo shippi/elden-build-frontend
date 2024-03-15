@@ -34,7 +34,7 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
 
         let newLvlIndices = [...lvlIndices];
         newLvlIndices[currIndex] = 0;
-        const selectedLvls = getSelectedItems(wepLevelsData, newLvlIndices).map(lvl => lvl.name);
+        const selectedLvls = getSelectedItems(wepLevelsData, newLvlIndices).map(lvl => +lvl.name.substring(1));
         setLvlIndices(newLvlIndices);
 
         let selectedAshes;
@@ -82,7 +82,6 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
         setLvlIndices(newIndices);
 
         const selectedLvls = getSelectedItems(wepLevelsData, newIndices).map(lvl => +lvl.name.substring(1));
-        console.log(selectedLvls);
         onLvlChange(selectedLvls);
     }
     return (

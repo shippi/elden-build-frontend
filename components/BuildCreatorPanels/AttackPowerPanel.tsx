@@ -1,19 +1,22 @@
 import { getEquipmentTotalValue } from "@/utils/BuildCreatorUtils"
 import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "../types"
+import { weaponStats } from "@/public/data/WeaponCalculations/weaponStats";
+import { multipliers } from "@/public/data/WeaponCalculations/multipliers";
+
 
 interface Props {
     weapons: Weapon[],
     affinities: string[],
-    wepLvls: string[],
+    wepLvls: number[],
     characterClass: CharacterClass,
     characterStats: CharacterStats,
     armours: Armour[],
     talismans: Talisman[]
 }
 
-function AttackPowerPanel({weapons, affinities, characterClass, characterStats, armours, talismans}: Props) {
+function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, armours, talismans}: Props) {
     const totalStats = getTotalStats(characterClass, characterStats, armours, talismans);
-    console.log(totalStats);
+    calculateAttackPower(weapons[0], affinities[0], wepLvls[0], totalStats)
 
     return (
     <div>
@@ -47,12 +50,18 @@ function getTotalStats(characterClass: CharacterClass, characterStats: Character
     return totalStats;
 }
 
-function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: string, stats: CharacterStats) {
+function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats) {
     if (!weapon) return 0;
-
-
 
     var weaponName = weapon.name;
     if (affinity != "Standard") weaponName = affinity + " " + weaponName;
     
+    let baseStats = weaponStats.find(weapon => weapon.name == weaponName);
+    
+    if (baseStats) {
+        const correctMultId = +baseStats.reinforceType + wepLvl
+        let wepMultipliers = multipliers.find(multiplier => multiplier.id == correctMultId.toString())
+        console.log(correctMultId)
+    }
+
 }
