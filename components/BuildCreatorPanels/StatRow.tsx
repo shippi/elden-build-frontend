@@ -2,7 +2,7 @@
 import { useClickOutside } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
 import { Armour, Talisman } from "../types";
-import { calculateLevel } from "@/utils/BuildCreatorUtils";
+import { calculateLevel, getEquipmentValues } from "@/utils/BuildCreatorUtils";
 
 interface Props {
     type: string,
@@ -67,7 +67,6 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
         }
         else if (!increment) {
             if (+value - 1 > +initialValue) { // checks if inputted value greater than class base
-                console.log("test")
                 setValue((+value - 1).toString());
                 onChange((+value - 1) - +initialValue); // sends parent the added value
             }
@@ -76,20 +75,6 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
                 onChange(0);
             }
         }
-    }
-
-    const getEquipmentValues = (selectedEquipment: any[], type: string) => {
-        let itemValues: number[] = [];
-
-        selectedEquipment.forEach(item => {
-            if (item?.statChanges?.hasOwnProperty(type.toLowerCase())) {
-                let itemValue = item.statChanges[type.toLowerCase() as keyof typeof item.statChanges];
-                if (itemValue != null)
-                    itemValues.push(+itemValue);
-            }
-        });
-
-        return itemValues;
     }
 
     return (

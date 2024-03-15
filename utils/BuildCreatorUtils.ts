@@ -25,3 +25,31 @@ export function calculateLevel(classLevel: number, levelStat: number, talismanLe
   if (totalLevel > 99) return 99;
   else return totalLevel;
 }
+
+export function getEquipmentValues(selectedEquipment: any[], type: string) {
+  let itemValues: number[] = [];
+
+  selectedEquipment.forEach(item => {
+      if (item?.statChanges?.hasOwnProperty(type.toLowerCase())) {
+          let itemValue = item.statChanges[type.toLowerCase() as keyof typeof item.statChanges];
+          if (itemValue != null)
+              itemValues.push(+itemValue);
+      }
+  });
+
+  return itemValues;
+}
+
+export function getEquipmentTotalValue(selectedEquipment: any[], type: string) {
+  let value = 0;
+
+  selectedEquipment.forEach(item => {
+    if (item?.statChanges?.hasOwnProperty(type.toLowerCase())) {
+        let itemValue = item.statChanges[type.toLowerCase() as keyof typeof item.statChanges];
+        if (itemValue != null)
+            value += +itemValue;
+    }
+  });
+
+  return value;
+}

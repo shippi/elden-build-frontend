@@ -81,8 +81,8 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
         newIndices[currIndex] = newIndex;
         setLvlIndices(newIndices);
 
-        const selectedLvls = getSelectedItems(wepLevelsData, newIndices).map(lvl => lvl.name);
-
+        const selectedLvls = getSelectedItems(wepLevelsData, newIndices).map(lvl => +lvl.name.substring(1));
+        console.log(selectedLvls);
         onLvlChange(selectedLvls);
     }
     return (
@@ -92,7 +92,7 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                 {
                     wepIndices.map((i, j) => (
                         <div onClick={() => {setCurrIndex(j)}}>
-                            <label>{(j < 3 ? "Left Hand " : "Right Hand ") + (j % 3 + 1)} </label>
+                            <label>{(j < 3 ? "Left Armament " : "Right Armament ") + (j % 3 + 1)} </label>
                             <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
                             <div className="weapon-options">
                                 { 
@@ -149,8 +149,4 @@ function getSelectedAshes(weps: Weapon[], ashes: Ash[], ashIndices: number[]) {
     })
 
     return selectedAshes;
-}
-
-function calculateAttackPower() {
-    const weaponName = "Cold Dagger +5"
 }

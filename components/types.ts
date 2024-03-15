@@ -1,4 +1,4 @@
-export interface CharacterStats { 
+export interface ClassStats { 
     level: string, 
     vigor: string, 
     mind: string, 
@@ -15,7 +15,18 @@ export interface CharacterClass {
     name: string,
     image: string,
     description: string,
-    stats: CharacterStats
+    stats: ClassStats
+}
+
+export interface CharacterStats {
+    vigor: number, 
+    mind: number, 
+    endurance: number, 
+    strength: number, 
+    dexterity: number, 
+    intelligence: number, 
+    faith: number, 
+    arcane: number
 }
 
 export interface DamageNegation {
@@ -54,7 +65,6 @@ export interface Weapon {
     name: string,
     image: string,
     type: string,
-    requiredAttributes: Stat[],
     weight: number,
     changeAffinity: boolean,
     unique: boolean,
@@ -75,11 +85,6 @@ export interface Ash {
     id: string,
     name: string,
     availability: Availability
-}
-
-interface Stat {
-    name: string,
-    amount: number
 }
 
 interface StatChange {
