@@ -3,6 +3,7 @@ import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "../typ
 import { weaponStats } from "@/public/data/WeaponCalculations/weaponStats";
 import { multipliers } from "@/public/data/WeaponCalculations/multipliers";
 import { calcCorrectGraph } from "@/public/data/WeaponCalculations/calcCorrectGraph";
+import { attackElementsCorrect } from "@/public/data/WeaponCalculations/attackElementCorrect";
 
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 
 function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, armours, talismans}: Props) {
     const totalStats = getTotalStats(characterClass, characterStats, armours, talismans);
-    calculateAttackPower(weapons[0], affinities[0], wepLvls[0], totalStats)
+    console.log(calculateAttackPower(weapons[0], affinities[0], wepLvls[0], totalStats));
 
     return (
     <div>
@@ -89,9 +90,27 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
         arcaneScaling = baseStats.arcaneScaling * wepMultipliers.arcaneScaling
     }
 
-    const adjustBaseStats = [physicalAtk, magicAtk, fireAtk, lightningAtk, holyAtk, strengthScaling, dexterityScaling, intellectScaling, faithScaling, arcaneScaling].map(value => +value.toFixed(2));
+    const adjustedBaseValues = [physicalAtk, magicAtk, fireAtk, lightningAtk, holyAtk]
+    const adjustScalingValues = [strengthScaling, dexterityScaling, intellectScaling, faithScaling, arcaneScaling].map(value => +value.toFixed(2));
+    
+    const attackTypes = ["physical", "magic", "fire", "lightning", "holy"]
+
+    const attackElementId = baseStats?.attackElement;
+    const correctGraphIds = baseStats?.calcCorrectIds;
+
+    if (attackElementId && correctGraphIds) {
+        let finalAttackValues = [];
+        
+            for (let i = 0; i < correctGraphIds.length; i++) {
+                const finalAttackTypeValue = calculateFinalAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustScalingValues, correctGraphIds[i], stats)
+                finalAttackValues.push(finalAttackTypeValue);
+            }
+    
+        return finalAttackValues;
+    }
     
     
+
 }
 
 function calculateStatScaling(correctGraphId : string, statType: string, characterStats: CharacterStats) {
@@ -99,10 +118,53 @@ function calculateStatScaling(correctGraphId : string, statType: string, charact
     const statValue = characterStats[statType as keyof typeof characterStats]
 
     if (correctGraph && statValue) {
-        let min = 0;
-        let max = 0;
-        correctGraph.stats.forEach(stat => {
-            if (stat < statValue) return;
-        })
+        let minIndex = 0;
+        let maxIndex = 0;
+
+        for (let i = 0; i < correctGraph.stats.length; i++) {
+            if (statValue > correctGraph.stats[i]) minIndex = i;
+            else if (statValue < correctGraph.stats[i]) {
+                maxIndex = i;
+                break;
+            }
+        }
+        
+        const statMin = correctGraph.stats[minIndex];
+        const statMax = correctGraph.stats[maxIndex];
+        const exponent = correctGraph.exponents[minIndex];
+        const growthMin = correctGraph.growths[minIndex];
+        const growthMax = correctGraph.growths[maxIndex];
+
+        const ratio = (statValue - statMin) / (statMax - statMin);
+
+        let growth = 0;
+        if (exponent > 0) 
+            growth = ratio ** exponent
+        else if (exponent < 0)
+            growth = 1 - (1 - ratio) ** Math.abs(exponent)
+
+        const output = (growthMin + (growthMax - growthMin) * growth) / 100;
+        return output;
     }
+
+    return 0;
+}
+
+function calculateFinalAttack(attackElementId: string, baseValue: number, attackType: string, scalingValues: number[], correctGraphId : string, characterStats: CharacterStats) {
+    const statTypes = ["Strength", "Dexterity", "Intelligence", "Faith", "Arcane"];
+    const attackElementCorrect = attackElementsCorrect.find(row => row.id == attackElementId);
+
+    let total = baseValue;
+
+    if (attackElementCorrect) {
+        for (let i = 0; i < statTypes.length; i++) {
+            const currStatType = statTypes[i]
+            if (attackElementCorrect[attackType + "ScalesOn" + currStatType as keyof typeof attackElementCorrect] == true) {
+                const statScaling = calculateStatScaling(correctGraphId, currStatType.toLowerCase(), characterStats);
+                const scalingValue = baseValue * (scalingValues[i]/100) * statScaling;
+                total += scalingValue;
+            }
+        }
+    }
+    return total;
 }
