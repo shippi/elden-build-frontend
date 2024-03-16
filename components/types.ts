@@ -87,6 +87,21 @@ export interface Ash {
     availability: Availability
 }
 
+export interface Multipliers {
+    id: string; 
+    name: string; 
+    physicalAtk: number; 
+    magicAtk: number; 
+    fireAtk: number; 
+    lightningAtk: number; 
+    holyAtk: number; 
+    strengthScaling: number; 
+    dexterityScaling: number; 
+    intellectScaling: number; 
+    faithScaling: number; 
+    arcaneScaling: number;
+}
+
 interface StatChange {
     maxHp?: number,
     maxFp?: number,

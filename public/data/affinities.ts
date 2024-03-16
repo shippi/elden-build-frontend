@@ -4,7 +4,7 @@ export const affinitiesData = [
     { name: "Keen" },
     { name: "Quality" }, 
     { name: "Magic" }, 
-    { name: "Frost" }, 
+    { name: "Cold" }, 
     { name: "Fire" }, 
     { name: "Flame Art" }, 
     { name: "Lightning" }, 

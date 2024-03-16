@@ -2,6 +2,7 @@ import { getEquipmentTotalValue } from "@/utils/BuildCreatorUtils"
 import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "../types"
 import { weaponStats } from "@/public/data/WeaponCalculations/weaponStats";
 import { multipliers } from "@/public/data/WeaponCalculations/multipliers";
+import { calcCorrectGraph } from "@/public/data/WeaponCalculations/calcCorrectGraph";
 
 
 interface Props {
@@ -57,11 +58,38 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
     if (affinity != "Standard") weaponName = affinity + " " + weaponName;
     
     let baseStats = weaponStats.find(weapon => weapon.name == weaponName);
-    
+    let wepMultipliers;
+
     if (baseStats) {
         const correctMultId = +baseStats.reinforceType + wepLvl
-        let wepMultipliers = multipliers.find(multiplier => multiplier.id == correctMultId.toString())
-        console.log(correctMultId)
+        wepMultipliers = multipliers.find(multiplier => multiplier.id == correctMultId.toString())
     }
 
+    let physicalAtk = 0;
+    let magicAtk = 0;
+    let fireAtk = 0;
+    let lightningAtk = 0;
+    let holyAtk = 0;
+    let strengthScaling = 0;
+    let dexterityScaling = 0;
+    let intellectScaling = 0;
+    let faithScaling = 0;
+    let arcaneScaling = 0;
+
+    if (wepMultipliers && baseStats) {
+        physicalAtk = baseStats.basePhysical * wepMultipliers.physicalAtk;
+        magicAtk = baseStats.baseMagic * wepMultipliers.magicAtk;
+        fireAtk = baseStats.baseFire * wepMultipliers.fireAtk;
+        lightningAtk = baseStats.baseLightning * wepMultipliers.lightningAtk;
+        holyAtk = baseStats.baseHoly * wepMultipliers.holyAtk;
+        strengthScaling = baseStats.strengthScaling * wepMultipliers.strengthScaling
+        dexterityScaling = baseStats.dexterityScaling * wepMultipliers.dexterityScaling
+        intellectScaling = baseStats.intellectScaling * wepMultipliers.intellectScaling
+        faithScaling = baseStats.faithScaling * wepMultipliers.faithScaling
+        arcaneScaling = baseStats.arcaneScaling * wepMultipliers.arcaneScaling
+    }
+
+    const adjustBaseStats = [physicalAtk, magicAtk, fireAtk, lightningAtk, holyAtk, strengthScaling, dexterityScaling, intellectScaling, faithScaling, arcaneScaling].map(value => +value.toFixed(2));
+    
+    
 }
