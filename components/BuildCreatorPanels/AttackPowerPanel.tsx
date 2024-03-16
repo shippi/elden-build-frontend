@@ -93,3 +93,16 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
     
     
 }
+
+function calculateStatScaling(correctGraphId : string, statType: string, characterStats: CharacterStats) {
+    const correctGraph = calcCorrectGraph.find(row => row.id == correctGraphId)
+    const statValue = characterStats[statType as keyof typeof characterStats]
+
+    if (correctGraph && statValue) {
+        let min = 0;
+        let max = 0;
+        correctGraph.stats.forEach(stat => {
+            if (stat < statValue) return;
+        })
+    }
+}
