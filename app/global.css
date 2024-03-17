@@ -173,18 +173,33 @@ a:hover {
   flex-wrap: wrap;
 }
 
+.subcontainer{
+  padding: 30px 30px 30px 0;
+}
+
+.subcontainer2 {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
 /*styling for the character panel component*/
 .character-panel,
 .armour-panel,
 .talismans-panel,
-.weapons-panel,
 .stats-panel,
-.attack-power-panel {
+.attack-power-panel,
+.defences-panel,
+.attack-power-panel, 
+.selector {
   display: block;
-  width: 350px;
-  padding: 10px;
+  padding-left: 10px;
+  width: 370px;
   background-color: var(--panel-colour);
+  border-left: var(--grey-border);
+  align-self: baseline;
 }
+
 
 .starting-class {
   padding-bottom: 20px;
@@ -216,23 +231,38 @@ a:hover {
 }
 
 /*styling for defences panel*/
-.defences-panel table{
-  width: 300px;
-  padding: 10px;
+.defences-panel table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
+thead,
 .defences-panel .value {
-  text-align: center;
+  text-align: right;
 }
 
 td {
   padding: 5px 0;
-
+  width: 33.3%
 }
 
 /**/
 .weapons-panel {
-  width: 370px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--panel-colour);
+}
+
+.weapons-panel .selectors-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 30px;
+}
+
+.selectors-container .selector:not(:last-child) {
+  padding-bottom: 10px;
 }
 
 .weapon-options {
@@ -263,6 +293,7 @@ td {
 .attack-power-panel div {
   display: flex;
   justify-content: space-between;
+  padding: 1px 0;
 }
 
 /*styling for dropdown component*/

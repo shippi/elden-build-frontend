@@ -87,11 +87,12 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
     return (
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
-            <div>
+                <div className="selectors-container">
                 {
                     wepIndices.map((i, j) => (
-                        <div onClick={() => {setCurrIndex(j)}}>
-                            <label>{(j < 3 ? "Left Armament " : "Right Armament ") + (j % 3 + 1)} </label>
+                        j < 3 &&
+                        <div className="selector" onClick={() => {setCurrIndex(j)}}>
+                            <label>{"Left Armament " + (j % 3 + 1)}</label>
                             <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
                             <div className="weapon-options">
                                 { 
@@ -114,12 +115,43 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                                     }
                                 </div>
                             </div>
-                            <br/>
+                            
                         </div>
-                        
                     ))
                 }
-            </div>
+                </div>
+                <div className="selectors-container">
+                {
+                    wepIndices.map((i, j) => (
+                        j >= 3 &&
+                        <div className="selector" onClick={() => {setCurrIndex(j)}}>
+                            <label>{ "Right Armament " + (j % 3 + 1)} </label>
+                            <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
+                            <div className="weapon-options">
+                                { 
+                                    weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
+                                    wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
+                                    <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
+                                }
+                                <div className="affinity">
+                                    {
+                                        weapons[wepIndices[j]]?.changeAffinity ?
+                                        <DropDown items={affinities} index={affIndices[j]} isNullable={false} hasImages={false} onChange={handleAffOnChange} /> :
+                                        <DisabledDropDown value={"Affinity"} />
+                                    }
+                                </div>
+                                <div className="levels">
+                                    {
+                                        wepIndices[j] > -1 && !weapons[wepIndices[j]]?.unique ? <DropDown items={wepLevelsData} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                                        wepIndices[j] > -1 && weapons[wepIndices[j]].unique ? <DropDown items={wepLevelsData.slice(0, 11)} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                                        <DisabledDropDown value={"+0"} />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+                </div>
         </div>
     )
 }

@@ -53,6 +53,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans}
           }
         </tbody>
       </table>
+      <br/>
       <table>
         <thead>
           <tr>

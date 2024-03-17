@@ -7,9 +7,9 @@ import { CharacterStats } from '@/components/types';
 function BuildCreator() {
     const {classes, armours, talismans, weapons, ashes, affinities, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
-    const [selectedArmours, setSelectedArmours] = useState([]);
+    const [selectedArmours, setSelectedArmours] = useState(new Array(4).fill(null));
     const [selectedTalismans, setSelectedTalismans] = useState([]);
-    const [selectedWeapons, setSelectedWeapons] = useState<any[]>([]);
+    const [selectedWeapons, setSelectedWeapons] = useState<any[]>(new Array(6).fill(null));
     const [selectedAshes, setSelectedAshes] = useState<any[]>([]);
     const [selectedWepLvls, setSelectedWepLvls] = useState<any[]>([]);
     const [selectedAffinities, setSelectedAffinities] = useState<any[]>([]);
@@ -35,18 +35,30 @@ function BuildCreator() {
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">
-                    <h1>ELDEN RING BUILD CREATOR</h1>
+                <h1>ELDEN RING BUILD CREATOR</h1>
                 <div className="panels-container">    
-                    <br />
+                    <br/>
+                    <div className="subcontainer">
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans} armours={selectedArmours}/>
-                    <ArmourPanel armours={armours} onChange={setSelectedArmours} />
-                    <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
-                    <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls}/>
-                    <div>
-                    <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
-                    <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
                     </div>
-                    <AttackPowerPanel weapons={selectedWeapons} affinities={selectedAffinities} wepLvls={selectedWepLvls} characterClass={classes[classIndex]} characterStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
+                    <div className="subcontainer">
+                        <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls}/>
+                        <br/>
+                        <div className='subcontainer2'>
+                            <ArmourPanel armours={armours} onChange={setSelectedArmours} />
+                            <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
+                        </div>
+                    </div>
+                    <div className="subcontainer">
+                        <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
+                        <br/>
+                        <AttackPowerPanel weapons={selectedWeapons} affinities={selectedAffinities} wepLvls={selectedWepLvls} characterClass={classes[classIndex]} characterStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
+                        <br/>
+                        <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
+                       
+                        
+                    </div>
+                    
                 </div>
             </div>
         )
