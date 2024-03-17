@@ -40,6 +40,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
     const handleClick = () => {
         if (+value < +initialValue) {  // checks if the inputted value is less than the class' base stat value
             setValue(initialValue); // sets value in number box to base stat value
+            onChange(+initialValue);
         }
         else if (+value > MAX) { // checks if inputted value exceeds the max
             // sets value to max and sends parent the added value

@@ -18,10 +18,24 @@ interface Props {
 
 function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, armours, talismans}: Props) {
     const totalStats = getTotalStats(characterClass, characterStats, armours, talismans);
-    console.log(calculateAttackPower(weapons[0], affinities[0], wepLvls[0], totalStats));
 
     return (
-    <div>
+    <div className="attack-power-panel">
+
+        {
+            weapons.map((weapon, i) => (
+                <div>
+                    <strong>
+                    {(i < 3 ? "L Armament " : "R Armament ") + (i % 3 + 1)}
+                    </strong>
+                    {
+                        calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
+                            .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+                            .toFixed(0)
+                    } 
+                </div>
+            ))
+        }
     </div>
   )
 }
@@ -53,7 +67,7 @@ function getTotalStats(characterClass: CharacterClass, characterStats: Character
 }
 
 function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats) {
-    if (!weapon) return 0;
+    if (!weapon) return [0];
 
     var weaponName = weapon.name;
     if (affinity != "Standard") weaponName = affinity + " " + weaponName;
@@ -109,7 +123,7 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
         return finalAttackValues;
     }
     
-    
+    return [0];
 
 }
 

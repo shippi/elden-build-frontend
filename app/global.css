@@ -178,7 +178,8 @@ a:hover {
 .armour-panel,
 .talismans-panel,
 .weapons-panel,
-.stats-panel {
+.stats-panel,
+.attack-power-panel {
   display: block;
   width: 350px;
   padding: 10px;
@@ -254,6 +255,12 @@ td {
 
 /**/
 .stats-panel div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/**/
+.attack-power-panel div {
   display: flex;
   justify-content: space-between;
 }
