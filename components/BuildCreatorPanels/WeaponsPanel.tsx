@@ -28,6 +28,8 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
         const selectedWeapons = getSelectedItems(weapons, newIndices);
         setWepIndices(newIndices);
 
+        
+
         let newAffIndices = [...affIndices];
         newAffIndices[currIndex] = 0;
         const selectedAffinities = getSelectedItems(affinities, newAffIndices).map(aff => aff.name);
@@ -46,7 +48,8 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
             let newAshIndices = [...ashIndices];
             newAshIndices[currIndex] = currentAshIndex;
             setAshIndices(newAshIndices);
-            selectedAshes = getSelectedAshes(selectedWeapons, ashes, newAshIndices)
+            selectedAshes = getSelectedAshes(selectedWeapons, ashes, newAshIndices);
+            console.log(availableAshes)
         }
         else {
             selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);  

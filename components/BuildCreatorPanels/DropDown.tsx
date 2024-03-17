@@ -24,11 +24,11 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, onCh
         
         if (ref.current && index > -1) {
             if(ref.current.children[index]) {
-                ref.current.children[index].scrollIntoView();
+                ref.current.children[index].scrollIntoView({ block: 'center' });
             }
         }   
-        else if (ref.current && index == -1) {
-            ref.current.scrollTo(0, 0);
+        else if (ref.current && index == -1) {       
+            ref.current.children[0].scrollIntoView({ block: 'center' }); 
         }
     };
 
@@ -55,8 +55,8 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, onCh
         <div className="select-menu" ref={ref}>
             <div className="selected" onClick={() => { setOpen(!open); }}>
                 <div>
-                    { index > -1 && hasImages ? <img src={items[index].image}/> : hasImages ? <img/> : "" }
-                    { index > -1 ? items[index].name : "None" }
+                    { index > -1 && hasImages ? <img src={items[index].image}/> : hasImages ? <div style={{height: "35px", width: "5px"}}/> : "" }
+                    { index > -1 ? items[index]?.name : "None" }
                 </div>
                 <i className={(!open ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
             </div>
@@ -71,8 +71,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, onCh
                             placeholder="Search..."
                             onChange={(e) => setSearch(e.target.value.toLowerCase())}
                         />
-                    </div>
-                
+                    </div>   
                 <ul ref={selectedRef}>
                     {
                         isNullable == true &&

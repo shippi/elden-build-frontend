@@ -48,7 +48,7 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
       {/* div for selecting starting class */}
       <div className="starting-class">
         <label>Starting Class </label>
-        <DropDown items={classes} index={index} isNullable={false} onChange={onChange} hasImages={true}/>
+        <DropDown items={classes} index={index} isNullable={false} onChange={onChange} hasImages={false}/>
       </div>
 
       {/* div for modifying character stats */}
