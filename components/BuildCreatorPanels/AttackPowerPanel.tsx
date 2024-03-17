@@ -70,8 +70,10 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
     if (!weapon) return [0];
 
     var weaponName = weapon.name;
+    if (affinity == "Frost") affinity = "Cold";
     if (affinity != "Standard") weaponName = affinity + " " + weaponName;
     
+
     let baseStats = weaponStats.find(weapon => weapon.name == weaponName);
     let wepMultipliers;
 

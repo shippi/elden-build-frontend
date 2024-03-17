@@ -32,6 +32,14 @@
 
 html {
   background-color: var(--bg-color);
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 }
 
 label {
@@ -58,7 +66,6 @@ a:hover {
 
 /*styling for the hero component*/
 .hero {
-  position: fixed;
   width: 100vw;
   height: 100%;
 
@@ -73,7 +80,6 @@ a:hover {
   background-size: cover;
 
   text-align: center;
-  
 }
 
 .hero h1 {
@@ -96,7 +102,7 @@ a:hover {
   min-height: 50px;
   padding-top: 1%;
   margin: auto;
-  width: 75vw;
+  width: 70vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -105,13 +111,11 @@ a:hover {
 .navbar * {
   padding-bottom: 10px;
   font-family: "Poppins", sans-serif;
-  font-weight: 00;
   font-style: normal;
 }
 
 .navbar-buttons {
   display: flex;
-  
 }
 
 .navbar-btn:hover {
@@ -143,23 +147,9 @@ a:hover {
 
 /**/
 .loading-screen {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/*styling for build creator page*/
-.build-creator{
   margin: auto;
   width: 75vw;
   height: 100%;
-}
-
-.loading-screen {
-  margin: auto;
-  width: 75vw;
-  height: 90vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -168,19 +158,43 @@ a:hover {
   font-size: 25px;
 }
 
+/*styling for build creator page*/
+.build-creator{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100vw;
+  height: 100%;
+  background-image: linear-gradient(to top, #1c1c1c00, #1c1c1cFF), 
+  url('./../public/background5.png');
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.build-creator h1 {
+  width: 100%;
+}
+
 .panels-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-self: center;
+  width: 70%;
 }
 
-.subcontainer{
-  padding: 30px 30px 30px 0;
+.subcontainer {
+  padding: 20px 20px 20px 0;
+}
+
+.subcontainer:last-child {
+  padding: 20px 0 20px 0
 }
 
 .subcontainer2 {
   display: flex;
   justify-content: space-between;
-  column-gap: 30px;
+  column-gap: 40px;
 }
 
 /*styling for the character panel component*/
@@ -191,12 +205,14 @@ a:hover {
 .attack-power-panel,
 .defences-panel,
 .attack-power-panel, 
-.selector {
+.selectors-container {
   display: block;
-  padding-left: 10px;
-  width: 370px;
-  background-color: var(--panel-colour);
-  border-left: var(--grey-border);
+  padding: 20px 20px;
+  width: 400px;
+  background:#141414A0;
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 10%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 90%, rgba(0,0,0,0)) 1;
   align-self: baseline;
 }
 
@@ -443,7 +459,7 @@ img {
   width: 40px;
   border: 0;
   font-size: 15px;
-  background-color: var(--bg-color);
+  background: none;
 }
 
 .button-container button:hover {

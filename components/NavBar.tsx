@@ -19,8 +19,7 @@ function NavBar() {
           <Link href="" className="navbar-btn">Sign Up</Link>
         </div>
     </div>
-    <br/>
-    <br/>
+
     </>
   )
 }

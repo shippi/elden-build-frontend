@@ -15,6 +15,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NavBar />  
+        <div style={{height: "40px"}}></div>
+
         {children}
       </body>
     </html>

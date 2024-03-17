@@ -35,15 +35,16 @@ function BuildCreator() {
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">
-                <h1>ELDEN RING BUILD CREATOR</h1>
+                
                 <div className="panels-container">    
-                    <br/>
+                <h1>ELDEN RING BUILD CREATOR</h1>
+                    
                     <div className="subcontainer">
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans} armours={selectedArmours}/>
                     </div>
                     <div className="subcontainer">
                         <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls}/>
-                        <br/>
+                        <br/><br/><br/>
                         <div className='subcontainer2'>
                             <ArmourPanel armours={armours} onChange={setSelectedArmours} />
                             <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
@@ -51,9 +52,9 @@ function BuildCreator() {
                     </div>
                     <div className="subcontainer">
                         <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
-                        <br/>
+                        <br/><br/><br/>
                         <AttackPowerPanel weapons={selectedWeapons} affinities={selectedAffinities} wepLvls={selectedWepLvls} characterClass={classes[classIndex]} characterStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
-                        <br/>
+                        <br/><br/><br/>
                         <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
                        
                         
