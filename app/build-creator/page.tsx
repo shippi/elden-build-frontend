@@ -44,7 +44,7 @@ function BuildCreator() {
                     </div>
                     <div className="subcontainer">
                         <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls}/>
-                        <br/><br/><br/>
+                        <br/>
                         <div className='subcontainer2'>
                             <ArmourPanel armours={armours} onChange={setSelectedArmours} />
                             <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />

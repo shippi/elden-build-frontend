@@ -121,33 +121,33 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
                 const finalAttackTypeValue = calculateFinalAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustScalingValues, correctGraphIds[i], stats)
                 finalAttackValues.push(finalAttackTypeValue);
             }
-    
+        
         return finalAttackValues;
     }
-    
+   
     return [0];
 
 }
 
 function calculateStatScaling(correctGraphId : string, statType: string, characterStats: CharacterStats) {
-    const correctGraph = calcCorrectGraph.find(row => row.id == correctGraphId)
-    const statValue = characterStats[statType as keyof typeof characterStats]
+    const correctGraph = calcCorrectGraph.find(row => row.id == correctGraphId);
+    const statValue = characterStats[statType as keyof typeof characterStats];
 
-    if (correctGraph && statValue) {
+    if (correctGraph) {
         let minIndex = 0;
         let maxIndex = 0;
 
         for (let i = 0; i < correctGraph.stats.length; i++) {
             if (statValue > correctGraph.stats[i]) minIndex = i;
-            else if (statValue < correctGraph.stats[i]) {
+            else if (statValue <= correctGraph.stats[i]) {
                 maxIndex = i;
                 break;
             }
         }
-        
+
         const statMin = correctGraph.stats[minIndex];
         const statMax = correctGraph.stats[maxIndex];
-        const exponent = correctGraph.exponents[minIndex];
+        const exponent = correctGraph.exponents[minIndex%2];
         const growthMin = correctGraph.growths[minIndex];
         const growthMax = correctGraph.growths[maxIndex];
 
@@ -157,9 +157,10 @@ function calculateStatScaling(correctGraphId : string, statType: string, charact
         if (exponent > 0) 
             growth = ratio ** exponent
         else if (exponent < 0)
-            growth = 1 - (1 - ratio) ** Math.abs(exponent)
+            growth = 1 - ((1 - ratio) ** Math.abs(exponent))
 
         const output = (growthMin + (growthMax - growthMin) * growth) / 100;
+
         return output;
     }
 
@@ -182,5 +183,6 @@ function calculateFinalAttack(attackElementId: string, baseValue: number, attack
             }
         }
     }
+    
     return total;
 }

@@ -50,7 +50,7 @@ function ArmourPanel({armours, onChange} : Props) {
             <div>
                 {
                     indices.map((i, j) => (
-                        <div onClick={() => {setCurrIndex(j)}}>
+                        <div className="selector" onClick={() => {setCurrIndex(j)}}>
                             <label>{armourSwitch(j)}</label>
                             <DropDown items={armoursArr[j]} index={indices[j]} isNullable={true} onChange={handleOnChange} hasImages={true}/>
                         </div>

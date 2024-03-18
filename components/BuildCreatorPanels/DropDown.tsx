@@ -8,10 +8,11 @@ interface Props {
     isNullable: boolean,
     hasImages: boolean,
     incompatibilities?: number[],
+    scrollPage? : boolean,
     onChange: Function
 }
 
-function DropDown({ items, index, isNullable, incompatibilities, hasImages, onChange }: Props) {  
+function DropDown({ items, index, isNullable, incompatibilities, hasImages, scrollPage, onChange }: Props) {  
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
     
@@ -24,7 +25,9 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, onCh
         
         if (ref.current && index > -1) {
             if(ref.current.children[index]) {
-                ref.current.children[index].scrollIntoView({ block: 'center' });
+                if (scrollPage) ref.current.children[index].scrollIntoView({ block: 'center' });
+                else ref.current.children[index].scrollIntoView({ block: 'end' });
+                
             }
         }   
         else if (ref.current && index == -1) {       

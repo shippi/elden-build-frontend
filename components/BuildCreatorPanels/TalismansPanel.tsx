@@ -31,9 +31,9 @@ function TalismansPanel({talismans, onChange} : Props) {
             <div>
                 {
                     indices.map((i, j) => (
-                        <div onClick={() => {setCurrIndex(j)}}>
+                        <div className="selector" onClick={() => {setCurrIndex(j)}}>
                             <label>Talisman {j+1} </label>
-                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices}  hasImages={true} onChange={handleOnChange}/>
+                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices}  hasImages={true} scrollPage={true} onChange={handleOnChange}/>
                         </div>
                     ))
                 }

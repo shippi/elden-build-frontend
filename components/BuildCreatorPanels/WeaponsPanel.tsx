@@ -118,10 +118,14 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                                     }
                                 </div>
                             </div>
-                            
                         </div>
                     ))
                 }
+                    
+                    <div>
+                        <br/>
+                        Two-Handed
+                    </div>
                 </div>
                 <div className="selectors-container">
                 {
