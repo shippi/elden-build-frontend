@@ -15,6 +15,7 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
   const stamina = calculateStamina(characterClass, characterLevelStats, talismans);
   const equipLoad = calculateEquipLoad(characterClass, characterLevelStats, talismans);
   const totalWeight = calculateWeight(armours, talismans, weapons);
+  const weightRatio = getWeightRatio(totalWeight, equipLoad);
   const poise = calculatePoise(armours, talismans);
   const discovery = calculateDiscovery(characterClass, characterLevelStats, talismans);
 
@@ -29,9 +30,13 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
       <div>
         <strong>Stamina</strong> {stamina}
       </div>
+      <br/>
       <div>
-        <strong>Equip Load</strong> {totalWeight} / {equipLoad}
+        <strong>Equip Load</strong> {totalWeight.toFixed(1)} / {equipLoad.toFixed(1)}
+        
       </div>
+      <div><i/>{weightRatio}</div>
+      <br/>
       <div>
         <strong>Poise</strong> {poise}
       </div>
@@ -149,13 +154,11 @@ function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats:
     equipLoad = 120 + 40*((enduranceLevel - 60)/39);
   }
 
-  equipLoad = Math.floor(equipLoad);
-
   talismans.forEach(talisman => {
     if (talisman && talisman.statChanges?.maxEquipLoad != null) equipLoad *= talisman.statChanges.maxEquipLoad;
   });
 
-  return equipLoad.toFixed(1);
+  return equipLoad;
 }
 
 function calculateWeight(armours: Armour[], talismans: Talisman[], weapons: Weapon[]) {
@@ -171,8 +174,9 @@ function calculateWeight(armours: Armour[], talismans: Talisman[], weapons: Weap
 
   talismans.forEach(talisman => {
     if(talisman != null) totalWeight += talisman.weight;
-  })
-  return totalWeight.toFixed(1);
+  });
+
+  return totalWeight;
 }
 
 function calculatePoise(armours: Armour[], talismans: Talisman[]) {
@@ -202,4 +206,13 @@ function calculateDiscovery(characterClass: CharacterClass, characterLevelStats:
   });
 
   return (discovery + arcaneLevel).toFixed(1);
+}
+
+function getWeightRatio(equipLoad: number, maxEquipLoad: number) {
+  const ratio = equipLoad / maxEquipLoad;
+
+  if (ratio <= 0.299) return "Light Load";
+  if (ratio <= 0.699) return "Med. Load";
+  if (ratio <= 0.999) return "Heavy Load";
+  return "Overloaded";
 }

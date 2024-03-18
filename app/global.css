@@ -189,6 +189,9 @@ a:hover {
 
 
 .subcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px 20px 20px 0;
 }
 
@@ -212,6 +215,7 @@ a:hover {
 .attack-power-panel, 
 .selectors-container {
   display: block;
+
   padding: 20px 20px;
   width: 16vw;
   min-width: 380px;
@@ -292,6 +296,10 @@ td {
   align-items: center;
 }
 
+.ashes {
+  width: 100%;
+}
+
 .affinity {
   width: 50%;
 }
@@ -305,10 +313,17 @@ td {
   margin-left: 5px;
 }
 
+.affinity,
+.levels,
+.ashes {
+  height: 35px;
+}
+
 /**/
 .stats-panel div {
   display: flex;
   justify-content: space-between;
+  padding: 3px 0;
 }
 
 /**/
@@ -348,13 +363,13 @@ img {
 
 .disabled,
 .disabled * {
-  background-color: #4f4f4f;
-  color: #3d3d3d;
+  background-color: #3d3d3d;
+  color: #6b6b6b;
 }
 
 .disabled:hover,
 .disabled *:hover {
-  cursor:default;
+  cursor: default;
 }
 
 .search-box {
@@ -368,7 +383,6 @@ img {
 
 .dropdown {
   position: absolute;
-
 }
 
 .select-menu ul {
@@ -379,7 +393,7 @@ img {
 
   overflow: auto;
 
-  max-height: 550px;
+  max-height: 500px;
   padding: 5px;
   z-index: 100; 
 }

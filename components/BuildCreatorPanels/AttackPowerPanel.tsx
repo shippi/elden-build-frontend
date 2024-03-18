@@ -29,9 +29,10 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
                     {(i < 3 ? "L Armament " : "R Armament ") + (i % 3 + 1)}
                     </strong>
                     {
-                        calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
+                        Math.floor(
+                            calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
                             .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-                            .toFixed(0)
+                        )
                     } 
                 </div>
             ))

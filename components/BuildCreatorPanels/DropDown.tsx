@@ -26,7 +26,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
         if (ref.current && index > -1) {
             if(ref.current.children[index]) {
                 if (scrollPage) ref.current.children[index].scrollIntoView({ block: 'center' });
-                else ref.current.children[index].scrollIntoView({ block: 'end' });
+                else ref.current.children[index].scrollIntoView({ block: 'nearest' });
                 
             }
         }   
