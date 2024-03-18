@@ -1,4 +1,4 @@
-import { getEquipmentTotalValue } from "@/utils/BuildCreatorUtils"
+import { getEquipmentTotalValue, getTotalStats } from "@/utils/BuildCreatorUtils"
 import { Armour, CharacterClass, CharacterStats, Talisman, Weapon, requiredAttributes } from "../types"
 import { weaponStats } from "@/public/data/WeaponCalculations/weaponStats";
 import { multipliers } from "@/public/data/WeaponCalculations/multipliers";
@@ -43,29 +43,7 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
 
 export default AttackPowerPanel
 
-function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean) {
-    const STAT_NAMES = ["vigor", "mind", "endurance", "strength", "dexterity", "intelligence", "faith", "arcane"]
-    
-    let totalStats: CharacterStats = {
-        vigor: 0,
-        mind: 0,
-        endurance: 0,
-        strength: 0,
-        dexterity: 0,
-        intelligence: 0,
-        faith: 0,
-        arcane: 0
-    }
 
-    STAT_NAMES.forEach((stat, i) => {
-        let totalLevel = +characterClass.stats[stat as keyof typeof characterStats] + characterStats[stat as keyof typeof characterStats] + getEquipmentTotalValue(armours, stat) + getEquipmentTotalValue(talismans, stat);
-        if (totalLevel > 99) totalLevel = 99;
-        if (twoHanded && stat == "strength") totalLevel *= 1.5;
-        totalStats[stat as keyof typeof totalStats] = totalLevel;
-    });
-    
-    return totalStats;
-}
 
 function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats) {
     if (!weapon) return [0];
@@ -113,7 +91,6 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
     const adjustedScalingValues = [strengthScaling, dexterityScaling, intellectScaling, faithScaling, arcaneScaling].map(value => +value.toFixed(2));
     
     const attackTypes = ["physical", "magic", "fire", "lightning", "holy"]
-    const statTypes = ["strength", "dexterity", "intelligence", "faith", "arcane"]
 
     const attackElementId = baseStats?.attackElement;
     const correctGraphIds = baseStats?.calcCorrectIds;
@@ -203,6 +180,5 @@ function calculateFinalAttack(attackElementId: string, baseValue: number, attack
             }
         }
     }
-
     return total;
 }

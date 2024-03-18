@@ -317,6 +317,11 @@ td {
 .ashes {
   height: 35px;
 }
+.requirements-text {
+  color: red;
+  font-size: 11px;
+  height: 12px;
+}
 
 input[type="checkbox"] {
   margin-right: 5px;
@@ -331,6 +336,11 @@ input[type="checkbox"] {
   font-size: 16px;
 }
 
+.two-handed-container:hover {
+  cursor: pointer;
+  user-select: none;
+}
+
 /**/
 .stats-panel div {
   display: flex;
@@ -342,7 +352,7 @@ input[type="checkbox"] {
 .attack-power-panel div {
   display: flex;
   justify-content: space-between;
-  padding: 1px 0;
+  padding: 4px 0;
 }
 
 /*styling for dropdown component*/

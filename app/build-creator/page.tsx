@@ -43,7 +43,20 @@ function BuildCreator() {
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans} armours={selectedArmours}/>
                     </div>
                     <div className="subcontainer">
-                        <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls} onTwoHandChange={setTwoHanded}/>
+                        <WeaponsPanel 
+                            weapons={weapons}
+                            ashes={ashes}
+                            affinities={affinities}
+                            characterClass={classes[classIndex]} 
+                            characterStats={characterStats}
+                            armours={selectedArmours} 
+                            talismans={selectedTalismans}
+                            onWepChange={handleWepChange}
+                            onAffChange={setSelectedAffinities}
+                            onAshChange={setSelectedAshes}
+                            onLvlChange={setSelectedWepLvls}
+                            onTwoHandChange={setTwoHanded}                             
+                        />
                         <div style={{height:"40px"}}/>
                         <div className='subcontainer2'>
                             <ArmourPanel armours={armours} onChange={setSelectedArmours} />

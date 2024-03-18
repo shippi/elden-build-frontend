@@ -63,6 +63,7 @@ export interface Armour {
 export interface Weapon {
     id: string,
     name: string,
+    type: string,
     image: string,
     requiredAttributes: requiredAttributes,
     weight: number,

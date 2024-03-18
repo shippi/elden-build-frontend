@@ -1,3 +1,5 @@
+import { CharacterClass, CharacterStats, Armour, Talisman } from "@/components/types";
+
 export function getSelectedItems(items: any[], indices: number[]) {
     let selectedItems: any[] = new Array(indices.length).fill(null);
 
@@ -52,4 +54,27 @@ export function getEquipmentTotalValue(selectedEquipment: any[], type: string) {
   });
 
   return value;
+}
+export function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean) {
+  const STAT_NAMES = ["vigor", "mind", "endurance", "strength", "dexterity", "intelligence", "faith", "arcane"]
+  
+  let totalStats: CharacterStats = {
+      vigor: 0,
+      mind: 0,
+      endurance: 0,
+      strength: 0,
+      dexterity: 0,
+      intelligence: 0,
+      faith: 0,
+      arcane: 0
+  }
+
+  STAT_NAMES.forEach((stat, i) => {
+      let totalLevel = +characterClass.stats[stat as keyof typeof characterStats] + characterStats[stat as keyof typeof characterStats] + getEquipmentTotalValue(armours, stat) + getEquipmentTotalValue(talismans, stat);
+      if (totalLevel > 99) totalLevel = 99;
+      if (twoHanded && stat == "strength") totalLevel *= 1.5;
+      totalStats[stat as keyof typeof totalStats] = totalLevel;
+  });
+  
+  return totalStats;
 }

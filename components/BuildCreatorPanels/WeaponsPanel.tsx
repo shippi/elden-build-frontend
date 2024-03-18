@@ -1,14 +1,18 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { DisabledDropDown, DropDown } from ".."
-import { getSelectedItems } from "@/utils/BuildCreatorUtils"
-import { Ash, Weapon } from "../types"
+import { getSelectedItems, getTotalStats } from "@/utils/BuildCreatorUtils"
+import { Armour, Ash, CharacterClass, CharacterStats, Talisman, Weapon } from "../types"
 import { wepLevelsData } from "@/public/data"
 
 interface Props {
     weapons: Weapon[],
     ashes: Ash[],
     affinities: any[],
+    characterClass: CharacterClass,
+    characterStats: CharacterStats,
+    armours: Armour[],
+    talismans: Talisman[],
     onWepChange: Function,
     onAffChange: Function,
     onAshChange: Function,
@@ -16,13 +20,14 @@ interface Props {
     onTwoHandChange: Function
 }
 
-function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
+function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStats, armours, talismans, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [lvlIndices, setLvlIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [currIndex, setCurrIndex] = useState(0);
     const [twoHanded, setTwoHanded] = useState(false);
+    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded);
 
     const handleWepOnChange = (newIndex: number) => {
         let newIndices = [...wepIndices];
@@ -102,6 +107,9 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                         <div className="selector" onClick={() => {setCurrIndex(j)}}>
                             <label>{"Left Armament " + (j % 3 + 1)}</label>
                             <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
+                            <div className="requirements-text">
+                            {isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : isRequiredStatsMet(weapons[wepIndices[j]], totalStats).reqMessage}
+                            </div>
                             <div className="weapon-options">
                                 <div className="ashes">
                                 { 
@@ -125,14 +133,15 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                                     }
                                 </div>
                             </div>
+                            <br/>
                         </div>
                     ))
                 }
                     
                     <div>
                         <br/>
-                        <div className="two-handed-container">
-                            <input type="checkbox" onChange={handleCheckboxChange}/>Two-Handed
+                        <div className="two-handed-container" onClick={handleCheckboxChange}>
+                            <input type="checkbox" checked={twoHanded} onChange={handleCheckboxChange}/>Two-Handed
                         </div>
                     </div>
                 </div>
@@ -143,6 +152,9 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                         <div className="selector" onClick={() => {setCurrIndex(j)}}>
                             <label>{ "Right Armament " + (j % 3 + 1)} </label>
                             <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
+                            <div className="requirements-text">
+                            {isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : isRequiredStatsMet(weapons[wepIndices[j]], totalStats).reqMessage}
+                            </div>
                             <div className="weapon-options">
                                 <div className="ashes">
                                 { 
@@ -166,7 +178,9 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                                     }
                                 </div>
                             </div>
+                            <br/>
                         </div>
+                        
                     ))
                 }
                 </div>
@@ -198,4 +212,30 @@ function getSelectedAshes(weps: Weapon[], ashes: Ash[], ashIndices: number[]) {
     })
 
     return selectedAshes;
+}
+
+function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats) {
+    const statNames = ["strength", "dexterity", "intelligence", "faith", "arcane"];
+    let isMet = true;
+    let reqMessage = "Requirements: "
+
+    if (weapon == undefined) return {isMet: isMet, reqMessage: reqMessage}
+
+    statNames.forEach((stat, i) => {
+        const wepReq = weapon.requiredAttributes[stat as keyof typeof weapon.requiredAttributes];
+        const currStat = totalStats[stat as keyof typeof totalStats]
+        
+
+        if (wepReq && currStat < wepReq) {
+            isMet = false;
+        }
+        if (wepReq) {
+            reqMessage += wepReq + "/"  
+        }
+        else {
+            reqMessage += "0/"
+        }
+    });
+    reqMessage = reqMessage.slice(0, -1);
+    return { isMet: isMet, reqMessage: reqMessage}
 }
