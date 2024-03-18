@@ -64,7 +64,7 @@ export interface Weapon {
     id: string,
     name: string,
     image: string,
-    type: string,
+    requiredAttributes: requiredAttributes,
     weight: number,
     changeAffinity: boolean,
     unique: boolean,
@@ -163,4 +163,12 @@ interface Availability {
     mediumShield: boolean,
     greatshield: boolean,
     torch: boolean
+}
+
+export interface requiredAttributes {
+    strength?: number,
+    dexterity?: number,
+    intelligence?: number,
+    faith?: number,
+    arcane?: number
 }

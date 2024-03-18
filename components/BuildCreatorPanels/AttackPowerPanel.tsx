@@ -1,10 +1,9 @@
 import { getEquipmentTotalValue } from "@/utils/BuildCreatorUtils"
-import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "../types"
+import { Armour, CharacterClass, CharacterStats, Talisman, Weapon, requiredAttributes } from "../types"
 import { weaponStats } from "@/public/data/WeaponCalculations/weaponStats";
 import { multipliers } from "@/public/data/WeaponCalculations/multipliers";
 import { calcCorrectGraph } from "@/public/data/WeaponCalculations/calcCorrectGraph";
 import { attackElementsCorrect } from "@/public/data/WeaponCalculations/attackElementCorrect";
-
 
 interface Props {
     weapons: Weapon[],
@@ -13,11 +12,12 @@ interface Props {
     characterClass: CharacterClass,
     characterStats: CharacterStats,
     armours: Armour[],
-    talismans: Talisman[]
+    talismans: Talisman[],
+    twoHanded: boolean
 }
 
-function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, armours, talismans}: Props) {
-    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans);
+function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, twoHanded, armours, talismans}: Props) {
+    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded);
 
     return (
     <div className="attack-power-panel">
@@ -43,7 +43,7 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
 
 export default AttackPowerPanel
 
-function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[]) {
+function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean) {
     const STAT_NAMES = ["vigor", "mind", "endurance", "strength", "dexterity", "intelligence", "faith", "arcane"]
     
     let totalStats: CharacterStats = {
@@ -60,10 +60,10 @@ function getTotalStats(characterClass: CharacterClass, characterStats: Character
     STAT_NAMES.forEach((stat, i) => {
         let totalLevel = +characterClass.stats[stat as keyof typeof characterStats] + characterStats[stat as keyof typeof characterStats] + getEquipmentTotalValue(armours, stat) + getEquipmentTotalValue(talismans, stat);
         if (totalLevel > 99) totalLevel = 99;
-
+        if (twoHanded && stat == "strength") totalLevel *= 1.5;
         totalStats[stat as keyof typeof totalStats] = totalLevel;
     });
-
+    
     return totalStats;
 }
 
@@ -94,6 +94,8 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
     let faithScaling = 0;
     let arcaneScaling = 0;
 
+    const baseValues = [baseStats?.basePhysical, baseStats?.baseMagic, baseStats?.baseFire, baseStats?.baseLightning, baseStats?.baseHoly] 
+
     if (wepMultipliers && baseStats) {
         physicalAtk = baseStats.basePhysical * wepMultipliers.physicalAtk;
         magicAtk = baseStats.baseMagic * wepMultipliers.magicAtk;
@@ -108,21 +110,29 @@ function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, 
     }
 
     const adjustedBaseValues = [physicalAtk, magicAtk, fireAtk, lightningAtk, holyAtk]
-    const adjustScalingValues = [strengthScaling, dexterityScaling, intellectScaling, faithScaling, arcaneScaling].map(value => +value.toFixed(2));
+    const adjustedScalingValues = [strengthScaling, dexterityScaling, intellectScaling, faithScaling, arcaneScaling].map(value => +value.toFixed(2));
     
     const attackTypes = ["physical", "magic", "fire", "lightning", "holy"]
+    const statTypes = ["strength", "dexterity", "intelligence", "faith", "arcane"]
 
     const attackElementId = baseStats?.attackElement;
     const correctGraphIds = baseStats?.calcCorrectIds;
+    const weaponReqs = weapon.requiredAttributes;
 
     if (attackElementId && correctGraphIds) {
         let finalAttackValues = [];
         
             for (let i = 0; i < correctGraphIds.length; i++) {
-                const finalAttackTypeValue = calculateFinalAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustScalingValues, correctGraphIds[i], stats)
-                finalAttackValues.push(finalAttackTypeValue);
+                
+                if (weaponReqs && baseValues[i]) {
+                    const finalAttackTypeValue = calculateFinalAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustedScalingValues, correctGraphIds[i], stats, weaponReqs);
+                    finalAttackValues.push(finalAttackTypeValue);
+                }
+                else {
+                    finalAttackValues.push(0)
+                }
+                
             }
-        
         return finalAttackValues;
     }
    
@@ -161,29 +171,38 @@ function calculateStatScaling(correctGraphId : string, statType: string, charact
             growth = 1 - ((1 - ratio) ** Math.abs(exponent))
 
         const output = (growthMin + (growthMax - growthMin) * growth) / 100;
-
         return output;
     }
 
     return 0;
 }
 
-function calculateFinalAttack(attackElementId: string, baseValue: number, attackType: string, scalingValues: number[], correctGraphId : string, characterStats: CharacterStats) {
+function calculateFinalAttack(attackElementId: string, baseValue: number, attackType: string, scalingValues: number[], correctGraphId : string, characterStats: CharacterStats, weaponReqs: requiredAttributes) {
     const statTypes = ["Strength", "Dexterity", "Intelligence", "Faith", "Arcane"];
     const attackElementCorrect = attackElementsCorrect.find(row => row.id == attackElementId);
 
     let total = baseValue;
-
+    
     if (attackElementCorrect) {
         for (let i = 0; i < statTypes.length; i++) {
-            const currStatType = statTypes[i]
+            
+            const currStatType = statTypes[i];
             if (attackElementCorrect[attackType + "ScalesOn" + currStatType as keyof typeof attackElementCorrect] == true) {
-                const statScaling = calculateStatScaling(correctGraphId, currStatType.toLowerCase(), characterStats);
-                const scalingValue = baseValue * (scalingValues[i]/100) * statScaling;
-                total += scalingValue;
+                const currReq = weaponReqs[currStatType.toLowerCase() as keyof typeof weaponReqs];
+                const currStat = characterStats[currStatType.toLowerCase() as keyof typeof characterStats];
+                if (currReq && currStat && currStat >= currReq) {
+                    const statScaling = calculateStatScaling(correctGraphId, currStatType.toLowerCase(), characterStats);
+                    const scalingValue = baseValue * (scalingValues[i]/100) * statScaling;
+                    total += scalingValue;
+                }
+                else if (currReq && currStat && currStat < currReq) {
+                    
+                    const minusValue = baseValue * -0.4;
+                    return baseValue + minusValue;
+                }  
             }
         }
     }
-    
+
     return total;
 }

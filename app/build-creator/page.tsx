@@ -13,7 +13,7 @@ function BuildCreator() {
     const [selectedAshes, setSelectedAshes] = useState<any[]>([]);
     const [selectedWepLvls, setSelectedWepLvls] = useState<any[]>([]);
     const [selectedAffinities, setSelectedAffinities] = useState<any[]>([]);
-    
+    const [twoHanded, setTwoHanded] = useState(false);
     const [characterStats, setCharacterStats] = useState<CharacterStats>({
         vigor: 0, 
         mind: 0, 
@@ -31,7 +31,7 @@ function BuildCreator() {
         setSelectedAffinities(affinities);
         setSelectedWepLvls(wepLvls);
     };
-
+    
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">
@@ -43,8 +43,8 @@ function BuildCreator() {
                     <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans} armours={selectedArmours}/>
                     </div>
                     <div className="subcontainer">
-                        <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls}/>
-                        <div style={{height:"40px"}}></div>
+                        <WeaponsPanel weapons={weapons} onWepChange={handleWepChange} ashes={ashes} affinities={affinities} onAffChange={setSelectedAffinities} onAshChange={setSelectedAshes} onLvlChange={setSelectedWepLvls} onTwoHandChange={setTwoHanded}/>
+                        <div style={{height:"40px"}}/>
                         <div className='subcontainer2'>
                             <ArmourPanel armours={armours} onChange={setSelectedArmours} />
                             <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
@@ -52,11 +52,10 @@ function BuildCreator() {
                     </div>
                     <div className="subcontainer">
                         <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
-                        <br/><br/><br/>
-                        <AttackPowerPanel weapons={selectedWeapons} affinities={selectedAffinities} wepLvls={selectedWepLvls} characterClass={classes[classIndex]} characterStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
-                        <br/><br/><br/>
+                        <div style={{height:"40px"}}/>
+                        <AttackPowerPanel weapons={selectedWeapons} affinities={selectedAffinities} wepLvls={selectedWepLvls} characterClass={classes[classIndex]} characterStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} twoHanded={twoHanded} />
+                        <div style={{height:"40px"}}/>
                         <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
-
                     </div>  
                 </div>
             </div>

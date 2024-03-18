@@ -12,23 +12,23 @@ interface Props {
     onWepChange: Function,
     onAffChange: Function,
     onAshChange: Function,
-    onLvlChange: Function
+    onLvlChange: Function,
+    onTwoHandChange: Function
 }
 
-function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onAshChange, onLvlChange} : Props) {
+function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [lvlIndices, setLvlIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [currIndex, setCurrIndex] = useState(0);
+    const [twoHanded, setTwoHanded] = useState(false);
 
     const handleWepOnChange = (newIndex: number) => {
         let newIndices = [...wepIndices];
         newIndices[currIndex] = newIndex;
         const selectedWeapons = getSelectedItems(weapons, newIndices);
         setWepIndices(newIndices);
-
-        
 
         let newAffIndices = [...affIndices];
         newAffIndices[currIndex] = 0;
@@ -49,7 +49,6 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
             newAshIndices[currIndex] = currentAshIndex;
             setAshIndices(newAshIndices);
             selectedAshes = getSelectedAshes(selectedWeapons, ashes, newAshIndices);
-            console.log(availableAshes)
         }
         else {
             selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);  
@@ -87,6 +86,12 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
         const selectedLvls = getSelectedItems(wepLevelsData, newIndices).map(lvl => +lvl.name.substring(1));
         onLvlChange(selectedLvls);
     }
+
+    const handleCheckboxChange = () => {
+        setTwoHanded(!twoHanded);
+        onTwoHandChange(!twoHanded);
+    }
+
     return (
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
@@ -126,7 +131,9 @@ function WeaponsPanel({weapons, ashes, affinities, onWepChange, onAffChange, onA
                     
                     <div>
                         <br/>
-                        Two-Handed
+                        <div className="two-handed-container">
+                            <input type="checkbox" onChange={handleCheckboxChange}/>Two-Handed
+                        </div>
                     </div>
                 </div>
                 <div className="selectors-container">

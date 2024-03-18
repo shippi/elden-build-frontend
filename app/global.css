@@ -191,7 +191,6 @@ a:hover {
 .subcontainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 20px 20px 20px 0;
 }
 
@@ -317,6 +316,19 @@ td {
 .levels,
 .ashes {
   height: 35px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+  height: 18px;
+  width: 18px;
+  accent-color: var(--gold);
+}
+
+.two-handed-container {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 }
 
 /**/
