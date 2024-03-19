@@ -25,6 +25,8 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
     // state for the value in the number input
     const [value, setValue] = useState((+initialValue + addedValue).toString());
 
+    const totalValue = calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type)).toString();
+
     // useEffect hook to update component when initialValue prop has changed.
     // this will reset the value and change it depending on selected class
     useEffect(() => {
@@ -100,8 +102,8 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
                 </button>
             </div>
         </div>
-        <div style={{width: "40px", textAlign:"right"}}>
-            { calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type)) }
+        <div style={{width: "40px", textAlign:"right"}} className={totalValue != value ? "adjusted" : ""}>
+            { totalValue }
         </div>
       </div>
     )

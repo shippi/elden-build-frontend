@@ -522,6 +522,10 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+.adjusted {
+  color: var(--gold);
+}
+
 /*animation keyframes*/
 @keyframes rise {
   from {
