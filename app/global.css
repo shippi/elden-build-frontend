@@ -12,7 +12,7 @@
 }
 
 :root {
-  --bg-img: url('./../public/background4.png');
+  --bg-img: url('./../public/hero-bg.png');
   --bg-color: #1c1c1c;
   --panel-color: #1a1a1a;
   --gold: #edc947;
@@ -104,6 +104,7 @@ a:hover {
   padding-top: 1%;
   margin: auto;
   width: 70vw;
+  min-width: 1700px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -165,9 +166,9 @@ a:hover {
   flex-direction: column;
   
   width: 100%;
-  height: calc(100vh + 200px);
+  height: calc(100vh + 300px);
   background-image: linear-gradient(to top, #1c1c1c00, #1c1c1cFF), 
-  url('./../public/background5.png');
+  url('./../public/builder-bg.png');
 
   background-size: cover;
 }
@@ -334,9 +335,11 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   font-size: 16px;
+  width: fit-content;
 }
 
-.two-handed-container:hover {
+.two-handed-container:hover,
+.two-handed-container *:hover {
   cursor: pointer;
   user-select: none;
 }

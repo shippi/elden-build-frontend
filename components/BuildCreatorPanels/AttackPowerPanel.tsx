@@ -1,9 +1,7 @@
-import { getEquipmentTotalValue, getTotalStats } from "@/utils/BuildCreatorUtils"
+import { getTotalStats } from "@/utils/BuildCreatorUtils"
 import { Armour, CharacterClass, CharacterStats, Talisman, Weapon, requiredAttributes } from "../types"
-import { weaponStats } from "@/public/data/WeaponCalculations/weaponStats";
-import { multipliers } from "@/public/data/WeaponCalculations/multipliers";
-import { calcCorrectGraph } from "@/public/data/WeaponCalculations/calcCorrectGraph";
-import { attackElementsCorrect } from "@/public/data/WeaponCalculations/attackElementCorrect";
+import { attackElementsCorrect, calcCorrectGraph, multipliers, weaponStats } from "@/public/data";
+
 
 interface Props {
     weapons: Weapon[],

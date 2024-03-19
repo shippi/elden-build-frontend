@@ -38,9 +38,14 @@ function BuildCreator() {
                 
                 <div className="panels-container">    
                 <h1>ELDEN RING BUILD CREATOR</h1>
-                    
                     <div className="subcontainer">
-                    <CharacterPanel classes={classes} index={classIndex} onChange={setClassIndex} onStatChange={setCharacterStats} talismans={selectedTalismans} armours={selectedArmours}/>
+                    <CharacterPanel 
+                        classes={classes} 
+                        index={classIndex} 
+                        onChange={setClassIndex} 
+                        onStatChange={setCharacterStats} 
+                        talismans={selectedTalismans} 
+                        armours={selectedArmours} />
                     </div>
                     <div className="subcontainer">
                         <WeaponsPanel 
@@ -64,15 +69,32 @@ function BuildCreator() {
                         </div>
                     </div>
                     <div className="subcontainer">
-                        <StatsPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} weapons={selectedWeapons} talismans={selectedTalismans} />
+                        <StatsPanel 
+                            characterClass={classes[classIndex]} 
+                            characterLevelStats={characterStats} 
+                            armours={selectedArmours} 
+                            weapons={selectedWeapons} 
+                            talismans={selectedTalismans} />
                         <div style={{height:"40px"}}/>
-                        <AttackPowerPanel weapons={selectedWeapons} affinities={selectedAffinities} wepLvls={selectedWepLvls} characterClass={classes[classIndex]} characterStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} twoHanded={twoHanded} />
+                        <AttackPowerPanel 
+                            weapons={selectedWeapons} 
+                            affinities={selectedAffinities} 
+                            wepLvls={selectedWepLvls} 
+                            characterClass={classes[classIndex]} 
+                            characterStats={characterStats} 
+                            armours={selectedArmours} 
+                            talismans={selectedTalismans} 
+                            twoHanded={twoHanded} />
                         <div style={{height:"40px"}}/>
-                        <DefencesPanel characterClass={classes[classIndex]} characterLevelStats={characterStats} armours={selectedArmours} talismans={selectedTalismans} />
+                        <DefencesPanel 
+                            characterClass={classes[classIndex]} 
+                            characterLevelStats={characterStats} 
+                            armours={selectedArmours} 
+                            talismans={selectedTalismans} />
                     </div>  
                 </div>
             </div>
-        )
+        );
     }
     else {
         return (

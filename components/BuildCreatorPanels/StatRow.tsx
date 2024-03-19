@@ -100,7 +100,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
                 </button>
             </div>
         </div>
-        <div className="number-input">
+        <div style={{width: "40px", textAlign:"right"}}>
             { calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type)) }
         </div>
       </div>

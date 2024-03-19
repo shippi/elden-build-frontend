@@ -1,10 +1,14 @@
-import { talismansData } from "./talismans";
-import { armorsData } from "./armors";
-import { ashesData } from "./ashes";
-import { weaponsData } from "./weapons";
-import { classesData } from "./classes";
-import { affinitiesData } from "./affinities";
-import { wepLevelsData } from "./wepLevels";
+import { talismansData } from "./Equipment/talismans";
+import { armorsData } from "./Equipment/armors";
+import { ashesData } from "./Equipment/ashes";
+import { weaponsData } from "./Equipment/weapons";
+import { classesData } from "./Equipment/classes";
+import { affinitiesData } from "./Equipment/affinities";
+import { wepLevelsData } from "./Equipment/wepLevels";
+import { attackElementsCorrect } from "./WeaponCalculations/attackElementCorrect";
+import { calcCorrectGraph } from "./WeaponCalculations/calcCorrectGraph";
+import { multipliers } from "./WeaponCalculations/multipliers";
+import { weaponStats } from "./WeaponCalculations/weaponStats";
 
 export {
     talismansData,
@@ -13,5 +17,9 @@ export {
     weaponsData,
     classesData,
     affinitiesData,
-    wepLevelsData
+    wepLevelsData,
+    attackElementsCorrect,
+    calcCorrectGraph,
+    multipliers,
+    weaponStats
 }

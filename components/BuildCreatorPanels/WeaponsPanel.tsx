@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { DisabledDropDown, DropDown } from ".."
 import { getSelectedItems, getTotalStats } from "@/utils/BuildCreatorUtils"
 import { Armour, Ash, CharacterClass, CharacterStats, Talisman, Weapon } from "../types"
@@ -27,7 +27,9 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
     const [lvlIndices, setLvlIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [currIndex, setCurrIndex] = useState(0);
     const [twoHanded, setTwoHanded] = useState(false);
+
     const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded);
+    const selectorPanels = [];
 
     const handleWepOnChange = (newIndex: number) => {
         let newIndices = [...wepIndices];
@@ -97,93 +99,59 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
         onTwoHandChange(!twoHanded);
     }
 
+    for (let i = 0; i < 2; i++) {
+        const condition = (i: number, j:number) => {
+            if (i == 0) return j < 3;
+            else return j >= 3;
+        }
+
+        selectorPanels.push(wepIndices.map((value, j) => (
+            condition(i, j) &&
+            <div className="selector" onClick={() => {setCurrIndex(j)}}>
+                <label>{j < 3 ? "Left Armament " + (j % 3 + 1) : "Right Armament " + (j % 3 + 1)}</label>
+                <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
+                <div className="requirements-text">
+                {isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : isRequiredStatsMet(weapons[wepIndices[j]], totalStats).reqMessage}
+                </div>
+                <div className="weapon-options">
+                    <div className="ashes">
+                    { 
+                        weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
+                        wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
+                        <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
+                    }
+                    </div>
+                    <div className="affinity">
+                        {
+                            weapons[wepIndices[j]]?.changeAffinity ?
+                            <DropDown items={affinities} index={affIndices[j]} isNullable={false} hasImages={false} onChange={handleAffOnChange} /> :
+                            <DisabledDropDown value={"Affinity"} />
+                        }
+                    </div>
+                    <div className="levels">
+                        {
+                            wepIndices[j] > -1 && !weapons[wepIndices[j]]?.unique ? <DropDown items={wepLevelsData} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                            wepIndices[j] > -1 && weapons[wepIndices[j]].unique ? <DropDown items={wepLevelsData.slice(0, 11)} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                            <DisabledDropDown value={"+0"} />
+                        }
+                    </div>
+                </div>
+                <br/>
+            </div>
+        )));
+    }
+
     return (
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
                 <div className="selectors-container">
-                {
-                    wepIndices.map((i, j) => (
-                        j < 3 &&
-                        <div className="selector" onClick={() => {setCurrIndex(j)}}>
-                            <label>{"Left Armament " + (j % 3 + 1)}</label>
-                            <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
-                            <div className="requirements-text">
-                            {isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : isRequiredStatsMet(weapons[wepIndices[j]], totalStats).reqMessage}
-                            </div>
-                            <div className="weapon-options">
-                                <div className="ashes">
-                                { 
-                                    weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
-                                    wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
-                                    <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
-                                }
-                                </div>
-                                <div className="affinity">
-                                    {
-                                        weapons[wepIndices[j]]?.changeAffinity ?
-                                        <DropDown items={affinities} index={affIndices[j]} isNullable={false} hasImages={false} onChange={handleAffOnChange} /> :
-                                        <DisabledDropDown value={"Affinity"} />
-                                    }
-                                </div>
-                                <div className="levels">
-                                    {
-                                        wepIndices[j] > -1 && !weapons[wepIndices[j]]?.unique ? <DropDown items={wepLevelsData} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
-                                        wepIndices[j] > -1 && weapons[wepIndices[j]].unique ? <DropDown items={wepLevelsData.slice(0, 11)} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
-                                        <DisabledDropDown value={"+0"} />
-                                    }
-                                </div>
-                            </div>
-                            <br/>
-                        </div>
-                    ))
-                }
-                    
-                    <div>
-                        <br/>
-                        <div className="two-handed-container" onClick={handleCheckboxChange}>
-                            <input type="checkbox" checked={twoHanded} onChange={handleCheckboxChange}/>Two-Handed
-                        </div>
+                    { selectorPanels[0] } <br/>  
+                    <div className="two-handed-container" onClick={handleCheckboxChange}>
+                        <input type="checkbox" checked={twoHanded} onChange={handleCheckboxChange}/>
+                        Two-Handed
                     </div>
                 </div>
-                <div className="selectors-container">
-                {
-                    wepIndices.map((i, j) => (
-                        j >= 3 &&
-                        <div className="selector" onClick={() => {setCurrIndex(j)}}>
-                            <label>{ "Right Armament " + (j % 3 + 1)} </label>
-                            <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
-                            <div className="requirements-text">
-                            {isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : isRequiredStatsMet(weapons[wepIndices[j]], totalStats).reqMessage}
-                            </div>
-                            <div className="weapon-options">
-                                <div className="ashes">
-                                { 
-                                    weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
-                                    wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
-                                    <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
-                                }
-                                </div>
-                                <div className="affinity">
-                                    {
-                                        weapons[wepIndices[j]]?.changeAffinity ?
-                                        <DropDown items={affinities} index={affIndices[j]} isNullable={false} hasImages={false} onChange={handleAffOnChange} /> :
-                                        <DisabledDropDown value={"Affinity"} />
-                                    }
-                                </div>
-                                <div className="levels">
-                                    {
-                                        wepIndices[j] > -1 && !weapons[wepIndices[j]]?.unique ? <DropDown items={wepLevelsData} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
-                                        wepIndices[j] > -1 && weapons[wepIndices[j]].unique ? <DropDown items={wepLevelsData.slice(0, 11)} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
-                                        <DisabledDropDown value={"+0"} />
-                                    }
-                                </div>
-                            </div>
-                            <br/>
-                        </div>
-                        
-                    ))
-                }
-                </div>
+                <div className="selectors-container"> { selectorPanels[1] } </div>
         </div>
     )
 }
@@ -215,27 +183,21 @@ function getSelectedAshes(weps: Weapon[], ashes: Ash[], ashIndices: number[]) {
 }
 
 function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats) {
+    if (weapon == undefined) return {isMet: false, reqMessage: null};
+
     const statNames = ["strength", "dexterity", "intelligence", "faith", "arcane"];
     let isMet = true;
     let reqMessage = "Requirements: "
 
-    if (weapon == undefined) return {isMet: isMet, reqMessage: reqMessage}
-
     statNames.forEach((stat, i) => {
         const wepReq = weapon.requiredAttributes[stat as keyof typeof weapon.requiredAttributes];
-        const currStat = totalStats[stat as keyof typeof totalStats]
+        const currStat = totalStats[stat as keyof typeof totalStats];
         
+        if (wepReq && currStat < wepReq) isMet = false;
 
-        if (wepReq && currStat < wepReq) {
-            isMet = false;
-        }
-        if (wepReq) {
-            reqMessage += wepReq + "/"  
-        }
-        else {
-            reqMessage += "0/"
-        }
+        if (wepReq) reqMessage += wepReq + "/";
+        else  reqMessage += "0/";
     });
-    reqMessage = reqMessage.slice(0, -1);
-    return { isMet: isMet, reqMessage: reqMessage}
+
+    return { isMet: isMet, reqMessage: reqMessage.slice(0, -1)};
 }
