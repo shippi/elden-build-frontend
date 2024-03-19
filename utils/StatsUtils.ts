@@ -1,11 +1,8 @@
 import { CharacterClass, CharacterStats, Talisman, Armour, Weapon } from "@/app/types";
-import { calculateLevel } from "./BuildCreatorUtils";
+import { calculateLevel, getEquipmentValues } from "./BuildCreatorUtils";
 
-export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-    const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, talismans.map(talisman => {
-      if (talisman && talisman.statChanges?.vigor) return talisman.statChanges?.vigor;
-      else return 0;
-    }));
+export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
+    const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, getEquipmentValues(talismans, "vigor"), getEquipmentValues(armours, "vigor"));
   
     let hp = 0;
     if (vigorLevel < 26) {
@@ -26,15 +23,16 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxHp != null) hp *= talisman.statChanges.maxHp;
     });
-  
+
+    armours.forEach(armour => {
+        if (armour && armour.statChanges?.maxHp != null) hp *= armour.statChanges.maxHp;
+    });
+    
     return Math.floor(hp);
   }
   
-  export function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-    const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, talismans.map(talisman => {
-      if (talisman && talisman.statChanges?.mind) return talisman.statChanges?.mind;
-      else return 0;
-    }));
+  export function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
+    const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, getEquipmentValues(talismans, "mind"), getEquipmentValues(armours, "mind"));
   
     let fp = 0;
     if (mindLevel < 16) {
@@ -55,15 +53,15 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxFp != null) fp *= talisman.statChanges.maxFp;
     });
-  
+
+    armours.forEach(armour => {
+        if (armour && armour.statChanges?.maxFp != null) fp *= armour.statChanges.maxFp;
+    });
     return Math.floor(fp);
   }
   
-  export function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, talismans.map(talisman => {
-      if (talisman && talisman.statChanges?.endurance) return talisman.statChanges?.endurance;
-      else return 0;
-    }));
+  export function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
+    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), getEquipmentValues(armours, "endurance"));
   
     let stamina = 0;
     if (enduranceLevel < 16) {
@@ -84,7 +82,11 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxStamina != null) stamina *= talisman.statChanges.maxStamina;
     });
-  
+
+    armours.forEach(armour => {
+        if (armour && armour.statChanges?.maxStamina != null) stamina *= armour.statChanges.maxStamina;
+    });
+
     return Math.floor(stamina);
   }
   

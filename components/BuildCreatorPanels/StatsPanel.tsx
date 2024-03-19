@@ -10,9 +10,9 @@ interface Props {
 }
 
 function StatsPanel({characterClass, characterLevelStats, armours, weapons, talismans} : Props) {
-  const hp = calculateHP(characterClass, characterLevelStats, talismans);
-  const fp = calculateFP(characterClass, characterLevelStats, talismans);
-  const stamina = calculateStamina(characterClass, characterLevelStats, talismans);
+  const hp = calculateHP(characterClass, characterLevelStats, talismans, armours);
+  const fp = calculateFP(characterClass, characterLevelStats, talismans, armours);
+  const stamina = calculateStamina(characterClass, characterLevelStats, talismans, armours);
   const equipLoad = calculateEquipLoad(characterClass, characterLevelStats, talismans);
   const totalWeight = calculateWeight(armours, talismans, weapons);
   const weightRatio = getWeightRatio(totalWeight, equipLoad);
