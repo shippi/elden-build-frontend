@@ -68,7 +68,7 @@ function BuildCreator() {
                             <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
                         </div>
                     </div>
-                    <div className="subcontainer">
+                    <div className="subcontainer" >
                         <StatsPanel 
                             characterClass={classes[classIndex]} 
                             characterLevelStats={characterStats} 
