@@ -103,6 +103,14 @@ export interface Multipliers {
     arcaneScaling: number;
 }
 
+export interface requiredAttributes {
+    strength?: number,
+    dexterity?: number,
+    intelligence?: number,
+    faith?: number,
+    arcane?: number
+}
+
 interface StatChange {
     maxHp?: number,
     maxFp?: number,
@@ -164,12 +172,4 @@ interface Availability {
     mediumShield: boolean,
     greatshield: boolean,
     torch: boolean
-}
-
-export interface requiredAttributes {
-    strength?: number,
-    dexterity?: number,
-    intelligence?: number,
-    faith?: number,
-    arcane?: number
 }

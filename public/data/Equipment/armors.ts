@@ -1,4 +1,4 @@
-export const armorsData = [
+export const armorsData =[
   {
     "id": "40000",
     "name": "Iron Helmet",
@@ -2775,7 +2775,7 @@ export const armorsData = [
     "id": "291100",
     "name": "Nox Monk Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d2/Nox_Monk_Armor_%28Altered%29_-_MENU_Knowledge_13401.png/",
+    "image": "https://static.wikia.nocookie.net/eldenring/images/6/66/ER_Icon_Armor_Nox_Monk_Armor_%28Altered%29.png/",
     "dmgNegation": {
       "physical": 8.6,
       "strike": 9.3,
@@ -3131,6 +3131,9 @@ export const armorsData = [
       "vitality": 42
     },
     "poise": 12,
+    "statChanges": {
+      "maxEquipLoad": 0
+    },
     "weight": 6.3
   },
   {
@@ -3162,7 +3165,7 @@ export const armorsData = [
     "id": "311100",
     "name": "Gravekeeper Cloak (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/93/ER_Icon_Armor_Gravekeeper_Cloak_(Altered)_Type_A.png/",
+    "image": "https://static.wikia.nocookie.net/eldenring/images/2/23/ER_Icon_Armor_Gravekeeper_Cloak_%28Altered%29_Type_B.png/",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 8,
@@ -5557,102 +5560,6 @@ export const armorsData = [
     "weight": 12.8
   },
   {
-    "id": "610000",
-    "name": "Ragged Hat",
-    "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a2/ER_Icon_Armor_Ragged_Hat.png/",
-    "dmgNegation": {
-      "physical": 3.1,
-      "strike": 3.4,
-      "slash": 3.1,
-      "pierce": 3.1,
-      "magic": 3.6,
-      "fire": 3.8,
-      "lightning": 4,
-      "holy": 3.6
-    },
-    "resistances": {
-      "immunity": 26,
-      "robustness": 16,
-      "focus": 22,
-      "vitality": 22
-    },
-    "poise": 4,
-    "weight": 3.3
-  },
-  {
-    "id": "610100",
-    "name": "Ragged Armor",
-    "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/61/ER_Icon_Armor_Ragged_Armor.png/",
-    "dmgNegation": {
-      "physical": 9.5,
-      "strike": 10.2,
-      "slash": 9.5,
-      "pierce": 9.5,
-      "magic": 10.9,
-      "fire": 11.4,
-      "lightning": 11.9,
-      "holy": 10.9
-    },
-    "resistances": {
-      "immunity": 63,
-      "robustness": 42,
-      "focus": 55,
-      "vitality": 55
-    },
-    "poise": 17,
-    "weight": 9.2
-  },
-  {
-    "id": "610200",
-    "name": "Ragged Gloves",
-    "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0e/ER_Icon_Armor_Ragged_Gloves.png/",
-    "dmgNegation": {
-      "physical": 2.3,
-      "strike": 2.5,
-      "slash": 2.3,
-      "pierce": 2.3,
-      "magic": 2.7,
-      "fire": 2.8,
-      "lightning": 2.9,
-      "holy": 2.7
-    },
-    "resistances": {
-      "immunity": 21,
-      "robustness": 14,
-      "focus": 18,
-      "vitality": 18
-    },
-    "poise": 4,
-    "weight": 2.9
-  },
-  {
-    "id": "610300",
-    "name": "Ragged Loincloth",
-    "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a2/ER_Icon_Armor_Ragged_Loincloth.png/",
-    "dmgNegation": {
-      "physical": 4,
-      "strike": 4.5,
-      "slash": 4,
-      "pierce": 4,
-      "magic": 5,
-      "fire": 5.4,
-      "lightning": 5.8,
-      "holy": 5
-    },
-    "resistances": {
-      "immunity": 34,
-      "robustness": 20,
-      "focus": 26,
-      "vitality": 26
-    },
-    "poise": 3,
-    "weight": 3.1
-  },
-  {
     "id": "620000",
     "name": "Prophet Blindfold",
     "category": "Head",
@@ -7793,6 +7700,11 @@ export const armorsData = [
     },
     "poise": 6,
     "effect": "Greatly increases intelligence to the detriment of HP and stamina",
+    "statChanges": {
+      "maxHp": 0.91,
+      "maxStamina": 0.91,
+      "intelligence": 6
+    },
     "weight": 5.1
   },
   {
@@ -7890,6 +7802,10 @@ export const armorsData = [
     },
     "poise": 6,
     "effect": "Increases intelligence to the detriment of HP",
+    "statChanges": {
+      "maxHp": 0.91,
+      "intelligence": 3
+    },
     "weight": 5.1
   },
   {
@@ -7915,6 +7831,11 @@ export const armorsData = [
     },
     "poise": 6,
     "effect": "Increases intelligence and dexterity to the detriment of HP",
+    "statChanges": {
+      "maxHp": 0.82,
+      "dexterity": 3,
+      "intelligence": 3
+    },
     "weight": 5.1
   },
   {
@@ -7940,6 +7861,10 @@ export const armorsData = [
     },
     "poise": 6,
     "effect": "Increases intelligence to the detriment of stamina",
+    "statChanges": {
+      "maxStamina": 0.91,
+      "intelligence": 3
+    },
     "weight": 5.1
   },
   {
@@ -7965,6 +7890,11 @@ export const armorsData = [
     },
     "poise": 6,
     "effect": "Increases intelligence and arcane to the detriment of stamina",
+    "statChanges": {
+      "maxStamina": 0.82,
+      "intelligence": 3,
+      "arcane": 3
+    },
     "weight": 5.1
   },
   {
@@ -9036,6 +8966,12 @@ export const armorsData = [
     },
     "poise": 15,
     "effect": "Strengthens jump attacks",
+    "statChanges": {
+      "magicDmg": 1.1,
+      "fireDmg": 1.1,
+      "lightningDmg": 1.1,
+      "holyDmg": 1.1
+    },
     "weight": 7.7
   },
   {
@@ -10578,7 +10514,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increases intelligence",
+    "effect": "Increase intelligence",
     "statChanges": {
       "intelligence": 2
     },
@@ -10606,7 +10542,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increases strength",
+    "effect": "Increase strength",
     "statChanges": {
       "strength": 2
     },
@@ -10634,7 +10570,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increases dexterity",
+    "effect": "Increase dexterity",
     "statChanges": {
       "dexterity": 2
     },
@@ -10662,6 +10598,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
+    "effect": "Increase faith",
     "statChanges": {
       "faith": 2
     },
@@ -10689,7 +10626,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increases endurance",
+    "effect": "Increase endurance",
     "statChanges": {
       "endurance": 2
     },
@@ -10717,7 +10654,7 @@ export const armorsData = [
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increases arcane",
+    "effect": "Increase arcane",
     "statChanges": {
       "arcane": 2
     },
@@ -13354,7 +13291,7 @@ export const armorsData = [
   {
     "id": "1940100",
     "name": "Fia's Robe",
-    "category": "Head",
+    "category": "Chest",
     "image": "https://static.wikia.nocookie.net/eldenring/images/6/6f/ER_Icon_Armor_Fia%27s_Robe.png/",
     "dmgNegation": {
       "physical": 5.3,
@@ -13378,7 +13315,7 @@ export const armorsData = [
   {
     "id": "1941100",
     "name": "Fia's Robe (Altered)",
-    "category": "Head",
+    "category": "Chest",
     "image": "https://static.wikia.nocookie.net/eldenring/images/5/50/ER_Icon_Armor_Fia%27s_Robe_%28Altered%29.png/",
     "dmgNegation": {
       "physical": 2.7,
@@ -13595,8 +13532,6 @@ export const armorsData = [
   {
     "id": "2000300",
     "name": "Rotten Duelist Greaves",
-    "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Rotten_Duelist_Greaves.png/",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.2,
@@ -13621,7 +13556,7 @@ export const armorsData = [
     "id": "2001100",
     "name": "Rotten Gravekeeper Cloak (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a2/ER_Icon_Armor_Rotten_Gravekeeper_Cloak_(Altered)_Type_A.png/",
+    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c9/ER_Icon_Armor_Rotten_Gravekeeper_Cloak_%28Altered%29_Type_B.png/",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.1,

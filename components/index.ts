@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import DropDown from "./DropDown";
 import DisabledDropDown from "./DisabledDropDown";
 import Loading from "./Loading";
-import StatRow from "./BuildCreatorPanels/StatRow";
+import StatRow from "./StatRow";
 import CharacterPanel from "./BuildCreatorPanels/CharacterPanel";
 import ArmourPanel from "./BuildCreatorPanels/ArmourPanel";
 import TalismansPanel from "./BuildCreatorPanels/TalismansPanel";
