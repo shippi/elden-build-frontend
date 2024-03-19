@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Talisman, Armour, Weapon } from "@/app/types";
+import { CharacterClass, CharacterStats, Talisman, Armour, Weapon } from "@/utils/types";
 import { calculateLevel, getEquipmentValues } from "./BuildCreatorUtils";
 
 export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {

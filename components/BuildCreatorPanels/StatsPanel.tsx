@@ -1,4 +1,4 @@
-import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/app/types"
+import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/utils/types"
 import { calculateHP, calculateFP, calculateStamina, calculateEquipLoad, calculateDiscovery, calculatePoise, calculateWeight, getWeightRatio } from "@/utils/StatsUtils";
 
 interface Props {

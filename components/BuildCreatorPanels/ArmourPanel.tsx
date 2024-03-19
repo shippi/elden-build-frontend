@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
 import { DropDown } from ".."
-import { Armour } from "@/app/types"
+import { Armour } from "@/utils/types"
 import { getSelectedArmours } from "@/utils/ArmourUtils"
 
 interface Props {

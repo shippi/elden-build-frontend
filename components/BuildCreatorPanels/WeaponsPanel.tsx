@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { DisabledDropDown, DropDown } from ".."
 import { getSelectedItems, getTotalStats } from "@/utils/BuildCreatorUtils"
-import { Armour, Ash, CharacterClass, CharacterStats, Talisman, Weapon } from "../../app/types"
+import { Armour, Ash, CharacterClass, CharacterStats, Talisman, Weapon } from "../../utils/types"
 import { wepLevelsData } from "@/public/data"
 import { getAshIndex, getAvailableAshes, getSelectedAshes, isRequiredStatsMet } from "@/utils/WeaponsUtils"
 

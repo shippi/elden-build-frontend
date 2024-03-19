@@ -1,5 +1,5 @@
 import { getTotalStats } from "@/utils/BuildCreatorUtils"
-import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/app/types"
+import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/utils/types"
 import { calculateAttackPower } from "@/utils/AttackPowerUtils";
 
 interface Props {

@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
-import { CharacterStats } from '@/app/types';
+import { CharacterStats } from '@/utils/types';
 
 function BuildCreator() {
     const {classes, armours, talismans, weapons, ashes, affinities, isLoading, error} = useFetchAllItems();

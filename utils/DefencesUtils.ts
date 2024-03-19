@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Armour, Talisman } from "@/app/types";
+import { CharacterClass, CharacterStats, Armour, Talisman } from "@/utils/types";
 
 export function calculateLevel(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
     const level = +characterClass.stats.level + +characterLevelStats.vigor + +characterLevelStats.mind + 

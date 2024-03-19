@@ -1,4 +1,4 @@
-import { Armour, CharacterClass, Talisman } from '@/app/types'
+import { Armour, CharacterClass, Talisman } from '@/utils/types'
 import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/utils/DefencesUtils'
 
 interface Props {

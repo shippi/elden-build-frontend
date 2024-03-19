@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { DropDown, StatRow } from '..'
-import { Armour, CharacterClass, Talisman } from '@/app/types'
+import { Armour, CharacterClass, Talisman } from '@/utils/types'
 
 interface Props {
     classes: CharacterClass[],

@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Armour, Talisman } from "@/app/types";
+import { CharacterClass, CharacterStats, Armour, Talisman } from "@/utils/types";
 
 export function getSelectedItems(items: any[], indices: number[]) {
     let selectedItems: any[] = new Array(indices.length).fill(null);
