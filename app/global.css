@@ -240,7 +240,7 @@ a:hover {
 
 .panel-title img {
   width: 28px;
-  margin-right: 6px;
+  margin-right: 7px;
 }
 
 /*styling for the character panel component*/
@@ -301,7 +301,7 @@ td {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  column-gap: 30px;
+ width: 100%;
 }
 
 .selector:not(:last-child) {
