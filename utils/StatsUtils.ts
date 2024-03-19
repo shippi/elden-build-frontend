@@ -1,9 +1,20 @@
 import { CharacterClass, CharacterStats, Talisman, Armour, Weapon } from "@/utils/types";
 import { calculateLevel, getEquipmentValues } from "./BuildCreatorUtils";
 
+/**
+ * Calculates the total HP value based on total vigor level, and talismans and armour effects.
+ * All calculations, including further functions are based directly on how it is done in-game.
+ * @param characterClass 
+ * @param characterLevelStats 
+ * @param talismans 
+ * @param armours 
+ * @returns 
+ */
 export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
+    // calculates total vigor level as vigor stat is used to calculate base HP
     const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, getEquipmentValues(talismans, "vigor"), getEquipmentValues(armours, "vigor"));
   
+    // if-else block to determine base hp from vigor. Certain level cutoffs use different type of scaling
     let hp = 0;
     if (vigorLevel < 26) {
       hp = 300 + 500*(((vigorLevel-1)/24)**1.5);
@@ -18,12 +29,12 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
       hp = 1900 + 200*(1 - (1 - ((vigorLevel - 60)/39))**1.2);
     }
   
-    hp = Math.floor(hp);
+    hp = Math.floor(hp); 
   
+    // applies effects from talismans and armours. These effects affect the max hp rather than vigor level.
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxHp != null) hp *= talisman.statChanges.maxHp;
     });
-
     armours.forEach(armour => {
         if (armour && armour.statChanges?.maxHp != null) hp *= armour.statChanges.maxHp;
     });
@@ -31,6 +42,15 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     return Math.floor(hp);
   }
   
+  /**
+   * Calculates the total FP value based on total mind level, and talismans and armour effects.
+   * Entirely different function is made due to different level cutoffs and scaling compared to calculateHP function.
+   * @param characterClass 
+   * @param characterLevelStats 
+   * @param talismans 
+   * @param armours 
+   * @returns 
+   */
   export function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
     const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, getEquipmentValues(talismans, "mind"), getEquipmentValues(armours, "mind"));
   
@@ -53,13 +73,21 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxFp != null) fp *= talisman.statChanges.maxFp;
     });
-
     armours.forEach(armour => {
         if (armour && armour.statChanges?.maxFp != null) fp *= armour.statChanges.maxFp;
     });
+
     return Math.floor(fp);
   }
-  
+
+  /**
+   * Calculates the total stamina value based on total endurance level, and talismans and armour effects.
+   * @param characterClass 
+   * @param characterLevelStats 
+   * @param talismans 
+   * @param armours 
+   * @returns 
+   */
   export function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
     const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), getEquipmentValues(armours, "endurance"));
   
@@ -82,7 +110,6 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxStamina != null) stamina *= talisman.statChanges.maxStamina;
     });
-
     armours.forEach(armour => {
         if (armour && armour.statChanges?.maxStamina != null) stamina *= armour.statChanges.maxStamina;
     });
@@ -90,24 +117,24 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     return Math.floor(stamina);
   }
   
+  /**
+   * Calculates the max equip load value based on total endurance level, and talismans effects.
+   * Does not take into account armour effects, since no armour exists that affects max equip load.
+   * Uses same stat used for stamina, but has entirely different level cut offs and scaling.
+   * @param characterClass 
+   * @param characterLevelStats 
+   * @param talismans 
+   * @returns 
+   */
   export function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, talismans.map(talisman => {
-      if (talisman && talisman.statChanges?.endurance) return talisman.statChanges?.endurance;
-      else return 0;
-    }));
+    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"));
   
     let equipLoad = 0;
     
-    if (enduranceLevel < 26) {
-      equipLoad = 45 + 27*((enduranceLevel - 8)/17);
-    }
-    else if (enduranceLevel < 61) {
-      equipLoad = 72 + 48*(((enduranceLevel - 25)/35)**1.1);
-    }
-    else {
-      equipLoad = 120 + 40*((enduranceLevel - 60)/39);
-    }
-  
+    if (enduranceLevel < 26) equipLoad = 45 + 27*((enduranceLevel - 8)/17);
+    else if (enduranceLevel < 61) equipLoad = 72 + 48*(((enduranceLevel - 25)/35)**1.1);
+    else equipLoad = 120 + 40*((enduranceLevel - 60)/39);
+
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxEquipLoad != null) equipLoad *= talisman.statChanges.maxEquipLoad;
     });
@@ -115,6 +142,14 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     return equipLoad;
   }
   
+  /**
+   * Calculates the sum of weights for selected armours, talismans and weapons.
+   * These equipment types are the only ones that affect weight.
+   * @param armours 
+   * @param talismans 
+   * @param weapons 
+   * @returns 
+   */
   export function calculateWeight(armours: Armour[], talismans: Talisman[], weapons: Weapon[]) {
     let totalWeight = 0;
   
@@ -133,6 +168,12 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     return totalWeight;
   }
   
+  /**
+   * Calculates total poise based on armour and talismans.
+   * @param armours 
+   * @param talismans 
+   * @returns 
+   */
   export function calculatePoise(armours: Armour[], talismans: Talisman[]) {
     let poise = 0;
   
@@ -147,13 +188,16 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     return Math.floor(poise);
   }
   
+  /**
+   * Calculates total discovery based on total stats and talisman effects.
+   * @param characterClass 
+   * @param characterLevelStats 
+   * @param talismans 
+   * @returns 
+   */
   export function calculateDiscovery(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-    const arcaneLevel = calculateLevel(+characterClass.stats.arcane, +characterLevelStats.arcane, talismans.map(talisman => {
-      if (talisman && talisman.statChanges?.arcane) return talisman.statChanges?.arcane;
-      else return 0;
-    }));
+    const arcaneLevel = calculateLevel(+characterClass.stats.arcane, +characterLevelStats.arcane, getEquipmentValues(talismans, "arcane"));
     let discovery = 100;
-  
   
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.discovery != null) discovery += talisman.statChanges.discovery;
@@ -162,8 +206,14 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     return (discovery + arcaneLevel).toFixed(1);
   }
   
-  export function getWeightRatio(equipLoad: number, maxEquipLoad: number) {
-    const ratio = equipLoad / maxEquipLoad;
+  /**
+   * Calculates weight ratio and its associated status.
+   * @param weight
+   * @param maxEquipLoad 
+   * @returns 
+   */
+  export function getWeightRatio(weight: number, maxEquipLoad: number) {
+    const ratio = weight / maxEquipLoad;
   
     if (ratio <= 0.299) return "Light Load";
     if (ratio <= 0.699) return "Med. Load";

@@ -11,7 +11,7 @@ export function getAvailableAshes(ashes: Ash[], wepType: string) {
 }
 
 /**
- * Returns the index of the given name for an Ash of War
+ * Returns the index of the given name for an Ash of War.
  * @param ashes 
  * @param ashName 
  * @returns 
@@ -31,11 +31,11 @@ export function getAshIndex(ashes: Ash[], ashName: string) {
  * @param ashIndices 
  * @returns 
  */
-export function getSelectedAshes(weps: Weapon[], ashes: Ash[], ashIndices: number[]) {
-    let selectedAshes = new Array(weps.length).fill(null);
+export function getSelectedAshes(selectedWeapons: Weapon[], ashes: Ash[], ashIndices: number[]) {
+    let selectedAshes = new Array(selectedWeapons.length).fill(null);
 
-    weps.forEach((wep, i) => {
-        if (wep && !wep.unique) { // checks if weapon exists and whether if it's unique
+    selectedWeapons.forEach((wep, i) => {
+        if (wep && !wep.unique) {
             selectedAshes[i] = getAvailableAshes(ashes, wep.type)[ashIndices[i]]
         }
     })
@@ -51,24 +51,22 @@ export function getSelectedAshes(weps: Weapon[], ashes: Ash[], ashIndices: numbe
  * @returns 
  */
 export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats) {
-    if (weapon == undefined) return {isMet: false, reqMessage: null}; // base case for if weapon is undefined
+    if (weapon == undefined) return {isMet: false, reqMessage: null};
 
     let isMet = true;
-    let reqMessage = "Requirements: "
+    let requirementsMessage = "Requirements: "
 
-    // loops through each of the names of the stats that can be used to scale weapons
+    // loops through each of the names for the stats used for weapon scaling
+    // since the same stats are used for weapon requirements
     WEAPON_STATS_NAMES.forEach(stat => {
-        // gets the weapon requirement for that stat, and the stat value in total character stats
         const wepReq = weapon.requiredAttributes[stat as keyof typeof weapon.requiredAttributes];
         const currStat = totalStats[stat as keyof typeof totalStats];
         
-        // if even one of the stat requirements are not satisfied, then isMet flag is set to false
         if (wepReq && currStat < wepReq) isMet = false;
 
-        // builds the string for the requirements as loop progresses
-        if (wepReq) reqMessage += wepReq + "/";
-        else  reqMessage += "0/";
+        if (wepReq) requirementsMessage += wepReq + "/";
+        else  requirementsMessage += "0/";
     });
 
-    return { isMet: isMet, reqMessage: reqMessage.slice(0, -1)};
+    return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1)};
 }
