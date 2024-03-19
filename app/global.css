@@ -408,6 +408,7 @@ img {
 
 .dropdown {
   position: absolute;
+  width: fit-content;
 }
 
 .select-menu ul {
@@ -415,9 +416,7 @@ img {
   border-bottom: var(--grey-border);
   border-left: var(--grey-border);
   border-right: var(--grey-border);
-
   overflow: auto;
-
   max-height: 500px;
   padding: 5px;
   z-index: 100; 

@@ -1,8 +1,7 @@
 'use client'
-
 import { useEffect, useState } from 'react'
 import { DropDown, StatRow } from '..'
-import { Armour, CharacterClass, Talisman } from '@/components/types'
+import { Armour, CharacterClass, Talisman } from '@/app/types'
 
 interface Props {
     classes: CharacterClass[],
@@ -66,8 +65,8 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
 
       {/* div for displaying level requirement for modified stats */}
       <div className="level-container">
-          <label>Total Level: </label>
-          <span>{level}</span>
+        <label>Total Level: </label>
+        <span>{level}</span>
       </div>
     </div>  
   )
