@@ -1,6 +1,6 @@
 import { Weapon, CharacterStats, requiredAttributes } from "@/utils/types";
 import { weaponStats, multipliers, calcCorrectGraph, attackElementsCorrect } from "@/public/data";
-
+import { WEAPON_STATS_NAMES } from "./consts";
 
 export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats) {
     if (!weapon) return [0];
@@ -112,14 +112,13 @@ export function calculateStatScaling(correctGraphId : string, statType: string, 
 }
 
 export function calculateFinalAttack(attackElementId: string, baseValue: number, attackType: string, scalingValues: number[], correctGraphId : string, characterStats: CharacterStats, weaponReqs: requiredAttributes) {
-    const statTypes = ["Strength", "Dexterity", "Intelligence", "Faith", "Arcane"];
+    const statTypes = WEAPON_STATS_NAMES.map(name => name.charAt(0).toUpperCase() + name.slice(1));
     const attackElementCorrect = attackElementsCorrect.find(row => row.id == attackElementId);
 
     let total = baseValue;
     
     if (attackElementCorrect) {
         for (let i = 0; i < statTypes.length; i++) {
-            
             const currStatType = statTypes[i];
             if (attackElementCorrect[attackType + "ScalesOn" + currStatType as keyof typeof attackElementCorrect] == true) {
                 const currReq = weaponReqs[currStatType.toLowerCase() as keyof typeof weaponReqs];
@@ -129,11 +128,7 @@ export function calculateFinalAttack(attackElementId: string, baseValue: number,
                     const scalingValue = baseValue * (scalingValues[i]/100) * statScaling;
                     total += scalingValue;
                 }
-                else if (currReq && currStat && currStat < currReq) {
-                    
-                    const minusValue = baseValue * -0.4;
-                    return baseValue + minusValue;
-                }  
+                else if (currReq && currStat && currStat < currReq) return baseValue + baseValue * -0.4;
             }
         }
     }

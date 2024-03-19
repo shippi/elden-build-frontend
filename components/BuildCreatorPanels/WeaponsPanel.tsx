@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-import { DisabledDropDown, DropDown } from ".."
+import { DisabledDropDown, DropDown, PanelTitle } from ".."
 import { getSelectedItems, getTotalStats } from "@/utils/BuildCreatorUtils"
 import { Armour, Ash, CharacterClass, CharacterStats, Talisman, Weapon } from "../../utils/types"
 import { wepLevelsData } from "@/public/data"
@@ -110,7 +110,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
             condition(i, j) &&
             <div className="selector" onClick={() => {setCurrIndex(j)}}>
                 <label>{j < 3 ? "Left Armament " + (j % 3 + 1) : "Right Armament " + (j % 3 + 1)}</label>
-                <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true}/>
+                <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true} searchEnabled={true}/>
                 <div className="requirements-text">
                 {isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : isRequiredStatsMet(weapons[wepIndices[j]], totalStats).reqMessage}
                 </div>
@@ -119,7 +119,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
                     { 
                         weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
                         wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
-                        <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} />
+                        <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} searchEnabled={true}/>
                     }
                     </div>
                     <div className="affinity">
@@ -143,6 +143,8 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
     }
 
     return (
+        <>
+        <PanelTitle text="Weapons" img="icons/weapons.png"/>
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
                 <div className="selectors-container">
@@ -154,6 +156,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
                 </div>
                 <div className="selectors-container"> { selectorPanels[1] } </div>
         </div>
+        </>
     )
 }
 

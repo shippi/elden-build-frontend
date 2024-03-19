@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-import { DropDown } from ".."
+import { DropDown, PanelTitle } from ".."
 import { Armour } from "@/utils/types"
 import { getSelectedArmours } from "@/utils/ArmourUtils"
 
@@ -44,6 +44,8 @@ function ArmourPanel({armours, onChange} : Props) {
     }
 
     return (
+        <div>
+        <PanelTitle text="Armour" img="icons/armour.png"/>
         <div className="armour-panel">
             {/* div for selecting chest armour */}
             <div>
@@ -51,7 +53,7 @@ function ArmourPanel({armours, onChange} : Props) {
                     indices.map((i, j) => (
                         <div className="selector" onClick={() => {setCurrIndex(j)}}>
                             <label>{armourSwitch(j)}</label>
-                            <DropDown items={armoursArr[j]} index={indices[j]} isNullable={true} onChange={handleOnChange} hasImages={true}/>
+                            <DropDown items={armoursArr[j]} index={indices[j]} isNullable={true} onChange={handleOnChange} hasImages={true} searchEnabled={true}/>
                         </div>
                     ))
                 }
@@ -69,6 +71,7 @@ function ArmourPanel({armours, onChange} : Props) {
                 }
                 </ul>
             </div>
+        </div>
         </div>
     )
 }

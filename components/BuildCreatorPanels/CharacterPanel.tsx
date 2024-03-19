@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { DropDown, StatRow } from '..'
+import { DropDown, PanelTitle, StatRow } from '..'
 import { Armour, CharacterClass, Talisman } from '@/utils/types'
 
 interface Props {
@@ -43,16 +43,19 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
   const level = +selectedClass.stats.level + vigor + mind + endurance + strength + dexterity + intelligence + faith + arcane;
 
   return (
+    <>
     <div className="character-panel">
       {/* div for selecting starting class */}
       <div className="starting-class">
         <label>Starting Class </label>
-        <DropDown items={classes} index={index} isNullable={false} onChange={onChange} hasImages={true}/>
+        <DropDown items={classes} index={index} isNullable={false} onChange={onChange} hasImages={true} />
       </div>
-
+    </div>
+    <div style={{height:"2vh"}}/>
+    <PanelTitle text="Attribute Points" img="icons/attribute-points.png"/>
+    <div className="character-panel">
       {/* div for modifying character stats */}
       <div className="character-stats">
-        <label>Character Statistics </label>
         <StatRow type="Vigor" initialValue={selectedClass.stats.vigor} addedValue={vigor} onChange={setVigor} talismans={talismans} armours={armours}/>
         <StatRow type="Mind" initialValue={selectedClass.stats.mind} addedValue={mind} onChange={setMind} talismans={talismans} armours={armours}/>
         <StatRow type="Endurance" initialValue={selectedClass.stats.endurance} addedValue={endurance} onChange={setEndurance} talismans={talismans} armours={armours}/>
@@ -69,6 +72,8 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
         <span>{level}</span>
       </div>
     </div>  
+    
+    </>
   )
 }
 

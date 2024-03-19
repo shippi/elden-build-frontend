@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { DropDown } from "..";
+import { DropDown, PanelTitle } from "..";
 import { getSelectedItems } from "@/utils/BuildCreatorUtils";
 import { Talisman } from "../../utils/types";
 
@@ -24,14 +24,17 @@ function TalismansPanel({talismans, onChange} : Props) {
     }
 
     return (
+        <div>
+        <PanelTitle text="Talismans" img="icons/talismans.png"/>
         <div className="talismans-panel">
+        
             {/* div for selecting talismans*/}
             <div>
                 {
                     indices.map((i, j) => (
                         <div className="selector" onClick={() => {setCurrIndex(j)}}>
                             <label>Talisman {j+1} </label>
-                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices}  hasImages={true} scrollPage={true} onChange={handleOnChange}/>
+                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices}  hasImages={true} scrollPage={true} onChange={handleOnChange} searchEnabled={true}/>
                         </div>
                     ))
                 }
@@ -47,6 +50,7 @@ function TalismansPanel({talismans, onChange} : Props) {
                 }
                 </ul>
             </div>
+        </div>
         </div>
     )
 }

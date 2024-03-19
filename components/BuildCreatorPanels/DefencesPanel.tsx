@@ -1,5 +1,6 @@
 import { Armour, CharacterClass, Talisman } from '@/utils/types'
 import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/utils/DefencesUtils'
+import { PanelTitle } from '..'
 
 interface Props {
     characterClass: CharacterClass,
@@ -19,13 +20,15 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans}
   const armourResistances = calculateArmourResistances(armours);
 
   return (
+    <>
+    <PanelTitle text="Defence/Damage Negation" img="icons/defence.png"/>
     <div className="defences-panel">
       <table>
         <thead>
           <tr>
             <th></th>
-            <th>Defence</th>
-            <th>Negation</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
           <tbody>
@@ -53,13 +56,16 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans}
           }
         </tbody>
       </table>
-      <br/>
+      </div>
+      <div style={{height:"2vh"}}/>
+      <PanelTitle text="Resistance" img="icons/resistance.png"/>
+      <div className="defences-panel">
       <table>
         <thead>
           <tr>
             <th></th>
-            <th>Resistance</th>
-            <th>Armor</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -75,6 +81,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans}
         </tbody>
       </table>
     </div>
+    </>
   )
 }
 

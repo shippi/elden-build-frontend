@@ -1,4 +1,5 @@
 import { Ash, CharacterStats, Weapon } from "@/utils/types";
+import { WEAPON_STATS_NAMES } from "./consts";
 
 /**
  * Returns the available ashes of war that can be used for the weapon type.

@@ -18,6 +18,7 @@
   --gold: #edc947;
   --dark-gold: #ad8302;
   --grey-border: 1px gray solid;
+  --gold-border: 1px #9c9478 solid;
 }
 
 /*global styling*/
@@ -188,7 +189,6 @@ a:hover {
   min-width: 1700px;
 }
 
-
 .subcontainer {
   display: flex;
   flex-direction: column;
@@ -205,7 +205,7 @@ a:hover {
   column-gap: 40px;
 }
 
-/*styling for the character panel component*/
+/*general styling for panels*/
 .character-panel,
 .armour-panel,
 .talismans-panel,
@@ -215,9 +215,8 @@ a:hover {
 .attack-power-panel, 
 .selectors-container {
   display: block;
-
-  padding: 20px 20px;
-  width: 16vw;
+  padding: 10px 20px 20px 20px;
+  width: 16.5vw;
   min-width: 380px;
   background: linear-gradient(90deg, rgba(25,22,17,0.75) 0%, rgba(0,0,0,0) 70%);
   border-left-width: 3px;
@@ -226,7 +225,25 @@ a:hover {
   align-self: baseline;
 }
 
+.selectors-container:last-child {
+  border: none;
+}
 
+.panel-title {
+  color: #d6cca5;
+  font-size: 1em;
+  transform: translateX(-0.45vw);
+  display: flex;
+  align-items: center;
+  z-index: 0;
+}
+
+.panel-title img {
+  width: 28px;
+  margin-right: 6px;
+}
+
+/*styling for the character panel component*/
 .starting-class {
   padding-bottom: 20px;
 }
@@ -301,7 +318,7 @@ td {
 }
 
 .affinity {
-  width: 50%;
+  width: 45%;
 }
 
 .levels {
@@ -359,7 +376,7 @@ input[type="checkbox"] {
 }
 
 /*styling for dropdown component*/
-img {
+.select-menu img {
   height: 35px;
   margin-right: 10px;
 }
@@ -398,28 +415,21 @@ img {
 }
 
 .search-box {
-  background-color: var(--bg-color);
-  border-right: var(--grey-border);
-  border-left: var(--grey-border);
-  border-top: var(--grey-border);
-  padding: 5px 5px 0 10px;
+  padding: 5px 5px 5px 10px;
   height: 100%;
 }
 
 .dropdown {
+  border: var(--gold-border);
+  background-color: #121212;
   position: absolute;
-  width: fit-content;
+  z-index: 1;
 }
 
 .select-menu ul {
-  background-color: var(--bg-color);
-  border-bottom: var(--grey-border);
-  border-left: var(--grey-border);
-  border-right: var(--grey-border);
   overflow: auto;
   max-height: 500px;
-  padding: 5px;
-  z-index: 100; 
+
 }
 
 .select-menu ul li {

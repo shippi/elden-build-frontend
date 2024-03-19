@@ -9,25 +9,24 @@ interface Props {
     hasImages: boolean,
     incompatibilities?: number[],
     scrollPage? : boolean,
+    searchEnabled?: boolean,
     onChange: Function
 }
 
-function DropDown({ items, index, isNullable, incompatibilities, hasImages, scrollPage, onChange }: Props) {  
+function DropDown({ items, index, isNullable, incompatibilities, hasImages, scrollPage, searchEnabled, onChange }: Props) {  
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
-    
+    const [dropDownWidth, setDropDownWidth] = useState("");
+
     const ref = useRef(null);
     useClickOutside(ref, () => {setOpen(false); setSearch("")});
 
-    const selectedRef = useRef(null);
-
+    const dropdownSelectedRef = useRef(null);
     const scrollToRef = (ref: any) => {
-        
         if (ref.current && index > -1) {
             if(ref.current.children[index]) {
                 if (scrollPage) ref.current.children[index].scrollIntoView({ block: 'center' });
                 else ref.current.children[index].scrollIntoView({ block: 'nearest' });
-                
             }
         }   
         else if (ref.current && index == -1) {       
@@ -35,9 +34,15 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
         }
     };
 
+    const selectedRef = useRef<HTMLDivElement>(null);
+    
     useEffect(() => {
-        if(open) scrollToRef(selectedRef)
-    }, [open])
+        if (open) scrollToRef(dropdownSelectedRef);
+        if (selectedRef.current) setDropDownWidth(selectedRef.current.offsetWidth + "px");
+    }, [open]);
+
+    
+
 
     const isCompatible = (currItem: any, currIndex: number) => {
         let compatible = true;
@@ -56,7 +61,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
         <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <div className="select-menu" ref={ref}>
-            <div className="selected" onClick={() => { setOpen(!open); }}>
+            <div className="selected" onClick={() => { setOpen(!open); }} ref={selectedRef}>
                 <div>
                     { index > -1 && hasImages ? <img src={items[index].image}/> : hasImages ? <div style={{height: "35px", width: "5px"}}/> : "" }
                     { index > -1 ? items[index]?.name : "None" }
@@ -65,8 +70,10 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
             </div>
             {
                 
-                <div className={"dropdown" + (open ? "": " hidden")} >
-                    <div className="search-box">
+                <div className={"dropdown" + (open ? "": " hidden")} style={{width:dropDownWidth}}>
+                    { 
+                        searchEnabled &&
+                        <div className="search-box">
                         <i className="fa fa-search" aria-hidden="true"></i>
                         <input 
                             type="text"
@@ -74,8 +81,10 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                             placeholder="Search..."
                             onChange={(e) => setSearch(e.target.value.toLowerCase())}
                         />
-                    </div>   
-                <ul ref={selectedRef}>
+                        </div> 
+                    }
+                      
+                <ul ref={dropdownSelectedRef}>
                     {
                         isNullable == true &&
                         <li 

@@ -219,7 +219,7 @@ export function calculateLevel(characterClass: CharacterClass, characterLevelSta
     let focus = baseStat + calculationFormula1(mindLevel)+ armourResistances[2];
     let vitality = baseStat + calculationFormula2(arcaneLevel)+ armourResistances[3];
   
-    selectedTalismans.forEach((talisman, i) => {
+    selectedTalismans.forEach(talisman => {
       if (talisman?.statChanges?.immunity) immunity += +talisman.statChanges.immunity;
       if (talisman?.statChanges?.robustness) robustness += +talisman.statChanges.robustness;
       if (talisman?.statChanges?.focus) focus += +talisman.statChanges.focus;

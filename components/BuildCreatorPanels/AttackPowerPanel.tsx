@@ -1,6 +1,7 @@
 import { getTotalStats } from "@/utils/BuildCreatorUtils"
 import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/utils/types"
 import { calculateAttackPower } from "@/utils/AttackPowerUtils";
+import { PanelTitle } from "..";
 
 interface Props {
     weapons: Weapon[],
@@ -17,14 +18,17 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
     const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded);
 
     return (
+    <>
+    <PanelTitle text="Attack Power" img="icons/attack-power.png"/>
+    
     <div className="attack-power-panel">
 
         {
             weapons.map((weapon, i) => (
                 <div>
-                    <strong>
+                    <span>
                     {(i < 3 ? "L Armament " : "R Armament ") + (i % 3 + 1)}
-                    </strong>
+                    </span>
                     {
                         Math.floor(
                             calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
@@ -35,6 +39,7 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
             ))
         }
     </div>
+    </>
   )
 }
 

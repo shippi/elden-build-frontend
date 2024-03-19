@@ -1,5 +1,6 @@
 import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/utils/types"
 import { calculateHP, calculateFP, calculateStamina, calculateEquipLoad, calculateDiscovery, calculatePoise, calculateWeight, getWeightRatio } from "@/utils/StatsUtils";
+import { PanelTitle } from "..";
 
 interface Props {
     characterClass: CharacterClass,
@@ -20,31 +21,35 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
   const discovery = calculateDiscovery(characterClass, characterLevelStats, talismans);
 
   return (
+    <>
+    <PanelTitle text="Base Stats" img="icons/base-stats.png"/>
     <div className="stats-panel">
       <div>
-        <strong>HP</strong> {hp}
+        <span>HP</span> {hp}
       </div>
       <div>
-        <strong>FP</strong> {fp}
+        <span>FP</span> {fp}
       </div>
       <div>
-        <strong>Stamina</strong> {stamina}
+        <span>Stamina</span> {stamina}
       </div>
       <br/>
       <div>
-        <strong>Equip Load</strong> {totalWeight.toFixed(1)} / {equipLoad.toFixed(1)}
+        <span>Equip Load</span> {totalWeight.toFixed(1)} / {equipLoad.toFixed(1)}
         
       </div>
       <div><i/>{weightRatio}</div>
       <br/>
       <div>
-        <strong>Poise</strong> {poise}
+        <span>Poise</span> {poise}
       </div>
       <div>
-        <strong>Discovery</strong> {discovery}
+        <span>Discovery</span> {discovery}
       </div>
     </div>
+    </>
   )
+  
 }
 
 export default StatsPanel
