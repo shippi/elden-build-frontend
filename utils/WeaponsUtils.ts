@@ -51,7 +51,7 @@ export function getSelectedAshes(selectedWeapons: Weapon[], ashes: Ash[], ashInd
  * @param totalStats 
  * @returns 
  */
-export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats) {
+export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats, twoHanded?: boolean) {
     if (weapon == undefined) return {isMet: false, reqMessage: null};
 
     let isMet = true;
@@ -61,12 +61,17 @@ export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats) {
     // loops through each of the names for the stats used for weapon scaling
     // since the same stats are used for weapon requirements
     WEAPON_STATS_NAMES.forEach(stat => {
-        const wepReq = weapon.requiredAttributes[stat as keyof typeof weapon.requiredAttributes];
+        let wepReq = weapon.requiredAttributes[stat as keyof typeof weapon.requiredAttributes];
         const currStat = totalStats[stat as keyof typeof totalStats];
         
         if (wepReq && currStat < wepReq) isMet = false;
 
         if (wepReq) {
+            
+            if (stat == "strength" && twoHanded) {
+                console.log(stat)
+                wepReq = wepReq / 1.5;
+            }
             requirementsMessage += wepReq + "/";
             requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + wepReq;
         }

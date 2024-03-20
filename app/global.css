@@ -217,12 +217,20 @@ a:hover {
 .selectors-container {
   display: block;
   padding: 10px 20px 20px 20px;
-
   background: linear-gradient(90deg, rgba(25,22,17,0.75) 0%, rgba(0,0,0,0) 70%);
+  
   border-left-width: 3px;
   border-left-style: solid;
   border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 10%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 90%, rgba(0,0,0,0)) 1;
   align-self: baseline;
+}
+
+.weapons-panel {
+  background: linear-gradient(90deg, rgba(25,22,17,0.75) 0%, rgba(0,0,0,0) 70%);
+}
+
+.selectors-container {
+  background: none;
 }
 
 .talismans-panel,

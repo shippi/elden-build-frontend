@@ -22,7 +22,6 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
     <PanelTitle text="Attack Power" img="icons/attack-power.png"/>
     
     <div className="attack-power-panel">
-
         {
             weapons.map((weapon, i) => (
                 <div>
