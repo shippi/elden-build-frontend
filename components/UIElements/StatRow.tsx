@@ -90,7 +90,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
         <div className='label'>{ type }</div>
         <div className="number-container" ref={ref}>
             <input 
-                className="number-input" 
+                className={"number-input " + (value != initialValue && "adjusted")} 
                 onChange={e => {
                     setValue(e.target.value.replace(/\D/g,''));      
                 }}

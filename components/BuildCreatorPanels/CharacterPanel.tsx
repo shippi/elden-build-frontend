@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { DropDown, PanelTitle, StatRow } from '..'
 import { Armour, CharacterClass, Talisman } from '@/utils/types'
+import { calculateTotalRunes } from '@/utils/CharacterPanelUtils'
 
 interface Props {
     classes: CharacterClass[],
@@ -42,6 +43,7 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
   const selectedClass = classes[index];
   const level = +selectedClass.stats.level + vigor + mind + endurance + strength + dexterity + intelligence + faith + arcane;
 
+  const runesNeeded = calculateTotalRunes(+selectedClass.stats.level, level)
   return (
     <>
     <div className="character-panel">
@@ -68,8 +70,15 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
 
       {/* div for displaying level requirement for modified stats */}
       <div className="level-container">
-        <label>Total Level: </label>
-        <span>{level}</span>
+        <div>
+          <label>Level: </label>
+          <span>{level}</span>
+        </div>
+        <br/>
+        <div>
+          <label>Total Runes Needed: </label>
+          <span>{runesNeeded.toFixed(0)}</span>
+        </div>
       </div>
     </div>  
     
