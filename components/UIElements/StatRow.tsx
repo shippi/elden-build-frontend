@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useClickOutside } from "@/hooks";
 import { Talisman, Armour } from "@/utils/types";
-import { calculateLevel, getEquipmentValues } from "@/utils/BuildCreatorUtils";
+import { calculateLevel, getEquipmentTotalValue, getEquipmentValues } from "@/utils/BuildCreatorUtils";
 
 interface Props {
     type: string,
@@ -35,9 +35,9 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
     }, [initialValue]);
 
     useEffect(() => {
-        if (value != totalValue) setAffecectedByEquipment(true);
+        if (getEquipmentTotalValue([...talismans, ...armours], type) > 0) setAffecectedByEquipment(true);
         else setAffecectedByEquipment(false);
-    }, [talismans, armours])
+    }, [talismans, armours, addedValue])
 
     // this block of code is used to detect and handle when a user
     // has clicked outside the number input

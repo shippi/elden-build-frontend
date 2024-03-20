@@ -10,5 +10,5 @@ export function calculateTotalRunes(classLevel: number, totalLevel: number) {
     for (let i = classLevel; i < totalLevel; i++) {
         total += calculateRunesToLevelUp(i);
     }
-    return total;
+    return Math.floor(total);
 }

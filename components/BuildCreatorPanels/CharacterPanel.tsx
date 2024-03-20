@@ -74,10 +74,9 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
           <label>Level: </label>
           <span>{level}</span>
         </div>
-        <br/>
         <div>
           <label>Total Runes Needed: </label>
-          <span>{runesNeeded.toFixed(0)}</span>
+          <span>{runesNeeded.toLocaleString()}</span>
         </div>
       </div>
     </div>  
