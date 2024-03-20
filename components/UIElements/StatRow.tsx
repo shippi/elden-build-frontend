@@ -1,7 +1,7 @@
 'use client'
-import { useClickOutside } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
-import { Armour, Talisman } from "../../utils/types";
+import { useClickOutside } from "@/hooks";
+import { Talisman, Armour } from "@/utils/types";
 import { calculateLevel, getEquipmentValues } from "@/utils/BuildCreatorUtils";
 
 interface Props {

@@ -56,6 +56,7 @@ export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats) {
 
     let isMet = true;
     let requirementsMessage = "Requirements: "
+    let requirementsTitle = "Weapon Requirements:"
 
     // loops through each of the names for the stats used for weapon scaling
     // since the same stats are used for weapon requirements
@@ -65,9 +66,15 @@ export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats) {
         
         if (wepReq && currStat < wepReq) isMet = false;
 
-        if (wepReq) requirementsMessage += wepReq + "/";
-        else  requirementsMessage += "0/";
+        if (wepReq) {
+            requirementsMessage += wepReq + "/";
+            requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + wepReq;
+        }
+        else  {
+            requirementsMessage += "0/";
+            requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + "0";
+        }
     });
 
-    return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1)};
+    return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1), reqTitle: requirementsTitle};
 }
