@@ -3,7 +3,7 @@ import { weaponStats, multipliers, calcCorrectGraph, attackElementsCorrect } fro
 import { WEAPON_STATS_NAMES } from "./consts";
 
 export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats) {
-    if (!weapon) return [0];
+    if (!weapon) return { finalAttackValues: [0], attackPowerAlt: null };
 
     var weaponName = weapon.name;
     if (affinity == "Frost") affinity = "Cold";
@@ -55,22 +55,31 @@ export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: n
 
     if (attackElementId && correctGraphIds) {
         let finalAttackValues = [];
-        
+        let attackPowerAlt = "Attack Power:"
+        let scalingAlt = "\n\nScaling:"
+
             for (let i = 0; i < correctGraphIds.length; i++) {
                 
                 if (weaponReqs && baseValues[i]) {
-                    const finalAttackTypeValue = calculateFinalAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustedScalingValues, correctGraphIds[i], stats, weaponReqs);
+                    const bonusAttackTypeValue = calculateBonusAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustedScalingValues, correctGraphIds[i], stats, weaponReqs); 
+                    const finalAttackTypeValue = adjustedBaseValues[i] + bonusAttackTypeValue;
+                    attackPowerAlt += "\n • " + (attackTypes[i].charAt(0).toUpperCase() + attackTypes[i].slice(1)) + ": " + adjustedBaseValues[i] + " + (" + bonusAttackTypeValue.toFixed(0) + ")"
+                    scalingAlt += "\n • " + (attackTypes[i].charAt(0).toUpperCase() + attackTypes[i].slice(1)) + ": " + getScalingLetter(adjustedScalingValues[i]);
                     finalAttackValues.push(finalAttackTypeValue);
                 }
                 else {
-                    finalAttackValues.push(0)
+                    attackPowerAlt += "\n • " + (attackTypes[i].charAt(0).toUpperCase() + attackTypes[i].slice(1)) + ": " + adjustedBaseValues[i]
+                    finalAttackValues.push(0);
                 }
                 
+                
             }
-        return finalAttackValues;
+
+        console.log(scalingAlt);
+        return {finalAttackValues: finalAttackValues, attackPowerAlt: attackPowerAlt + scalingAlt};
     }
    
-    return [0];
+    return { finalAttackValues: [0], attackPowerAlt: null };
 
 }
 
@@ -111,11 +120,11 @@ export function calculateStatScaling(correctGraphId : string, statType: string, 
     return 0;
 }
 
-export function calculateFinalAttack(attackElementId: string, baseValue: number, attackType: string, scalingValues: number[], correctGraphId : string, characterStats: CharacterStats, weaponReqs: requiredAttributes) {
+export function calculateBonusAttack(attackElementId: string, baseValue: number, attackType: string, scalingValues: number[], correctGraphId : string, characterStats: CharacterStats, weaponReqs: requiredAttributes) {
     const statTypes = WEAPON_STATS_NAMES.map(name => name.charAt(0).toUpperCase() + name.slice(1));
     const attackElementCorrect = attackElementsCorrect.find(row => row.id == attackElementId);
 
-    let total = baseValue;
+    let total = 0;
     
     if (attackElementCorrect) {
         for (let i = 0; i < statTypes.length; i++) {
@@ -126,11 +135,21 @@ export function calculateFinalAttack(attackElementId: string, baseValue: number,
                 if (currReq && currStat && currStat >= currReq) {
                     const statScaling = calculateStatScaling(correctGraphId, currStatType.toLowerCase(), characterStats);
                     const scalingValue = baseValue * (scalingValues[i]/100) * statScaling;
+                    
                     total += scalingValue;
                 }
-                else if (currReq && currStat && currStat < currReq) return baseValue + baseValue * -0.4;
+                else if (currReq && currStat && currStat < currReq) return baseValue * -0.4;
             }
         }
     }
     return total;
+}
+
+function getScalingLetter(value: number) {
+    if (value < 25) return "E";
+    if (value < 60) return "D";
+    if (value < 90) return "C";
+    if (value < 140) return "B"
+    if (value < 175) return "A";
+    return "S";
 }
