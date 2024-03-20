@@ -15,7 +15,7 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
   const hp = calculateHP(characterClass, characterLevelStats, talismans, armours, greatRune);
   const fp = calculateFP(characterClass, characterLevelStats, talismans, armours, greatRune);
   const stamina = calculateStamina(characterClass, characterLevelStats, talismans, armours, greatRune);
-  const equipLoad = calculateEquipLoad(characterClass, characterLevelStats, talismans);
+  const equipLoad = calculateEquipLoad(characterClass, characterLevelStats, talismans, greatRune);
   const totalWeight = calculateWeight(armours, talismans, weapons);
   const weightRatio = getWeightRatio(totalWeight, equipLoad);
   const poise = calculatePoise(armours, talismans);

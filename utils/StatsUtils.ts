@@ -1,5 +1,5 @@
 import { CharacterClass, CharacterStats, Talisman, Armour, Weapon, GreatRune } from "@/utils/types";
-import { calculateLevel, getEquipmentValues } from "./BuildCreatorUtils";
+import { calculateLevel, getEquipmentValues, getRuneValue } from "./BuildCreatorUtils";
 
 /**
  * Calculates the total HP value based on total vigor level, and talismans and armour effects.
@@ -12,7 +12,7 @@ import { calculateLevel, getEquipmentValues } from "./BuildCreatorUtils";
  */
 export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     // calculates total vigor level as vigor stat is used to calculate base HP
-    const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, getEquipmentValues(talismans, "vigor"), getEquipmentValues(armours, "vigor"));
+    const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, getEquipmentValues(talismans, "vigor"), getEquipmentValues(armours, "vigor"), getRuneValue("vigor", greatRune));
   
     // if-else block to determine base hp from vigor. Certain level cutoffs use different type of scaling
     let hp = 0;
@@ -54,7 +54,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @returns 
    */
   export function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
-    const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, getEquipmentValues(talismans, "mind"), getEquipmentValues(armours, "mind"));
+    const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, getEquipmentValues(talismans, "mind"), getEquipmentValues(armours, "mind"), getRuneValue("mind", greatRune));
   
     let fp = 0;
     if (mindLevel < 16) {
@@ -93,7 +93,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @returns 
    */
   export function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
-    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), getEquipmentValues(armours, "endurance"));
+    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), getEquipmentValues(armours, "endurance"), getRuneValue("endurance", greatRune));
   
     let stamina = 0;
     if (enduranceLevel < 16) {
@@ -132,8 +132,8 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @param talismans 
    * @returns 
    */
-  export function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"));
+  export function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], greatRune?: GreatRune) {
+    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), [], getRuneValue("endurance", greatRune));
   
     let equipLoad = 0;
     
