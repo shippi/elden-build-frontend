@@ -19,7 +19,7 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
 
     return (
     <>
-    <PanelTitle text="Attack Power" img="icons/attack-power.png"/>
+    <PanelTitle text="Attack Power/Spell Scaling" img="icons/attack-power.png"/>
     
     <div className="attack-power-panel">
         {
@@ -29,10 +29,15 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
                     {(i < 3 ? "L Armament " : "R Armament ") + (i % 3 + 1)}
                     </span>
                     {
+                        weapon?.type != "staff" && weapon?.type != "seal" ? 
                         Math.floor(
                             calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
                             .finalAttackValues
                             .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+                        ):
+                        Math.floor(
+                            calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
+                            .sorceryScaling
                         )
                     } 
                 </div>

@@ -26,6 +26,7 @@ export const weaponsData = [
     "weight": 2,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Blade of Death"
   },
   {
@@ -69,6 +70,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Reduvia Blood Blade"
   },
   {
@@ -84,6 +86,7 @@ export const weaponsData = [
     "weight": 2,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Quickstep"
   },
   {
@@ -113,6 +116,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Glintstone Dart"
   },
   {
@@ -127,6 +131,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Repeating Thrust"
   },
   {
@@ -169,6 +174,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Quickstep"
   },
   {
@@ -184,6 +190,7 @@ export const weaponsData = [
     "weight": 2,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Quickstep"
   },
   {
@@ -228,6 +235,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Blade of Gold"
   },
   {
@@ -312,6 +320,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Golden Tempering"
   },
   {
@@ -327,6 +336,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Last Rites"
   },
   {
@@ -341,6 +351,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Flowing Form"
   },
   {
@@ -356,6 +367,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Sacred Blade"
   },
   {
@@ -370,6 +382,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Unblockable Blade"
   },
   {
@@ -386,6 +399,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Night-and-Flame Stance"
   },
   {
@@ -401,6 +415,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Spinning Slash"
   },
   {
@@ -416,6 +431,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Carian Grandeur"
   },
   {
@@ -431,6 +447,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Mists of Slumber"
   },
   {
@@ -446,6 +463,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Sacred Blade"
   },
   {
@@ -475,6 +493,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Eochaid's Dancing Blade"
   },
   {
@@ -518,6 +537,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Glintstone Pebble"
   },
   {
@@ -533,6 +553,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Spinning Slash"
   },
   {
@@ -632,6 +653,7 @@ export const weaponsData = [
     "weight": 12,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Ordovis's Vortex"
   },
   {
@@ -647,6 +669,7 @@ export const weaponsData = [
     "weight": 8,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Alabaster Lords' Pull"
   },
   {
@@ -676,6 +699,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Moonlight Greatsword"
   },
   {
@@ -691,6 +715,7 @@ export const weaponsData = [
     "weight": 11,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Wave of Gold"
   },
   {
@@ -706,6 +731,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Ruinous Ghostflame"
   },
   {
@@ -721,6 +747,7 @@ export const weaponsData = [
     "weight": 13.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Taker's Flames"
   },
   {
@@ -736,6 +763,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Eochaid's Dancing Blade"
   },
   {
@@ -750,6 +778,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Shriek of Milos"
   },
   {
@@ -765,6 +794,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Establish Order"
   },
   {
@@ -808,6 +838,7 @@ export const weaponsData = [
     "weight": 8.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Ghostflame Ignition"
   },
   {
@@ -823,6 +854,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Corpse Wax Cutter"
   },
   {
@@ -866,6 +898,7 @@ export const weaponsData = [
     "weight": 22,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Destined Death"
   },
   {
@@ -909,6 +942,7 @@ export const weaponsData = [
     "weight": 20,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Starcaller Cry"
   },
   {
@@ -924,6 +958,7 @@ export const weaponsData = [
     "weight": 20,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Wolf's Assault"
   },
   {
@@ -939,6 +974,7 @@ export const weaponsData = [
     "weight": 17.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "The Queen's Black Flame"
   },
   {
@@ -953,6 +989,7 @@ export const weaponsData = [
     "weight": 23,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Wave of Destruction"
   },
   {
@@ -967,6 +1004,7 @@ export const weaponsData = [
     "weight": 21,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Oath of Vengeance"
   },
   {
@@ -982,6 +1020,7 @@ export const weaponsData = [
     "weight": 18,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Troll's Roar"
   },
   {
@@ -1066,6 +1105,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Impaling Thrust"
   },
   {
@@ -1095,6 +1135,7 @@ export const weaponsData = [
     "weight": 8,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Dynast's Finesse"
   },
   {
@@ -1137,6 +1178,7 @@ export const weaponsData = [
     "weight": 8,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Thundercloud Form"
   },
   {
@@ -1222,6 +1264,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Magma Shower"
   },
   {
@@ -1251,6 +1294,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Nebula"
   },
   {
@@ -1280,6 +1324,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Death Flare"
   },
   {
@@ -1351,6 +1396,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Onyx Lords' Repulsion"
   },
   {
@@ -1379,6 +1425,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Bloodhound's Finesse"
   },
   {
@@ -1394,6 +1441,7 @@ export const weaponsData = [
     "weight": 15,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Magma Guillotine"
   },
   {
@@ -1408,6 +1456,7 @@ export const weaponsData = [
     "weight": 9,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Zamor Ice Storm"
   },
   {
@@ -1465,6 +1514,7 @@ export const weaponsData = [
     "weight": 7.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Cursed-Blood Slice"
   },
   {
@@ -1507,6 +1557,7 @@ export const weaponsData = [
     "weight": 7,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Waterfowl Dance"
   },
   {
@@ -1522,6 +1573,7 @@ export const weaponsData = [
     "weight": 7.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Gravitas"
   },
   {
@@ -1537,6 +1589,7 @@ export const weaponsData = [
     "weight": 6.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Corpse Piler"
   },
   {
@@ -1552,6 +1605,7 @@ export const weaponsData = [
     "weight": 6.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Transient Moonlight"
   },
   {
@@ -1566,6 +1620,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Ice Lightning Sword"
   },
   {
@@ -1580,6 +1635,7 @@ export const weaponsData = [
     "weight": 6,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Double Slash"
   },
   {
@@ -1637,6 +1693,7 @@ export const weaponsData = [
     "weight": 6,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Bloodblade Dance"
   },
   {
@@ -1741,7 +1798,7 @@ export const weaponsData = [
     "id": "11060000",
     "name": "Varre's Bouquet",
     "type": "hammer",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6d/ER_Icon_weapon_Varre's_Bouquet.png/",
+    "image": null,
     "requiredAttributes": {
       "strength": 8,
       "dexterity": 16,
@@ -1750,6 +1807,7 @@ export const weaponsData = [
     "weight": 2,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Blood Tax"
   },
   {
@@ -1807,6 +1865,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Oracular Bubble"
   },
   {
@@ -1822,6 +1881,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Knowledge Above All"
   },
   {
@@ -1836,6 +1896,7 @@ export const weaponsData = [
     "weight": 6.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Flowing Form"
   },
   {
@@ -1850,6 +1911,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Claw Flick"
   },
   {
@@ -1879,6 +1941,7 @@ export const weaponsData = [
     "weight": 6,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Gold Breaker"
   },
   {
@@ -1990,6 +2053,7 @@ export const weaponsData = [
     "weight": 9,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Regal Beastclaw"
   },
   {
@@ -2005,6 +2069,7 @@ export const weaponsData = [
     "weight": 9.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Bubble Shower"
   },
   {
@@ -2020,6 +2085,7 @@ export const weaponsData = [
     "weight": 12.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Surge of Faith"
   },
   {
@@ -2062,6 +2128,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Devourer of Worlds"
   },
   {
@@ -2119,6 +2186,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Familal Rancor"
   },
   {
@@ -2134,6 +2202,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Nebula"
   },
   {
@@ -2233,6 +2302,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Wild Strikes"
   },
   {
@@ -2304,6 +2374,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Rosus's Summons"
   },
   {
@@ -2318,6 +2389,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Thunderstorm"
   },
   {
@@ -2388,6 +2460,7 @@ export const weaponsData = [
     "weight": 11,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "I Command Thee Kneel!"
   },
   {
@@ -2444,6 +2517,7 @@ export const weaponsData = [
     "weight": 11,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Soul Stifler"
   },
   {
@@ -2530,6 +2604,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Impaling Thrust"
   },
   {
@@ -2560,6 +2635,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Sacred Phalanx"
   },
   {
@@ -2616,6 +2692,7 @@ export const weaponsData = [
     "weight": 6,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Charge Forth"
   },
   {
@@ -2630,6 +2707,7 @@ export const weaponsData = [
     "weight": 8.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Ancient Lightning Spear"
   },
   {
@@ -2659,6 +2737,7 @@ export const weaponsData = [
     "weight": 6.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Spearcall Ritual"
   },
   {
@@ -2674,6 +2753,7 @@ export const weaponsData = [
     "weight": 7.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Charge Forth"
   },
   {
@@ -2717,6 +2797,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Charge Forth"
   },
   {
@@ -2732,6 +2813,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Bloodboon Ritual"
   },
   {
@@ -2747,6 +2829,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Siluria's Woe"
   },
   {
@@ -2760,6 +2843,7 @@ export const weaponsData = [
     "weight": 12,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Great-Serpent Hunt"
   },
   {
@@ -2775,6 +2859,7 @@ export const weaponsData = [
     "weight": 8,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Frenzyflame Thrust"
   },
   {
@@ -2804,6 +2889,7 @@ export const weaponsData = [
     "weight": 9.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Sacred Order"
   },
   {
@@ -2874,6 +2960,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Rallying Standard"
   },
   {
@@ -2903,6 +2990,7 @@ export const weaponsData = [
     "weight": 8.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Spinning Slash"
   },
   {
@@ -2932,6 +3020,7 @@ export const weaponsData = [
     "weight": 13.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Golden Vow"
   },
   {
@@ -2961,6 +3050,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Loretta's Slash"
   },
   {
@@ -3003,6 +3093,7 @@ export const weaponsData = [
     "weight": 10.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Spinning Slash"
   },
   {
@@ -3075,6 +3166,7 @@ export const weaponsData = [
     "weight": 8.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Miquella's Ring of Light"
   },
   {
@@ -3090,6 +3182,7 @@ export const weaponsData = [
     "weight": 7.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Angel's Wings"
   },
   {
@@ -3133,6 +3226,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Sea of Magma"
   },
   {
@@ -3162,6 +3256,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Flame Dance"
   },
   {
@@ -3219,6 +3314,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Bear Witness!"
   },
   {
@@ -3276,6 +3372,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Lifesteal Fist"
   },
   {
@@ -3290,6 +3387,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Storm Kick"
   },
   {
@@ -3304,6 +3402,7 @@ export const weaponsData = [
     "weight": 0,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Unblockable Blade"
   },
   {
@@ -3388,6 +3487,7 @@ export const weaponsData = [
     "weight": 19,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Sorcery of the Crozier"
   },
   {
@@ -3401,6 +3501,7 @@ export const weaponsData = [
     "weight": 17,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Golden Land"
   },
   {
@@ -3416,6 +3517,7 @@ export const weaponsData = [
     "weight": 19.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Great Oracular Bubble"
   },
   {
@@ -3444,6 +3546,7 @@ export const weaponsData = [
     "weight": 18,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Regal Roar"
   },
   {
@@ -3458,6 +3561,7 @@ export const weaponsData = [
     "weight": 16,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Endure"
   },
   {
@@ -3473,6 +3577,7 @@ export const weaponsData = [
     "weight": 20,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Erdtree Slam"
   },
   {
@@ -3488,6 +3593,7 @@ export const weaponsData = [
     "weight": 21.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Gravity Bolt"
   },
   {
@@ -3502,6 +3608,7 @@ export const weaponsData = [
     "weight": 19,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Spinning Wheel"
   },
   {
@@ -3544,6 +3651,7 @@ export const weaponsData = [
     "weight": 16,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Troll's Roar"
   },
   {
@@ -3558,6 +3666,7 @@ export const weaponsData = [
     "weight": 18,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Erdtree Slam"
   },
   {
@@ -3586,6 +3695,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Torch Attack"
   },
   {
@@ -3600,6 +3710,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Firebreather"
   },
   {
@@ -3615,6 +3726,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Fires of Slumber"
   },
   {
@@ -3630,6 +3742,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Torch Attack"
   },
   {
@@ -3644,6 +3757,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Torch Attack"
   },
   {
@@ -3659,6 +3773,7 @@ export const weaponsData = [
     "weight": 5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Torch Attack"
   },
   {
@@ -3857,6 +3972,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Shield Bash"
   },
   {
@@ -3885,6 +4001,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Viper Bite"
   },
   {
@@ -3978,6 +4095,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4320,6 +4438,7 @@ export const weaponsData = [
     "weight": 13.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Golden Retaliation"
   },
   {
@@ -4347,6 +4466,7 @@ export const weaponsData = [
     "weight": 8,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Contagious Fury"
   },
   {
@@ -4373,6 +4493,7 @@ export const weaponsData = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4386,6 +4507,7 @@ export const weaponsData = [
     "weight": 20.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Flame Spit"
   },
   {
@@ -4399,6 +4521,7 @@ export const weaponsData = [
     "weight": 24,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Tongues of Fire"
   },
   {
@@ -4464,6 +4587,7 @@ export const weaponsData = [
     "weight": 13.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Shield Bash"
   },
   {
@@ -4582,6 +4706,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4596,6 +4721,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4611,6 +4737,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4625,6 +4752,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4640,6 +4768,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Spinning Weapon"
   },
   {
@@ -4654,6 +4783,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4668,6 +4798,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4683,6 +4814,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4698,6 +4830,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4713,6 +4846,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4727,6 +4861,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4742,6 +4877,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4756,6 +4892,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4770,6 +4907,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4784,6 +4922,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4798,6 +4937,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4812,6 +4952,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4827,6 +4968,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4841,6 +4983,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4855,6 +4998,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4869,6 +5013,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4883,6 +5028,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4897,6 +5043,7 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4912,6 +5059,7 @@ export const weaponsData = [
     "weight": 0,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4926,6 +5074,7 @@ export const weaponsData = [
     "weight": 0,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4941,6 +5090,7 @@ export const weaponsData = [
     "weight": 0,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4954,6 +5104,7 @@ export const weaponsData = [
     "weight": 0,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4968,6 +5119,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -4982,6 +5134,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -4996,6 +5149,7 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -5010,6 +5164,7 @@ export const weaponsData = [
     "weight": 2,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -5024,6 +5179,7 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5038,6 +5194,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5052,6 +5209,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5067,6 +5225,7 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5082,6 +5241,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5097,6 +5257,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5111,6 +5272,7 @@ export const weaponsData = [
     "weight": 5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5125,6 +5287,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -5139,6 +5302,7 @@ export const weaponsData = [
     "weight": 9.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Radahn's Rain"
   },
   {
@@ -5153,6 +5317,7 @@ export const weaponsData = [
     "weight": 14.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Through and Through"
   },
   {
@@ -5168,6 +5333,7 @@ export const weaponsData = [
     "weight": 11,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Through and Through"
   },
   {
@@ -5182,6 +5348,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": false,
+    "disableAsh": true,
     "defaultSkill": "Through and Through"
   },
   {
@@ -5196,6 +5363,7 @@ export const weaponsData = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5210,6 +5378,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5224,6 +5393,7 @@ export const weaponsData = [
     "weight": 5.5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5238,6 +5408,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5253,6 +5424,7 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5267,6 +5439,7 @@ export const weaponsData = [
     "weight": 6,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5281,6 +5454,7 @@ export const weaponsData = [
     "weight": 5,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5295,6 +5469,7 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   },
   {
@@ -5309,6 +5484,7 @@ export const weaponsData = [
     "weight": 15,
     "changeAffinity": false,
     "unique": true,
+    "disableAsh": true,
     "defaultSkill": "Kick"
   }
 ]

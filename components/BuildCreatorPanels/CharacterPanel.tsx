@@ -70,10 +70,12 @@ function CharacterPanel({ classes, index, talismans, armours, onChange, onStatCh
 
       {/* div for displaying level requirement for modified stats */}
       <div className="level-container">
+        <br/>
         <div>
           <label>Level: </label>
           <span>{level}</span>
         </div>
+        <br/>
         <div>
           <label>Total Runes Needed: </label>
           <span>{runesNeeded.toLocaleString()}</span>

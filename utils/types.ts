@@ -69,6 +69,7 @@ export interface Weapon {
     weight: number,
     changeAffinity: boolean,
     unique: boolean,
+    disableAsh: boolean,
     defaultSkill: string
 }
 

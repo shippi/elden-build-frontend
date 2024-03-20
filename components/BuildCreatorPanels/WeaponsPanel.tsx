@@ -117,7 +117,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
                 <div className="weapon-options">
                     <div className="ashes">
                     { 
-                        weapons[wepIndices[j]]?.unique ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
+                        weapons[wepIndices[j]]?.unique || weapons[wepIndices[j]]?.disableAsh == true ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
                         wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
                         <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} searchEnabled={true}/>
                     }
