@@ -1,5 +1,5 @@
 import { getTotalStats } from "@/utils/BuildCreatorUtils"
-import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/utils/types"
+import { Armour, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "@/utils/types"
 import { calculateAttackPower } from "@/utils/AttackPowerUtils";
 import { PanelTitle } from "..";
 
@@ -11,11 +11,12 @@ interface Props {
     characterStats: CharacterStats,
     armours: Armour[],
     talismans: Talisman[],
-    twoHanded: boolean
+    twoHanded: boolean, 
+    greatRune?: GreatRune
 }
 
-function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, twoHanded, armours, talismans}: Props) {
-    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded);
+function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, twoHanded, armours, talismans, greatRune}: Props) {
+    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded, greatRune);
 
     return (
     <>

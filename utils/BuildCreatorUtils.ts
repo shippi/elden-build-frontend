@@ -63,7 +63,7 @@ export function getRuneValue(type: string, greatRune?: GreatRune) {
   return 0;
 }
 
-export function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean) {
+export function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean, greatRune?: GreatRune) {
   let totalStats: CharacterStats = {
       vigor: 0,
       mind: 0,
@@ -77,10 +77,13 @@ export function getTotalStats(characterClass: CharacterClass, characterStats: Ch
 
   STAT_NAMES.forEach(stat => {
       let totalLevel = +characterClass.stats[stat as keyof typeof characterStats] + characterStats[stat as keyof typeof characterStats] + getEquipmentTotalValue(armours, stat) + getEquipmentTotalValue(talismans, stat);
+      if (greatRune && greatRune.statChanges) totalLevel += greatRune.statChanges[stat as keyof typeof greatRune.statChanges] || 0;
+
       if (totalLevel > 99) totalLevel = 99;
       if (twoHanded && stat == "strength") totalLevel *= 1.5;
       totalStats[stat as keyof typeof totalStats] = totalLevel;
   });
   
+  console.log(totalStats);
   return totalStats;
 }

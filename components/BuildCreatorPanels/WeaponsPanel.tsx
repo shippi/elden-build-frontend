@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
 import { getSelectedItems, getTotalStats } from "@/utils/BuildCreatorUtils"
-import { Armour, Ash, CharacterClass, CharacterStats, Talisman, Weapon } from "../../utils/types"
+import { Armour, Ash, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "../../utils/types"
 import { wepLevelsData } from "@/public/data"
 import { getAshIndex, getAvailableAshes, getSelectedAshes, isRequiredStatsMet } from "@/utils/WeaponsUtils"
 
@@ -14,6 +14,7 @@ interface Props {
     characterStats: CharacterStats,
     armours: Armour[],
     talismans: Talisman[],
+    greatRune?: GreatRune,
     onWepChange: Function,
     onAffChange: Function,
     onAshChange: Function,
@@ -21,7 +22,7 @@ interface Props {
     onTwoHandChange: Function
 }
 
-function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStats, armours, talismans, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
+function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStats, armours, talismans, greatRune, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
@@ -29,7 +30,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
     const [currIndex, setCurrIndex] = useState(0);
     const [twoHanded, setTwoHanded] = useState(false);
 
-    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded);
+    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded, greatRune);
     const selectorPanels = [];
 
     const handleWepOnChange = (newIndex: number) => {

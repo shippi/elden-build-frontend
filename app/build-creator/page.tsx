@@ -50,7 +50,8 @@ function BuildCreator() {
                         onStatChange={setCharacterStats} 
                         talismans={selectedTalismans} 
                         armours={selectedArmours} 
-                        greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
+                        greatRune={runeActivated && greatRunes[greatRuneIndex]}
+                    />
                     <div style={{height:"40px"}}/>
                     <GreatRunesPanel greatRunes={greatRunes} index={greatRuneIndex} onIndexChange={setGreatRuneIndex} onActivateChange={setRuneActivated} />
                     </div>
@@ -63,6 +64,7 @@ function BuildCreator() {
                             characterStats={characterStats}
                             armours={selectedArmours} 
                             talismans={selectedTalismans}
+                            greatRune={runeActivated && greatRunes[greatRuneIndex]}
                             onWepChange={handleWepChange}
                             onAffChange={setSelectedAffinities}
                             onAshChange={setSelectedAshes}
@@ -92,7 +94,8 @@ function BuildCreator() {
                             characterStats={characterStats} 
                             armours={selectedArmours} 
                             talismans={selectedTalismans} 
-                            twoHanded={twoHanded} />
+                            twoHanded={twoHanded} 
+                            greatRune={runeActivated && greatRunes[greatRuneIndex]} />
                         <div style={{height:"40px"}}/>
                         <DefencesPanel 
                             characterClass={classes[classIndex]} 

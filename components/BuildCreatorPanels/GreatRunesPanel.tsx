@@ -23,8 +23,7 @@ function GreatRunesPanel({greatRunes, index, onIndexChange, onActivateChange} : 
         <>
         <PanelTitle text={"Great Runes"} img="icons/great-runes.png" />
         <div className="great-runes-panel">
-
-
+            
             <DropDown items={greatRunes} index={index} isNullable={true} onChange={onIndexChange} hasImages={false} />
 
             <div className="active-effects">
