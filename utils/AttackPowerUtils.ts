@@ -64,7 +64,7 @@ export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: n
                     const bonusAttackTypeValue = calculateBonusAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustedScalingValues, correctGraphIds[i], stats, weaponReqs); 
                     const finalAttackTypeValue = adjustedBaseValues[i] + bonusAttackTypeValue;
                     attackPowerAlt += "\n • " + (attackTypes[i].charAt(0).toUpperCase() + attackTypes[i].slice(1)) + ": " + adjustedBaseValues[i] + " + (" + bonusAttackTypeValue.toFixed(0) + ")"
-                    scalingAlt += "\n • " + (attackTypes[i].charAt(0).toUpperCase() + attackTypes[i].slice(1)) + ": " + getScalingLetter(adjustedScalingValues[i]);
+                    scalingAlt += "\n • " + (WEAPON_STATS_NAMES[i].charAt(0).toUpperCase() + WEAPON_STATS_NAMES[i].slice(1)) + ": " + getScalingLetter(adjustedScalingValues[i]);
                     finalAttackValues.push(finalAttackTypeValue);
                 }
                 else {

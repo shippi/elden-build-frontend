@@ -24,7 +24,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
 
     // state for the value in the number input
     const [value, setValue] = useState((+initialValue + addedValue).toString());
-
+    const [affectedByEquipment, setAffecectedByEquipment] = useState(false);
     const totalValue = calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type)).toString();
 
     // useEffect hook to update component when initialValue prop has changed.
@@ -33,6 +33,11 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
         setValue(initialValue);
         onChange(0);
     }, [initialValue]);
+
+    useEffect(() => {
+        if (value != totalValue) setAffecectedByEquipment(true);
+        else setAffecectedByEquipment(false);
+    }, [talismans, armours])
 
     // this block of code is used to detect and handle when a user
     // has clicked outside the number input
@@ -102,7 +107,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
                 </button>
             </div>
         </div>
-        <div style={{width: "40px", textAlign:"right"}} className={totalValue != value ? "adjusted" : ""}>
+        <div style={{width: "40px", textAlign:"right"}} className={affectedByEquipment ? "adjusted" : ""}>
             { totalValue }
         </div>
       </div>
