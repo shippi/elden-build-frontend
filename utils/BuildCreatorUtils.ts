@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Armour, Talisman } from "@/utils/types";
+import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune } from "@/utils/types";
 import { MAX_STAT_LEVEL, STAT_NAMES } from "./consts";
 
 export function getSelectedItems(items: any[], indices: number[]) {
@@ -13,7 +13,7 @@ export function getSelectedItems(items: any[], indices: number[]) {
     return selectedItems;
 }
 
-export function calculateLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[]) {
+export function calculateLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[], greatRuneLevel?: number) {
   let totalLevel = classLevel + levelStat;
 
   talismanLevels?.forEach(level => {
@@ -24,6 +24,7 @@ export function calculateLevel(classLevel: number, levelStat: number, talismanLe
     if (level) totalLevel += level;
   })
 
+  if (greatRuneLevel) totalLevel += greatRuneLevel;
   if (totalLevel > MAX_STAT_LEVEL) return MAX_STAT_LEVEL;
   else return totalLevel;
 }
@@ -53,6 +54,13 @@ export function getEquipmentTotalValue(selectedEquipment: any[], type: string) {
   });
 
   return value;
+}
+
+export function getRuneValue(type: string, greatRune?: GreatRune) {
+  if (greatRune?.statChanges) {
+    return greatRune.statChanges[type.toLowerCase() as keyof typeof greatRune.statChanges] || 0;
+  }
+  return 0;
 }
 
 export function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean) {

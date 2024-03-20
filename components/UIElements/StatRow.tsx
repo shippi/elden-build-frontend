@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
 import { useClickOutside } from "@/hooks";
-import { Talisman, Armour } from "@/utils/types";
-import { calculateLevel, getEquipmentTotalValue, getEquipmentValues } from "@/utils/BuildCreatorUtils";
+import { Talisman, Armour, GreatRune } from "@/utils/types";
+import { calculateLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/utils/BuildCreatorUtils";
 
 interface Props {
     type: string,
@@ -10,6 +10,7 @@ interface Props {
     addedValue: number,
     talismans: Talisman[],
     armours: Armour[],
+    greatRune?: GreatRune,
     onChange: Function
 }
 
@@ -19,14 +20,15 @@ interface Props {
  * @param param0 
  * @returns 
  */
-function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}: Props) {
+function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune, onChange}: Props) {
     const MAX = 99; // highest value that a single stat can go
 
     // state for the value in the number input
     const [value, setValue] = useState((+initialValue + addedValue).toString());
     const [affectedByEquipment, setAffecectedByEquipment] = useState(false);
-    const totalValue = calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type)).toString();
-
+    const totalValue = calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type), getRuneValue(type, greatRune)).toString();
+    
+    console.log(getRuneValue(type, greatRune))
     // useEffect hook to update component when initialValue prop has changed.
     // this will reset the value and change it depending on selected class
     useEffect(() => {
@@ -35,9 +37,9 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, onChange}
     }, [initialValue]);
 
     useEffect(() => {
-        if (getEquipmentTotalValue([...talismans, ...armours], type) > 0) setAffecectedByEquipment(true);
+        if (getEquipmentTotalValue([...talismans, ...armours], type) + getRuneValue(type, greatRune) > 0) setAffecectedByEquipment(true);
         else setAffecectedByEquipment(false);
-    }, [talismans, armours, addedValue])
+    }, [talismans, armours, addedValue, greatRune])
 
     // this block of code is used to detect and handle when a user
     // has clicked outside the number input

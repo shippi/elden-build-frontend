@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { affinitiesData, armorsData, ashesData, classesData, talismansData, weaponsData } from "@/public/data";
+import { greatRunesData } from "@/public/data/Equipment/greatRunes";
 
 /**
  * Used to fetch all the necessary elden ring data for the build planner.
@@ -15,6 +16,7 @@ export default function useFetchAllItems() {
     const [sorceries, setSorceries] = useState<any[]>([]);
     const [ammos, setAmmos] = useState<any[]>([]);
     const [spirits, setSpirits] = useState<any[]>([]);
+    const [greatRunes, setGreatRunes] = useState<any[]>([]);
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -30,7 +32,8 @@ export default function useFetchAllItems() {
                 setWeapons(weaponsData);
                 setTalismans(talismansData);
                 setAshes(ashesData);
-                setAffinities(affinitiesData)
+                setAffinities(affinitiesData);
+                setGreatRunes(greatRunesData);
             }
             catch (e) {
                 setError('Error: ' + e);
@@ -44,5 +47,5 @@ export default function useFetchAllItems() {
         handleFetchAllItems();
     }, []);
 
-    return { classes, armours, weapons, talismans, ashes, affinities, sorceries, ammos, spirits, isLoading, error };
+    return { classes, armours, weapons, talismans, ashes, affinities, sorceries, ammos, spirits, greatRunes, isLoading, error };
 }

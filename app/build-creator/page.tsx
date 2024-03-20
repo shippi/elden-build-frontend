@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react'
-import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel } from '@/components'
+import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 import { CharacterStats } from '@/utils/types';
 
 function BuildCreator() {
-    const {classes, armours, talismans, weapons, ashes, affinities, isLoading, error} = useFetchAllItems();
+    const {classes, armours, talismans, weapons, ashes, affinities, greatRunes, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
     const [selectedArmours, setSelectedArmours] = useState(new Array(4).fill(null));
     const [selectedTalismans, setSelectedTalismans] = useState([]);
@@ -13,7 +13,11 @@ function BuildCreator() {
     const [selectedAshes, setSelectedAshes] = useState<any[]>([]);
     const [selectedWepLvls, setSelectedWepLvls] = useState<any[]>([]);
     const [selectedAffinities, setSelectedAffinities] = useState<any[]>([]);
+    const [greatRuneIndex, setGreatRuneIndex] = useState(-1);
+
     const [twoHanded, setTwoHanded] = useState(false);
+    const [runeActivated, setRuneActivated] = useState(false);
+
     const [characterStats, setCharacterStats] = useState<CharacterStats>({
         vigor: 0, 
         mind: 0, 
@@ -45,7 +49,10 @@ function BuildCreator() {
                         onChange={setClassIndex} 
                         onStatChange={setCharacterStats} 
                         talismans={selectedTalismans} 
-                        armours={selectedArmours} />
+                        armours={selectedArmours} 
+                        greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
+                    <div style={{height:"40px"}}/>
+                    <GreatRunesPanel greatRunes={greatRunes} index={greatRuneIndex} onIndexChange={setGreatRuneIndex} onActivateChange={setRuneActivated} />
                     </div>
                     <div className="subcontainer">
                         <WeaponsPanel 
@@ -74,7 +81,8 @@ function BuildCreator() {
                             characterLevelStats={characterStats} 
                             armours={selectedArmours} 
                             weapons={selectedWeapons} 
-                            talismans={selectedTalismans} />
+                            talismans={selectedTalismans} 
+                            greatRune={runeActivated && greatRunes[greatRuneIndex]} />
                         <div style={{height:"40px"}}/>
                         <AttackPowerPanel 
                             weapons={selectedWeapons} 

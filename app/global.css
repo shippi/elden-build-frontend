@@ -209,6 +209,7 @@ a:hover {
 
 /*general styling for panels*/
 .character-panel,
+.great-runes-panel,
 .armour-panel,
 .talismans-panel,
 .stats-panel,
@@ -239,7 +240,8 @@ a:hover {
   min-width: 400px;
 }
 
-.character-panel {
+.character-panel,
+.great-runes-panel {
   width: 15vw;
   min-width: 350px;
 }
@@ -393,17 +395,18 @@ input[type="checkbox"] {
   height: 18px;
   width: 18px;
   accent-color: var(--gold);
+  background-color: var(--bg-color);
 }
 
-.two-handed-container {
+.checkbox-container {
   display: flex;
   align-items: center;
   font-size: 16px;
   width: fit-content;
 }
 
-.two-handed-container:hover,
-.two-handed-container *:hover {
+.checkbox-container:hover,
+.checkbox-container *:hover {
   cursor: pointer;
   user-select: none;
 }

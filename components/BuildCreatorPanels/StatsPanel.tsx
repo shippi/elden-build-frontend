@@ -1,4 +1,4 @@
-import { Armour, CharacterClass, CharacterStats, Talisman, Weapon } from "@/utils/types"
+import { Armour, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "@/utils/types"
 import { calculateHP, calculateFP, calculateStamina, calculateEquipLoad, calculateDiscovery, calculatePoise, calculateWeight, getWeightRatio } from "@/utils/StatsUtils";
 import { PanelTitle } from "..";
 
@@ -7,13 +7,14 @@ interface Props {
     characterLevelStats: any,
     armours: Armour[],
     weapons: Weapon[],
-    talismans: Talisman[]
+    talismans: Talisman[],
+    greatRune?: GreatRune
 }
 
-function StatsPanel({characterClass, characterLevelStats, armours, weapons, talismans} : Props) {
-  const hp = calculateHP(characterClass, characterLevelStats, talismans, armours);
-  const fp = calculateFP(characterClass, characterLevelStats, talismans, armours);
-  const stamina = calculateStamina(characterClass, characterLevelStats, talismans, armours);
+function StatsPanel({characterClass, characterLevelStats, armours, weapons, talismans, greatRune} : Props) {
+  const hp = calculateHP(characterClass, characterLevelStats, talismans, armours, greatRune);
+  const fp = calculateFP(characterClass, characterLevelStats, talismans, armours, greatRune);
+  const stamina = calculateStamina(characterClass, characterLevelStats, talismans, armours, greatRune);
   const equipLoad = calculateEquipLoad(characterClass, characterLevelStats, talismans);
   const totalWeight = calculateWeight(armours, talismans, weapons);
   const weightRatio = getWeightRatio(totalWeight, equipLoad);

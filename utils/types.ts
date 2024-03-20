@@ -112,6 +112,13 @@ export interface requiredAttributes {
     arcane?: number
 }
 
+export interface GreatRune {
+    name: string,
+    image: string,
+    description: string,
+    statChanges?: StatChange
+}
+
 interface StatChange {
     maxHp?: number,
     maxFp?: number,

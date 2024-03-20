@@ -149,7 +149,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
             {/* div for selecting weapons*/}
                 <div className="selectors-container">
                     { selectorPanels[0] } <br/>  
-                    <div className="two-handed-container" onClick={handleCheckboxChange}>
+                    <div className="checkbox-container" onClick={handleCheckboxChange}>
                         <input type="checkbox" checked={twoHanded} onChange={handleCheckboxChange}/>
                         Two-Handed
                     </div>

@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Talisman, Armour, Weapon } from "@/utils/types";
+import { CharacterClass, CharacterStats, Talisman, Armour, Weapon, GreatRune } from "@/utils/types";
 import { calculateLevel, getEquipmentValues } from "./BuildCreatorUtils";
 
 /**
@@ -10,7 +10,7 @@ import { calculateLevel, getEquipmentValues } from "./BuildCreatorUtils";
  * @param armours 
  * @returns 
  */
-export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
+export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     // calculates total vigor level as vigor stat is used to calculate base HP
     const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, getEquipmentValues(talismans, "vigor"), getEquipmentValues(armours, "vigor"));
   
@@ -39,6 +39,8 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
         if (armour && armour.statChanges?.maxHp != null) hp *= armour.statChanges.maxHp;
     });
     
+    if (greatRune?.statChanges?.maxHp) hp *= greatRune.statChanges.maxHp;
+
     return Math.floor(hp);
   }
   
@@ -51,7 +53,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @param armours 
    * @returns 
    */
-  export function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
+  export function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, getEquipmentValues(talismans, "mind"), getEquipmentValues(armours, "mind"));
   
     let fp = 0;
@@ -77,6 +79,8 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
         if (armour && armour.statChanges?.maxFp != null) fp *= armour.statChanges.maxFp;
     });
 
+    if (greatRune?.statChanges?.maxFp) fp *= greatRune.statChanges.maxFp;
+
     return Math.floor(fp);
   }
 
@@ -88,7 +92,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @param armours 
    * @returns 
    */
-  export function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[]) {
+  export function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), getEquipmentValues(armours, "endurance"));
   
     let stamina = 0;
@@ -113,6 +117,8 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     armours.forEach(armour => {
         if (armour && armour.statChanges?.maxStamina != null) stamina *= armour.statChanges.maxStamina;
     });
+
+    if (greatRune?.statChanges?.maxStamina) stamina *= greatRune.statChanges.maxStamina;
 
     return Math.floor(stamina);
   }

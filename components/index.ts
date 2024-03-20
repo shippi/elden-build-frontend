@@ -12,6 +12,7 @@ import DefencesPanel from "./BuildCreatorPanels/DefencesPanel";
 import StatsPanel from "./BuildCreatorPanels/StatsPanel";
 import AttackPowerPanel from "./BuildCreatorPanels/AttackPowerPanel";
 import PanelTitle from "./UIElements/PanelTitle";
+import GreatRunesPanel from "./BuildCreatorPanels/GreatRunesPanel";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -28,5 +29,6 @@ export {
     DefencesPanel,
     StatsPanel,
     AttackPowerPanel,
+    GreatRunesPanel,
     PanelTitle
 }
