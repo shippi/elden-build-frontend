@@ -39,7 +39,7 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
                             )
                         } 
                         {
-                            ["staff", "seal"].includes(weapon?.type) && " / " + attackPower.sorceryScaling
+                            ["staff", "seal"].includes(weapon?.type) && " / " + attackPower.sorceryScaling.toFixed(0)
                         }
                     </div>
             )})

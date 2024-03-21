@@ -129,7 +129,8 @@ export interface Ammo {
         fire?: number,
         lightning?: number,
         holy?: number
-    }
+    },
+    effect?: string
 }
 
 interface StatChange {

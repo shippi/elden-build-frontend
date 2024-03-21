@@ -3,6 +3,7 @@ import { Ammo } from "@/utils/types"
 import { DropDown, PanelTitle } from ".."
 import { useState } from "react";
 import { getSelectedItems } from "@/utils/BuildCreatorUtils";
+import { calculateAmmoAttackPower } from "@/utils/AmmoUtils";
 
 interface Props {
     arrows: Ammo[],
@@ -43,12 +44,18 @@ function AmmoPanel({arrows, bolts, arrowsOnChange, boltsOnChange}: Props) {
             <div className="ammo-panel">
                 
                 {
-                    arrowsIndices.map((arrowIndex, i) => (
+                    arrowsIndices.map((arrowIndex, i) => {
+                        const ammoAP = calculateAmmoAttackPower(arrows[arrowIndex]);
+                        return (
                         <div className="selector" onClick={() => {setArrowCurrIndex(i)}}>
                         <label>Arrow {i+1}</label>
                         <DropDown items={arrows} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={arrowsIndices} onChange={handleArrowChange} />
+                        <div className="ammo-info">
+                            <span className="ammo-effect">{arrows[arrowIndex]?.effect && "Effect: " + arrows[arrowIndex].effect}</span>
+                            <span className="ammo-ap"  data-alt={ammoAP?.apAlt}>{ammoAP && "Attack Power: " + ammoAP.atkPower}</span>
                         </div>
-                    ))
+                        </div>
+                    )})
                 }
                 {
                     boltsIndices.map((boltIndex, i) => (

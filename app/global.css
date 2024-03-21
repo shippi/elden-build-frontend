@@ -412,13 +412,14 @@ td {
 
 .requirements-text {
   color: red;
-  font-size: 11px;
+  font-size: 12px;
   height: 12px;
   width: fit-content;
 }
 
 .requirements-text[data-alt]:hover:after,
-.attack-power[data-alt]:hover:after {
+.attack-power[data-alt]:hover:after,
+.ammo-ap[data-alt]:hover:after {
   font-size: 14px;
   color: white;
   content: attr(data-alt);
@@ -465,7 +466,8 @@ td {
   padding: 4px 0;
 }
 
-.attack-power[data-alt]:hover:after {
+.attack-power[data-alt]:hover:after,
+.ammo-ap[data-alt]:hover:after {
   border-left: 1px var(--gold) solid;
 }
 
@@ -473,6 +475,23 @@ td {
 .ammo-panel {
   width: 13vw;
   min-width: 340px;
+}
+
+.ammo-info {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gold);
+  font-size: 12px;
+  height: 12px;
+  width: 100%;
+}
+
+.ammo-effect {
+  color: gray;
+}
+
+.ammo-ap {
+  color: var(--gold);
 }
 
 /*styling for dropdown component*/

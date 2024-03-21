@@ -1,5 +1,6 @@
 'use client'
 import { useClickOutside } from '@/hooks';
+import useWindowSizeChange from '@/hooks/useWindowSizeChange';
 import { useEffect, useRef, useState } from 'react'
 
 interface Props {
@@ -41,6 +42,12 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
         if (selectedRef.current) setDropDownWidth(selectedRef.current.offsetWidth + "px");
     }, [open]);
 
+
+    const handleWindowSizeChange = () => {
+        if (selectedRef.current) setDropDownWidth(selectedRef.current.offsetWidth + "px");
+    }
+    
+    useWindowSizeChange(() => handleWindowSizeChange());
     
     const isCompatible = (currItem: any, currIndex: number) => {
         let compatible = true;
