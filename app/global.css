@@ -417,6 +417,14 @@ td {
   width: fit-content;
 }
 
+.weapon-effect {
+  color: #9c9478;
+  font-size: 12px;
+  height: 12px;
+  width: fit-content;
+  padding: 5px 0;
+}
+
 .requirements-text[data-alt]:hover:after,
 .attack-power[data-alt]:hover:after,
 .ammo-ap[data-alt]:hover:after {
@@ -487,7 +495,7 @@ td {
 }
 
 .ammo-effect {
-  color: gray;
+  color: #9c9478;
 }
 
 .ammo-ap {

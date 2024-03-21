@@ -70,7 +70,8 @@ export interface Weapon {
     changeAffinity: boolean,
     unique: boolean,
     disableAsh: boolean,
-    defaultSkill: string
+    defaultSkill: string,
+    effect?: string
 }
 
 export interface Talisman {
