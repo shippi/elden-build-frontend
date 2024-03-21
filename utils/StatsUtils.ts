@@ -201,14 +201,16 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @param talismans 
    * @returns 
    */
-  export function calculateDiscovery(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[]) {
-    const arcaneLevel = calculateLevel(+characterClass.stats.arcane, +characterLevelStats.arcane, getEquipmentValues(talismans, "arcane"));
+  export function calculateDiscovery(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
+    const arcaneLevel = calculateLevel(+characterClass.stats.arcane, +characterLevelStats.arcane, getEquipmentValues(talismans, "arcane"), getEquipmentValues(armours, "arcane"));
     let discovery = 100;
   
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.discovery != null) discovery += talisman.statChanges.discovery;
     });
-  
+    
+    if (greatRune?.statChanges?.arcane) discovery += greatRune.statChanges.arcane;
+
     return (discovery + arcaneLevel).toFixed(1);
   }
   

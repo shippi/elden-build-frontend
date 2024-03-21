@@ -19,7 +19,7 @@ function StatsPanel({characterClass, characterLevelStats, armours, weapons, tali
   const totalWeight = calculateWeight(armours, talismans, weapons);
   const weightRatio = getWeightRatio(totalWeight, equipLoad);
   const poise = calculatePoise(armours, talismans);
-  const discovery = calculateDiscovery(characterClass, characterLevelStats, talismans);
+  const discovery = calculateDiscovery(characterClass, characterLevelStats, talismans, armours, greatRune);
 
   return (
     <>
