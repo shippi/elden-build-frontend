@@ -11,7 +11,7 @@ interface Props {
 
 function ArmourPanel({armours, onChange} : Props) {
     const [indices, setIndices] = useState([-1, -1, -1, -1]);
-    const[currIndex, setCurrIndex] = useState(0);
+    const [currIndex, setCurrIndex] = useState(0);
 
     const armoursArr = [
         [...armours].filter(armour => (armour.category == "Head")),

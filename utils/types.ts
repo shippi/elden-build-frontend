@@ -119,6 +119,19 @@ export interface GreatRune {
     statChanges?: StatChange
 }
 
+export interface Ammo {
+    id: string,
+    name: string,
+    image: string,
+    attackPower: {
+        physical?: number,
+        magic?: number,
+        fire?: number,
+        lightning?: number,
+        holy?: number
+    }
+}
+
 interface StatChange {
     maxHp?: number,
     maxFp?: number,

@@ -202,9 +202,9 @@ input[type="checkbox"]:disabled {
 .build-creator {
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   width: 100%;
-  height: calc(40vh + 1100px);
+  height: calc(25vh + 1600px);
   background-image: linear-gradient(to top, #1c1c1c00, #1c1c1cFF), 
   url('./../public/builder-bg.png');
   background-size: auto;
@@ -243,6 +243,14 @@ input[type="checkbox"]:disabled {
   column-gap: 40px;
 }
 
+.separator {
+  width: 70vw;
+  min-width: 1500px;
+  border-bottom: 1px grey solid;
+  height: 20px;
+  margin-bottom: 30px;
+}
+
 /*general styling for panels*/
 .character-panel,
 .great-runes-panel,
@@ -251,11 +259,11 @@ input[type="checkbox"]:disabled {
 .stats-panel,
 .attack-power-panel,
 .defences-panel,
-.selectors-container {
+.selectors-container,
+.ammo-panel {
   display: block;
   padding: 15px 20px 10px 20px;
   background: linear-gradient(90deg, rgba(25,22,17,1) 0%, rgba(0,0,0,0) 100%);
-  
   border-left-width: 3px;
   border-left-style: solid;
   border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 10%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 90%, rgba(0,0,0,0)) 1;
@@ -461,6 +469,12 @@ td {
   border-left: 1px var(--gold) solid;
 }
 
+/**/
+.ammo-panel {
+  width: 13vw;
+  min-width: 340px;
+}
+
 /*styling for dropdown component*/
 .select-menu img {
   height: 35px;
@@ -514,8 +528,7 @@ td {
 
 .select-menu ul {
   overflow: auto;
-
-  max-height: 40vh;
+  max-height: 30vh;
 }
 
 .select-menu ul li {

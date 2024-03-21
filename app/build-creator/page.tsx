@@ -1,11 +1,11 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel } from '@/components'
+import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 import { CharacterStats } from '@/utils/types';
 
 function BuildCreator() {
-    const {classes, armours, talismans, weapons, ashes, affinities, greatRunes, isLoading, error} = useFetchAllItems();
+    const {classes, armours, talismans, weapons, ashes, affinities, greatRunes, arrows, bolts, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
     const [selectedArmours, setSelectedArmours] = useState(new Array(4).fill(null));
     const [selectedTalismans, setSelectedTalismans] = useState([]);
@@ -14,6 +14,8 @@ function BuildCreator() {
     const [selectedWepLvls, setSelectedWepLvls] = useState<any[]>([]);
     const [selectedAffinities, setSelectedAffinities] = useState<any[]>([]);
     const [greatRuneIndex, setGreatRuneIndex] = useState(-1);
+    const [selectedArrows, setSelectedArrows] = useState<any[]>([]);
+    const [selectedBolts, setSelectedBolts] = useState<any[]>([]);
 
     const [twoHanded, setTwoHanded] = useState(false);
     const [runeActivated, setRuneActivated] = useState(false);
@@ -55,6 +57,7 @@ function BuildCreator() {
                     />
                     <div style={{height:"40px"}}/>
                     <GreatRunesPanel greatRunes={greatRunes} index={greatRuneIndex} onIndexChange={setGreatRuneIndex} onActivateChange={setRuneActivated} />
+                    
                     </div>
                     <div className="subcontainer">
                         <WeaponsPanel 
@@ -104,6 +107,12 @@ function BuildCreator() {
                             armours={selectedArmours} 
                             talismans={selectedTalismans} />
                     </div>  
+
+                </div>
+                <div className="separator" />
+                <div className="panels-container">
+                    
+                    <AmmoPanel arrows={arrows} bolts={bolts} arrowsOnChange={setSelectedArrows} boltsOnChange={setSelectedBolts}/>
                 </div>
             </div>
         );

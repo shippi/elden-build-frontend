@@ -42,8 +42,6 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
     }, [open]);
 
     
-
-
     const isCompatible = (currItem: any, currIndex: number) => {
         let compatible = true;
         
@@ -51,7 +49,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
 
         incompatibilities?.forEach(i => {
             let item = items[i];
-            if (currItem.group == item?.group && i != index) compatible = false;
+            if (item?.group && currItem.group == item?.group && i != index) compatible = false;
         });
         
         return compatible;
