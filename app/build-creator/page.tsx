@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 import { CharacterStats } from '@/utils/types';
@@ -36,6 +36,7 @@ function BuildCreator() {
         setSelectedWepLvls(wepLvls);
     };
     
+
     if (classes.length > 0 && !isLoading) {
         return (
             <div className="build-creator">

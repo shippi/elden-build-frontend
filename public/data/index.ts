@@ -6,6 +6,8 @@ import { classesData } from "./Equipment/classes";
 import { affinitiesData } from "./Equipment/affinities";
 import { wepLevelsData } from "./Equipment/wepLevels";
 import { greatRunesData } from "./Equipment/greatRunes";
+import { arrowsData } from "./Equipment/arrows";
+import { boltsData } from "./Equipment/bolts";
 import { attackElementsCorrect } from "./WeaponCalculations/attackElementCorrect";
 import { calcCorrectGraph } from "./WeaponCalculations/calcCorrectGraph";
 import { multipliers } from "./WeaponCalculations/multipliers";
@@ -21,6 +23,8 @@ export {
     affinitiesData,
     wepLevelsData,
     greatRunesData,
+    arrowsData,
+    boltsData,
     attackElementsCorrect,
     calcCorrectGraph,
     multipliers,

@@ -113,7 +113,10 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
                 <label>{j < 3 ? "Left Armament " + (j % 3 + 1) : "Right Armament " + (j % 3 + 1)}</label>
                 <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true} searchEnabled={true}/>
                 <div className="requirements-text" data-alt={isRequiredStatsMet(weapons[wepIndices[j]], totalStats, twoHanded).reqTitle}>
-                {isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : isRequiredStatsMet(weapons[wepIndices[j]], totalStats, twoHanded).reqMessage}
+                {  
+                    isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : 
+                    isRequiredStatsMet(weapons[wepIndices[j]], totalStats, twoHanded).reqMessage
+                }
                 </div>
                 <div className="weapon-options">
                     <div className="ashes">

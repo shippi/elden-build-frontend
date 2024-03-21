@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { affinitiesData, armorsData, ashesData, classesData, talismansData, weaponsData } from "@/public/data";
+import { affinitiesData, armorsData, ashesData, classesData, talismansData, weaponsData, arrowsData, boltsData } from "@/public/data";
 import { greatRunesData } from "@/public/data/Equipment/greatRunes";
 
 /**
@@ -14,9 +14,10 @@ export default function useFetchAllItems() {
     const [ashes, setAshes] = useState<any[]>([]);
     const [affinities, setAffinities] = useState<any[]>([]);
     const [sorceries, setSorceries] = useState<any[]>([]);
-    const [ammos, setAmmos] = useState<any[]>([]);
     const [spirits, setSpirits] = useState<any[]>([]);
     const [greatRunes, setGreatRunes] = useState<any[]>([]);
+    const [arrows, setArrows] = useState<any[]>([]);
+    const [bolts, setBolts] = useState<any[]>([]);
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -34,6 +35,8 @@ export default function useFetchAllItems() {
                 setAshes(ashesData);
                 setAffinities(affinitiesData);
                 setGreatRunes(greatRunesData);
+                setArrows(arrowsData);
+                setBolts(boltsData);
             }
             catch (e) {
                 setError('Error: ' + e);
@@ -47,5 +50,5 @@ export default function useFetchAllItems() {
         handleFetchAllItems();
     }, []);
 
-    return { classes, armours, weapons, talismans, ashes, affinities, sorceries, ammos, spirits, greatRunes, isLoading, error };
+    return { classes, armours, weapons, talismans, ashes, affinities, sorceries, arrows, bolts, spirits, greatRunes, isLoading, error };
 }

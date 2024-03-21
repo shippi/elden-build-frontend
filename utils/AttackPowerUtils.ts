@@ -77,10 +77,10 @@ export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: n
             }
         }
 
-        if (weapon.type == "staff" || weapon.type == "seal") {     
+        if (weapon.type == "staff" || weapon.type == "seal") {   
             const sorceryScaling = calculateSorceryScaling(attackElementId, "magic", adjustedScalingValues, correctGraphIds[0], stats, weaponReqs);
-            sorceryAlt = "Spell Scaling: " + Math.floor(sorceryScaling) + "\n\n";
-            return {finalAttackValues: finalAttackValues, attackPowerAlt: sorceryAlt + attackPowerAlt + scalingAlt, sorceryScaling: sorceryScaling};
+            sorceryAlt = "\n\nSpell Scaling: " + Math.floor(sorceryScaling);
+            return {finalAttackValues: finalAttackValues, attackPowerAlt: attackPowerAlt + sorceryAlt + scalingAlt, sorceryScaling: sorceryScaling};
         }
         return {finalAttackValues: finalAttackValues, attackPowerAlt: attackPowerAlt + scalingAlt, sorceryScaling: 0};
     }
@@ -163,7 +163,7 @@ export function calculateSorceryScaling(attackElementId: string, attackType: str
                 const currReq = weaponReqs[currStatType.toLowerCase() as keyof typeof weaponReqs];
                 const currStat = characterStats[currStatType.toLowerCase() as keyof typeof characterStats];
                     
-                if (currReq && currStat && currStat < currReq) return 0;
+                if (currReq && currStat && currStat < currReq) return 60;
                 else {
                     const statScaling = calculateStatScaling(correctGraphId, currStatType.toLowerCase(), characterStats);
                     const addedValue = (statScaling*100) * (scalingValues[i]/100);
@@ -172,7 +172,6 @@ export function calculateSorceryScaling(attackElementId: string, attackType: str
             }
         }
     }
-    console.log(total)
     return total;
 }
 
