@@ -58,12 +58,18 @@ function AmmoPanel({arrows, bolts, arrowsOnChange, boltsOnChange}: Props) {
                     )})
                 }
                 {
-                    boltsIndices.map((boltIndex, i) => (
+                    boltsIndices.map((arrowIndex, i) => {
+                        const ammoAP = calculateAmmoAttackPower(bolts[arrowIndex]);
+                        return (
                         <div className="selector" onClick={() => {setArrowCurrIndex(i)}}>
                         <label>Bolt {i+1}</label>
-                        <DropDown items={bolts} index={boltIndex} isNullable={true} hasImages={true} onChange={handleBoltChange} />
+                        <DropDown items={bolts} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={boltsIndices} onChange={handleBoltChange} />
+                        <div className="ammo-info">
+                            <span className="ammo-effect">{bolts[arrowIndex]?.effect && "Effect: " + bolts[arrowIndex].effect}</span>
+                            <span className="ammo-ap"  data-alt={ammoAP?.apAlt}>{ammoAP && "Attack Power: " + ammoAP.atkPower}</span>
                         </div>
-                    ))
+                        </div>
+                    )})
                 }
             </div>
         </div>

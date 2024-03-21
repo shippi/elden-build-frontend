@@ -16,5 +16,5 @@ export function calculateAmmoAttackPower(ammo: Ammo) {
         else apAlt += "\n • " + (type.charAt(0).toUpperCase() + type.slice(1)) + ": " + 0;
     })
 
-    return {atkPower: +total, apAlt: apAlt};
+    return {atkPower: total, apAlt: apAlt};
 }
