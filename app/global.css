@@ -204,7 +204,7 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: calc(25vh + 1600px);
+  height: calc(30vh + 1750px);
   background-image: linear-gradient(to top, #1c1c1c00, #1c1c1cFF), 
   url('./../public/builder-bg.png');
   background-size: auto;

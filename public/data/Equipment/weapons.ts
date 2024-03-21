@@ -3755,7 +3755,6 @@ export const weaponsData = [
     "weight": 1.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Torch Attack"
   },
   {
@@ -3803,7 +3802,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Torch Attack",
     "effect": "Causes frost buildup"
   },
@@ -3819,7 +3817,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Torch Attack"
   },
   {
@@ -4777,7 +4774,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4809,7 +4805,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill",
     "effect": "Boosts lava sorcery"
   },
@@ -4825,7 +4820,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4857,7 +4851,6 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill",
     "effect": "Boosts Stonedigger sorcery"
   },
@@ -4873,7 +4866,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4889,7 +4881,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill",
     "effect": "Boosts Glintblade sorcery"
   },
@@ -4906,7 +4897,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill",
     "effect": "Boosts death sorcery"
   },
@@ -4923,7 +4913,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4938,7 +4927,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill"
   },
   {
@@ -4954,7 +4942,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill",
     "effect": "Boosts Carian sword sorcery"
   },
@@ -5016,7 +5003,6 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill",
     "effect": "Boosts thorn sorcery"
   },
@@ -5049,7 +5035,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "No Skill",
     "effect": "Boosts invisibility sorcery"
   },
@@ -5208,7 +5193,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -5223,7 +5207,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -5238,7 +5221,6 @@ export const weaponsData = [
     "weight": 2.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Barrage"
   },
   {
@@ -5268,7 +5250,6 @@ export const weaponsData = [
     "weight": 3,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5283,7 +5264,6 @@ export const weaponsData = [
     "weight": 4,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5298,7 +5278,6 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5314,7 +5293,6 @@ export const weaponsData = [
     "weight": 4.5,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Mighty Shot"
   },
   {
@@ -5437,7 +5415,6 @@ export const weaponsData = [
     "weight": 10,
     "changeAffinity": false,
     "unique": false,
-    "disableAsh": true,
     "defaultSkill": "Through and Through"
   },
   {

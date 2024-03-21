@@ -104,7 +104,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                     }
                     {
                         items.map((item, i) => (
-                            item.name.toLowerCase().indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 &&
+                            item.name.toLowerCase().replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '').indexOf(search.replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 &&
                             <li 
                                 className={i == index ? "selected-item" : isCompatible(item, i) == false ? "disabled" : ""}
                                 key={i.toString()} 
