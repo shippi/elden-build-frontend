@@ -13,6 +13,7 @@ interface Props {
 
 function GreatRunesPanel({greatRunes, index, onIndexChange, onActivateChange} : Props) {
     const [activated, setActivated] = useState(false);
+    const disabled = index < 0;
 
     const handleCheckboxChange = () => {
         setActivated(!activated);
@@ -26,15 +27,15 @@ function GreatRunesPanel({greatRunes, index, onIndexChange, onActivateChange} : 
             
             <DropDown items={greatRunes} index={index} isNullable={true} onChange={onIndexChange} hasImages={false} />
 
-            <div className="active-effects">
+            <div className="active-effects" >
                 <label>Effect:</label>
                 <ul>
                 {index > -1 && <li>{greatRunes[index].description}</li>}
                 </ul>
             </div>
             <br/>
-            <div className="checkbox-container" onClick={handleCheckboxChange}>
-                <input type="checkbox" checked={activated}/>
+            <div className={(disabled ? "disabled " : "") + "checkbox-container"} onClick={handleCheckboxChange}>
+                <input type="checkbox" checked={activated} disabled={disabled}/>
                 Activate
             </div>
         </div>

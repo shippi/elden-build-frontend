@@ -84,6 +84,5 @@ export function getTotalStats(characterClass: CharacterClass, characterStats: Ch
       totalStats[stat as keyof typeof totalStats] = totalLevel;
   });
   
-  console.log(totalStats);
   return totalStats;
 }

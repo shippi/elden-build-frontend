@@ -67,6 +67,42 @@ a:hover {
   transform: translate(-50%, -80%);
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  margin-right: 5px;
+  height: 18px;
+  width: 18px;
+  accent-color: var(--gold);
+  background-color: var(--bg-color);
+  border: 1px var(--dark-gold) solid;
+}
+
+input[type="checkbox"]:checked {
+  background-size: cover;
+  padding: 2px;
+}
+
+input[type="checkbox"]:not(:disabled):checked {
+  color: var(--bg-color);
+  background-color: var(--gold);  
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" xml:space="preserve"><path style="fill: %231c1c1c" d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818"/></svg>');
+}
+
+input[type="checkbox"]:not(:disabled):hover {
+  border-color: darkgray;
+  background-color: darkgray;  
+}
+
+input[type="checkbox"]:disabled:hover {
+  cursor: default;
+}
+
+input[type="checkbox"]:disabled {
+  cursor: default;
+  background-color: #3d3d3d;
+  border-color: #6b6b6b;
+}
+
 /*styling for the hero component*/
 .hero {
   width: 100vw;
@@ -390,14 +426,6 @@ td {
   z-index: 1;
 }
 
-input[type="checkbox"] {
-  margin-right: 5px;
-  height: 18px;
-  width: 18px;
-  accent-color: var(--gold);
-  background-color: var(--bg-color);
-}
-
 .checkbox-container {
   display: flex;
   align-items: center;
@@ -409,6 +437,10 @@ input[type="checkbox"] {
 .checkbox-container *:hover {
   cursor: pointer;
   user-select: none;
+}
+
+.great-runes-panel .disabled {
+  color: #6b6b6b;
 }
 
 /**/
@@ -457,8 +489,8 @@ input[type="checkbox"] {
   align-items: center;
 }
 
-.disabled,
-.disabled * {
+.select-menu .disabled,
+.select-menu .disabled * {
   background-color: #3d3d3d;
   color: #6b6b6b;
 }

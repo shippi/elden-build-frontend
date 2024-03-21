@@ -69,17 +69,17 @@ export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats, t
         if (wepReq) {
             
             if (stat == "strength" && twoHanded) {
-                console.log(stat)
                 wepReq = wepReq / 1.5;
             }
-            requirementsMessage += wepReq + "/";
-            requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + wepReq;
+            requirementsMessage += wepReq.toFixed(0) + "/";
+            requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + wepReq.toFixed(0);
+            
         }
         else  {
             requirementsMessage += "0/";
             requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + "0";
         }
     });
-
+    console.log(requirementsTitle)
     return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1), reqTitle: requirementsTitle};
 }

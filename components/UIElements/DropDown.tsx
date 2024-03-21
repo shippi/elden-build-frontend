@@ -111,7 +111,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                                     }
                                 }}
                             >
-                                {item.image && <img src={item.image}/>}
+                                {(item.image && hasImages) && <img src={item.image}/>}
                                 {item.name}
                             </li>
                         ))

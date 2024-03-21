@@ -1798,7 +1798,7 @@ export const weaponsData = [
     "id": "11060000",
     "name": "Varre's Bouquet",
     "type": "hammer",
-    "image": null,
+    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6d/ER_Icon_weapon_Varre's_Bouquet.png",
     "requiredAttributes": {
       "strength": 8,
       "dexterity": 16,
