@@ -149,6 +149,7 @@ interface StatChange {
     maxEquipLoad?: number,
     maxPoise?: number,
     discovery?: number,
+    fpCost?: number,
     physicalNegation?: number,
     magicNegation?: number,
     fireNegation?: number,

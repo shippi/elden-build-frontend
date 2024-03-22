@@ -1,10 +1,10 @@
 'use client'
 import { useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
-import { getSelectedItems, getTotalStats } from "@/utils/BuildCreatorUtils"
+import { getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/utils/BuildCreatorUtils"
 import { Armour, Ash, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "../../utils/types"
 import { wepLevelsData } from "@/public/data"
-import { getAshIndex, getAvailableAshes, getSelectedAshes, isRequiredStatsMet } from "@/utils/WeaponsUtils"
+import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/utils/WeaponsUtils"
 
 interface Props {
     weapons: Weapon[],
@@ -113,10 +113,10 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
                 <label>{j < 3 ? "Left Armament " + (j % 3 + 1) : "Right Armament " + (j % 3 + 1)}</label>
                 <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true} searchEnabled={true}/>
                 
-                <div className="requirements-text" data-alt={isRequiredStatsMet(weapons[wepIndices[j]], totalStats, twoHanded).reqTitle}>
+                <div className="requirements-text" data-alt={isRequiredStatsMet(weapons[wepIndices[j]]?.requiredAttributes, totalStats, twoHanded).reqTitle}>
                 {  
-                    isRequiredStatsMet(weapons[wepIndices[j]], totalStats).isMet ? "" : 
-                    isRequiredStatsMet(weapons[wepIndices[j]], totalStats, twoHanded).reqMessage
+                    isRequiredStatsMet(weapons[wepIndices[j]]?.requiredAttributes, totalStats).isMet ? "" : 
+                    isRequiredStatsMet(weapons[wepIndices[j]]?.requiredAttributes, totalStats, twoHanded).reqMessage
                 }
                 </div>
                 <div className="weapon-options">

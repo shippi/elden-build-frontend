@@ -255,8 +255,8 @@ input[type="checkbox"]:disabled {
   width: 70vw;
   min-width: 1500px;
   border-bottom: 1px grey solid;
-  height: 30px;
-  margin-bottom: 30px;
+  height: 40px;
+  margin-bottom: 40px;
 }
 
 /*general styling for panels*/
@@ -494,7 +494,7 @@ td {
   min-width: 340px;
 }
 
-.ammo-info {
+.info {
   display: flex;
   justify-content: space-between;
   color: var(--gold);

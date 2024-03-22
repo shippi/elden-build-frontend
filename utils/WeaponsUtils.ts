@@ -1,4 +1,4 @@
-import { Ash, CharacterStats, Weapon } from "@/utils/types";
+import { Ash, CharacterStats, Weapon, requiredAttributes } from "@/utils/types";
 import { WEAPON_STATS_NAMES } from "./consts";
 
 /**
@@ -42,44 +42,4 @@ export function getSelectedAshes(selectedWeapons: Weapon[], ashes: Ash[], ashInd
     })
 
     return selectedAshes;
-}
-
-/**
- * Returns an object that contains if the total character stats meet the 
- * requirement for a weapon and a string listing the requirements.
- * @param weapon 
- * @param totalStats 
- * @returns 
- */
-export function isRequiredStatsMet(weapon: Weapon, totalStats: CharacterStats, twoHanded?: boolean) {
-    if (weapon == undefined) return {isMet: false, reqMessage: null};
-
-    let isMet = true;
-    let requirementsMessage = "Requirements: "
-    let requirementsTitle = "Weapon Requirements:"
-
-    // loops through each of the names for the stats used for weapon scaling
-    // since the same stats are used for weapon requirements
-    WEAPON_STATS_NAMES.forEach(stat => {
-        let wepReq = weapon.requiredAttributes[stat as keyof typeof weapon.requiredAttributes];
-        const currStat = totalStats[stat as keyof typeof totalStats];
-        
-        if (wepReq && currStat < wepReq) isMet = false;
-
-        if (wepReq) {
-            
-            if (stat == "strength" && twoHanded) {
-                wepReq = wepReq / 1.5;
-            }
-            requirementsMessage += wepReq.toFixed(0) + "/";
-            requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + wepReq.toFixed(0);
-            
-        }
-        else  {
-            requirementsMessage += "0/";
-            requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + "0";
-        }
-    });
-    console.log(requirementsTitle)
-    return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1), reqTitle: requirementsTitle};
 }

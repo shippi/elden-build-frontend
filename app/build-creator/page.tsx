@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 import { CharacterStats } from '@/utils/types';
+import { getTotalStats } from '@/utils/BuildCreatorUtils';
 
 function BuildCreator() {
     const {classes, armours, talismans, weapons, ashes, affinities, greatRunes, arrows, bolts, spells, isLoading, error} = useFetchAllItems();
@@ -31,6 +32,7 @@ function BuildCreator() {
         faith: 0, 
         arcane: 0
     });
+
 
     const handleWepChange = (weps: any[], ashes: any[], affinities: any[], wepLvls: any[]) => {
         setSelectedWeapons(weps);
@@ -114,7 +116,15 @@ function BuildCreator() {
                 <div className="bottom-panels-container">
                     <AmmoPanel arrows={arrows} bolts={bolts} arrowsOnChange={setSelectedArrows} boltsOnChange={setSelectedBolts}/>
                     <div style={{width:"3vw"}}/>
-                    <SpellsPanel spells={spells} talismans={selectedTalismans} onChange={setSelectedSpells}/>
+                    <SpellsPanel 
+                        spells={spells} 
+                        characterClass={classes[classIndex]} 
+                        characterStats={characterStats} 
+                        armours={selectedArmours} 
+                        talismans={selectedTalismans} 
+                        greatRune={runeActivated && greatRunes[greatRuneIndex]} 
+                        onChange={setSelectedSpells}                        
+                    />
                 </div>
             </div>
         );

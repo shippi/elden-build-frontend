@@ -50,8 +50,7 @@ function AmmoPanel({arrows, bolts, arrowsOnChange, boltsOnChange}: Props) {
                         <div className="selector" onClick={() => {setArrowCurrIndex(i)}}>
                         <label>Arrow {i+1}</label>
                         <DropDown items={arrows} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={arrowsIndices} onChange={handleArrowChange} searchEnabled={true}/>
-                        <div className="ammo-info">
-                            
+                        <div className="info">
                             <span className="ammo-effect">{arrows[arrowIndex]?.effect && "Effect: " + arrows[arrowIndex].effect}</span>
                             <span className="ammo-ap"  data-alt={ammoAP?.apAlt}>{ammoAP && "Attack Power: " + ammoAP.atkPower}</span>
                         </div>

@@ -1,5 +1,5 @@
-import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune } from "@/utils/types";
-import { MAX_STAT_LEVEL, STAT_NAMES } from "./consts";
+import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune, requiredAttributes } from "@/utils/types";
+import { MAX_STAT_LEVEL, STAT_NAMES, WEAPON_STATS_NAMES } from "./consts";
 
 export function getSelectedItems(items: any[], indices: number[]) {
     let selectedItems: any[] = new Array(indices.length).fill(null);
@@ -85,4 +85,43 @@ export function getTotalStats(characterClass: CharacterClass, characterStats: Ch
   });
   
   return totalStats;
+}
+
+/**
+ * Returns an object that contains if the total character stats meet the 
+ * requirement for a weapon and a string listing the requirements.
+ * @param weapon 
+ * @param totalStats 
+ * @returns 
+ */
+export function isRequiredStatsMet(requirements: requiredAttributes, totalStats: CharacterStats, twoHanded?: boolean) {
+  if (requirements == undefined) return {isMet: false, reqMessage: null};
+
+  let isMet = true;
+  let requirementsMessage = "Requirements: "
+  let requirementsTitle = "Requirements:"
+
+  // loops through each of the names for the stats used for weapon scaling
+  // since the same stats are used for weapon requirements
+  WEAPON_STATS_NAMES.forEach(stat => {
+      let currReq = requirements[stat as keyof typeof requirements];
+      const currStat = totalStats[stat as keyof typeof totalStats];
+      
+      if (currReq && currStat < currReq) isMet = false;
+
+      if (currReq) {
+          
+          if (stat == "strength" && twoHanded) {
+              currReq = currReq / 1.5;
+          }
+          requirementsMessage += currReq.toFixed(0) + "/";
+          requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + currReq.toFixed(0);
+          
+      }
+      else  {
+          requirementsMessage += "0/";
+          requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + "0";
+      }
+  });
+  return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1), reqTitle: requirementsTitle};
 }
