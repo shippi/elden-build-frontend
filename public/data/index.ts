@@ -8,6 +8,7 @@ import { wepLevelsData } from "./Equipment/wepLevels";
 import { greatRunesData } from "./Equipment/greatRunes";
 import { arrowsData } from "./Equipment/arrows";
 import { boltsData } from "./Equipment/bolts";
+import { spellsData } from "./Equipment/spells";
 import { attackElementsCorrect } from "./WeaponCalculations/attackElementCorrect";
 import { calcCorrectGraph } from "./WeaponCalculations/calcCorrectGraph";
 import { multipliers } from "./WeaponCalculations/multipliers";
@@ -25,6 +26,7 @@ export {
     greatRunesData,
     arrowsData,
     boltsData,
+    spellsData,
     attackElementsCorrect,
     calcCorrectGraph,
     multipliers,
