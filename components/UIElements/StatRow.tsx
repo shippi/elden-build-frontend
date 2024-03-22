@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
-import { useClickOutside } from "@/hooks";
+import { useClickOutside, useOnKeyPress } from "@/hooks";
 import { Talisman, Armour, GreatRune } from "@/utils/types";
 import { calculateLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/utils/BuildCreatorUtils";
 
@@ -27,8 +27,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
     const [value, setValue] = useState((+initialValue + addedValue).toString());
     const [affectedByEquipment, setAffecectedByEquipment] = useState(false);
     const totalValue = calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type), getRuneValue(type, greatRune)).toString();
-    
-    console.log(getRuneValue(type, greatRune))
+
     // useEffect hook to update component when initialValue prop has changed.
     // this will reset the value and change it depending on selected class
     useEffect(() => {
@@ -40,6 +39,8 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
         if (getEquipmentTotalValue([...talismans, ...armours], type) + getRuneValue(type, greatRune) > 0) setAffecectedByEquipment(true);
         else setAffecectedByEquipment(false);
     }, [talismans, armours, addedValue, greatRune])
+
+    useOnKeyPress('Enter', () => handleClick());
 
     // this block of code is used to detect and handle when a user
     // has clicked outside the number input

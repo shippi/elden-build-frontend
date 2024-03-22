@@ -172,7 +172,7 @@ export function calculateSorceryScaling(attackElementId: string, attackType: str
             }
         }
     }
-    return total;
+    return Math.floor(total);
 }
 
 function getScalingLetter(value: number) {
