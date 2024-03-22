@@ -134,6 +134,14 @@ export interface Ammo {
     effect?: string
 }
 
+export interface Spell {
+    id: string,
+    name: string,
+    image: string,
+    requirements: requiredAttributes,
+    fpCost: number
+}
+
 interface StatChange {
     maxHp?: number,
     maxFp?: number,

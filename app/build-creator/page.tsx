@@ -1,11 +1,11 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel } from '@/components'
+import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel } from '@/components'
 import { useFetchAllItems } from '@/hooks';
 import { CharacterStats } from '@/utils/types';
 
 function BuildCreator() {
-    const {classes, armours, talismans, weapons, ashes, affinities, greatRunes, arrows, bolts, isLoading, error} = useFetchAllItems();
+    const {classes, armours, talismans, weapons, ashes, affinities, greatRunes, arrows, bolts, spells, isLoading, error} = useFetchAllItems();
     const [classIndex, setClassIndex] = useState(0);
     const [selectedArmours, setSelectedArmours] = useState(new Array(4).fill(null));
     const [selectedTalismans, setSelectedTalismans] = useState([]);
@@ -16,6 +16,7 @@ function BuildCreator() {
     const [greatRuneIndex, setGreatRuneIndex] = useState(-1);
     const [selectedArrows, setSelectedArrows] = useState<any[]>([]);
     const [selectedBolts, setSelectedBolts] = useState<any[]>([]);
+    const [selectedSpells, setSelectedSpells] = useState<any[]>([]);
 
     const [twoHanded, setTwoHanded] = useState(false);
     const [runeActivated, setRuneActivated] = useState(false);
@@ -110,9 +111,10 @@ function BuildCreator() {
 
                 </div>
                 <div className="separator" />
-                <div className="panels-container">
-                    
+                <div className="bottom-panels-container">
                     <AmmoPanel arrows={arrows} bolts={bolts} arrowsOnChange={setSelectedArrows} boltsOnChange={setSelectedBolts}/>
+                    <div style={{width:"3vw"}}/>
+                    <SpellsPanel spells={spells} talismans={selectedTalismans} onChange={setSelectedSpells}/>
                 </div>
             </div>
         );

@@ -14,6 +14,7 @@ import AttackPowerPanel from "./BuildCreatorPanels/AttackPowerPanel";
 import PanelTitle from "./UIElements/PanelTitle";
 import GreatRunesPanel from "./BuildCreatorPanels/GreatRunesPanel";
 import AmmoPanel from "./BuildCreatorPanels/AmmoPanel";
+import SpellsPanel from "./BuildCreatorPanels/SpellsPanel";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -32,5 +33,6 @@ export {
     AttackPowerPanel,
     GreatRunesPanel,
     PanelTitle,
-    AmmoPanel
+    AmmoPanel,
+    SpellsPanel
 }
