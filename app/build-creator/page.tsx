@@ -33,6 +33,16 @@ function BuildCreator() {
         arcane: 0
     });
 
+    const [totalStats, setTotalStats] = useState<CharacterStats>({
+        vigor: 0, 
+        mind: 0, 
+        endurance: 0, 
+        strength: 0, 
+        dexterity: 0, 
+        intelligence: 0, 
+        faith: 0, 
+        arcane: 0
+    });
 
     const handleWepChange = (weps: any[], ashes: any[], affinities: any[], wepLvls: any[]) => {
         setSelectedWeapons(weps);
@@ -80,8 +90,8 @@ function BuildCreator() {
                         />
                         <div style={{height:"40px"}}/>
                         <div className='subcontainer2'>
-                            <ArmourPanel armours={armours} onChange={setSelectedArmours} />
-                            <TalismansPanel talismans={talismans} onChange={setSelectedTalismans} />
+                            <ArmourPanel armours={armours} onChange={setSelectedArmours}/>
+                            <TalismansPanel talismans={talismans} onChange={setSelectedTalismans}/>
                         </div>
                     </div>
                     <div className="subcontainer" >
@@ -91,7 +101,7 @@ function BuildCreator() {
                             armours={selectedArmours} 
                             weapons={selectedWeapons} 
                             talismans={selectedTalismans} 
-                            greatRune={runeActivated && greatRunes[greatRuneIndex]} />
+                            greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
                         <div style={{height:"40px"}}/>
                         <AttackPowerPanel 
                             weapons={selectedWeapons} 
@@ -102,19 +112,20 @@ function BuildCreator() {
                             armours={selectedArmours} 
                             talismans={selectedTalismans} 
                             twoHanded={twoHanded} 
-                            greatRune={runeActivated && greatRunes[greatRuneIndex]} />
+                            greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
                         <div style={{height:"40px"}}/>
                         <DefencesPanel 
                             characterClass={classes[classIndex]} 
                             characterLevelStats={characterStats} 
                             armours={selectedArmours} 
-                            talismans={selectedTalismans} />
+                            talismans={selectedTalismans}
+                            greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
                     </div>  
 
                 </div>
                 <div className="separator" />
                 <div className="bottom-panels-container">
-                    <AmmoPanel arrows={arrows} bolts={bolts} arrowsOnChange={setSelectedArrows} boltsOnChange={setSelectedBolts}/>
+                    <AmmoPanel arrows={arrows} bolts={bolts} onArrowsChange={setSelectedArrows} onBoltsChange={setSelectedBolts}/>
                     <div style={{width:"3vw"}}/>
                     <SpellsPanel 
                         spells={spells} 
@@ -123,15 +134,14 @@ function BuildCreator() {
                         armours={selectedArmours} 
                         talismans={selectedTalismans} 
                         greatRune={runeActivated && greatRunes[greatRuneIndex]} 
-                        onChange={setSelectedSpells}                        
-                    />
+                        onChange={setSelectedSpells}/>
                 </div>
             </div>
         );
     }
     else {
         return (
-            <Loading />
+            <Loading/>
         )
     }
 }

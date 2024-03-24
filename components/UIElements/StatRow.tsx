@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useClickOutside, useOnKeyPress } from "@/hooks";
 import { Talisman, Armour, GreatRune } from "@/utils/types";
-import { calculateLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/utils/BuildCreatorUtils";
+import { calculateStatLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/utils/BuildCreatorUtils";
 
 interface Props {
     type: string,
@@ -26,7 +26,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
     // state for the value in the number input
     const [value, setValue] = useState((+initialValue + addedValue).toString());
     const [affectedByEquipment, setAffecectedByEquipment] = useState(false);
-    const totalValue = calculateLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type), getRuneValue(type, greatRune)).toString();
+    const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type), getRuneValue(type, greatRune)).toString();
 
     // useEffect hook to update component when initialValue prop has changed.
     // this will reset the value and change it depending on selected class
@@ -40,7 +40,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
         else setAffecectedByEquipment(false);
     }, [talismans, armours, addedValue, greatRune])
 
-    useOnKeyPress('Enter', () => handleClick());
+    useOnKeyPress(['Enter', 'Tab'], () => handleClick());
 
     // this block of code is used to detect and handle when a user
     // has clicked outside the number input

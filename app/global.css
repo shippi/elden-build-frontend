@@ -64,7 +64,7 @@ a:hover {
   width: 100%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -70%);
 }
 
 input[type="checkbox"] {
@@ -139,7 +139,7 @@ input[type="checkbox"]:disabled {
 .navbar {
   height: 5vh;
   min-height: 50px;
-  padding-top: 1%;
+  padding-top: 20px;
   margin: auto;
   width: 70vw;
   min-width: 1500px;
@@ -204,7 +204,7 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: calc(30vh + 1750px);
+  height: calc(35vh + 1750px);
   background-image: linear-gradient(to top, #1c1c1c00, #1c1c1cFF), 
   url('./../public/builder-bg.png');
   background-size: auto;
@@ -516,7 +516,6 @@ td {
   display: flex;
   flex-wrap: wrap;
   column-gap: 20px;
-  row-gap: 10px;
   width: 40vw;
   min-width: 1000px;
 }

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { DropDown, PanelTitle } from "..";
-import { getSelectedItems } from "@/utils/BuildCreatorUtils";
+import { getSelectedItems, handleDropdownChange } from "@/utils/BuildCreatorUtils";
 import { Talisman } from "../../utils/types";
 
 interface Props {
@@ -14,13 +14,7 @@ function TalismansPanel({talismans, onChange} : Props) {
     const [currIndex, setCurrIndex] = useState(0);
 
     const handleOnChange = (newIndex: number) => {
-        let newIndeces = [...indices];
-        newIndeces[currIndex] = newIndex;
-
-        const selectedTalismans = getSelectedItems(talismans, newIndeces);
-
-        setIndices(newIndeces);
-        onChange(selectedTalismans);
+        handleDropdownChange(indices, currIndex, newIndex, talismans, getSelectedItems, setIndices, onChange)
     }
 
     return (

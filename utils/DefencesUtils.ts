@@ -1,15 +1,8 @@
-import { CharacterClass, CharacterStats, Armour, Talisman } from "@/utils/types";
+import { CharacterStats, Armour, Talisman } from "@/utils/types";
+import { NEGATION_NAMES } from "./consts";
 
-export function calculateLevel(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
-    const level = +characterClass.stats.level + +characterLevelStats.vigor + +characterLevelStats.mind + 
-                  +characterLevelStats.endurance + +characterLevelStats.strength + +characterLevelStats.dexterity + 
-                  +characterLevelStats.intelligence + +characterLevelStats.faith + +characterLevelStats.arcane;             
-    return level;
-  }
-  
-  export function calculatePhysicalDefences(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
-    const level = calculateLevel(characterClass, characterLevelStats);
-    const strengthLevel = +characterClass.stats.strength + +characterLevelStats.strength;
+export function calculatePhysicalDefences(totalStats: CharacterStats, level: number) {
+    const strengthLevel = totalStats.strength;
     let baseStat = 0;
       
     // calculates defense number based on given level
@@ -49,8 +42,6 @@ export function calculateLevel(characterClass: CharacterClass, characterLevelSta
   }
   
   export function calculateNegations(selectedArmours: Armour[], selectedTalismans: Talisman[]) {
-    const NEGATION_NAMES = ["physical", "strike", "slash", "pierce", "magic", "fire", "lightning", "holy"];
-  
     let negationValues = [0, 0, 0, 0, 0, 0, 0, 0];
   
     selectedArmours.forEach((armour) => {
@@ -90,11 +81,10 @@ export function calculateLevel(characterClass: CharacterClass, characterLevelSta
     return negationValues;
   }
   
-  export function calculateMagicDefences(characterClass: CharacterClass, characterLevelStats: CharacterStats) {
-    const level = calculateLevel(characterClass, characterLevelStats);
-    const intelligenceLevel = +characterClass.stats.intelligence + +characterLevelStats.intelligence;
-    const vigorLevel = +characterClass.stats.vigor + +characterLevelStats.vigor;
-    const arcaneLevel = +characterClass.stats.arcane + +characterLevelStats.arcane;
+  export function calculateMagicDefences(totalStats: CharacterStats, level: number) {
+    const intelligenceLevel = totalStats.intelligence;
+    const vigorLevel = totalStats.vigor;
+    const arcaneLevel = totalStats.arcane;
   
     let baseStat = 0;
   
@@ -154,13 +144,11 @@ export function calculateLevel(characterClass: CharacterClass, characterLevelSta
     return [magic, fire, lightning, holy].map(i => Math.floor(i))
   }
   
-  export function calculateBaseResistances(characterClass: CharacterClass, characterLevelStats: CharacterStats, selectedArmours: Armour[], selectedTalismans: Talisman[]) {
-    const level = calculateLevel(characterClass, characterLevelStats);
-  
-    const vigorLevel = +characterClass.stats.vigor + +characterLevelStats.vigor;
-    const enduranceLevel = +characterClass.stats.endurance + +characterLevelStats.endurance;
-    const mindLevel = +characterClass.stats.mind + +characterLevelStats.mind;
-    const arcaneLevel = +characterClass.stats.arcane + +characterLevelStats.arcane;
+  export function calculateBaseResistances(totalStats: CharacterStats, level: number, selectedArmours: Armour[], selectedTalismans: Talisman[]) {
+    const vigorLevel = totalStats.vigor;
+    const enduranceLevel = totalStats.endurance;
+    const mindLevel = totalStats.mind;
+    const arcaneLevel = totalStats.arcane;
   
     let baseStat = 0;
       

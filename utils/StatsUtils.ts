@@ -1,5 +1,5 @@
 import { CharacterClass, CharacterStats, Talisman, Armour, Weapon, GreatRune } from "@/utils/types";
-import { calculateLevel, getEquipmentValues, getRuneValue } from "./BuildCreatorUtils";
+import { getEquipmentValues, getRuneValue } from "./BuildCreatorUtils";
 
 /**
  * Calculates the total HP value based on total vigor level, and talismans and armour effects.
@@ -10,10 +10,7 @@ import { calculateLevel, getEquipmentValues, getRuneValue } from "./BuildCreator
  * @param armours 
  * @returns 
  */
-export function calculateHP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
-    // calculates total vigor level as vigor stat is used to calculate base HP
-    const vigorLevel = calculateLevel(+characterClass.stats.vigor, +characterLevelStats.vigor, getEquipmentValues(talismans, "vigor"), getEquipmentValues(armours, "vigor"), getRuneValue("vigor", greatRune));
-  
+export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     // if-else block to determine base hp from vigor. Certain level cutoffs use different type of scaling
     let hp = 0;
     if (vigorLevel < 26) {
@@ -53,9 +50,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @param armours 
    * @returns 
    */
-  export function calculateFP(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
-    const mindLevel = calculateLevel(+characterClass.stats.mind, +characterLevelStats.mind, getEquipmentValues(talismans, "mind"), getEquipmentValues(armours, "mind"), getRuneValue("mind", greatRune));
-  
+  export function calculateFP(mindLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     let fp = 0;
     if (mindLevel < 16) {
       fp = 50 + 45*((mindLevel - 1)/14);
@@ -92,9 +87,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @param armours 
    * @returns 
    */
-  export function calculateStamina(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
-    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), getEquipmentValues(armours, "endurance"), getRuneValue("endurance", greatRune));
-  
+  export function calculateStamina(enduranceLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     let stamina = 0;
     if (enduranceLevel < 16) {
       stamina = 80 + 25*((enduranceLevel - 1)/14);
@@ -132,9 +125,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
    * @param talismans 
    * @returns 
    */
-  export function calculateEquipLoad(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], greatRune?: GreatRune) {
-    const enduranceLevel = calculateLevel(+characterClass.stats.endurance, +characterLevelStats.endurance, getEquipmentValues(talismans, "endurance"), [], getRuneValue("endurance", greatRune));
-  
+  export function calculateEquipLoad(enduranceLevel: number, talismans: Talisman[], greatRune?: GreatRune) {
     let equipLoad = 0;
     
     if (enduranceLevel < 26) equipLoad = 45 + 27*((enduranceLevel - 8)/17);
@@ -194,15 +185,15 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     return Math.floor(poise);
   }
   
-  /**
-   * Calculates total discovery based on total stats and talisman effects.
-   * @param characterClass 
-   * @param characterLevelStats 
-   * @param talismans 
-   * @returns 
-   */
-  export function calculateDiscovery(characterClass: CharacterClass, characterLevelStats: CharacterStats, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
-    const arcaneLevel = calculateLevel(+characterClass.stats.arcane, +characterLevelStats.arcane, getEquipmentValues(talismans, "arcane"), getEquipmentValues(armours, "arcane"));
+/**
+ * Calculates total discovery based on total stats and talisman effects.
+ * @param totalStats 
+ * @param talismans 
+ * @param armours 
+ * @param greatRune 
+ * @returns 
+ */
+  export function calculateDiscovery(arcaneLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
     let discovery = 100;
   
     talismans.forEach(talisman => {
@@ -211,7 +202,7 @@ export function calculateHP(characterClass: CharacterClass, characterLevelStats:
     
     if (greatRune?.statChanges?.arcane) discovery += greatRune.statChanges.arcane;
 
-    return (discovery + arcaneLevel).toFixed(1);
+    return discovery + arcaneLevel
   }
   
   /**

@@ -3,6 +3,7 @@ import { useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { Armour } from "@/utils/types"
 import { getSelectedArmours } from "@/utils/ArmourUtils"
+import { handleDropdownChange } from "@/utils/BuildCreatorUtils"
 
 interface Props {
     armours: Armour[],
@@ -21,13 +22,7 @@ function ArmourPanel({armours, onChange} : Props) {
     ]
 
     const handleOnChange = (newIndex: number) => {
-        let newIndeces = [...indices];
-        newIndeces[currIndex] = newIndex;
-
-        const selectedArmours = getSelectedArmours(armours, newIndeces);
-
-        setIndices(newIndeces);
-        onChange(selectedArmours);
+        handleDropdownChange(indices, currIndex, newIndex, armours, getSelectedArmours, setIndices, onChange)
     }
 
     const armourSwitch = (index: number) => {

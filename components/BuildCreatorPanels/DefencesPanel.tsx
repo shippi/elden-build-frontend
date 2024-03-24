@@ -1,22 +1,29 @@
-import { Armour, CharacterClass, Talisman } from '@/utils/types'
+import { Armour, CharacterClass, GreatRune, Talisman } from '@/utils/types'
 import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/utils/DefencesUtils'
 import { PanelTitle } from '..'
+import { calculateTotalLevel, getTotalStats } from '@/utils/BuildCreatorUtils'
 
 interface Props {
     characterClass: CharacterClass,
     characterLevelStats: any,
     armours: Armour[],
-    talismans: Talisman[]
+    talismans: Talisman[],
+    greatRune?: GreatRune
 }
 
-function DefencesPanel({characterClass, characterLevelStats, armours, talismans} : Props) {
+function DefencesPanel({characterClass, characterLevelStats, armours, talismans, greatRune} : Props) {
   const PHYSICAL_DEFENCE_NAMES = ["Physical", "VS Strike", "VS Slash", "VS Pierce"]
   const MAGIC_DEFENCE_NAMES = ["Magic", "Fire", "Lightning", "Holy"]
   const RESISTANCE_NAMES = ["Immunity", "Robustness", "Focus", "Vitality"]
+  
+  const totalStats = getTotalStats(characterClass, characterLevelStats, armours, talismans, false, greatRune);
+  const totalLevel = calculateTotalLevel(totalStats);
 
-  const physicalDefences = calculatePhysicalDefences(characterClass, characterLevelStats);
-  const magicDefences = calculateMagicDefences(characterClass, characterLevelStats)
-  const resistances = calculateBaseResistances(characterClass, characterLevelStats, armours, talismans)
+  console.log(totalStats)
+
+  const physicalDefences = calculatePhysicalDefences(totalStats, totalLevel);
+  const magicDefences = calculateMagicDefences(totalStats, totalLevel)
+  const resistances = calculateBaseResistances(totalStats, totalLevel, armours, talismans)
   const armourResistances = calculateArmourResistances(armours);
 
   return (

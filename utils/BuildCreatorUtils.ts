@@ -13,7 +13,7 @@ export function getSelectedItems(items: any[], indices: number[]) {
     return selectedItems;
 }
 
-export function calculateLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[], greatRuneLevel?: number) {
+export function calculateStatLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[], greatRuneLevel?: number) {
   let totalLevel = classLevel + levelStat;
 
   talismanLevels?.forEach(level => {
@@ -87,6 +87,14 @@ export function getTotalStats(characterClass: CharacterClass, characterStats: Ch
   return totalStats;
 }
 
+export function calculateTotalLevel(totalStats: CharacterStats) {
+  let level = 0;
+  STAT_NAMES.forEach((name, i) => {
+    level += totalStats[name as keyof typeof totalStats]
+  })
+  return level - 79;
+}
+
 /**
  * Returns an object that contains if the total character stats meet the 
  * requirement for a weapon and a string listing the requirements.
@@ -124,4 +132,14 @@ export function isRequiredStatsMet(requirements: requiredAttributes, totalStats:
       }
   });
   return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1), reqTitle: requirementsTitle};
+}
+
+export function handleDropdownChange(indices: number[], currIndex: number, newIndex: number, items: any[], getSelected: Function, setIndices: Function, onChange: Function) {
+  let newIndices = [...indices];
+  newIndices[currIndex] = newIndex;
+
+  const selectedItems = getSelected(items, newIndices);
+
+  setIndices(newIndices);
+  onChange(selectedItems);
 }

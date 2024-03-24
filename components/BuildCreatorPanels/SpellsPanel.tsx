@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { Armour, CharacterClass, CharacterStats, GreatRune, Spell, Talisman } from "@/utils/types";
-import { getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/utils/BuildCreatorUtils";
+import { getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/utils/BuildCreatorUtils";
 
 interface Props {
   spells: Spell[],
@@ -22,15 +22,9 @@ function SpellsPanel({spells, armours, talismans, characterClass, characterStats
   const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, false, greatRune);
 
   const handleSpellChange = (newIndex: number) => {
-      let newIndices = [...spellIndices];
-      newIndices[currIndex] = newIndex;
-
-      const selectedSpells = getSelectedItems(spells, newIndices);
-
-      setSpellIndices(newIndices);
-      onChange(selectedSpells);
+    handleDropdownChange(spellIndices, currIndex, newIndex, talismans, getSelectedItems, setSpellIndices, onChange);
   }
-
+  
   return (
     <div>
     <PanelTitle text="Spells" img="icons/spells.png"/>
