@@ -1,19 +1,18 @@
 'use client'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { DropDown, PanelTitle } from "..";
 import { getSelectedItems, handleDropdownChange } from "@/utils/BuildCreatorUtils";
 import { talismans } from "@/public/data";
+import BuildCreatorContext from "@/context/BuildCreatorContext";
 
-interface Props {
-    onChange: Function
-}
+function TalismansPanel() {
+    const {setSelectedTalismans} = useContext(BuildCreatorContext);
 
-function TalismansPanel({onChange} : Props) {
     const [indices, setIndices] = useState([-1, -1, -1, -1]);
     const [currIndex, setCurrIndex] = useState(0);
 
     const handleOnChange = (newIndex: number) => {
-        handleDropdownChange(indices, currIndex, newIndex, talismans, getSelectedItems, setIndices, onChange);
+        handleDropdownChange(indices, currIndex, newIndex, talismans, getSelectedItems, setIndices, setSelectedTalismans);
     }
 
     return (

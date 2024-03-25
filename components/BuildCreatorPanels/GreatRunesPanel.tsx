@@ -1,40 +1,26 @@
 'use client'
-import { GreatRune } from "@/utils/types"
 import { DropDown, PanelTitle } from ".."
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { greatRunes } from "@/public/data";
+import BuildCreatorContext from "@/context/BuildCreatorContext";
 
-interface Props {
-    onChange: Function,
-    onActivateChange: Function
-}
+function GreatRunesPanel() {
+    const {setSelectedRune, runeActivated, setRuneActivated} = useContext(BuildCreatorContext)
 
-function GreatRunesPanel({onChange, onActivateChange} : Props) {
     const [index, setIndex] = useState(-1);
-    const [activated, setActivated] = useState(false);
     const disabled = index < 0;
-
-    const handleCheckboxChange = () => {
-        setActivated(!activated);
-        onActivateChange(!activated);
-    }
 
     const handleIndexChange = (i: number) => {
         setIndex(i);
-        if (i < 0) {
-            setActivated(false);
-            onActivateChange(false);
-        }
-        onChange(greatRunes[i]);
+        if (i < 0) setRuneActivated(false);
+        setSelectedRune(greatRunes[i]);
     }   
 
     return (
         <>
         <PanelTitle text={"Great Runes"} img="icons/great-runes.png" />
         <div className="great-runes-panel">
-            
             <DropDown items={greatRunes} index={index} isNullable={true} onChange={handleIndexChange} hasImages={false} />
-
             <div className="active-effects" >
                 <label>Passive Effect:</label>
                 <ul>
@@ -42,8 +28,8 @@ function GreatRunesPanel({onChange, onActivateChange} : Props) {
                 </ul>
             </div>
             <br/>
-            <div className={(disabled ? "disabled " : "") + "checkbox-container"} onClick={handleCheckboxChange}>
-                <input type="checkbox" checked={activated} disabled={disabled}/>
+            <div className={(disabled ? "disabled " : "") + "checkbox-container"} onClick={() => setRuneActivated(!runeActivated)}>
+                <input type="checkbox" checked={runeActivated} disabled={disabled}/>
                 Activate
             </div>
         </div>

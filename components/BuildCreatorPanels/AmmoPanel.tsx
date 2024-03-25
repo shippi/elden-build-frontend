@@ -1,28 +1,25 @@
 'use client'
-import { Ammo } from "@/utils/types"
 import { DropDown, PanelTitle } from ".."
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { getSelectedItems, handleDropdownChange } from "@/utils/BuildCreatorUtils";
 import { calculateAmmoAttackPower } from "@/utils/AmmoUtils";
 import { arrows, bolts } from "@/public/data";
+import BuildCreatorContext from "@/context/BuildCreatorContext";
 
-interface Props {
-    onArrowsChange: Function,
-    onBoltsChange: Function
-}
+function AmmoPanel() {
+    const {setSelectedArrows, setSelectedBolts} = useContext(BuildCreatorContext);
 
-function AmmoPanel({onArrowsChange, onBoltsChange}: Props) {
     const [arrowsIndices, setArrowsIndices] = useState([-1, -1]);
     const [boltsIndices, setBoltsIndices] = useState([-1, -1]);
     const [currArrowIndex, setArrowCurrIndex] = useState(0);
     const [currBoltIndex, setBoltCurrIndex] = useState(0);
 
     const handleArrowChange = (newIndex: number) => {
-        handleDropdownChange(arrowsIndices, currArrowIndex, newIndex, arrows, getSelectedItems, setArrowsIndices, onArrowsChange);
+        handleDropdownChange(arrowsIndices, currArrowIndex, newIndex, arrows, getSelectedItems, setArrowsIndices, setSelectedArrows);
     }
 
     const handleBoltChange = (newIndex: number) => {
-        handleDropdownChange(boltsIndices, currBoltIndex, newIndex, bolts, getSelectedItems, setBoltsIndices, onBoltsChange);
+        handleDropdownChange(boltsIndices, currBoltIndex, newIndex, bolts, getSelectedItems, setBoltsIndices, setSelectedBolts);
     }
 
     return (
@@ -52,7 +49,6 @@ function AmmoPanel({onArrowsChange, onBoltsChange}: Props) {
                         <label>Bolt {i+1}</label>
                         <DropDown items={bolts} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={boltsIndices} onChange={handleBoltChange} searchEnabled={true}/>
                         <div className="info">
-                            
                             <span className="ammo-effect">{bolts[arrowIndex]?.effect && "Effect: " + bolts[arrowIndex].effect}</span>
                             <span className="ammo-ap"  data-alt={ammoAP?.apAlt}>{ammoAP && "Attack Power: " + ammoAP.atkPower}</span>
                         </div>

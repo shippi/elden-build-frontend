@@ -1,22 +1,14 @@
+'use client'
 import { getTotalStats } from "@/utils/BuildCreatorUtils"
-import { Armour, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "@/utils/types"
+import { Weapon } from "@/utils/types"
 import { calculateAttackPower } from "@/utils/AttackPowerUtils";
 import { PanelTitle } from "..";
+import { useContext } from "react";
+import BuildCreatorContext from "@/context/BuildCreatorContext";
 
-interface Props {
-    weapons: Weapon[],
-    affinities: string[],
-    wepLvls: number[],
-    characterClass: CharacterClass,
-    characterStats: CharacterStats,
-    armours: Armour[],
-    talismans: Talisman[],
-    twoHanded: boolean, 
-    greatRune?: GreatRune
-}
-
-function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, characterStats, twoHanded, armours, talismans, greatRune}: Props) {
-    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded, greatRune);
+function AttackPowerPanel() {
+    const {selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedAffinities, selectedWepLvls, twoHanded, runeEffect} = useContext(BuildCreatorContext);
+    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect);
 
     return (
     <>
@@ -24,8 +16,8 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
     
     <div className="attack-power-panel">
         {
-            weapons.map((weapon, i) => {
-                const attackPower = calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
+            selectedWeapons.map((weapon: Weapon, i: number) => {
+                const attackPower = calculateAttackPower(weapon, selectedAffinities[i], selectedWepLvls[i], totalStats)
                 return (
                     <div key={i}>
                         <span className="attack-power" data-alt={attackPower.attackPowerAlt}>

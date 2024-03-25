@@ -1,28 +1,21 @@
 'use client'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { Armour, CharacterClass, CharacterStats, GreatRune, Spell, Talisman } from "@/utils/types";
 import { getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/utils/BuildCreatorUtils";
 import { spells } from "@/public/data";
+import BuildCreatorContext from "@/context/BuildCreatorContext";
 
-interface Props {
-  armours: Armour[],
-  talismans: Talisman[],
-  characterClass: CharacterClass,
-  characterStats: CharacterStats,
-  greatRune?: GreatRune
-  onChange: Function
-}
+function SpellsPanel() {
+  const {selectedClass, selectedArmours, selectedTalismans, characterStats, runeEffect, setSelectedSpells} = useContext(BuildCreatorContext);
 
-
-function SpellsPanel({armours, talismans, characterClass, characterStats, greatRune, onChange} : Props) {
   const [spellIndices, setSpellIndices] = useState(new Array(12).fill(-1));
   const [currIndex, setCurrIndex] = useState(0);
 
-  const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, false, greatRune);
+  const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
 
   const handleSpellChange = (newIndex: number) => {
-    handleDropdownChange(spellIndices, currIndex, newIndex, talismans, getSelectedItems, setSpellIndices, onChange);
+    handleDropdownChange(spellIndices, currIndex, newIndex, spells, getSelectedItems, setSpellIndices, setSelectedSpells);
   }
   
   return (
@@ -31,16 +24,16 @@ function SpellsPanel({armours, talismans, characterClass, characterStats, greatR
         <div className="spells-panel">
           {
             spellIndices.map((spellIndex, i) => {
-              const moonOfNokstellaExists = talismans.find(talisman => talisman?.name == "Moon of Nokstella");
+              const moonOfNokstellaExists = selectedTalismans.find((talisman: Talisman) => talisman?.name == "Moon of Nokstella");
               let fpCost = 0;
               if (spells[spellIndex]) {
                 fpCost = spells[spellIndex].fpCost;
 
-                talismans.forEach(talisman => {
+                selectedTalismans.forEach((talisman: Talisman)=> {
                   if (talisman?.statChanges?.fpCost) fpCost *= talisman.statChanges.fpCost
                 });
 
-                armours.forEach(armour => {
+                selectedArmours.forEach((armour: Armour) => {
                   if (armour?.statChanges?.fpCost) fpCost *= armour.statChanges.fpCost
                 });
               }

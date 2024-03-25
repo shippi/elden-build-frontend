@@ -1,33 +1,22 @@
 'use client'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
 import { getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/utils/BuildCreatorUtils"
-import { Armour, Ash, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "../../utils/types"
 import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/utils/WeaponsUtils"
 import { weapons, affinities, wepLevels, ashes } from "@/public/data"
+import BuildCreatorContext from "@/context/BuildCreatorContext"
 
-interface Props {
-    characterClass: CharacterClass,
-    characterStats: CharacterStats,
-    armours: Armour[],
-    talismans: Talisman[],
-    greatRune?: GreatRune,
-    onWepChange: Function,
-    onAffChange: Function,
-    onAshChange: Function,
-    onLvlChange: Function,
-    onTwoHandChange: Function
-}
-
-function WeaponsPanel({characterClass, characterStats, armours, talismans, greatRune, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
+function WeaponsPanel() {
+    const { selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect, 
+            setSelectedWeapons, setSelectedAshes, setSelectedAffinities, setSelectedWepLvls, setTwoHanded} = useContext(BuildCreatorContext);
+    
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [lvlIndices, setLvlIndices] = useState([0, 0, 0, 0, 0, 0]);
     const [currIndex, setCurrIndex] = useState(0);
-    const [twoHanded, setTwoHanded] = useState(false);
 
-    const totalStats = getTotalStats(characterClass, characterStats, armours, talismans, twoHanded, greatRune);
+    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect);
     const selectorPanels = [];
 
     const handleWepOnChange = (newIndex: number) => {
@@ -60,7 +49,10 @@ function WeaponsPanel({characterClass, characterStats, armours, talismans, great
             selectedAshes = getSelectedAshes(selectedWeapons, ashes, ashIndices);  
             setWepIndices(newIndices);
         }
-        onWepChange(selectedWeapons, selectedAshes, selectedAffinities, selectedLvls);
+        setSelectedWeapons(selectedWeapons);
+        setSelectedAffinities(selectedAffinities);
+        setSelectedAshes(selectedAshes);
+        setSelectedWepLvls(selectedLvls);
     }
 
     const handleAshOnChange = (newIndex: number) => {
@@ -71,7 +63,7 @@ function WeaponsPanel({characterClass, characterStats, armours, talismans, great
         const selectedWeapons = getSelectedItems(weapons, wepIndices);
         const selectedAshes = getSelectedAshes(selectedWeapons, ashes, newIndices);
 
-        onAshChange(selectedAshes);
+        setSelectedAshes(selectedAshes);
     }
 
     const handleAffOnChange = (newIndex: number) => {
@@ -81,7 +73,7 @@ function WeaponsPanel({characterClass, characterStats, armours, talismans, great
 
         const selectedAffinities = getSelectedItems(affinities, newIndices).map(aff => aff.name);
        
-        onAffChange(selectedAffinities);
+        setSelectedAffinities(selectedAffinities);
     }
 
     const handleLvlOnChange = (newIndex: number) => {
@@ -90,14 +82,9 @@ function WeaponsPanel({characterClass, characterStats, armours, talismans, great
         setLvlIndices(newIndices);
 
         const selectedLvls = getSelectedItems(wepLevels, newIndices).map(lvl => +lvl.name.substring(1));
-        onLvlChange(selectedLvls);
+        setSelectedWepLvls(selectedLvls);
     }
-
-    const handleCheckboxChange = () => {
-        setTwoHanded(!twoHanded);
-        onTwoHandChange(!twoHanded);
-    }
-
+    
     for (let i = 0; i < 2; i++) {
         const condition = (i: number, j:number) => {
             if (i == 0) return j < 3;
@@ -152,8 +139,8 @@ function WeaponsPanel({characterClass, characterStats, armours, talismans, great
             {/* div for selecting weapons*/}
                 <div className="selectors-container">
                     { selectorPanels[0] } <br/>  
-                    <div className="checkbox-container" onClick={handleCheckboxChange}>
-                        <input type="checkbox" checked={twoHanded} onChange={handleCheckboxChange}/>
+                    <div className="checkbox-container" onClick={() => setTwoHanded(!twoHanded)}>
+                        <input type="checkbox" checked={twoHanded} onClick={() => setTwoHanded(!twoHanded)}/>
                         Two-Handed
                     </div>
                 </div>

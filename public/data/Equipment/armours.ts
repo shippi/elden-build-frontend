@@ -13528,7 +13528,7 @@ export const armours: Armour[] =[
   {
     "id": "2000300",
     "name": "Rotten Duelist Greaves",
-    "category": "legs",
+    "category": "Legs",
     "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Rotten_Duelist_Greaves.png/",
     "dmgNegation": {
       "physical": 7.4,

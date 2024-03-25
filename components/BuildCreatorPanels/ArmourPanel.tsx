@@ -1,15 +1,15 @@
 'use client'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { armours } from "@/public/data"
 import { getSelectedArmours } from "@/utils/ArmourUtils"
 import { handleDropdownChange } from "@/utils/BuildCreatorUtils"
+import BuildCreatorContext from "@/context/BuildCreatorContext"
 
-interface Props {
-    onChange: Function
-}
 
-function ArmourPanel({onChange} : Props) {
+function ArmourPanel() {
+    const {setSelectedArmours} = useContext(BuildCreatorContext);
+
     const [indices, setIndices] = useState([-1, -1, -1, -1]);
     const [currIndex, setCurrIndex] = useState(0);
 
@@ -21,7 +21,7 @@ function ArmourPanel({onChange} : Props) {
     ]
 
     const handleOnChange = (newIndex: number) => {
-        handleDropdownChange(indices, currIndex, newIndex, armours, getSelectedArmours, setIndices, onChange)
+        handleDropdownChange(indices, currIndex, newIndex, armours, getSelectedArmours, setIndices, setSelectedArmours)
     }
 
     const armourSwitch = (index: number) => {

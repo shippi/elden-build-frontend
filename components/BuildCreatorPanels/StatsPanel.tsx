@@ -1,28 +1,23 @@
-import { Armour, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "@/utils/types"
+'use client'
 import { calculateHP, calculateFP, calculateStamina, calculateEquipLoad, calculateDiscovery, calculatePoise, calculateWeight, getWeightRatio } from "@/utils/StatsUtils";
+import { useContext } from "react";
 import { PanelTitle } from "..";
 import { getTotalStats } from "@/utils/BuildCreatorUtils";
+import BuildCreatorContext from "@/context/BuildCreatorContext";
 
-interface Props {
-    characterClass: CharacterClass,
-    characterLevelStats: any,
-    armours: Armour[],
-    weapons: Weapon[],
-    talismans: Talisman[],
-    greatRune?: GreatRune
-}
-
-function StatsPanel({characterClass, characterLevelStats, armours, weapons, talismans, greatRune} : Props) {
-  const totalStats = getTotalStats(characterClass, characterLevelStats, armours, talismans, false, greatRune);
+function StatsPanel() {
+  const {selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, runeEffect} = useContext(BuildCreatorContext);
   
-  const hp = calculateHP(totalStats.vigor, talismans, armours, greatRune);
-  const fp = calculateFP(totalStats.mind, talismans, armours, greatRune);
-  const stamina = calculateStamina(totalStats.endurance, talismans, armours, greatRune);
-  const equipLoad = calculateEquipLoad(totalStats.endurance, talismans, greatRune);
-  const totalWeight = calculateWeight(armours, talismans, weapons);
+  const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
+  
+  const hp = calculateHP(totalStats.vigor, selectedTalismans, selectedArmours, runeEffect);
+  const fp = calculateFP(totalStats.mind, selectedTalismans, selectedArmours, runeEffect);
+  const stamina = calculateStamina(totalStats.endurance, selectedTalismans, selectedArmours, runeEffect);
+  const equipLoad = calculateEquipLoad(totalStats.endurance, selectedTalismans, runeEffect);
+  const totalWeight = calculateWeight(selectedArmours, selectedTalismans, selectedWeapons);
   const weightRatio = getWeightRatio(totalWeight, equipLoad);
-  const poise = calculatePoise(armours, talismans);
-  const discovery = calculateDiscovery(totalStats.arcane, talismans, armours, greatRune);
+  const poise = calculatePoise(selectedArmours, selectedTalismans);
+  const discovery = calculateDiscovery(totalStats.arcane, selectedTalismans, selectedArmours, runeEffect);
 
   return (
     <>

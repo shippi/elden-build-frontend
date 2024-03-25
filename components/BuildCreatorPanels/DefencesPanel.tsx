@@ -1,28 +1,24 @@
-import { Armour, CharacterClass, GreatRune, Talisman } from '@/utils/types'
-import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/utils/DefencesUtils'
+'use client'
 import { PanelTitle } from '..'
+import { useContext } from 'react';
 import { calculateTotalLevel, getTotalStats } from '@/utils/BuildCreatorUtils'
+import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/utils/DefencesUtils'
+import BuildCreatorContext from '@/context/BuildCreatorContext';
 
-interface Props {
-    characterClass: CharacterClass,
-    characterLevelStats: any,
-    armours: Armour[],
-    talismans: Talisman[],
-    greatRune?: GreatRune
-}
-
-function DefencesPanel({characterClass, characterLevelStats, armours, talismans, greatRune} : Props) {
+function DefencesPanel() {
+  const { selectedClass, selectedTalismans, selectedArmours, characterStats, runeEffect, setSelectedClass, setCharacterStats} = useContext(BuildCreatorContext);
+  
   const PHYSICAL_DEFENCE_NAMES = ["Physical", "VS Strike", "VS Slash", "VS Pierce"]
   const MAGIC_DEFENCE_NAMES = ["Magic", "Fire", "Lightning", "Holy"]
   const RESISTANCE_NAMES = ["Immunity", "Robustness", "Focus", "Vitality"]
   
-  const totalStats = getTotalStats(characterClass, characterLevelStats, armours, talismans, false, greatRune);
+  const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
   const totalLevel = calculateTotalLevel(totalStats);
 
   const physicalDefences = calculatePhysicalDefences(totalStats, totalLevel);
   const magicDefences = calculateMagicDefences(totalStats, totalLevel);
-  const resistances = calculateBaseResistances(totalStats, totalLevel, armours, talismans)
-  const armourResistances = calculateArmourResistances(armours);
+  const resistances = calculateBaseResistances(totalStats, totalLevel, selectedArmours, selectedTalismans)
+  const armourResistances = calculateArmourResistances(selectedArmours);
 
   return (
     <>
@@ -43,7 +39,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans,
                 <td>{stat}</td>
                 <td className="value">{physicalDefences[i]} /</td>
                 <td className="value">
-                  {calculateNegations(armours, talismans)[i].toFixed(3)}
+                  {calculateNegations(selectedArmours, selectedTalismans)[i].toFixed(3)}
                 </td>
               </tr>
             ))
@@ -54,7 +50,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans,
                 <td>{stat}</td>
                 <td className="value">{magicDefences[i]} /</td>
                 <td className="value">
-                  {calculateNegations(armours, talismans)[i+4].toFixed(3)}
+                  {calculateNegations(selectedArmours, selectedTalismans)[i+4].toFixed(3)}
                 </td>
             </tr>
             ))
