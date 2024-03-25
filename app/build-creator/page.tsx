@@ -1,9 +1,8 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel } from '@/components'
 import { CharacterStats } from '@/utils/types';
-import { getTotalStats } from '@/utils/BuildCreatorUtils';
-import { classes, greatRunes } from '@/public/data';
+import { classes } from '@/public/data';
 
 function BuildCreator() {
     const [selectedClass, setSelectedClass] = useState(classes[0]);
@@ -13,7 +12,7 @@ function BuildCreator() {
     const [selectedAshes, setSelectedAshes] = useState<any[]>([]);
     const [selectedWepLvls, setSelectedWepLvls] = useState<any[]>([]);
     const [selectedAffinities, setSelectedAffinities] = useState<any[]>([]);
-    const [greatRuneIndex, setGreatRuneIndex] = useState(-1);
+    const [selectedRune, setSelectedRune] = useState(undefined);
     const [selectedArrows, setSelectedArrows] = useState<any[]>([]);
     const [selectedBolts, setSelectedBolts] = useState<any[]>([]);
     const [selectedSpells, setSelectedSpells] = useState<any[]>([]);
@@ -63,10 +62,10 @@ function BuildCreator() {
                         onStatChange={setCharacterStats} 
                         talismans={selectedTalismans} 
                         armours={selectedArmours} 
-                        greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}
+                        greatRune={runeActivated ? selectedRune : undefined}
                     />
                     <div style={{height:"40px"}}/>
-                    <GreatRunesPanel greatRunes={greatRunes} index={greatRuneIndex} onIndexChange={setGreatRuneIndex} onActivateChange={setRuneActivated} />
+                    <GreatRunesPanel onChange={setSelectedRune} onActivateChange={setRuneActivated} />
                     
                     </div>
                     <div className="subcontainer">
@@ -75,7 +74,7 @@ function BuildCreator() {
                             characterStats={characterStats}
                             armours={selectedArmours} 
                             talismans={selectedTalismans}
-                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}
+                            greatRune={runeActivated ? selectedRune : undefined}
                             onWepChange={handleWepChange}
                             onAffChange={setSelectedAffinities}
                             onAshChange={setSelectedAshes}
@@ -95,7 +94,7 @@ function BuildCreator() {
                             armours={selectedArmours} 
                             weapons={selectedWeapons} 
                             talismans={selectedTalismans} 
-                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}/>
+                            greatRune={runeActivated ? selectedRune : undefined}/>
                         <div style={{height:"40px"}}/>
                         <AttackPowerPanel 
                             weapons={selectedWeapons} 
@@ -106,14 +105,14 @@ function BuildCreator() {
                             armours={selectedArmours} 
                             talismans={selectedTalismans} 
                             twoHanded={twoHanded} 
-                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}/>
+                            greatRune={runeActivated ? selectedRune : undefined}/>
                         <div style={{height:"40px"}}/>
                         <DefencesPanel 
                             characterClass={selectedClass} 
                             characterLevelStats={characterStats} 
                             armours={selectedArmours} 
                             talismans={selectedTalismans}
-                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}/>
+                            greatRune={runeActivated ? selectedRune : undefined}/>
                     </div>  
 
                 </div>
@@ -126,7 +125,7 @@ function BuildCreator() {
                         characterStats={characterStats} 
                         armours={selectedArmours} 
                         talismans={selectedTalismans} 
-                        greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined} 
+                        greatRune={runeActivated ? selectedRune : undefined} 
                         onChange={setSelectedSpells}/>
                 </div>
             </div>

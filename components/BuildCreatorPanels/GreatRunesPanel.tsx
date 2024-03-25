@@ -2,15 +2,15 @@
 import { GreatRune } from "@/utils/types"
 import { DropDown, PanelTitle } from ".."
 import { useState } from "react";
+import { greatRunes } from "@/public/data";
 
 interface Props {
-    greatRunes: GreatRune[],
-    index: number,
-    onIndexChange: Function,
+    onChange: Function,
     onActivateChange: Function
 }
 
-function GreatRunesPanel({greatRunes, index, onIndexChange, onActivateChange} : Props) {
+function GreatRunesPanel({onChange, onActivateChange} : Props) {
+    const [index, setIndex] = useState(-1);
     const [activated, setActivated] = useState(false);
     const disabled = index < 0;
 
@@ -20,11 +20,12 @@ function GreatRunesPanel({greatRunes, index, onIndexChange, onActivateChange} : 
     }
 
     const handleIndexChange = (i: number) => {
-        onIndexChange(i);
+        setIndex(i);
         if (i < 0) {
             setActivated(false);
             onActivateChange(false);
         }
+        onChange(greatRunes[i]);
     }   
 
     return (
