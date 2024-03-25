@@ -140,7 +140,7 @@ function WeaponsPanel() {
                 <div className="selectors-container">
                     { selectorPanels[0] } <br/>  
                     <div className="checkbox-container" onClick={() => setTwoHanded(!twoHanded)}>
-                        <input type="checkbox" checked={twoHanded} onClick={() => setTwoHanded(!twoHanded)}/>
+                        <input type="checkbox" checked={twoHanded} onChange={() => setTwoHanded(!twoHanded)}/>
                         Two-Handed
                     </div>
                 </div>

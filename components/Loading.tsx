@@ -1,11 +1,9 @@
-import { BeatLoader } from "react-spinners"
-
 function Loading() {
   return (
     <div className="loading-screen">
       <div className="centered">
         <div className="loader">
-          <BeatLoader size={30} color={"#FFFFFF"} loading={true}/>
+        <span className="spinner"></span>
         </div>
       </div>
     </div>

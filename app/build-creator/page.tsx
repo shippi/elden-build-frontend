@@ -1,44 +1,17 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel } from '@/components'
-import { CharacterStats } from '@/utils/types';
-import { classes } from '@/public/data';
-import { BuildCreatorContext, BuildCreatorContextProvider } from '@/context/BuildCreatorContext';
+import { BuildCreatorContextProvider } from '@/context/BuildCreatorContext';
 
 function BuildCreator() {
-    const [selectedClass, setSelectedClass] = useState(classes[0]);
-    const [selectedArmours, setSelectedArmours] = useState(new Array(4).fill(null));
-    const [selectedTalismans, setSelectedTalismans] = useState([]);
-    const [selectedWeapons, setSelectedWeapons] = useState<any[]>(new Array(6).fill(null));
-    const [selectedAshes, setSelectedAshes] = useState<any[]>([]);
-    const [selectedWepLvls, setSelectedWepLvls] = useState<any[]>([]);
-    const [selectedAffinities, setSelectedAffinities] = useState<any[]>([]);
-    const [selectedRune, setSelectedRune] = useState(undefined);
-    const [selectedArrows, setSelectedArrows] = useState<any[]>([]);
-    const [selectedBolts, setSelectedBolts] = useState<any[]>([]);
-    const [selectedSpells, setSelectedSpells] = useState<any[]>([]);
-    const [twoHanded, setTwoHanded] = useState(false);
-    const [runeActivated, setRuneActivated] = useState(false);
-    const [characterStats, setCharacterStats] = useState<CharacterStats>({
-        vigor: 0, 
-        mind: 0, 
-        endurance: 0, 
-        strength: 0, 
-        dexterity: 0, 
-        intelligence: 0, 
-        faith: 0, 
-        arcane: 0
-    });
+    const [loaded, setLoaded] = useState(false);
 
-    const handleWepChange = (weps: any[], ashes: any[], affinities: any[], wepLvls: any[]) => {
-        setSelectedWeapons(weps);
-        setSelectedAshes(ashes);
-        setSelectedAffinities(affinities);
-        setSelectedWepLvls(wepLvls);
-    };
+    useEffect(() => {
+        setTimeout(() => setLoaded(true), 750);
+    }, [loaded])
     
 
-    if (selectedClass) {
+    if (loaded) {
         return (
             <div className="build-creator">
                 <BuildCreatorContextProvider>
@@ -78,7 +51,9 @@ function BuildCreator() {
     }
     else {
         return (
+            <>
             <Loading/>
+            </>
         )
     }
 }

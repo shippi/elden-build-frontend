@@ -37,7 +37,7 @@ function TalismansPanel() {
                 <ul>
                 {
                     indices.map((i, j) => (
-                        <li className={i > -1 ? "" : "hidden"} key={i}>{i > -1 ? talismans[i].effect : ""}</li>
+                        <li className={i > -1 ? "" : "hidden"} key={j}>{i > -1 ? talismans[i].effect : ""}</li>
                     ))
                 }
                 </ul>
