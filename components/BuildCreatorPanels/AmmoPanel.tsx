@@ -4,15 +4,14 @@ import { DropDown, PanelTitle } from ".."
 import { useState } from "react";
 import { getSelectedItems, handleDropdownChange } from "@/utils/BuildCreatorUtils";
 import { calculateAmmoAttackPower } from "@/utils/AmmoUtils";
+import { arrows, bolts } from "@/public/data";
 
 interface Props {
-    arrows: Ammo[],
-    bolts: Ammo[],
     onArrowsChange: Function,
     onBoltsChange: Function
 }
 
-function AmmoPanel({arrows, bolts, onArrowsChange, onBoltsChange}: Props) {
+function AmmoPanel({onArrowsChange, onBoltsChange}: Props) {
     const [arrowsIndices, setArrowsIndices] = useState([-1, -1]);
     const [boltsIndices, setBoltsIndices] = useState([-1, -1]);
     const [currArrowIndex, setArrowCurrIndex] = useState(0);
@@ -35,7 +34,7 @@ function AmmoPanel({arrows, bolts, onArrowsChange, onBoltsChange}: Props) {
                     arrowsIndices.map((arrowIndex, i) => {
                         const ammoAP = calculateAmmoAttackPower(arrows[arrowIndex]);
                         return (
-                        <div className="selector" onClick={() => {setArrowCurrIndex(i)}}>
+                        <div className="selector" onClick={() => {setArrowCurrIndex(i)}} key={i}>
                         <label>Arrow {i+1}</label>
                         <DropDown items={arrows} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={arrowsIndices} onChange={handleArrowChange} searchEnabled={true}/>
                         <div className="info">
@@ -49,7 +48,7 @@ function AmmoPanel({arrows, bolts, onArrowsChange, onBoltsChange}: Props) {
                     boltsIndices.map((arrowIndex, i) => {
                         const ammoAP = calculateAmmoAttackPower(bolts[arrowIndex]);
                         return (
-                        <div className="selector" onClick={() => {setBoltCurrIndex(i)}}>
+                        <div className="selector" onClick={() => {setBoltCurrIndex(i)}} key={i}>
                         <label>Bolt {i+1}</label>
                         <DropDown items={bolts} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={boltsIndices} onChange={handleBoltChange} searchEnabled={true}/>
                         <div className="info">

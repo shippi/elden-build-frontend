@@ -134,12 +134,12 @@ export function isRequiredStatsMet(requirements: requiredAttributes, totalStats:
   return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1), reqTitle: requirementsTitle};
 }
 
-export function handleDropdownChange(indices: number[], currIndex: number, newIndex: number, items: any[], getSelected: Function, setIndices: Function, onChange: Function) {
+export function handleDropdownChange(indices: number[], currIndex: number, newIndex: number, items: any[], getSelected: Function, setIndices: Function, onChange?: Function) {
   let newIndices = [...indices];
   newIndices[currIndex] = newIndex;
 
   const selectedItems = getSelected(items, newIndices);
 
   setIndices(newIndices);
-  onChange(selectedItems);
+  if (onChange) onChange(selectedItems);
 }

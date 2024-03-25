@@ -1,11 +1,11 @@
 import useClickOutside from "./useClickOutside";
-import useFetchAllItems from "./useFetchAllItems";
 import useForceUpdate from "./useForceUpdate";
 import useOnKeyPress from "./useOnKeyPress";
+import useWindowSizeChange from "./useWindowSizeChange";
 
 export {
     useClickOutside,
-    useFetchAllItems,
     useForceUpdate,
-    useOnKeyPress
+    useOnKeyPress,
+    useWindowSizeChange
 }

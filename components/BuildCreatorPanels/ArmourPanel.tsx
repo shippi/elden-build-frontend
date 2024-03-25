@@ -1,16 +1,15 @@
 'use client'
 import { useState } from "react"
 import { DropDown, PanelTitle } from ".."
-import { Armour } from "@/utils/types"
+import { armours } from "@/public/data"
 import { getSelectedArmours } from "@/utils/ArmourUtils"
 import { handleDropdownChange } from "@/utils/BuildCreatorUtils"
 
 interface Props {
-    armours: Armour[],
     onChange: Function
 }
 
-function ArmourPanel({armours, onChange} : Props) {
+function ArmourPanel({onChange} : Props) {
     const [indices, setIndices] = useState([-1, -1, -1, -1]);
     const [currIndex, setCurrIndex] = useState(0);
 
@@ -46,7 +45,7 @@ function ArmourPanel({armours, onChange} : Props) {
             <div>
                 {
                     indices.map((i, j) => (
-                        <div className="selector" onClick={() => {setCurrIndex(j)}}>
+                        <div className="selector" onClick={() => {setCurrIndex(j)}} key={j}>
                             <label>{armourSwitch(j)}</label>
                             <DropDown items={armoursArr[j]} index={indices[j]} isNullable={true} onChange={handleOnChange} hasImages={true} searchEnabled={true}/>
                         </div>
@@ -61,7 +60,7 @@ function ArmourPanel({armours, onChange} : Props) {
                 {
                     getSelectedArmours(armours, indices).map(armour => (
                         armour?.effect == null ? "" : 
-                        <li>{armour.effect}</li>
+                        <li key={armour.name}>{armour.effect}</li>
                     ))
                 }
                 </ul>

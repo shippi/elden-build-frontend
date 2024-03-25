@@ -3,9 +3,9 @@ import { useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { Armour, CharacterClass, CharacterStats, GreatRune, Spell, Talisman } from "@/utils/types";
 import { getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/utils/BuildCreatorUtils";
+import { spells } from "@/public/data";
 
 interface Props {
-  spells: Spell[],
   armours: Armour[],
   talismans: Talisman[],
   characterClass: CharacterClass,
@@ -15,7 +15,7 @@ interface Props {
 }
 
 
-function SpellsPanel({spells, armours, talismans, characterClass, characterStats, greatRune, onChange} : Props) {
+function SpellsPanel({armours, talismans, characterClass, characterStats, greatRune, onChange} : Props) {
   const [spellIndices, setSpellIndices] = useState(new Array(12).fill(-1));
   const [currIndex, setCurrIndex] = useState(0);
 
@@ -47,7 +47,7 @@ function SpellsPanel({spells, armours, talismans, characterClass, characterStats
               
               if (!moonOfNokstellaExists && i < 10 || moonOfNokstellaExists)
                 return (
-                  <div className="selector" onClick={() => {setCurrIndex(i)}}>
+                  <div className="selector" onClick={() => {setCurrIndex(i)}} key={i}>
                     <label>Spell {i+1}</label>
                     <DropDown items={spells} index={spellIndex} isNullable={true} hasImages={true} incompatibilities={spellIndices} onChange={handleSpellChange} searchEnabled={true}/>
                     <div className="info"> 

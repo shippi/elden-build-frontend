@@ -1,4 +1,6 @@
-export const greatRunesData = [
+import { GreatRune } from "@/utils/types";
+
+export const greatRunes: GreatRune[] = [
     {
         name: "Godrick's Great Rune",
         image: "https://static.wikia.nocookie.net/eldenring/images/1/1f/ER_Icon_Key_Item_Great_Rune_Godrick's.png/",

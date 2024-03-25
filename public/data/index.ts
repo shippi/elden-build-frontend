@@ -1,14 +1,14 @@
-import { talismansData } from "./Equipment/talismans";
-import { armorsData } from "./Equipment/armors";
-import { ashesData } from "./Equipment/ashes";
-import { weaponsData } from "./Equipment/weapons";
-import { classesData } from "./Equipment/classes";
-import { affinitiesData } from "./Equipment/affinities";
-import { wepLevelsData } from "./Equipment/wepLevels";
-import { greatRunesData } from "./Equipment/greatRunes";
-import { arrowsData } from "./Equipment/arrows";
-import { boltsData } from "./Equipment/bolts";
-import { spellsData } from "./Equipment/spells";
+import { talismans } from "./Equipment/talismans";
+import { armours } from "./Equipment/armours";
+import { ashes } from "./Equipment/ashes";
+import { weapons } from "./Equipment/weapons";
+import { classes } from "./Equipment/classes";
+import { affinities } from "./Equipment/affinities";
+import { wepLevels } from "./Equipment/wepLevels";
+import { greatRunes } from "./Equipment/greatRunes";
+import { arrows } from "./Equipment/arrows";
+import { bolts } from "./Equipment/bolts";
+import { spells } from "./Equipment/spells";
 import { attackElementsCorrect } from "./WeaponCalculations/attackElementCorrect";
 import { calcCorrectGraph } from "./WeaponCalculations/calcCorrectGraph";
 import { multipliers } from "./WeaponCalculations/multipliers";
@@ -16,17 +16,17 @@ import { weaponStats } from "./WeaponCalculations/weaponStats";
 
 
 export {
-    talismansData,
-    armorsData,
-    ashesData,
-    weaponsData,
-    classesData,
-    affinitiesData,
-    wepLevelsData,
-    greatRunesData,
-    arrowsData,
-    boltsData,
-    spellsData,
+    talismans,
+    armours,
+    ashes,
+    weapons,
+    classes,
+    affinities,
+    wepLevels,
+    greatRunes,
+    arrows,
+    bolts,
+    spells,
     attackElementsCorrect,
     calcCorrectGraph,
     multipliers,

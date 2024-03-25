@@ -1,4 +1,4 @@
-export const affinitiesData = [
+export const affinities = [
     { name: "Standard" }, 
     { name: "Heavy" }, 
     { name: "Keen" },

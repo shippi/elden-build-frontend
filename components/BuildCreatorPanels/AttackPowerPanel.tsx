@@ -27,7 +27,7 @@ function AttackPowerPanel({weapons, affinities, wepLvls, characterClass, charact
             weapons.map((weapon, i) => {
                 const attackPower = calculateAttackPower(weapon, affinities[i], wepLvls[i], totalStats)
                 return (
-                    <div>
+                    <div key={i}>
                         <span className="attack-power" data-alt={attackPower.attackPowerAlt}>
                         {(i < 3 ? "L Armament " : "R Armament ") + (i % 3 + 1)}
                         </span>

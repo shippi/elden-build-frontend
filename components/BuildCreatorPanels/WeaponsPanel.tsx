@@ -3,13 +3,10 @@ import { useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
 import { getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/utils/BuildCreatorUtils"
 import { Armour, Ash, CharacterClass, CharacterStats, GreatRune, Talisman, Weapon } from "../../utils/types"
-import { wepLevelsData } from "@/public/data"
 import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/utils/WeaponsUtils"
+import { weapons, affinities, wepLevels, ashes } from "@/public/data"
 
 interface Props {
-    weapons: Weapon[],
-    ashes: Ash[],
-    affinities: any[],
     characterClass: CharacterClass,
     characterStats: CharacterStats,
     armours: Armour[],
@@ -22,7 +19,7 @@ interface Props {
     onTwoHandChange: Function
 }
 
-function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStats, armours, talismans, greatRune, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
+function WeaponsPanel({characterClass, characterStats, armours, talismans, greatRune, onWepChange, onAffChange, onAshChange, onLvlChange, onTwoHandChange} : Props) {
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
     const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
@@ -45,7 +42,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
 
         let newLvlIndices = [...lvlIndices];
         newLvlIndices[currIndex] = 0;
-        const selectedLvls = getSelectedItems(wepLevelsData, newLvlIndices).map(lvl => +lvl.name.substring(1));
+        const selectedLvls = getSelectedItems(wepLevels, newLvlIndices).map(lvl => +lvl.name.substring(1));
         setLvlIndices(newLvlIndices);
 
         let selectedAshes;
@@ -92,7 +89,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
         newIndices[currIndex] = newIndex;
         setLvlIndices(newIndices);
 
-        const selectedLvls = getSelectedItems(wepLevelsData, newIndices).map(lvl => +lvl.name.substring(1));
+        const selectedLvls = getSelectedItems(wepLevels, newIndices).map(lvl => +lvl.name.substring(1));
         onLvlChange(selectedLvls);
     }
 
@@ -109,7 +106,7 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
 
         selectorPanels.push(wepIndices.map((value, j) => (
             condition(i, j) &&
-            <div className="selector" onClick={() => {setCurrIndex(j)}}>
+            <div className="selector" onClick={() => {setCurrIndex(j)}} key={j}>
                 <label>{j < 3 ? "Left Armament " + (j % 3 + 1) : "Right Armament " + (j % 3 + 1)}</label>
                 <DropDown items={weapons} index={wepIndices[j]} isNullable={true} onChange={handleWepOnChange} hasImages={true} searchEnabled={true}/>
                 
@@ -136,8 +133,8 @@ function WeaponsPanel({weapons, ashes, affinities, characterClass, characterStat
                     </div>
                     <div className="levels">
                         {
-                            wepIndices[j] > -1 && !weapons[wepIndices[j]]?.unique ? <DropDown items={wepLevelsData} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
-                            wepIndices[j] > -1 && weapons[wepIndices[j]].unique ? <DropDown items={wepLevelsData.slice(0, 11)} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                            wepIndices[j] > -1 && !weapons[wepIndices[j]]?.unique ? <DropDown items={wepLevels} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
+                            wepIndices[j] > -1 && weapons[wepIndices[j]].unique ? <DropDown items={wepLevels.slice(0, 11)} index={lvlIndices[j]} isNullable={false} hasImages={false} onChange={handleLvlOnChange} /> :
                             <DisabledDropDown value={"+0"} />
                         }
                     </div>

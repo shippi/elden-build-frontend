@@ -19,10 +19,8 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans,
   const totalStats = getTotalStats(characterClass, characterLevelStats, armours, talismans, false, greatRune);
   const totalLevel = calculateTotalLevel(totalStats);
 
-  console.log(totalStats)
-
   const physicalDefences = calculatePhysicalDefences(totalStats, totalLevel);
-  const magicDefences = calculateMagicDefences(totalStats, totalLevel)
+  const magicDefences = calculateMagicDefences(totalStats, totalLevel);
   const resistances = calculateBaseResistances(totalStats, totalLevel, armours, talismans)
   const armourResistances = calculateArmourResistances(armours);
 
@@ -41,7 +39,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans,
           <tbody>
           {
             PHYSICAL_DEFENCE_NAMES.map((stat, i) => (
-              <tr>
+              <tr key={stat}>
                 <td>{stat}</td>
                 <td className="value">{physicalDefences[i]} /</td>
                 <td className="value">
@@ -52,7 +50,7 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans,
           }
           {
             MAGIC_DEFENCE_NAMES.map((stat, i) => (
-              <tr>
+              <tr key={stat}>
                 <td>{stat}</td>
                 <td className="value">{magicDefences[i]} /</td>
                 <td className="value">
@@ -73,12 +71,12 @@ function DefencesPanel({characterClass, characterLevelStats, armours, talismans,
             <th></th>
             <th></th>
             <th></th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
           { 
             RESISTANCE_NAMES.map((stat, i)=> (
-              <tr>
+              <tr key={stat}>
                 <td>{stat}</td>
                 <td className="value">{resistances[i]} /</td>
                 <td className="value">{armourResistances[i]}</td>

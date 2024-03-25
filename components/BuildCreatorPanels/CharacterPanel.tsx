@@ -1,12 +1,12 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { DropDown, PanelTitle, StatRow } from '..'
-import { Armour, CharacterClass, GreatRune, Talisman } from '@/utils/types'
+import { Armour, GreatRune, Talisman } from '@/utils/types'
 import { calculateTotalRunes } from '@/utils/CharacterPanelUtils'
+import { classes } from '@/public/data/Equipment/classes'
+import { getSelectedItems, handleDropdownChange } from '@/utils/BuildCreatorUtils'
 
 interface Props {
-    classes: CharacterClass[],
-    index: number,
     talismans: Talisman[],
     armours: Armour[],
     greatRune?: GreatRune,
@@ -14,7 +14,9 @@ interface Props {
     onStatChange: Function
 }
 
-function CharacterPanel({ classes, index, talismans, armours, greatRune, onChange, onStatChange } : Props) {
+function CharacterPanel({ talismans, armours, greatRune, onChange, onStatChange } : Props) {
+  const [index, setIndex] = useState(0);
+  
   // states for character added stats
   const [vigor, setVigor] = useState(0);
   const [mind, setMind] = useState(0);
@@ -40,6 +42,12 @@ function CharacterPanel({ classes, index, talismans, armours, greatRune, onChang
     });
   }, [vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane]);
 
+
+  const handleOnChange = (newIndex: number) => {
+    setIndex(newIndex);
+    onChange(classes[newIndex]);
+  }
+
   // calculates level based on base level of class and by adding up all added stats
   const selectedClass = classes[index];
   const level = +selectedClass.stats.level + vigor + mind + endurance + strength + dexterity + intelligence + faith + arcane;
@@ -51,7 +59,7 @@ function CharacterPanel({ classes, index, talismans, armours, greatRune, onChang
       {/* div for selecting starting class */}
       <div className="starting-class">
         <label>Starting Class </label>
-        <DropDown items={classes} index={index} isNullable={false} onChange={onChange} hasImages={true} />
+        <DropDown items={classes} index={index} isNullable={false} onChange={handleOnChange} hasImages={true} />
       </div>
     </div>
     <div style={{height:"2vh"}}/>

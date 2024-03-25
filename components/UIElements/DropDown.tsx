@@ -1,6 +1,5 @@
 'use client'
-import { useClickOutside } from '@/hooks';
-import useWindowSizeChange from '@/hooks/useWindowSizeChange';
+import { useClickOutside, useWindowSizeChange } from '@/hooks';
 import { useEffect, useRef, useState } from 'react'
 
 interface Props {
@@ -94,6 +93,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                         isNullable == true &&
                         <li 
                             className={index < 0 ? "selected-item" : ""} 
+                            key="None"
                             onClick={() => { 
                                 onChange(-1); 
                                 setOpen(false); 
@@ -107,7 +107,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                             item.name.toLowerCase().replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '').indexOf(search.toLowerCase().replace(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')) >= 0 &&
                             <li 
                                 className={i == index ? "selected-item" : isCompatible(item, i) == false ? "disabled" : ""}
-                                key={i.toString()} 
+                                key={item.name + " " + i} 
                                 onClick={() => {
                                     if(isCompatible(item, i)) {
                                         onChange(i);

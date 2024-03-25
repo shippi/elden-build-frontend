@@ -1,13 +1,12 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel } from '@/components'
-import { useFetchAllItems } from '@/hooks';
 import { CharacterStats } from '@/utils/types';
 import { getTotalStats } from '@/utils/BuildCreatorUtils';
+import { classes, greatRunes } from '@/public/data';
 
 function BuildCreator() {
-    const {classes, armours, talismans, weapons, ashes, affinities, greatRunes, arrows, bolts, spells, isLoading, error} = useFetchAllItems();
-    const [classIndex, setClassIndex] = useState(0);
+    const [selectedClass, setSelectedClass] = useState(classes[0]);
     const [selectedArmours, setSelectedArmours] = useState(new Array(4).fill(null));
     const [selectedTalismans, setSelectedTalismans] = useState([]);
     const [selectedWeapons, setSelectedWeapons] = useState<any[]>(new Array(6).fill(null));
@@ -18,7 +17,7 @@ function BuildCreator() {
     const [selectedArrows, setSelectedArrows] = useState<any[]>([]);
     const [selectedBolts, setSelectedBolts] = useState<any[]>([]);
     const [selectedSpells, setSelectedSpells] = useState<any[]>([]);
-
+    
     const [twoHanded, setTwoHanded] = useState(false);
     const [runeActivated, setRuneActivated] = useState(false);
 
@@ -52,7 +51,7 @@ function BuildCreator() {
     };
     
 
-    if (classes.length > 0 && !isLoading) {
+    if (selectedClass) {
         return (
             <div className="build-creator">
                 
@@ -60,28 +59,23 @@ function BuildCreator() {
                 <h1>ELDEN RING BUILD CREATOR</h1>
                     <div className="subcontainer">
                     <CharacterPanel 
-                        classes={classes} 
-                        index={classIndex} 
-                        onChange={setClassIndex} 
+                        onChange={setSelectedClass} 
                         onStatChange={setCharacterStats} 
                         talismans={selectedTalismans} 
                         armours={selectedArmours} 
-                        greatRune={runeActivated && greatRunes[greatRuneIndex]}
+                        greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}
                     />
                     <div style={{height:"40px"}}/>
                     <GreatRunesPanel greatRunes={greatRunes} index={greatRuneIndex} onIndexChange={setGreatRuneIndex} onActivateChange={setRuneActivated} />
                     
                     </div>
                     <div className="subcontainer">
-                        <WeaponsPanel 
-                            weapons={weapons}
-                            ashes={ashes}
-                            affinities={affinities}
-                            characterClass={classes[classIndex]} 
+                        <WeaponsPanel
+                            characterClass={selectedClass} 
                             characterStats={characterStats}
                             armours={selectedArmours} 
                             talismans={selectedTalismans}
-                            greatRune={runeActivated && greatRunes[greatRuneIndex]}
+                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}
                             onWepChange={handleWepChange}
                             onAffChange={setSelectedAffinities}
                             onAshChange={setSelectedAshes}
@@ -90,50 +84,49 @@ function BuildCreator() {
                         />
                         <div style={{height:"40px"}}/>
                         <div className='subcontainer2'>
-                            <ArmourPanel armours={armours} onChange={setSelectedArmours}/>
-                            <TalismansPanel talismans={talismans} onChange={setSelectedTalismans}/>
+                            <ArmourPanel onChange={setSelectedArmours}/>
+                            <TalismansPanel onChange={setSelectedTalismans}/>
                         </div>
                     </div>
                     <div className="subcontainer" >
                         <StatsPanel 
-                            characterClass={classes[classIndex]} 
+                            characterClass={selectedClass} 
                             characterLevelStats={characterStats} 
                             armours={selectedArmours} 
                             weapons={selectedWeapons} 
                             talismans={selectedTalismans} 
-                            greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
+                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}/>
                         <div style={{height:"40px"}}/>
                         <AttackPowerPanel 
                             weapons={selectedWeapons} 
                             affinities={selectedAffinities} 
                             wepLvls={selectedWepLvls} 
-                            characterClass={classes[classIndex]} 
+                            characterClass={selectedClass} 
                             characterStats={characterStats} 
                             armours={selectedArmours} 
                             talismans={selectedTalismans} 
                             twoHanded={twoHanded} 
-                            greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
+                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}/>
                         <div style={{height:"40px"}}/>
                         <DefencesPanel 
-                            characterClass={classes[classIndex]} 
+                            characterClass={selectedClass} 
                             characterLevelStats={characterStats} 
                             armours={selectedArmours} 
                             talismans={selectedTalismans}
-                            greatRune={runeActivated && greatRunes[greatRuneIndex]}/>
+                            greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined}/>
                     </div>  
 
                 </div>
                 <div className="separator" />
                 <div className="bottom-panels-container">
-                    <AmmoPanel arrows={arrows} bolts={bolts} onArrowsChange={setSelectedArrows} onBoltsChange={setSelectedBolts}/>
+                    <AmmoPanel onArrowsChange={setSelectedArrows} onBoltsChange={setSelectedBolts}/>
                     <div style={{width:"3vw"}}/>
                     <SpellsPanel 
-                        spells={spells} 
-                        characterClass={classes[classIndex]} 
+                        characterClass={selectedClass} 
                         characterStats={characterStats} 
                         armours={selectedArmours} 
                         talismans={selectedTalismans} 
-                        greatRune={runeActivated && greatRunes[greatRuneIndex]} 
+                        greatRune={runeActivated ? greatRunes[greatRuneIndex] : undefined} 
                         onChange={setSelectedSpells}/>
                 </div>
             </div>

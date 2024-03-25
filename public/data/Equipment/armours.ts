@@ -1,4 +1,6 @@
-export const armorsData =[
+import { Armour } from "@/utils/types";
+
+export const armours: Armour[] =[
   {
     "id": "40000",
     "name": "Iron Helmet",
@@ -8966,12 +8968,6 @@ export const armorsData =[
     },
     "poise": 15,
     "effect": "Strengthens jump attacks",
-    "statChanges": {
-      "magicDmg": 1.1,
-      "fireDmg": 1.1,
-      "lightningDmg": 1.1,
-      "holyDmg": 1.1
-    },
     "weight": 7.7
   },
   {
@@ -13532,6 +13528,8 @@ export const armorsData =[
   {
     "id": "2000300",
     "name": "Rotten Duelist Greaves",
+    "category": "legs",
+    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Rotten_Duelist_Greaves.png/",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.2,
