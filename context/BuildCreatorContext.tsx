@@ -1,4 +1,5 @@
 import { classes } from "@/public/data";
+import { getTotalStats } from "@/utils/BuildCreatorUtils";
 import { Ammo, Armour, Ash, CharacterStats, GreatRune, Spell, Talisman, Weapon } from "@/utils/types";
 import { PropsWithChildren, createContext, useState } from "react";
 
@@ -6,7 +7,7 @@ export const BuildCreatorContext = createContext<any>(undefined);
 
 export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [selectedClass, setSelectedClass] = useState(classes[0]);
-    const [selectedArmours, setSelectedArmours] = useState<Armour|null[]>(new Array(4).fill(null));
+    const [selectedArmours, setSelectedArmours] = useState<Armour[]>(new Array(4).fill(undefined));
     const [selectedTalismans, setSelectedTalismans] = useState<Talisman[]>([]);
     const [selectedWeapons, setSelectedWeapons] = useState<Weapon|null[]>(new Array(6).fill(null));
     const [selectedAshes, setSelectedAshes] = useState<Ash|null[]>(new Array(6).fill(null));
@@ -30,7 +31,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     });
 
     const runeEffect = runeActivated ? selectedRune : undefined;
-
+    
     const value = {
         selectedClass,
         setSelectedClass,

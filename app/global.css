@@ -166,12 +166,13 @@ input[type="checkbox"]:disabled {
   display: flex;
   align-items: center;
   margin-left: 30px;
+  margin-right: 10px;
   padding: 0 10px 10px 10px;
   font-size: 15px;
 }
 
 .navbar-btn:last-child {
-  margin-left: 0px;
+  margin-left: 10px;
 }
 
 .selected-page {
@@ -197,6 +198,66 @@ input[type="checkbox"]:disabled {
   justify-content: center;
 }
 
+/*styling for sign up page*/
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.signup-form {
+  display:flex;
+  flex-direction: column;
+  row-gap: 22px;
+  width: 400px;
+}
+
+.form-group {
+  display:flex;
+  flex-direction: column;
+  row-gap: 7px;
+}
+
+.form-group label {
+  font-size: 16px;
+  color: white
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  background-color: #121212;
+  font-size: 25px;
+  border: none;
+  border-bottom: var(--grey-border);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+  outline: none;
+  border-bottom: 2px var(--gold) solid;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.form-group i {
+  padding: 10px;
+  background-color: #121212;
+  height: 39px;
+  border-bottom: var(--grey-border);
+}
+
+.form-group i:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
 /*styling for build creator page*/
 .build-creator {
   display: flex;
@@ -204,10 +265,10 @@ input[type="checkbox"]:disabled {
   align-items: center;
   width: 100%;
   height: calc(35vh + 1750px);
-  background-image: linear-gradient(to top, #1c1c1c00, #1c1c1cFF), 
+  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 85%, rgba(28,28,28,1) 100%), 
   url('./../public/builder-bg.png');
-  background-size: auto;
-  background-size: cover;
+  background-position: top left;
+  background-size: 100%;
   min-width: 1500px;
 }
 
@@ -665,7 +726,6 @@ td {
 }
 
 .button-container button:hover {
-  text-align: center;
   background-color: gray;
   cursor: pointer;
 }
@@ -696,7 +756,7 @@ td {
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  animation: rotation 1s cubic-bezier(0.1, 0.1, 0.1, 0.7) infinite;
   }
 
   @keyframes rotation {

@@ -15,7 +15,7 @@ function NavBar() {
           <Link href="/build-creator" className={"navbar-btn" + (pathname == "/build-creator" ? " selected-page" : "")}>Build Creator</Link>
           <Link href="" className="navbar-btn">Login</Link>
           <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
-          <Link href="" className="navbar-btn">Sign Up</Link>
+          <Link href="/signup" className={"navbar-btn"+ (pathname == "/signup" ? " selected-page" : "")}>Sign Up</Link>
         </div>
     </div>
 

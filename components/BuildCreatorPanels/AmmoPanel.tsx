@@ -11,15 +11,14 @@ function AmmoPanel() {
 
     const [arrowsIndices, setArrowsIndices] = useState([-1, -1]);
     const [boltsIndices, setBoltsIndices] = useState([-1, -1]);
-    const [currArrowIndex, setArrowCurrIndex] = useState(0);
-    const [currBoltIndex, setBoltCurrIndex] = useState(0);
+    const [currIndex, setCurrIndex] = useState(0);
 
     const handleArrowChange = (newIndex: number) => {
-        handleDropdownChange(arrowsIndices, currArrowIndex, newIndex, arrows, getSelectedItems, setArrowsIndices, setSelectedArrows);
+        handleDropdownChange(arrowsIndices, currIndex, newIndex, arrows, getSelectedItems, setArrowsIndices, setSelectedArrows);
     }
 
     const handleBoltChange = (newIndex: number) => {
-        handleDropdownChange(boltsIndices, currBoltIndex, newIndex, bolts, getSelectedItems, setBoltsIndices, setSelectedBolts);
+        handleDropdownChange(boltsIndices, currIndex, newIndex, bolts, getSelectedItems, setBoltsIndices, setSelectedBolts);
     }
 
     return (
@@ -31,7 +30,7 @@ function AmmoPanel() {
                     arrowsIndices.map((arrowIndex, i) => {
                         const ammoAP = calculateAmmoAttackPower(arrows[arrowIndex]);
                         return (
-                        <div className="selector" onClick={() => {setArrowCurrIndex(i)}} key={i}>
+                        <div className="selector" onClick={() => {setCurrIndex(i)}} key={i}>
                         <label>Arrow {i+1}</label>
                         <DropDown items={arrows} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={arrowsIndices} onChange={handleArrowChange} searchEnabled={true}/>
                         <div className="info">
@@ -45,7 +44,7 @@ function AmmoPanel() {
                     boltsIndices.map((arrowIndex, i) => {
                         const ammoAP = calculateAmmoAttackPower(bolts[arrowIndex]);
                         return (
-                        <div className="selector" onClick={() => {setBoltCurrIndex(i)}} key={i}>
+                        <div className="selector" onClick={() => {setCurrIndex(i)}} key={i}>
                         <label>Bolt {i+1}</label>
                         <DropDown items={bolts} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={boltsIndices} onChange={handleBoltChange} searchEnabled={true}/>
                         <div className="info">

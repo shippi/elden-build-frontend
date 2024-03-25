@@ -2,15 +2,11 @@
 import { useEffect, useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel } from '@/components'
 import { BuildCreatorContextProvider } from '@/context/BuildCreatorContext';
+import useLoading from '@/hooks/useLoading';
 
 function BuildCreator() {
-    const [loaded, setLoaded] = useState(false);
-
-    useEffect(() => {
-        setTimeout(() => setLoaded(true), 750);
-    }, [loaded])
+    const { loaded } = useLoading();
     
-
     if (loaded) {
         return (
             <div className="build-creator">
