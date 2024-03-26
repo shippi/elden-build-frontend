@@ -1,14 +1,17 @@
 import { PropsWithChildren, createContext, useEffect, useState } from "react"
 import { auth } from "@/services/firebase";
 import firebase from "firebase/compat/app";
+import { SignUpModal } from "@/components";
+import { User, createUserWithEmailAndPassword } from "firebase/auth";
 
 const AuthContext = createContext<any>(undefined)
 
-export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
-    const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
-
+export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
+    const [currentUser, setCurrentUser] = useState<User | null>(null);
+    const [signUpOpened, setSignUpOpened] = useState(false);
+    
     function signup(email: string, password: string) {
-        return auth.createUserWithEmailAndPassword(email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
     useEffect(() => {
@@ -21,12 +24,16 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
 
     const value = {
         currentUser,
-        setCurrentUser
+        setCurrentUser,
+        signUpOpened,
+        setSignUpOpened
     }
 
     return (
         <AuthContext.Provider value={value}>
             {children}
-        </AuthContext.Provider>
+        </AuthContext.Provider> 
     )
 }
+
+export default AuthContext;

@@ -35,7 +35,6 @@ function StatsPanel() {
       <br/>
       <div>
         <span>Equip Load</span> {totalWeight.toFixed(1)} / {equipLoad.toFixed(1)}
-        
       </div>
       <div><i/>{weightRatio}</div>
       <br/>

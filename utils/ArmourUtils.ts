@@ -7,7 +7,7 @@ import { Armour } from "@/utils/types";
  * @returns 
  */
 export function getSelectedArmours(armours: Armour[], armourIndices: number[]) {
-    // organises each armor category into their own arrays
+    // organises each armor category into their own arrays since all armours are in one file
     const armoursArr = [
         [...armours].filter(armour => (armour.category == "Head")),
         [...armours].filter(armour => (armour.category == "Chest")),

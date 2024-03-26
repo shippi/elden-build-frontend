@@ -1,16 +1,7 @@
+'use client'
 import { NavBar } from "@/components"
 import './global.css'
-import { Viewport } from "next"
-
-export const metadata = {
-  title: 'Elden Builder',
-  description: '',
-}
-
-export const viewport: Viewport = {
-  initialScale: 0.5,
-  width: "device-width"
-}
+import { AuthContextProvider } from "@/context/AuthContext"
 
 export default function RootLayout({
   children,
@@ -19,12 +10,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="title" content="Elden Builder"/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+      </head>
+      
       <body>
+      <AuthContextProvider>
         <NavBar />  
         <div style={{height: "40px"}}></div>
-
         {children}
+      </AuthContextProvider>
       </body>
+      
     </html>
   )
 }

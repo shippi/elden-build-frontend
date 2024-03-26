@@ -1,5 +1,4 @@
 import { classes } from "@/public/data";
-import { getTotalStats } from "@/utils/BuildCreatorUtils";
 import { Ammo, Armour, Ash, CharacterStats, GreatRune, Spell, Talisman, Weapon } from "@/utils/types";
 import { PropsWithChildren, createContext, useState } from "react";
 
