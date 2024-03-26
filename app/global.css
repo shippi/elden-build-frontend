@@ -279,7 +279,7 @@ input[type="checkbox"]:disabled {
   padding: 7px;
   background-color: #121212;
   font-size: 16px;
-  border: none;
+  border: 0;
   border-bottom: var(--grey-border);
 }
 
@@ -291,10 +291,16 @@ input[type="checkbox"]:disabled {
   border-bottom: 2px var(--gold) solid;
 }
 
+.form-group span {
+  color: #f5473b;
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .signup-form button[type="submit"] {
   background-color: #cc9827;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: 15px;
   padding: 5px 0;
 }
@@ -322,6 +328,10 @@ input[type="checkbox"]:disabled {
   cursor: pointer;
 }
 
+.invalid {
+  border-bottom: 2px #f5473b solid !important;
+}
+
 /*styling for build creator page*/
 .build-creator {
   display: flex;
@@ -329,7 +339,7 @@ input[type="checkbox"]:disabled {
   align-items: center;
   width: 100%;
   height: calc(35vh + 1750px);
-  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 85%, rgba(28,28,28,1) 100%), 
+  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 44%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
   url('./../public/builder-bg.png');
   background-position: top left;
   background-size: 100%;

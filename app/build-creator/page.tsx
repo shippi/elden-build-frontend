@@ -10,6 +10,7 @@ function BuildCreator() {
     if (loaded) {
         return (
             <div className="build-creator">
+                <div style={{height: "40px"}}></div>
                 <BuildCreatorContextProvider>
                 <div className="panels-container">    
                 <h1>ELDEN RING BUILD CREATOR</h1>
