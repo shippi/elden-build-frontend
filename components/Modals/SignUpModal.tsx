@@ -7,7 +7,7 @@ import { ChangeEvent, FormEvent, useContext, useEffect, useRef, useState } from 
 function SignUpModal() {
   const {setSignUpOpened, signup} = useContext(AuthContext);  
 
-  const [usernameInput, setUsernameInput] = useState("");
+  const [usernameInput, setUsernameInput] = useState<string>();
   const [emailInput, setEmailInput] = useState<string>();
   const [passwordInput, setPasswordInput] = useState("");
 
@@ -64,7 +64,6 @@ function SignUpModal() {
   
     checkValidity();
   
-    
     if (!validateUsername(usernameInput)) {
       setUsernameError("Username must be at least 3 characters long");
       setUsernameValidity(false);
@@ -116,7 +115,7 @@ function SignUpModal() {
             <label>Username</label>
             {usernameLoading && <span className="spinner"></span>}
           </div>
-          <input className={!usernameValidity ? "invalid" : ""} type="text" onChange={e => setUsernameInput(e.target.value)} required/>
+          <input className={!usernameValidity ? "invalid" : ""} type="text" value={usernameInput} onChange={e => setUsernameInput(e.target.value)} required/>
           <span className="error">{!usernameValidity && usernameError}</span>
         </div>
         <div className="form-group">

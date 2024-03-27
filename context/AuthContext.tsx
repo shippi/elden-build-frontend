@@ -9,7 +9,17 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [signUpOpened, setSignUpOpened] = useState(false);
     
     function signup(email: string, password: string) {
-        return createUserWithEmailAndPassword(auth, email, password);
+        try {
+            let uid;
+
+            const user = createUserWithEmailAndPassword(auth, email, password)
+            .then(data => uid = data.user.uid);
+
+            return user;
+        }
+        catch (error) {
+            return error;
+        }
     }
     
     useEffect(() => {

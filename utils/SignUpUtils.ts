@@ -8,7 +8,7 @@ export function validateEmail(email: string | undefined) {
 }
 
 export async function checkEmailExists(email: string) {
-  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?email=${email}`);
+  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?email=${email.toLowerCase()}`);
   let data = await res.json();
 
   if (data.length < 1) return true;
@@ -17,9 +17,8 @@ export async function checkEmailExists(email: string) {
 }
 
 export async function checkUsernameExists(username: string | undefined) {
-  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?username=${username}`);
+  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?username=${username?.toLowerCase()}`);
   let data = await res.json();
-
 
   if (data.length < 1) return true;
 
@@ -42,7 +41,8 @@ export function validatePassword(password: string) {
 }
 
 export function validateUsername(username: string | undefined) {
-    if (username && username.length < 3) return false;
+    if (!username && username != "") return true;
+    if (username.length < 3) return false;
     else return true;
 }
 
