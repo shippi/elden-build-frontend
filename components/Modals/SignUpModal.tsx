@@ -1,35 +1,95 @@
 'use client'
 import AuthContext from "@/context/AuthContext";
-import { validateEmail, validatePassword, validateUsername } from "@/utils/SignUpUtils";
-import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
+import { useDebounce } from "@/hooks/useDebounce";
+import { checkEmailExists, checkUsernameExists, delay, validateEmail, validatePassword, validateUsername } from "@/utils/SignUpUtils";
+import { ChangeEvent, FormEvent, useContext, useEffect, useRef, useState } from "react";
 
 function SignUpModal() {
+  const {setSignUpOpened, signup} = useContext(AuthContext);  
+
+  const [usernameInput, setUsernameInput] = useState("");
+  const [emailInput, setEmailInput] = useState<string>();
+  const [passwordInput, setPasswordInput] = useState("");
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [passwordValidity, setPasswordValidility] = useState(true);
   const [emailValidity, setEmailValidity] = useState(true);
   const [usernameValidity, setUsernameValidity] = useState(true);
 
-  const {setSignUpOpened} = useContext(AuthContext);  
+  const [loading, setLoading] = useState(false);
+  const [emailLoading, setEmailLoading] = useState(false);
+  const [usernameLoading, setUsernameLoading] = useState(false);
+
   
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const usernameRef = useRef(null);
+  const [emailError, setEmailError] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [error, setError] = useState("");
+
+  const debouncedUsername = useDebounce(usernameInput);
+  const debouncedEmail= useDebounce(emailInput);
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTimeout(() => setPasswordValidility(validatePassword(e.target.value).score > 3), 10);
   }
 
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTimeout(() => setEmailValidity(validateEmail(e.target.value)), 10);
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      setError("");
+      setLoading(true);
+      await signup(emailInput, passwordInput);
+    }
+    catch {
+      setError("Failed to create account")
+    }
+    finally {
+      setLoading(false);
+    }
   }
-
-  const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTimeout(() => setUsernameValidity(validateUsername(e.target.value)), 10);
-  } 
-
-  const handleSubmit = () => {
+  
+  useEffect(() => {
+    const checkValidity = async() => {
+      if (debouncedUsername && validateUsername(debouncedUsername)) {
+        setUsernameLoading(true);
+        const validity = await checkUsernameExists(debouncedUsername);
+        if (!validity) setUsernameError("This username is already taken");
+  
+        setUsernameValidity(validity);
+        setUsernameLoading(false);
+      }
+    };
+  
+    checkValidity();
+  
     
-  }
+    if (!validateUsername(usernameInput)) {
+      setUsernameError("Username must be at least 3 characters long");
+      setUsernameValidity(false);
+      return;
+    }
+  }, [debouncedUsername]);
+
+  useEffect(() => {
+    const checkValidity = async() => {
+      if (debouncedEmail && validateEmail(debouncedEmail)) {
+        
+        setEmailLoading(true);
+        const validity = await checkEmailExists(debouncedEmail);
+        if (!validity) setEmailError("This email is already taken");
+  
+        setEmailValidity(validity);
+        setEmailLoading(false);
+      }
+    };
+  
+    checkValidity();
+  
+    if (!validateEmail(emailInput)) {
+      setEmailError("Please enter a valid email");
+      setEmailValidity(false);
+      return;
+    }
+  }, [debouncedEmail]);
 
   return (
     <>
@@ -39,26 +99,32 @@ function SignUpModal() {
             <i className="fa fa-times" aria-hidden="true"></i>
         </button>
         <div><h1>Sign Up</h1></div>
-        <form className="signup-form" autoComplete="off">
+        <form className="signup-form" autoComplete="off" onSubmit={e => handleSubmit(e)}>
         <div className="form-group">
-          <label>Email</label>
-          <input className={!emailValidity ? "invalid" : ""} type="text" ref={emailRef} onChange={e => handleEmailChange(e)} required/>
-          <span>{!emailValidity && "Please enter a valid email"}</span>
+          <div>
+            <label>Email</label>
+            {emailLoading && <span className="spinner"></span>}
+          </div>
+          <input className={!emailValidity ? "invalid" : ""} type="text" onChange={e => setEmailInput(e.target.value)} required/>
+          <span>{!emailValidity && emailError}</span>
         </div>
         <div className="form-group">
-          <label>Username</label>
-          <input className={!usernameValidity ? "invalid" : ""} type="text" ref={usernameRef} onChange={e => handleUsernameChange(e)} required/>
-          <span>{!usernameValidity && "Username must be at least 3 characters long"}</span>
+          <div>
+            <label>Username</label>
+            {usernameLoading && <span className="spinner"></span>}
+          </div>
+          <input className={!usernameValidity ? "invalid" : ""} type="text" onChange={e => setUsernameInput(e.target.value)} required/>
+          <span>{!usernameValidity && usernameError}</span>
         </div>
         <div className="form-group">
           <label>Password</label>
           <div className="password-container">
-            <input className={!passwordValidity ? "invalid" : ""} type={passwordVisible ? "text" : "password"} ref={passwordRef} onChange={e => handlePasswordChange(e)} required />
+            <input className={!passwordValidity ? "invalid" : ""} type={passwordVisible ? "text" : "password"} onChange={e => handlePasswordChange(e)} required />
             <i className={"fa" + (passwordVisible ? " fa-eye-slash" : " fa-eye") + (!passwordValidity ? " invalid" : "")} aria-hidden="true" onClick={() => setPasswordVisible(!passwordVisible)}/>
           </div>
           <span>{!passwordValidity && "Your password is too weak" }</span>
         </div>
-        <button type="submit">Sign Up</button>        
+        <button type="submit" disabled={loading}>Sign Up</button>        
       </form>
       </div>
     </div>

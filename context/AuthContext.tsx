@@ -1,7 +1,5 @@
 import { PropsWithChildren, createContext, useEffect, useState } from "react"
 import { auth } from "@/services/firebase";
-import firebase from "firebase/compat/app";
-import { SignUpModal } from "@/components";
 import { User, createUserWithEmailAndPassword } from "firebase/auth";
 
 const AuthContext = createContext<any>(undefined)
@@ -13,7 +11,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     function signup(email: string, password: string) {
         return createUserWithEmailAndPassword(auth, email, password);
     }
-
+    
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user);
@@ -26,7 +24,8 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         currentUser,
         setCurrentUser,
         signUpOpened,
-        setSignUpOpened
+        setSignUpOpened,
+        signup
     }
 
     return (

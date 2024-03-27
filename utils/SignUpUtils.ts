@@ -2,26 +2,50 @@ import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common'
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en'
 
-export function validateEmail(email: string) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return true;
-    else return false;
+export function validateEmail(email: string | undefined) {
+  if (email && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return false;
+  else return true;
+}
+
+export async function checkEmailExists(email: string) {
+  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?email=${email}`);
+  let data = await res.json();
+
+  if (data.length < 1) return true;
+
+  return false;
+}
+
+export async function checkUsernameExists(username: string | undefined) {
+  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?username=${username}`);
+  let data = await res.json();
+
+
+  if (data.length < 1) return true;
+
+  return false;
 }
 
 export function validatePassword(password: string) {
     const options = {
-        dictionary: {
-          ...zxcvbnCommonPackage.dictionary,
-          ...zxcvbnEnPackage.dictionary,
-        },
-        graphs: zxcvbnCommonPackage.adjacencyGraphs,
-        translations: zxcvbnEnPackage.translations,
-      }
-    zxcvbnOptions.setOptions(options)
+      dictionary: {
+        ...zxcvbnCommonPackage.dictionary,
+        ...zxcvbnEnPackage.dictionary,
+      },
+      graphs: zxcvbnCommonPackage.adjacencyGraphs,
+      translations: zxcvbnEnPackage.translations
+    }
+
+    zxcvbnOptions.setOptions(options);
       
     return zxcvbn(password);
 }
 
-export function validateUsername(username: string) {
-    if (username.length < 3) return false;
+export function validateUsername(username: string | undefined) {
+    if (username && username.length < 3) return false;
     else return true;
+}
+
+export function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
