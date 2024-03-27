@@ -29,6 +29,7 @@ function SignUpModal() {
   const debouncedEmail= useDebounce(emailInput);
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPasswordInput(e.target.value);
     setTimeout(() => setPasswordValidility(validatePassword(e.target.value).score > 3), 10);
   }
 
@@ -38,9 +39,11 @@ function SignUpModal() {
       setError("");
       setLoading(true);
       await signup(emailInput, passwordInput);
+      delay(1000);
+      setSignUpOpened(false);
     }
-    catch {
-      setError("Failed to create account")
+    catch (error) {
+      setError("Failed to create account.");
     }
     finally {
       setLoading(false);
@@ -106,7 +109,7 @@ function SignUpModal() {
             {emailLoading && <span className="spinner"></span>}
           </div>
           <input className={!emailValidity ? "invalid" : ""} type="text" onChange={e => setEmailInput(e.target.value)} required/>
-          <span>{!emailValidity && emailError}</span>
+          <span className="error">{!emailValidity && emailError}</span>
         </div>
         <div className="form-group">
           <div>
@@ -114,7 +117,7 @@ function SignUpModal() {
             {usernameLoading && <span className="spinner"></span>}
           </div>
           <input className={!usernameValidity ? "invalid" : ""} type="text" onChange={e => setUsernameInput(e.target.value)} required/>
-          <span>{!usernameValidity && usernameError}</span>
+          <span className="error">{!usernameValidity && usernameError}</span>
         </div>
         <div className="form-group">
           <label>Password</label>
@@ -124,7 +127,8 @@ function SignUpModal() {
           </div>
           <span>{!passwordValidity && "Your password is too weak" }</span>
         </div>
-        <button type="submit" disabled={loading}>Sign Up</button>        
+        <button type="submit" disabled={loading}>{loading ? <span className="spinner"></span> : "Sign Up"}</button>  
+        {error != "" && <span className="error" style={{textAlign: "center"}}>{error}</span>}      
       </form>
       </div>
     </div>

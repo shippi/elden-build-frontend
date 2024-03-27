@@ -237,7 +237,7 @@ input[type="checkbox"]:disabled {
   border-radius: 5px;
 }
 
-.signup button:hover {
+.signup button:hover:not(:disabled) {
   cursor: pointer;
   background-color: gray;
 }
@@ -297,13 +297,16 @@ input[type="checkbox"]:disabled {
   border-bottom: 2px var(--gold) solid;
 }
 
-.form-group span {
+.error {
   color: #f5473b;
   font-size: 12px;
   font-weight: 500;
 }
 
 .signup-form button[type="submit"] {
+  display:flex;
+  justify-content: center;
+  align-items: center;
   background-color: #cc9827;
   border: none;
   border-radius: 3px;
@@ -311,7 +314,7 @@ input[type="checkbox"]:disabled {
   padding: 5px 0;
 }
 
-.signup-form button[type="submit"]:hover {
+.signup-form button[type="submit"]:hover:not(:disabled) {
   background-color: #cc9827CF;
 }
 
@@ -840,12 +843,16 @@ td {
   animation: rotation 1s cubic-bezier(0.1, 0.1, 0.1, 0.7) infinite;
   }
 
-.form-group .spinner {
+.form-group .spinner,
+button .spinner {
+  
   width: 20px;
   height: 20px;
   border: 5px solid gray;
   border-bottom-color: white;
 }
+
+
   @keyframes rotation {
   0% {
       transform: rotate(0deg);
