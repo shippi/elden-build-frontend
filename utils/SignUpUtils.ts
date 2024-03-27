@@ -42,7 +42,7 @@ export function validatePassword(password: string) {
 
 export function validateUsername(username: string | undefined) {
     if (!username && username != "") return true;
-    if (username.length < 3) return false;
+    if (username.length < 4 || username.length > 30) return false;
     else return true;
 }
 

@@ -65,7 +65,7 @@ function SignUpModal() {
     checkValidity();
   
     if (!validateUsername(usernameInput)) {
-      setUsernameError("Username must be at least 3 characters long");
+      setUsernameError("Username must be at between 4-30 characters long");
       setUsernameValidity(false);
       return;
     }
@@ -115,7 +115,7 @@ function SignUpModal() {
             <label>Username</label>
             {usernameLoading && <span className="spinner"></span>}
           </div>
-          <input className={!usernameValidity ? "invalid" : ""} type="text" value={usernameInput} onChange={e => setUsernameInput(e.target.value)} required/>
+          <input className={!usernameValidity ? "invalid" : ""} type="text" value={usernameInput} onChange={e => setUsernameInput(e.target.value.replace(/[^\w_]/g,''))} required/>
           <span className="error">{!usernameValidity && usernameError}</span>
         </div>
         <div className="form-group">
