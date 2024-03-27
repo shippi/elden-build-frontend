@@ -23,11 +23,11 @@
   --gold-border: 1px #9c9478 solid;
 }
 
-:root:has(.signup) {
+:root:has(.modal) {
   overflow: hidden;
 }
 
-:root:has(.signup .hidden) {
+:root:has(.modal .hidden) {
   overflow: auto;
 }
 
@@ -149,7 +149,7 @@ input[type="checkbox"]:disabled {
 .navbar {
   height: 5vh;
   min-height: 50px;
-  padding-top: 20px;
+  padding-top: 30px;
   margin: auto;
   width: 70vw;
   min-width: 1500px;
@@ -209,8 +209,8 @@ input[type="checkbox"]:disabled {
   justify-content: center;
 }
 
-/*styling for sign up page*/
-.signup {
+/*styling for modals page*/
+.modal {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -221,13 +221,13 @@ input[type="checkbox"]:disabled {
   z-index: 2;
 }
 
-.signup * {
+.modal * {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
-.signup .exit-button {
+.modal .exit-button {
   height: 30px;
   width: 30px;
   font-size: 16px;
@@ -237,7 +237,7 @@ input[type="checkbox"]:disabled {
   border-radius: 5px;
 }
 
-.signup button:hover:not(:disabled) {
+.modal button:hover:not(:disabled) {
   cursor: pointer;
   background-color: gray;
 }
@@ -249,7 +249,7 @@ input[type="checkbox"]:disabled {
   background-color: var(--bg-color);
 }
 
-.signup h1 {
+.modal h1 {
   padding: 25px;
 }
 

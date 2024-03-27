@@ -1,14 +1,15 @@
 'use client'
 import AuthContext from "@/context/AuthContext";
 import { useDebounce } from "@/hooks/useDebounce";
+import { signup } from "@/services/authService";
 import { checkEmailExists, checkUsernameExists, delay, validateEmail, validatePassword, validateUsername } from "@/utils/SignUpUtils";
-import { ChangeEvent, FormEvent, useContext, useEffect, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 
 function SignUpModal() {
-  const {setSignUpOpened, signup} = useContext(AuthContext);  
+  const {setSignUpOpened} = useContext(AuthContext);  
 
-  const [usernameInput, setUsernameInput] = useState<string>();
-  const [emailInput, setEmailInput] = useState<string>();
+  const [usernameInput, setUsernameInput] = useState<string>("");
+  const [emailInput, setEmailInput] = useState<string>("");
   const [passwordInput, setPasswordInput] = useState("");
 
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -19,7 +20,6 @@ function SignUpModal() {
   const [loading, setLoading] = useState(false);
   const [emailLoading, setEmailLoading] = useState(false);
   const [usernameLoading, setUsernameLoading] = useState(false);
-
   
   const [emailError, setEmailError] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -37,10 +37,12 @@ function SignUpModal() {
     e.preventDefault();
     try {
       setError("");
+
       setLoading(true);
       await signup(emailInput, usernameInput, passwordInput);
       delay(1000);
       setSignUpOpened(false);
+
     }
     catch (error) {
       setError("Failed to create account.");
@@ -67,14 +69,12 @@ function SignUpModal() {
     if (!validateUsername(usernameInput)) {
       setUsernameError("Username must be at between 4-30 characters long");
       setUsernameValidity(false);
-      return;
     }
   }, [debouncedUsername]);
 
   useEffect(() => {
     const checkValidity = async() => {
       if (debouncedEmail && validateEmail(debouncedEmail)) {
-        
         setEmailLoading(true);
         const validity = await checkEmailExists(debouncedEmail);
         if (!validity) setEmailError("This email is already taken");
@@ -89,13 +89,12 @@ function SignUpModal() {
     if (!validateEmail(emailInput)) {
       setEmailError("Please enter a valid email");
       setEmailValidity(false);
-      return;
     }
   }, [debouncedEmail]);
 
   return (
     <>
-    <div className="signup">
+    <div className="modal">
     <div className="signup-container">
         <button className="exit-button" onClick={() => {setSignUpOpened(false)}}>
             <i className="fa fa-times" aria-hidden="true"></i>
@@ -124,7 +123,7 @@ function SignUpModal() {
             <input className={!passwordValidity ? "invalid" : ""} type={passwordVisible ? "text" : "password"} onChange={e => handlePasswordChange(e)} required />
             <i className={"fa" + (passwordVisible ? " fa-eye-slash" : " fa-eye") + (!passwordValidity ? " invalid" : "")} aria-hidden="true" onClick={() => setPasswordVisible(!passwordVisible)}/>
           </div>
-          <span>{!passwordValidity && "Your password is too weak" }</span>
+          <span className="error">{!passwordValidity && "Your password is too weak" }</span>
         </div>
         <button type="submit" disabled={loading}>{loading ? <span className="spinner"></span> : "Sign Up"}</button>  
         {error != "" && <span className="error" style={{textAlign: "center"}}>{error}</span>}      

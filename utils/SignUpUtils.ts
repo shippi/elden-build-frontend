@@ -2,7 +2,7 @@ import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common'
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en'
 
-export function validateEmail(email: string | undefined) {
+export function validateEmail(email: string) {
   if (email && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return false;
   else return true;
 }
@@ -40,9 +40,8 @@ export function validatePassword(password: string) {
     return zxcvbn(password);
 }
 
-export function validateUsername(username: string | undefined) {
-    if (!username && username != "") return true;
-    if (username.length < 4 || username.length > 30) return false;
+export function validateUsername(username: string) {
+    if (username && !/^[\w_]{4,30}$/.test(username)) return false;
     else return true;
 }
 
