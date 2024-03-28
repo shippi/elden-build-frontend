@@ -2,12 +2,14 @@ import { PropsWithChildren, createContext, useEffect, useState } from "react"
 import { auth } from "@/lib/firebase";
 import { User } from "firebase/auth";
 
-const AuthContext = createContext<any>(undefined)
+export const AuthContext = createContext<any>(undefined)
 
 export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [currentUser, setCurrentUser] = useState<User | null>(null);
+
     const [signUpOpened, setSignUpOpened] = useState(false);
     const [signUpSuccessOpened, setSignUpSuccessOpened] = useState(true);
+    const [loginOpened, setLoginOpened] = useState(false);
     
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -23,7 +25,9 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         signUpOpened,
         setSignUpOpened,
         signUpSuccessOpened,
-        setSignUpSuccessOpened
+        setSignUpSuccessOpened,
+        loginOpened,
+        setLoginOpened
     }
 
     return (
@@ -32,5 +36,3 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         </AuthContext.Provider> 
     )
 }
-
-export default AuthContext;

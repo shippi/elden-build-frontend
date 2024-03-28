@@ -2,10 +2,17 @@
 
 import { useContext } from "react"
 import { ExitButton } from ".."
-import AuthContext from "@/context/AuthContext"
+import { AuthContext } from "@/context/AuthContext";
+
 
 function SignUpSuccessModal() {
-  const {setSignUpSuccessOpened} = useContext(AuthContext);
+  const {setSignUpSuccessOpened, setLoginOpened} = useContext(AuthContext);
+
+  const handleClick = () => {
+    setSignUpSuccessOpened(false);
+    setLoginOpened(true);
+  }
+
   return (
     <div className="modal">
       <div className="modal-container">
@@ -16,7 +23,7 @@ function SignUpSuccessModal() {
         <div className="modal-content">
           <br/>
           <div style={{textAlign: "center"}}>
-            <span className="click-here">Click here</span> to login.
+            <span className="click-here" onClick={handleClick}>Click here</span> to login.
           </div>
         </div>
         

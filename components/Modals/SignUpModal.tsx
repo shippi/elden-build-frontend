@@ -1,9 +1,10 @@
 'use client'
-import AuthContext from "@/context/AuthContext";
 import { useDebounce } from "@/hooks";
 import { signup } from "@/services/authService";
 import { checkEmailExists, checkUsernameExists, delay, validateEmail, validatePassword, validateUsername } from "@/utils/SignUpUtils";
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
+import { ExitButton } from "..";
+import { AuthContext } from "@/context/AuthContext";
 
 function SignUpModal() {
   const {setSignUpOpened, setSignUpSuccessOpened} = useContext(AuthContext);  
@@ -94,9 +95,7 @@ function SignUpModal() {
   return (
     <div className="modal">
     <div className="modal-container">
-        <button className="exit-button" onClick={() => {setSignUpOpened(false)}}>
-            <i className="fa fa-times" aria-hidden="true"></i>
-        </button>
+        <ExitButton onClick={() => setSignUpOpened(false)}/>
         <div><h1>Sign Up</h1></div>
         <form className="signup-form" autoComplete="off" onSubmit={e => handleSubmit(e)}>
         <div className="form-group">

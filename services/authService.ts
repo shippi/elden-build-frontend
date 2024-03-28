@@ -19,7 +19,7 @@ export async function signup(email: string, username: string, password: string) 
                 email: email,
                 username: username
             })
-        }).then(res => res.json()).then(data => console.log(data));
+        });
 
         auth.signOut();
 
