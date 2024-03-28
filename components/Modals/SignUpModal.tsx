@@ -96,7 +96,6 @@ function SignUpModal() {
   }, [debouncedEmail]);
 
   useEffect(() => {
-
     if (passwordInput && emailInput && usernameInput && passwordValidity && emailValidity && usernameValidity) {
       setButtonDisabled(false);
     }
@@ -135,7 +134,7 @@ function SignUpModal() {
           </div>
           <span className="error">{!passwordValidity && "Your password is too weak" }</span>
         </div>
-        <button type="submit" className={buttonDisabled ? "disabled" : ""} disabled={loading}>{loading ? <span className="spinner"></span> : "Sign Up"}</button>  
+        <button type="submit" className={buttonDisabled ? "disabled" : ""} disabled={loading || buttonDisabled}>{loading ? <span className="spinner"></span> : "Sign Up"}</button>  
         {error != "" && <span className="error" style={{textAlign: "center"}}>{error}</span>}      
       </form>
       </div>
