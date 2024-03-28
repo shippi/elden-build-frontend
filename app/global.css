@@ -707,15 +707,16 @@ td {
   align-items: center;
 }
 
-.select-menu .disabled,
-.select-menu .disabled * {
-  background-color: #3d3d3d;
-  color: #6b6b6b;
+.disabled,
+.disabled * {
+  background-color: #3d3d3d !important;
+  color: #6b6b6b !important;
 }
 
 .disabled:hover,
-.disabled *:hover {
-  cursor: default;
+.disabled *:hover,
+button[type="submit"] .disabled:hover {
+  cursor: default !important;
 }
 
 .search-box {

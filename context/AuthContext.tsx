@@ -8,7 +8,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [currentUser, setCurrentUser] = useState<User | null>(null);
 
     const [signUpOpened, setSignUpOpened] = useState(false);
-    const [signUpSuccessOpened, setSignUpSuccessOpened] = useState(true);
+    const [signUpSuccessOpened, setSignUpSuccessOpened] = useState(false);
     const [loginOpened, setLoginOpened] = useState(false);
     
     useEffect(() => {

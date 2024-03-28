@@ -14,6 +14,7 @@ function SignUpModal() {
   const [passwordInput, setPasswordInput] = useState("");
 
   const [passwordVisible, setPasswordVisible] = useState(false);
+
   const [passwordValidity, setPasswordValidility] = useState(true);
   const [emailValidity, setEmailValidity] = useState(true);
   const [usernameValidity, setUsernameValidity] = useState(true);
@@ -25,6 +26,8 @@ function SignUpModal() {
   const [emailError, setEmailError] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [error, setError] = useState("");
+
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const debouncedUsername = useDebounce(usernameInput);
   const debouncedEmail= useDebounce(emailInput);
@@ -92,6 +95,16 @@ function SignUpModal() {
     }
   }, [debouncedEmail]);
 
+  useEffect(() => {
+
+    if (passwordInput && emailInput && usernameInput && passwordValidity && emailValidity && usernameValidity) {
+      setButtonDisabled(false);
+    }
+    else {
+      setButtonDisabled(true);
+    }
+  }, [passwordValidity, emailValidity, usernameValidity])
+
   return (
     <div className="modal">
     <div className="modal-container">
@@ -122,7 +135,7 @@ function SignUpModal() {
           </div>
           <span className="error">{!passwordValidity && "Your password is too weak" }</span>
         </div>
-        <button type="submit" disabled={loading}>{loading ? <span className="spinner"></span> : "Sign Up"}</button>  
+        <button type="submit" className={buttonDisabled ? "disabled" : ""} disabled={loading}>{loading ? <span className="spinner"></span> : "Sign Up"}</button>  
         {error != "" && <span className="error" style={{textAlign: "center"}}>{error}</span>}      
       </form>
       </div>
