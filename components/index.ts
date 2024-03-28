@@ -16,6 +16,8 @@ import GreatRunesPanel from "./BuildCreatorPanels/GreatRunesPanel";
 import AmmoPanel from "./BuildCreatorPanels/AmmoPanel";
 import SpellsPanel from "./BuildCreatorPanels/SpellsPanel";
 import SignUpModal from "./Modals/SignUpModal";
+import SignUpSuccessModal from "./Modals/SignUpSuccessModal";
+import ExitButton from "./UIElements/ExitButton";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -36,5 +38,7 @@ export {
     PanelTitle,
     AmmoPanel,
     SpellsPanel,
-    SignUpModal
+    SignUpModal,
+    SignUpSuccessModal,
+    ExitButton
 }

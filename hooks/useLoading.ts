@@ -4,7 +4,7 @@ export default function useLoading() {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        setLoaded(true);
+        setTimeout(() => setLoaded(true), 1000);
     }, [loaded])
 
     return { loaded, setLoaded }

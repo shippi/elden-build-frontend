@@ -33,8 +33,7 @@ function BuildCreator() {
                         <AttackPowerPanel/>
                         <div style={{height:"40px"}}/>
                         <DefencesPanel/>
-                    </div>  
-
+                    </div>
                 </div>
                 <div className="separator" />
                 <div className="bottom-panels-container">

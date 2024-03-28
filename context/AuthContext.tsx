@@ -7,6 +7,7 @@ const AuthContext = createContext<any>(undefined)
 export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [currentUser, setCurrentUser] = useState<User | null>(null);
     const [signUpOpened, setSignUpOpened] = useState(false);
+    const [signUpSuccessOpened, setSignUpSuccessOpened] = useState(true);
     
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -20,7 +21,9 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         currentUser,
         setCurrentUser,
         signUpOpened,
-        setSignUpOpened
+        setSignUpOpened,
+        signUpSuccessOpened,
+        setSignUpSuccessOpened
     }
 
     return (

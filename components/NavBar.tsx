@@ -3,16 +3,15 @@ import { usePathname } from 'next/navigation'
 import Link from "next/link"
 import AuthContext, { AuthContextProvider } from '@/context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
-import { SignUpModal } from '.';
+import { SignUpModal, SignUpSuccessModal } from '.';
 
 function NavBar() {
   const pathname = usePathname();
-  const {signUpOpened, setSignUpOpened} = useContext(AuthContext);
-
+  const {signUpOpened, setSignUpOpened, signUpSuccessOpened, currentUser} = useContext(AuthContext);
   return (
     <>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-    {signUpOpened && <SignUpModal/>}
+    {signUpOpened ? <SignUpModal/> : signUpSuccessOpened && <SignUpSuccessModal/>}
     <div className="navbar">
         <Link href="/" className="logo">ELDEN BUILDER</Link>
         <div className="navbar-buttons">

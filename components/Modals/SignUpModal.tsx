@@ -1,12 +1,12 @@
 'use client'
 import AuthContext from "@/context/AuthContext";
-import { useDebounce } from "@/hooks/useDebounce";
+import { useDebounce } from "@/hooks";
 import { signup } from "@/services/authService";
 import { checkEmailExists, checkUsernameExists, delay, validateEmail, validatePassword, validateUsername } from "@/utils/SignUpUtils";
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 
 function SignUpModal() {
-  const {setSignUpOpened} = useContext(AuthContext);  
+  const {setSignUpOpened, setSignUpSuccessOpened} = useContext(AuthContext);  
 
   const [usernameInput, setUsernameInput] = useState<string>("");
   const [emailInput, setEmailInput] = useState<string>("");
@@ -37,12 +37,11 @@ function SignUpModal() {
     e.preventDefault();
     try {
       setError("");
-
       setLoading(true);
       await signup(emailInput, usernameInput, passwordInput);
       delay(1000);
       setSignUpOpened(false);
-
+      setSignUpSuccessOpened(true);
     }
     catch (error) {
       setError("Failed to create account.");
@@ -93,9 +92,8 @@ function SignUpModal() {
   }, [debouncedEmail]);
 
   return (
-    <>
     <div className="modal">
-    <div className="signup-container">
+    <div className="modal-container">
         <button className="exit-button" onClick={() => {setSignUpOpened(false)}}>
             <i className="fa fa-times" aria-hidden="true"></i>
         </button>
@@ -130,7 +128,6 @@ function SignUpModal() {
       </form>
       </div>
     </div>
-    </>
   )
 }
 

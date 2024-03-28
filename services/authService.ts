@@ -20,6 +20,9 @@ export async function signup(email: string, username: string, password: string) 
                 username: username
             })
         }).then(res => res.json()).then(data => console.log(data));
+
+        auth.signOut();
+
         return user;
     }
     catch (error) {

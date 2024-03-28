@@ -242,9 +242,9 @@ input[type="checkbox"]:disabled {
   background-color: gray;
 }
 
-.signup-container {
+.modal-container {
   padding: 10px;
-  width: 420px;
+  width: 440px;
   border: var(--grey-border);
   background-color: var(--bg-color);
 }
@@ -253,11 +253,21 @@ input[type="checkbox"]:disabled {
   padding: 25px;
 }
 
-.signup-form {
+.signup-form,
+.modal-content {
   display:flex;
   flex-direction: column;
   row-gap: 22px;
   padding: 0px 25px 25px 25px;
+}
+
+.click-here {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.click-here:hover {
+  cursor: pointer;
 }
 
 .form-group {
