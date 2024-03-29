@@ -19,6 +19,7 @@ import SignUpModal from "./Modals/SignUpModal";
 import SignUpSuccessModal from "./Modals/SignUpSuccessModal";
 import LoginModal from "./Modals/LoginModal";
 import ExitButton from "./UIElements/ExitButton";
+import UserDropdown from "./UIElements/UserDropdown";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -42,5 +43,6 @@ export {
     SignUpModal,
     SignUpSuccessModal,
     LoginModal,
-    ExitButton
+    ExitButton,
+    UserDropdown
 }

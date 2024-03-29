@@ -4,8 +4,8 @@ import { auth } from "../lib/firebase";
 export async function signup(email: string, username: string, password: string) {
     let uid;
 
-    const user = await createUserWithEmailAndPassword(auth, email, password)
-                        .then(data => uid = data.user.uid);
+    await createUserWithEmailAndPassword(auth, email, password)
+            .then(data => uid = data.user.uid);
 
     await fetch(process.env.NEXT_PUBLIC_API_URL + "users", {
         method: "POST",
@@ -21,4 +21,14 @@ export async function signup(email: string, username: string, password: string) 
     });
 
     auth.signOut();
+}
+
+export async function getUsername(id: string) {
+    let username = "";
+    await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length > 0) username = data[0].username; 
+                });
+    return username;
 }
