@@ -5,9 +5,10 @@ import { AuthContext } from "@/context/AuthContext"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { delay } from "@/utils/SignUpUtils";
+import { getUsername } from "@/services/authService";
 
 function LoginModal() {
-    const {setLoginOpened} = useContext(AuthContext);
+    const {setLoginOpened, setUsername} = useContext(AuthContext);
     
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [usernameInput, setUsernameInput] = useState<string>("");
@@ -22,11 +23,14 @@ function LoginModal() {
         setLoading(true);
         delay(1000);
         await signInWithEmailAndPassword(auth, usernameInput, passwordInput)
-        .then(() => setLoginOpened(false))
+        .then(async res => {
+            const username = await getUsername(res.user.uid);
+            setUsername(username);
+            setLoginOpened(false);
+        })
         .catch(error => {
             if (error.code == 'auth/wrong-password' || error.code == 'auth/invalid-credential') 
                 setError("Invalid log in details. Please try again.");
-            
         })
         .finally(() => {
             setLoading(false);

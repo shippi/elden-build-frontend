@@ -15,12 +15,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async user => {
-            setUsername("");
             setCurrentUser(user);
-            if (user) {
-                const username = await getUsername(user.uid);
-                setUsername(username);
-            }
         });
 
         return unsubscribe;
@@ -35,7 +30,8 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         setSignUpSuccessOpened,
         loginOpened,
         setLoginOpened,
-        username
+        username,
+        setUsername
     }
 
     return (
