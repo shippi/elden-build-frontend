@@ -1,24 +1,29 @@
 'use client'
 import { usePathname } from 'next/navigation'
 import Link from "next/link"
-import { AuthContext, AuthContextProvider } from '@/context/AuthContext';
-import { useContext } from 'react';
+import { AuthContext } from '@/context/AuthContext';
+import { useContext, useEffect, useState } from 'react';
 import { LoginModal, SignUpModal, SignUpSuccessModal, UserDropdown } from '.';
 
 function NavBar() {
   const pathname = usePathname();
   const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username} = useContext(AuthContext);
+  const [userDropdownOpened, setUserDropdownOpened] = useState(false);
+
+  useEffect(() => {
+    setUserDropdownOpened(false);
+  }, [pathname])
+
   return (
     <>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     {signUpOpened ? <SignUpModal/> : signUpSuccessOpened ? <SignUpSuccessModal/> : loginOpened && <LoginModal/>}
-    <UserDropdown/>
+    {userDropdownOpened && <UserDropdown/>}
     <div className="navbar">
         <Link href="/" className="logo">ELDEN BUILDER</Link>
         <div className="navbar-buttons">
           <Link href="" className={"navbar-btn" + (pathname == "/builds" ? " selected-page" : "")}>View Builds</Link>
           <Link href="/build-creator" className={"navbar-btn" + (pathname == "/build-creator" ? " selected-page" : "")}>Build Creator</Link>
-          
           {
             !currentUser ?
             <>
@@ -29,10 +34,10 @@ function NavBar() {
             :
             <>
               <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
-              <Link href="" className="navbar-btn">
+              <Link href="" className="navbar-btn" onClick={() => setUserDropdownOpened(!userDropdownOpened)}>
                 {username}
                 <div style={{width: "10px"}}/>
-                <i className="fa fa-angle-down" aria-hidden="true"></i>
+                <i className={(!userDropdownOpened ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
                 
               </Link>
             </>
