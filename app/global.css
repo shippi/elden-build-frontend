@@ -167,7 +167,9 @@ input[type="checkbox"]:disabled {
   display: flex;
 }
 
-.navbar-btn:hover {
+.navbar-btn:hover,
+.user-dropdown ul > li:hover {
+  cursor: pointer;
   color: var(--gold);
   transition: 0.5s ease-out;
 }
