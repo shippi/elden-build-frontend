@@ -113,6 +113,11 @@ input[type="checkbox"]:disabled {
   border-color: #6b6b6b;
 }
 
+
+.disabled-link {
+  pointer-events: none;
+}
+
 /*styling for the hero component*/
 .hero {
   width: 100vw;
@@ -168,6 +173,7 @@ input[type="checkbox"]:disabled {
 }
 
 .navbar-btn:hover,
+.navbar-btn:hover div,
 .user-dropdown ul > li:hover {
   cursor: pointer;
   color: var(--gold);
@@ -182,6 +188,11 @@ input[type="checkbox"]:disabled {
   margin-right: 10px;
   padding: 0 10px 10px 10px;
   font-size: 15px;
+}
+
+.navbar-btn div {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-btn:last-child {
@@ -202,7 +213,8 @@ input[type="checkbox"]:disabled {
 .user-dropdown-container {
   position: absolute;
   visibility: hidden;
-  height: 100vw;
+  overflow: hidden;
+  height: 300px;
   top: 60px;
   width: 70vw;
   min-width: 1500px;
@@ -671,8 +683,8 @@ td {
   user-select: none;
 }
 
-.great-runes-panel .disabled {
-  color: #6b6b6b;
+.great-runes-panel > .disabled {
+  background-color: transparent !important;
 }
 
 /**/

@@ -35,11 +35,12 @@ function NavBar() {
             <>
               <Link href="" className="navbar-btn"></Link>
               <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
-              <Link href="" className="navbar-btn" onClick={() => setUserDropdownOpened(!userDropdownOpened)}>
-                {username}
-                <div style={{width: "10px"}}/>
-                <i className={(!userDropdownOpened ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
-                
+              <Link href="" className="navbar-btn">
+                <div className={userDropdownOpened ? "disabled-link" : ""} onClick={() => {setUserDropdownOpened(!userDropdownOpened)}}>
+                  {username}
+                  <div style={{width: "10px"}}/>
+                  <i className={(!userDropdownOpened ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
+                </div>
               </Link>
             </>
           }
