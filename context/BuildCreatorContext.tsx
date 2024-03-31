@@ -5,6 +5,8 @@ import { PropsWithChildren, createContext, useState } from "react";
 export const BuildCreatorContext = createContext<any>(undefined);
 
 export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>) => {
+    const [buildName, setBuildName] = useState("Untitled");
+
     const [selectedClass, setSelectedClass] = useState(classes[0]);
     const [selectedArmours, setSelectedArmours] = useState<Armour[]>(new Array(4).fill(undefined));
     const [selectedTalismans, setSelectedTalismans] = useState<Talisman[]>([]);
@@ -28,10 +30,12 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         faith: 0, 
         arcane: 0
     });
-
+    
     const runeEffect = runeActivated ? selectedRune : undefined;
     
     const value = {
+        buildName, 
+        setBuildName,
         selectedClass,
         setSelectedClass,
         selectedArmours,

@@ -270,6 +270,7 @@ ul > .separator {
   justify-content: center;
 }
 
+
 /*styling for modals page*/
 .modal {
   position: fixed;
@@ -349,7 +350,8 @@ ul > .separator {
 }
 
 .form-group input[type="text"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.file-panel input[type="text"] {
   font-weight: 500;
   height: 35px;
   width: 100%;
@@ -362,6 +364,7 @@ ul > .separator {
 
 .form-group input[type="text"]:focus,
 .form-group input[type="password"]:focus, 
+.file-panel input[type="text"]:focus,
 .form-group input[type="password"]:focus + i,
 .form-group input[type="text"]:focus + i {
   outline: none;
@@ -466,15 +469,41 @@ ul > .separator {
   column-gap: 40px;
 }
 
-.build-creator > .separator {
+.build-creator > .separator,
+.panels-container > .separator {
   min-width: 1500px;
-  height: 40px;
-  margin-bottom: 40px;
+  height: 30px;
+  margin-bottom: 30px;
   width: 70%;
 }
 
 .separator {
   border-bottom: 1px grey solid;
+}
+
+/*styling for file panel*/
+.file-panel {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  width: 100%;
+}
+
+.file-panel button {
+  background-color: #121212;
+  border: var(--grey-border);
+  align-self: flex-end;
+  height: 35px;
+  padding: 0 10px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.file-panel button:hover {
+  cursor: pointer;
+  background-color: grey;
 }
 
 /*general styling for panels*/
