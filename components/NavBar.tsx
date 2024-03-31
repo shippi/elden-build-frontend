@@ -13,7 +13,7 @@ function NavBar({cookieUsername} : Props) {
   const pathname = usePathname();
   const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username, setUsername} = useContext(AuthContext);
   const [userDropdownOpened, setUserDropdownOpened] = useState(false);
-
+  
   useEffect(() => {
     setUserDropdownOpened(false);
   }, [pathname, currentUser])
@@ -29,23 +29,23 @@ function NavBar({cookieUsername} : Props) {
           <Link href="" className={"navbar-btn" + (pathname == "/builds" ? " selected-page" : "")}>View Builds</Link>
           <Link href="/build-creator" className={"navbar-btn" + (pathname == "/build-creator" ? " selected-page" : "")}>Build Creator</Link>
           {
-            !cookieUsername ?
-            <>
-              <Link href="" className="navbar-btn" onClick={() => setLoginOpened(true)}>Log In</Link>
-              <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
-              <Link href="" className="navbar-btn" onClick={() => setSignUpOpened(true)}>Sign Up</Link>
-            </> 
-            :
+            (cookieUsername && !username || username) ?
             <>
               <Link href="" className="navbar-btn"></Link>
               <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
               <Link href="" className="navbar-btn">
                 <div className={userDropdownOpened ? "disabled-link" : ""} onClick={() => {setUserDropdownOpened(!userDropdownOpened)}}>
-                  {cookieUsername ? cookieUsername : username}
+                  {username ? username : cookieUsername}
                   <div style={{width: "10px"}}/>
                   <i className={(!userDropdownOpened ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
                 </div>
               </Link>
+            </> 
+            :
+            <>
+              <Link href="" className="navbar-btn" onClick={() => setLoginOpened(true)}>Log In</Link>
+              <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
+              <Link href="" className="navbar-btn" onClick={() => setSignUpOpened(true)}>Sign Up</Link>
             </>
           }
         </div>

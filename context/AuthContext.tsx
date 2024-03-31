@@ -3,6 +3,7 @@
 import { PropsWithChildren, createContext, useEffect, useState } from "react"
 import { auth } from "@/lib/firebase";
 import { User } from "firebase/auth";
+import { deleteCookie } from "cookies-next";
 
 export const AuthContext = createContext<any>(undefined)
 
@@ -21,6 +22,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
             }
             else {
                 setCurrentUser(null);
+                deleteCookie('username');
                 setUsername("");
             }
 

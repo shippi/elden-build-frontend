@@ -1,19 +1,24 @@
 'use client'
+import { AuthContext } from "@/context/AuthContext";
 import { useClickOutside } from "@/hooks";
 import { auth } from "@/lib/firebase"
 import { signOut } from "firebase/auth"
-import { useRef } from "react";
+import { useRouter } from "next/router";
+import { useContext, useRef } from "react";
+
 
 interface Props {
   onClickOutside: Function
 }
 
 function UserDropdown({onClickOutside}: Props) {
+  const {setUsername} = useContext(AuthContext)
   const dropdownRef = useRef(null);
   useClickOutside(dropdownRef, onClickOutside);
 
   const signOutOnClick = () => {
     signOut(auth);
+    useRouter().reload();
   }
 
   return (
