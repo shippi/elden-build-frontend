@@ -1,4 +1,4 @@
-import { Weapon, CharacterStats, requiredAttributes } from "@/utils/types";
+import { Weapon, CharacterStats, requiredAttributes } from "@/helpers/types";
 import { weaponStats, multipliers, calcCorrectGraph, attackElementsCorrect } from "@/public/data";
 import { WEAPON_STATS_NAMES } from "./consts";
 

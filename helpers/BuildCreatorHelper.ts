@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune, requiredAttributes } from "@/utils/types";
+import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune, requiredAttributes } from "@/helpers/types";
 import { MAX_STAT_LEVEL, STAT_NAMES, WEAPON_STATS_NAMES } from "./consts";
 
 export function getSelectedItems(items: any[], indices: number[]) {

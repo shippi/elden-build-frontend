@@ -1,5 +1,5 @@
-import { CharacterClass, CharacterStats, Talisman, Armour, Weapon, GreatRune } from "@/utils/types";
-import { getEquipmentValues, getRuneValue } from "./BuildCreatorUtils";
+import { CharacterClass, CharacterStats, Talisman, Armour, Weapon, GreatRune } from "@/helpers/types";
+import { getEquipmentValues, getRuneValue } from "./BuildCreatorHelper";
 
 /**
  * Calculates the total HP value based on total vigor level, and talismans and armour effects.

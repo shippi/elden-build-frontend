@@ -1,8 +1,8 @@
 'use client'
 import { useContext, useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
-import { getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/utils/BuildCreatorUtils"
-import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/utils/WeaponsUtils"
+import { getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper"
+import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/helpers/WeaponsHelper"
 import { weapons, affinities, wepLevels, ashes } from "@/public/data"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
 

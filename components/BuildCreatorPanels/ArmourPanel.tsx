@@ -2,8 +2,8 @@
 import { useContext, useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { armours } from "@/public/data"
-import { getSelectedArmours } from "@/utils/ArmourUtils"
-import { handleDropdownChange } from "@/utils/BuildCreatorUtils"
+import { getSelectedArmours } from "@/helpers/ArmourPanelHelper"
+import { handleDropdownChange } from "@/helpers/BuildCreatorHelper"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
 
 

@@ -1,8 +1,8 @@
 'use client'
 import { useContext, useState } from "react"
 import { DropDown, PanelTitle } from ".."
-import { Armour, CharacterClass, CharacterStats, GreatRune, Spell, Talisman } from "@/utils/types";
-import { getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/utils/BuildCreatorUtils";
+import { Armour, CharacterClass, CharacterStats, GreatRune, Spell, Talisman } from "@/helpers/types";
+import { getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper";
 import { spells } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 

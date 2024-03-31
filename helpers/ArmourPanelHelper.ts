@@ -1,4 +1,4 @@
-import { Armour } from "@/utils/types";
+import { Armour } from "@/helpers/types";
 
 /**
  * Used to get the armours that a user has selected based on indices chosen in dropdown.

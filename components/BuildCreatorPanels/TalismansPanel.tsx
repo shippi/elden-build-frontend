@@ -1,7 +1,7 @@
 'use client'
 import { useContext, useState } from "react";
 import { DropDown, PanelTitle } from "..";
-import { getSelectedItems, handleDropdownChange } from "@/utils/BuildCreatorUtils";
+import { getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
 import { talismans } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 

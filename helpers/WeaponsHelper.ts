@@ -1,4 +1,4 @@
-import { Ash, CharacterStats, Weapon, requiredAttributes } from "@/utils/types";
+import { Ash, CharacterStats, Weapon, requiredAttributes } from "@/helpers/types";
 import { WEAPON_STATS_NAMES } from "./consts";
 
 /**

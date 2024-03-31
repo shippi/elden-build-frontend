@@ -1,8 +1,8 @@
 'use client'
 import { PanelTitle } from '..'
 import { useContext } from 'react';
-import { calculateTotalLevel, getTotalStats } from '@/utils/BuildCreatorUtils'
-import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/utils/DefencesUtils'
+import { calculateTotalLevel, getTotalStats } from '@/helpers/BuildCreatorHelper'
+import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/helpers/DefencesHelper'
 import BuildCreatorContext from '@/context/BuildCreatorContext';
 
 function DefencesPanel() {

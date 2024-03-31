@@ -1,7 +1,7 @@
 'use client'
 import { useDebounce } from "@/hooks";
 import { signup } from "@/services/authService";
-import { checkEmailExists, checkUsernameExists, delay, validateEmail, validatePassword, validateUsername } from "@/utils/SignUpUtils";
+import { checkEmailExists, checkUsernameExists, delay, validateEmail, validatePassword, validateUsername } from "@/helpers/SignUpHelper";
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { ExitButton } from "..";
 import { AuthContext } from "@/context/AuthContext";

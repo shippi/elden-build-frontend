@@ -1,4 +1,4 @@
-import { Armour } from "@/utils/types";
+import { Armour } from "@/helpers/types";
 
 export const armours: Armour[] =[
   {

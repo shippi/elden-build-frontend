@@ -4,8 +4,9 @@ import { ExitButton } from ".."
 import { AuthContext } from "@/context/AuthContext"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { delay } from "@/utils/SignUpUtils";
+import { delay } from "@/helpers/SignUpHelper";
 import { getUsername } from "@/services/authService";
+import { setCookie } from "cookies-next";
 
 function LoginModal() {
     const {setLoginOpened, setUsername} = useContext(AuthContext);
@@ -26,6 +27,7 @@ function LoginModal() {
         .then(async res => {
             const username = await getUsername(res.user.uid);
             setUsername(username);
+            setCookie("username", username);
             setLoginOpened(false);
         })
         .catch(error => {

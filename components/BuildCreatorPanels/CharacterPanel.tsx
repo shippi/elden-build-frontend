@@ -1,7 +1,7 @@
 'use client'
 import { useContext, useEffect, useState } from 'react'
 import { DropDown, PanelTitle, StatRow } from '..'
-import { calculateTotalRunes } from '@/utils/CharacterPanelUtils'
+import { calculateTotalRunes } from '@/helpers/CharacterPanelHelper'
 import { classes } from '@/public/data/Equipment/classes'
 import BuildCreatorContext from '@/context/BuildCreatorContext'
 

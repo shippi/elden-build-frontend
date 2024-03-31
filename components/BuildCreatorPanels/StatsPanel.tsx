@@ -1,8 +1,8 @@
 'use client'
-import { calculateHP, calculateFP, calculateStamina, calculateEquipLoad, calculateDiscovery, calculatePoise, calculateWeight, getWeightRatio } from "@/utils/StatsUtils";
+import { calculateHP, calculateFP, calculateStamina, calculateEquipLoad, calculateDiscovery, calculatePoise, calculateWeight, getWeightRatio } from "@/helpers/StatsHelper";
 import { useContext } from "react";
 import { PanelTitle } from "..";
-import { getTotalStats } from "@/utils/BuildCreatorUtils";
+import { getTotalStats } from "@/helpers/BuildCreatorHelper";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 
 function StatsPanel() {

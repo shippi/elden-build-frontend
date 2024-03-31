@@ -1,8 +1,8 @@
 'use client'
 import { DropDown, PanelTitle } from ".."
 import { useContext, useState } from "react";
-import { getSelectedItems, handleDropdownChange } from "@/utils/BuildCreatorUtils";
-import { calculateAmmoAttackPower } from "@/utils/AmmoUtils";
+import { getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
+import { calculateAmmoAttackPower } from "@/helpers/AmmoPanelHelper";
 import { arrows, bolts } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 

@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
 import { useClickOutside, useOnKeyPress } from "@/hooks";
-import { Talisman, Armour, GreatRune } from "@/utils/types";
-import { calculateStatLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/utils/BuildCreatorUtils";
+import { Talisman, Armour, GreatRune } from "@/helpers/types";
+import { calculateStatLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/helpers/BuildCreatorHelper";
 
 interface Props {
     type: string,

@@ -1,5 +1,5 @@
 import { classes } from "@/public/data";
-import { Ammo, Armour, Ash, CharacterStats, GreatRune, Spell, Talisman, Weapon } from "@/utils/types";
+import { Ammo, Armour, Ash, CharacterStats, GreatRune, Spell, Talisman, Weapon } from "@/helpers/types";
 import { PropsWithChildren, createContext, useState } from "react";
 
 export const BuildCreatorContext = createContext<any>(undefined);

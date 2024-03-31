@@ -1,4 +1,4 @@
-import { CharacterStats, Armour, Talisman } from "@/utils/types";
+import { CharacterStats, Armour, Talisman } from "@/helpers/types";
 import { NEGATION_NAMES } from "./consts";
 
 export function calculatePhysicalDefences(totalStats: CharacterStats, level: number) {

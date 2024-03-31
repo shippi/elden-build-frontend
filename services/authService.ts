@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../lib/firebase";
+import { deleteCookie, setCookie } from "cookies-next";
 
 export async function signup(email: string, username: string, password: string) {
     let uid;
@@ -22,7 +23,7 @@ export async function signup(email: string, username: string, password: string) 
 
     auth.signOut();
     
-    window.localStorage.removeItem("username");
+    deleteCookie('username');
 }
 
 export async function getUsername(id: string) {
@@ -33,6 +34,6 @@ export async function getUsername(id: string) {
                     if (data.length > 0) username = data[0].username; 
                 });
 
-    if (username) window.localStorage.setItem("username", username);
+    if (username) setCookie("username", username);
     return username;
 }

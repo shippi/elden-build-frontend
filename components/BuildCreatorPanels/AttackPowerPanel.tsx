@@ -1,7 +1,7 @@
 'use client'
-import { getTotalStats } from "@/utils/BuildCreatorUtils"
-import { Weapon } from "@/utils/types"
-import { calculateAttackPower } from "@/utils/AttackPowerUtils";
+import { getTotalStats } from "@/helpers/BuildCreatorHelper"
+import { Weapon } from "@/helpers/types"
+import { calculateAttackPower } from "@/helpers/AttackPowerPanelHelper";
 import { PanelTitle } from "..";
 import { useContext } from "react";
 import BuildCreatorContext from "@/context/BuildCreatorContext";

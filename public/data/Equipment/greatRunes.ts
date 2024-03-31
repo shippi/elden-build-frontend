@@ -1,4 +1,4 @@
-import { GreatRune } from "@/utils/types";
+import { GreatRune } from "@/helpers/types";
 
 export const greatRunes: GreatRune[] = [
     {
