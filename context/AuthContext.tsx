@@ -12,14 +12,27 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [signUpSuccessOpened, setSignUpSuccessOpened] = useState(false);
     const [loginOpened, setLoginOpened] = useState(false);
     const [username, setUsername] = useState("");
+
+    useEffect(() => {
+        const data = window.localStorage.getItem("username");
+        if (data) setUsername(data);
+    }, []);
     
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async user => {
-            setCurrentUser(user);
-        });
+            if (user) {
+                setCurrentUser(user);
+            }
+            else {
+                setCurrentUser(null);
+                setUsername("");
+                window.localStorage.removeItem("username");
+            }
 
+        });
         return unsubscribe;
-    },[]);
+    },[username]);
+
 
     const value = {
         currentUser,

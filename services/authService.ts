@@ -21,6 +21,8 @@ export async function signup(email: string, username: string, password: string) 
     });
 
     auth.signOut();
+    
+    window.localStorage.removeItem("username");
 }
 
 export async function getUsername(id: string) {
@@ -30,5 +32,7 @@ export async function getUsername(id: string) {
                 .then(data => {
                     if (data.length > 0) username = data[0].username; 
                 });
+
+    if (username) window.localStorage.setItem("username", username);
     return username;
 }

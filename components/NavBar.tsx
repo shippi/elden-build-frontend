@@ -7,7 +7,7 @@ import { LoginModal, SignUpModal, SignUpSuccessModal, UserDropdown } from '.';
 
 function NavBar() {
   const pathname = usePathname();
-  const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username} = useContext(AuthContext);
+  const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username, setUsername} = useContext(AuthContext);
   const [userDropdownOpened, setUserDropdownOpened] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function NavBar() {
           <Link href="" className={"navbar-btn" + (pathname == "/builds" ? " selected-page" : "")}>View Builds</Link>
           <Link href="/build-creator" className={"navbar-btn" + (pathname == "/build-creator" ? " selected-page" : "")}>Build Creator</Link>
           {
-            !currentUser ?
+            !username ?
             <>
               <Link href="" className="navbar-btn" onClick={() => setLoginOpened(true)}>Log In</Link>
               <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
