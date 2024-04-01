@@ -10,6 +10,8 @@ function FilePanel() {
   const {currentUser} = useContext(AuthContext);
 
   const [saveLoading, setSaveLoading] = useState(false);
+  const [saveId, setSaveId] = useState<number>(-1);
+  console.log(saveId)
   const handleSave = async () => {
     const uid = currentUser.uid;
 
@@ -28,18 +30,42 @@ function FilePanel() {
       characterStats: characterStats
     }
 
-    const sentData = {
-      uid: uid,
-      name: buildName,
-      build: buildData,
-      isPublic: false
+    if (saveId < 0) {
+      const sentData = {
+        uid: uid,
+        name: buildName,
+        build: buildData,
+        isPublic: false
+      }
+      await fetch(process.env.NEXT_PUBLIC_API_URL + "builds", 
+        {
+          method: "POST",
+          mode: "cors",
+          body: JSON.stringify(sentData)
+        })
+        .then(res=> res.json())
+        .then(data => setSaveId(data.id))
+        .catch(error => console.log(error));
     }
+    
+    else {
+      const sentData = {
+        name: buildName,
+        build: buildData,
+        isPublic: false
+      }
 
-    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "builds", {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(sentData)
-    }).catch(error => console.log(error));
+      await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        mode: "cors",
+        body: JSON.stringify(sentData)
+      })
+      .then(res=> res.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
+    }
   }
 
   return (
