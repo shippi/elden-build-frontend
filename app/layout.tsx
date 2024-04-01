@@ -1,5 +1,9 @@
-import { NavBarWrapper } from "@/components"
+'use client'
+
 import './global.css'
+import { NavBar } from "@/components"
+import { BuildCreatorContextProvider } from "@/context/BuildCreatorContext"
+import { AuthContextProvider } from "@/context/AuthContext"
 
 export default function RootLayout({
   children,
@@ -14,8 +18,12 @@ export default function RootLayout({
       </head>
       
       <body>
-        <NavBarWrapper />  
-        {children}
+        <AuthContextProvider>
+          <BuildCreatorContextProvider>
+            <NavBar />  
+            {children}
+          </BuildCreatorContextProvider>
+        </AuthContextProvider>
       </body>
       
     </html>

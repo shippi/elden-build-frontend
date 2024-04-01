@@ -4,6 +4,7 @@ import { PropsWithChildren, createContext, useEffect, useState } from "react"
 import { auth } from "@/lib/firebase";
 import { User } from "firebase/auth";
 import { deleteCookie } from "cookies-next";
+import { getUsername } from "@/services/authService";
 
 export const AuthContext = createContext<any>(undefined)
 
@@ -19,16 +20,16 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         const unsubscribe = auth.onAuthStateChanged(async user => {
             if (user) {
                 setCurrentUser(user);
+                const username = await getUsername(user.uid);
+                setUsername(username);
             }
             else {
                 setCurrentUser(null);
-                deleteCookie('username');
                 setUsername("");
             }
-
         });
         return unsubscribe;
-    },[username]);
+    },[]);
 
 
     const value = {
@@ -40,8 +41,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         setSignUpSuccessOpened,
         loginOpened,
         setLoginOpened,
-        username,
-        setUsername
+        username
     }
 
     return (

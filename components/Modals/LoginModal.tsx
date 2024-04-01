@@ -5,7 +5,6 @@ import { AuthContext } from "@/context/AuthContext"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { getUsername } from "@/services/authService";
-import { setCookie } from "cookies-next";
 import { delay } from "@/utils";
 
 function LoginModal() {
@@ -25,9 +24,6 @@ function LoginModal() {
         delay(1000);
         await signInWithEmailAndPassword(auth, usernameInput, passwordInput)
         .then(async res => {
-            const username = await getUsername(res.user.uid);
-            setUsername(username);
-            setCookie("username", username);
             setLoginOpened(false);
         })
         .catch(error => {

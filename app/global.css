@@ -494,6 +494,7 @@ ul > .separator {
   border: var(--grey-border);
   align-self: flex-end;
   height: 35px;
+  width: 90px;
   padding: 0 10px;
   font-size: 16px;
   font-family: "Inter", sans-serif;
@@ -507,6 +508,7 @@ ul > .separator {
 }
 
 .success-message {
+  
   opacity: 0;
   display: flex;
   align-items: center;
@@ -985,5 +987,4 @@ button .spinner {
   border: 5px solid gray;
   border-bottom-color: white;
 }
-
 

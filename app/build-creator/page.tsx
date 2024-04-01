@@ -1,9 +1,7 @@
 'use client'
-import { useEffect, useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel, FilePanel } from '@/components'
-import { BuildCreatorContextProvider } from '@/context/BuildCreatorContext';
 import useLoading from '@/hooks/useLoading';
-import { AuthContextProvider } from '@/context/AuthContext';
+
 
 function BuildCreator() {
     const { loaded } = useLoading();
@@ -12,11 +10,8 @@ function BuildCreator() {
         return (
             <div className="build-creator">
                 <div style={{height: "40px"}}></div>
-                <AuthContextProvider>
-                <BuildCreatorContextProvider>
-                
                 <div className="panels-container">    
-                
+        
                 <h1>ELDEN RING BUILD CREATOR</h1>
                 <div style={{height: "20px", width:"100%"}}/>
                 <FilePanel/>
@@ -48,8 +43,6 @@ function BuildCreator() {
                     <div style={{width:"3vw"}}/>
                     <SpellsPanel/>
                 </div>
-                </BuildCreatorContextProvider>
-                </AuthContextProvider>
             </div>
         );
     }

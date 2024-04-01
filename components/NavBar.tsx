@@ -4,20 +4,16 @@ import Link from "next/link"
 import { AuthContext } from '@/context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import { LoginModal, SignUpModal, SignUpSuccessModal, UserDropdown } from '.';
-import { useRouter } from 'next/router';
 
-interface Props {
-  cookieUsername: string | undefined
-}
-
-function NavBar({cookieUsername} : Props) {
+function NavBar() {
   const pathname = usePathname();
-  const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username, setUsername} = useContext(AuthContext);
+  const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username} = useContext(AuthContext);
   const [userDropdownOpened, setUserDropdownOpened] = useState(false);
   
   useEffect(() => {
     setUserDropdownOpened(false);
   }, [pathname, currentUser])
+  
 
   return (
     <>
@@ -30,13 +26,13 @@ function NavBar({cookieUsername} : Props) {
           <Link href="" className={"navbar-btn" + (pathname == "/builds" ? " selected-page" : "")}>View Builds</Link>
           <Link href="/build-creator" className={"navbar-btn" + (pathname == "/build-creator" ? " selected-page" : "")}>Build Creator</Link>
           {
-            (cookieUsername && !username || username) ?
+            username ?
             <>
               <Link href="" className="navbar-btn"></Link>
               <div style={{borderLeft: "1px solid gray", height:"25px"}}></div>
               <Link href="" className="navbar-btn">
                 <div className={userDropdownOpened ? "disabled-link" : ""} onClick={() => {setUserDropdownOpened(!userDropdownOpened)}}>
-                  {username ? username : cookieUsername}
+                  {username}
                   <div style={{width: "10px"}}/>
                   <i className={(!userDropdownOpened ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
                 </div>

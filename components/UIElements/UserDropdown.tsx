@@ -1,9 +1,9 @@
 'use client'
-import { AuthContext } from "@/context/AuthContext";
 import { useClickOutside } from "@/hooks";
 import { auth } from "@/lib/firebase"
+import { deleteCookie } from "cookies-next";
 import { signOut } from "firebase/auth"
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useContext, useRef } from "react";
 
 
@@ -12,17 +12,14 @@ interface Props {
 }
 
 function UserDropdown({onClickOutside}: Props) {
+  const router = useRouter()
   const dropdownRef = useRef(null);
   useClickOutside(dropdownRef, onClickOutside);
 
   const signOutOnClick = () => {
     signOut(auth);
-    try {
-      useRouter().reload();
-    } catch (error) {
-      
-    }
-    
+    deleteCookie('username');
+    router.refresh();
   }
 
   return (

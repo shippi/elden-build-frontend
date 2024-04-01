@@ -18,8 +18,6 @@ function FilePanel() {
     setDisplaySuccess(false)
   }, [saveLoading])
 
-  console.log(displaySuccess);
-
   const handleSave = async () => {
     if (!currentUser) {
       return;
@@ -90,7 +88,6 @@ function FilePanel() {
         <label>Build Name: </label>
         <input type="text" value={buildName} onChange={e => setBuildName(e.target.value)}/>
       </div>
-      <button>Load</button>
       <button onClick={handleSave} className={saveLoading ? "disabled" : ""} disabled={saveLoading}>Save</button>
       {displaySuccess && <div className="success-message">Build saved succesfully!</div>}
     </div>
