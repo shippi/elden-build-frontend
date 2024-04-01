@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel, FilePanel } from '@/components'
 import { BuildCreatorContextProvider } from '@/context/BuildCreatorContext';
 import useLoading from '@/hooks/useLoading';
+import { AuthContextProvider } from '@/context/AuthContext';
 
 function BuildCreator() {
     const { loaded } = useLoading();
@@ -11,6 +12,7 @@ function BuildCreator() {
         return (
             <div className="build-creator">
                 <div style={{height: "40px"}}></div>
+                <AuthContextProvider>
                 <BuildCreatorContextProvider>
                 
                 <div className="panels-container">    
@@ -47,6 +49,7 @@ function BuildCreator() {
                     <SpellsPanel/>
                 </div>
                 </BuildCreatorContextProvider>
+                </AuthContextProvider>
             </div>
         );
     }

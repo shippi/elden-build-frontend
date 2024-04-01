@@ -4,6 +4,7 @@ import Link from "next/link"
 import { AuthContext } from '@/context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import { LoginModal, SignUpModal, SignUpSuccessModal, UserDropdown } from '.';
+import { useRouter } from 'next/router';
 
 interface Props {
   cookieUsername: string | undefined

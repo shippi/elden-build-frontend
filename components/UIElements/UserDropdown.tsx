@@ -12,13 +12,17 @@ interface Props {
 }
 
 function UserDropdown({onClickOutside}: Props) {
-  const {setUsername} = useContext(AuthContext)
   const dropdownRef = useRef(null);
   useClickOutside(dropdownRef, onClickOutside);
 
   const signOutOnClick = () => {
     signOut(auth);
-    useRouter().reload();
+    try {
+      useRouter().reload();
+    } catch (error) {
+      
+    }
+    
   }
 
   return (
