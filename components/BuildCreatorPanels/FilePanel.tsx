@@ -1,18 +1,30 @@
 'use client'
 import { AuthContext } from "@/context/AuthContext"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Ammo, Armour, Ash, GreatRune, Spell, Talisman, Weapon } from "@/helpers/types";
 import { weapons } from "@/public/data";
+import { delay } from "@/utils";
 
 function FilePanel() {
   const {buildName, setBuildName, selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats} = useContext(BuildCreatorContext)
   const {currentUser} = useContext(AuthContext);
 
   const [saveLoading, setSaveLoading] = useState(false);
+  const [displaySuccess, setDisplaySuccess] = useState(false);
   const [saveId, setSaveId] = useState<number>(-1);
-  console.log(saveId)
+  
+  useEffect(() => {
+    setDisplaySuccess(false)
+  }, [saveLoading])
+
+  console.log(displaySuccess);
+
   const handleSave = async () => {
+    if (!currentUser) {
+      return;
+    }
+
     const uid = currentUser.uid;
 
     const buildData = {
@@ -29,7 +41,7 @@ function FilePanel() {
       selectedSpells: selectedSpells.map((spell: Spell | null) => { if (spell) return(spell.name)}), 
       characterStats: characterStats
     }
-
+    setSaveLoading(true);
     if (saveId < 0) {
       const sentData = {
         uid: uid,
@@ -37,6 +49,7 @@ function FilePanel() {
         build: buildData,
         isPublic: false
       }
+    
       await fetch(process.env.NEXT_PUBLIC_API_URL + "builds", 
         {
           method: "POST",
@@ -47,7 +60,6 @@ function FilePanel() {
         .then(data => setSaveId(data.id))
         .catch(error => console.log(error));
     }
-    
     else {
       const sentData = {
         name: buildName,
@@ -66,6 +78,10 @@ function FilePanel() {
       .then(data => console.log(data))
       .catch(error => console.log(error));
     }
+    setDisplaySuccess(true);
+    await delay(2510);
+    setSaveLoading(false);
+    
   }
 
   return (
@@ -75,7 +91,8 @@ function FilePanel() {
         <input type="text" value={buildName} onChange={e => setBuildName(e.target.value)}/>
       </div>
       <button>Load</button>
-      <button onClick={handleSave}>Save</button>
+      <button onClick={handleSave} className={saveLoading ? "disabled" : ""} disabled={saveLoading}>Save</button>
+      {displaySuccess && <div className="success-message">Build saved succesfully!</div>}
     </div>
   )
 }

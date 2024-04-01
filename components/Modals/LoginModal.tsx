@@ -4,9 +4,9 @@ import { ExitButton } from ".."
 import { AuthContext } from "@/context/AuthContext"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { delay } from "@/helpers/SignUpHelper";
 import { getUsername } from "@/services/authService";
 import { setCookie } from "cookies-next";
+import { delay } from "@/utils";
 
 function LoginModal() {
     const {setLoginOpened, setUsername} = useContext(AuthContext);

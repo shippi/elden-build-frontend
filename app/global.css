@@ -506,6 +506,17 @@ ul > .separator {
   background-color: grey;
 }
 
+.success-message {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  font-size: 16px;
+  align-self: flex-end;
+  text-align: center;
+  animation: fadeInAndOut 2.5s cubic-bezier(0.1, 0.1, 0.1, 0.7);
+}
+
 /*general styling for panels*/
 .character-panel,
 .great-runes-panel,
@@ -934,6 +945,26 @@ button[type="submit"] .disabled:hover {
   }
 }
 
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 
+
+@keyframes fadeInAndOut {
+  0%, 100% { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  33%, 66% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /**/
 
 .spinner {
@@ -945,11 +976,10 @@ button[type="submit"] .disabled:hover {
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s cubic-bezier(0.1, 0.1, 0.1, 0.7) infinite;
-  }
+}
 
 .form-group .spinner,
 button .spinner {
-  
   width: 20px;
   height: 20px;
   border: 5px solid gray;
@@ -957,11 +987,3 @@ button .spinner {
 }
 
 
-  @keyframes rotation {
-  0% {
-      transform: rotate(0deg);
-  }
-  100% {
-      transform: rotate(360deg);
-  }
-  } 
