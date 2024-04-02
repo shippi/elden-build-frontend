@@ -7,7 +7,7 @@ import { delay } from "@/utils";
 import { checkNameExists } from "@/helpers/FileHelper";
 import { DropDown } from "..";
 import { useClickOutside } from "@/hooks";
-import { armours, classes, talismans } from "@/public/data";
+import { armours, classes, greatRunes, talismans, weapons } from "@/public/data";
 import { getIndexOfItem, getItemFromName } from "@/helpers/BuildCreatorHelper";
 
 function FilePanel() {
@@ -28,7 +28,9 @@ function FilePanel() {
   const [buildNameWidth, setBuildNameWidth] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  const uid = currentUser.uid;
+  let uid = "";
+  if (currentUser) uid = currentUser.uid;
+
 
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -142,7 +144,9 @@ function FilePanel() {
     const selectedBuild = builds[newIndex].build
     setSelectedClass(getItemFromName(selectedBuild.selectedClass, classes));
     setSelectedArmours(selectedBuild.selectedArmours.map((armour: string) => getItemFromName(armour, armours)));
-    setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)))
+    setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)));
+    setSelectedWeapons(selectedBuild.selectedWeapons.map((name: string) => getItemFromName(name, weapons)));
+    setSelectedRune(getItemFromName(selectedBuild.selectedRune, greatRunes));
     setCharacterStats(selectedBuild.characterStats);
   }
 

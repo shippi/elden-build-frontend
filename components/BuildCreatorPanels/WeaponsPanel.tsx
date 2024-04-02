@@ -1,13 +1,13 @@
 'use client'
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
-import { getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper"
+import { getIndicesOfItems, getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper"
 import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/helpers/WeaponsHelper"
 import { weapons, affinities, wepLevels, ashes } from "@/public/data"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
 
 function WeaponsPanel() {
-    const { selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect, 
+    const { selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, twoHanded, runeEffect, 
             setSelectedWeapons, setSelectedAshes, setSelectedAffinities, setSelectedWepLvls, setTwoHanded} = useContext(BuildCreatorContext);
     
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
@@ -18,6 +18,10 @@ function WeaponsPanel() {
 
     const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect);
     const selectorPanels = [];
+
+    useEffect(() => {
+        setWepIndices(getIndicesOfItems(selectedWeapons, weapons));
+    }, [selectedWeapons])
 
     const handleWepOnChange = (newIndex: number) => {
         let newIndices = [...wepIndices];

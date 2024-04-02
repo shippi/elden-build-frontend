@@ -1,14 +1,19 @@
 'use client'
 import { DropDown, PanelTitle } from ".."
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { greatRunes } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
+import { getIndexOfItem } from "@/helpers/BuildCreatorHelper";
 
 function GreatRunesPanel() {
-    const {setSelectedRune, runeActivated, setRuneActivated} = useContext(BuildCreatorContext)
+    const {selectedRune, setSelectedRune, runeActivated, setRuneActivated} = useContext(BuildCreatorContext)
 
     const [index, setIndex] = useState(-1);
     const disabled = index < 0;
+    
+    useEffect(() => {
+        setIndex(selectedRune ? getIndexOfItem(selectedRune.name, greatRunes) : -1);
+    }, [selectedRune])
 
     const handleIndexChange = (i: number) => {
         setIndex(i);

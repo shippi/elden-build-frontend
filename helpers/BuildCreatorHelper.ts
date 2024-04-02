@@ -21,6 +21,13 @@ export function getItemFromName(name: string, items: any[]) {
   return items.find(item => item.name == name);
 }
 
+export function getIndicesOfItems(selectedItems: any[], items: any[]) {
+  return selectedItems.map((item) => { 
+    if (item) return getIndexOfItem(item.name, items);
+    else return -1;
+  })
+}
+
 export function calculateStatLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[], greatRuneLevel?: number) {
   let totalLevel = classLevel + levelStat;
 
