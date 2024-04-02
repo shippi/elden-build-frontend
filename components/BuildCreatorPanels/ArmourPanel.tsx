@@ -1,14 +1,15 @@
 'use client'
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { armours } from "@/public/data"
 import { getSelectedArmours } from "@/helpers/ArmourPanelHelper"
-import { handleDropdownChange } from "@/helpers/BuildCreatorHelper"
+import { getIndexOfItem, handleDropdownChange } from "@/helpers/BuildCreatorHelper"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
+import { Armour } from "@/helpers/types"
 
 
 function ArmourPanel() {
-    const {setSelectedArmours} = useContext(BuildCreatorContext);
+    const {selectedArmours, setSelectedArmours} = useContext(BuildCreatorContext);
 
     const [indices, setIndices] = useState([-1, -1, -1, -1]);
     const [currIndex, setCurrIndex] = useState(0);
@@ -20,6 +21,13 @@ function ArmourPanel() {
         [...armours].filter(armour => (armour.category == "Legs"))
     ]
 
+    useEffect(() => {
+        setIndices(selectedArmours.map((armour: Armour) => { 
+            if (armour) return getIndexOfItem(armour.name, armours);
+            else return -1;
+        }))
+    }, [selectedArmours]);
+    
     const handleOnChange = (newIndex: number) => {
         handleDropdownChange(indices, currIndex, newIndex, armours, getSelectedArmours, setIndices, setSelectedArmours)
     }
