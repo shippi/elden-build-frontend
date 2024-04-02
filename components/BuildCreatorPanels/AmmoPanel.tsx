@@ -1,17 +1,22 @@
 'use client'
 import { DropDown, PanelTitle } from ".."
-import { useContext, useState } from "react";
-import { getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
+import { useContext, useEffect, useState } from "react";
+import { getIndicesOfItems, getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
 import { calculateAmmoAttackPower } from "@/helpers/AmmoPanelHelper";
 import { arrows, bolts } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 
 function AmmoPanel() {
-    const {setSelectedArrows, setSelectedBolts} = useContext(BuildCreatorContext);
+    const {selectedArrows, selectedBolts, setSelectedArrows, setSelectedBolts} = useContext(BuildCreatorContext);
 
     const [arrowsIndices, setArrowsIndices] = useState([-1, -1]);
     const [boltsIndices, setBoltsIndices] = useState([-1, -1]);
     const [currIndex, setCurrIndex] = useState(0);
+
+    useEffect(() => {
+        setArrowsIndices(getIndicesOfItems(selectedArrows, arrows));
+        setBoltsIndices(getIndicesOfItems(selectedBolts, bolts));
+    }, [selectedArrows])
 
     const handleArrowChange = (newIndex: number) => {
         handleDropdownChange(arrowsIndices, currIndex, newIndex, arrows, getSelectedItems, setArrowsIndices, setSelectedArrows);

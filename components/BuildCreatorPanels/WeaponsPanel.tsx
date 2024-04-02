@@ -1,13 +1,13 @@
 'use client'
 import { useContext, useEffect, useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
-import { getIndicesOfItems, getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper"
+import { getIndexOfItem, getIndicesOfItems, getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper"
 import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/helpers/WeaponsHelper"
 import { weapons, affinities, wepLevels, ashes } from "@/public/data"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
 
 function WeaponsPanel() {
-    const { selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, twoHanded, runeEffect, 
+    const { selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedWepLvls, selectedAshes, selectedAffinities, twoHanded, runeEffect, 
             setSelectedWeapons, setSelectedAshes, setSelectedAffinities, setSelectedWepLvls, setTwoHanded} = useContext(BuildCreatorContext);
     
     const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
@@ -21,8 +21,23 @@ function WeaponsPanel() {
 
     useEffect(() => {
         setWepIndices(getIndicesOfItems(selectedWeapons, weapons));
-    }, [selectedWeapons])
+        setLvlIndices(selectedWepLvls);
+        setAffIndices(selectedAffinities.map((aff: string) => {
+            return getIndexOfItem(aff, affinities);
+        }));
 
+        let ashIndices = new Array(6).fill(-1);
+        weapons.forEach((wep, i) => {
+            if(wep && selectedAshes[i]) {
+                const availableAshes = getAvailableAshes(ashes, wep.type);
+                const index = getIndexOfItem(selectedAshes[i].name, availableAshes);
+                ashIndices[i] = index;
+            }
+
+        })
+        setAshIndices(ashIndices);
+    }, [selectedWeapons])
+    
     const handleWepOnChange = (newIndex: number) => {
         let newIndices = [...wepIndices];
         newIndices[currIndex] = newIndex;
@@ -110,7 +125,8 @@ function WeaponsPanel() {
                 <div className="weapon-options">
                     <div className="ashes">
                     { 
-                        weapons[wepIndices[j]]?.unique || weapons[wepIndices[j]]?.disableAsh == true ? <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
+                        weapons[wepIndices[j]]?.unique || weapons[wepIndices[j]]?.disableAsh == true ? 
+                        <DisabledDropDown value={weapons[wepIndices[j]].defaultSkill}/> :
                         wepIndices[j] < 0 ? <DisabledDropDown value={"Ash of War"} /> :
                         <DropDown items={getAvailableAshes(ashes, weapons[wepIndices[j]].type)} index={ashIndices[j]} isNullable={false} hasImages={false} onChange={handleAshOnChange} searchEnabled={true}/>
                     }

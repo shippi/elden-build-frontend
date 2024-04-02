@@ -1,18 +1,22 @@
 'use client'
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { Armour, CharacterClass, CharacterStats, GreatRune, Spell, Talisman } from "@/helpers/types";
-import { getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper";
+import { getIndicesOfItems, getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper";
 import { spells } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 
 function SpellsPanel() {
-  const {selectedClass, selectedArmours, selectedTalismans, characterStats, runeEffect, setSelectedSpells} = useContext(BuildCreatorContext);
+  const {selectedClass, selectedArmours, selectedTalismans, characterStats, runeEffect, selectedSpells, setSelectedSpells} = useContext(BuildCreatorContext);
 
   const [spellIndices, setSpellIndices] = useState(new Array(12).fill(-1));
   const [currIndex, setCurrIndex] = useState(0);
 
   const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
+
+  useEffect(() => {
+    setSpellIndices(getIndicesOfItems(selectedSpells, spells));
+  }, [selectedSpells]);
 
   const handleSpellChange = (newIndex: number) => {
     handleDropdownChange(spellIndices, currIndex, newIndex, spells, getSelectedItems, setSpellIndices, setSelectedSpells);

@@ -21,10 +21,10 @@ export function getItemFromName(name: string, items: any[]) {
   return items.find(item => item.name == name);
 }
 
-export function getIndicesOfItems(selectedItems: any[], items: any[]) {
+export function getIndicesOfItems(selectedItems: any[], items: any[], start?: number) {
   return selectedItems.map((item) => { 
     if (item) return getIndexOfItem(item.name, items);
-    else return -1;
+    else return start ? start : -1;
   })
 }
 

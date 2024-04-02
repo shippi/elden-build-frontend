@@ -7,7 +7,7 @@ import { delay } from "@/utils";
 import { checkNameExists } from "@/helpers/FileHelper";
 import { DropDown } from "..";
 import { useClickOutside } from "@/hooks";
-import { armours, classes, greatRunes, talismans, weapons } from "@/public/data";
+import { affinities, armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data";
 import { getIndexOfItem, getItemFromName } from "@/helpers/BuildCreatorHelper";
 
 function FilePanel() {
@@ -147,6 +147,13 @@ function FilePanel() {
     setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)));
     setSelectedWeapons(selectedBuild.selectedWeapons.map((name: string) => getItemFromName(name, weapons)));
     setSelectedRune(getItemFromName(selectedBuild.selectedRune, greatRunes));
+    setSelectedAshes(selectedBuild.selectedAshes.map((name: string) => getItemFromName(name, ashes)));
+    setSelectedAffinities(selectedBuild.selectedAffinities);
+    setSelectedWepLvls(selectedBuild.selectedWepLvls);
+    setSelectedArrows(selectedBuild.selectedArrows.map((name: string) => getItemFromName(name, arrows)));
+    setSelectedBolts(selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)));
+    setSelectedSpells(selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)));
+
     setCharacterStats(selectedBuild.characterStats);
   }
 
