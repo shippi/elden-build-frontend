@@ -1,15 +1,23 @@
 'use client'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DropDown, PanelTitle } from "..";
-import { getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
+import { getIndexOfItem, getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
 import { talismans } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
+import { Talisman } from "@/helpers/types";
 
 function TalismansPanel() {
-    const {setSelectedTalismans} = useContext(BuildCreatorContext);
+    const {selectedTalismans, setSelectedTalismans} = useContext(BuildCreatorContext);
 
     const [indices, setIndices] = useState([-1, -1, -1, -1]);
     const [currIndex, setCurrIndex] = useState(0);
+
+    useEffect(() => {
+        setIndices(selectedTalismans.map((talisman: Talisman) => { 
+            if (talisman) return getIndexOfItem(talisman.name, talismans);
+            else return -1;
+        }))
+    }, [selectedTalismans]);
 
     const handleOnChange = (newIndex: number) => {
         handleDropdownChange(indices, currIndex, newIndex, talismans, getSelectedItems, setIndices, setSelectedTalismans);

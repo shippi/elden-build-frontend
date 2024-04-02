@@ -7,7 +7,7 @@ import { delay } from "@/utils";
 import { checkNameExists } from "@/helpers/FileHelper";
 import { DropDown } from "..";
 import { useClickOutside } from "@/hooks";
-import { armours, classes } from "@/public/data";
+import { armours, classes, talismans } from "@/public/data";
 import { getIndexOfItem, getItemFromName } from "@/helpers/BuildCreatorHelper";
 
 function FilePanel() {
@@ -142,6 +142,7 @@ function FilePanel() {
     const selectedBuild = builds[newIndex].build
     setSelectedClass(getItemFromName(selectedBuild.selectedClass, classes));
     setSelectedArmours(selectedBuild.selectedArmours.map((armour: string) => getItemFromName(armour, armours)));
+    setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)))
     setCharacterStats(selectedBuild.characterStats);
   }
 
