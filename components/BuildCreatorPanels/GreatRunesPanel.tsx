@@ -21,7 +21,7 @@ function GreatRunesPanel() {
         <PanelTitle text={"Great Runes"} img="icons/great-runes.png" />
         <div className="great-runes-panel">
             <DropDown items={greatRunes} index={index} isNullable={true} onChange={handleIndexChange} hasImages={false} />
-            <div className="active-effects" >
+            <div className="active-effects" style={{marginTop: "15px"}}>
                 <label>Passive Effect:</label>
                 <ul>
                 {index > -1 && <li>{greatRunes[index].description}</li>}

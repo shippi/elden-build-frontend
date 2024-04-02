@@ -3,7 +3,6 @@
 import { PropsWithChildren, createContext, useEffect, useState } from "react"
 import { auth } from "@/lib/firebase";
 import { User } from "firebase/auth";
-import { deleteCookie } from "cookies-next";
 import { getUsername } from "@/services/authService";
 
 export const AuthContext = createContext<any>(undefined)

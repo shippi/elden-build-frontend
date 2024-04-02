@@ -61,9 +61,9 @@ function SignUpModal() {
       if (debouncedUsername && validateUsername(debouncedUsername)) {
         setUsernameLoading(true);
         const validity = await checkUsernameExists(debouncedUsername);
-        if (!validity) setUsernameError("This username is already taken");
+        if (validity) setUsernameError("This username is already taken");
   
-        setUsernameValidity(validity);
+        setUsernameValidity(!validity);
         setUsernameLoading(false);
       }
     };
@@ -81,9 +81,9 @@ function SignUpModal() {
       if (debouncedEmail && validateEmail(debouncedEmail)) {
         setEmailLoading(true);
         const validity = await checkEmailExists(debouncedEmail);
-        if (!validity) setEmailError("This email is already taken");
+        if (validity) setEmailError("This email is already taken");
   
-        setEmailValidity(validity);
+        setEmailValidity(!validity);
         setEmailLoading(false);
       }
     };

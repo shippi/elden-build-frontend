@@ -10,19 +10,18 @@ export function validateEmail(email: string) {
 export async function checkEmailExists(email: string) {
   let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?email=${email.toLowerCase()}`);
   let data = await res.json();
+  if (data.length < 1) return false;
 
-  if (data.length < 1) return true;
-
-  return false;
+  return true;
 }
 
 export async function checkUsernameExists(username: string | undefined) {
-  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?username=${username?.toLowerCase()}`);
+  let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?username=${username}`);
   let data = await res.json();
 
-  if (data.length < 1) return true;
+  if (data.length < 1) return false;
 
-  return false;
+  return true;
 }
 
 export function validatePassword(password: string) {

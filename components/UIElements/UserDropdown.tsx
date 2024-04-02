@@ -1,10 +1,9 @@
 'use client'
 import { useClickOutside } from "@/hooks";
 import { auth } from "@/lib/firebase"
-import { deleteCookie } from "cookies-next";
 import { signOut } from "firebase/auth"
 import { useRouter } from "next/navigation";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 
 
 interface Props {
@@ -12,14 +11,13 @@ interface Props {
 }
 
 function UserDropdown({onClickOutside}: Props) {
-  const router = useRouter()
+  const router = useRouter();
   const dropdownRef = useRef(null);
   useClickOutside(dropdownRef, onClickOutside);
 
   const signOutOnClick = () => {
+    window.location.href = "/";
     signOut(auth);
-    deleteCookie('username');
-    router.refresh();
   }
 
   return (

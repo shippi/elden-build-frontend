@@ -4,11 +4,10 @@ import { ExitButton } from ".."
 import { AuthContext } from "@/context/AuthContext"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { getUsername } from "@/services/authService";
 import { delay } from "@/utils";
 
 function LoginModal() {
-    const {setLoginOpened, setUsername} = useContext(AuthContext);
+    const {setLoginOpened} = useContext(AuthContext);
     
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [usernameInput, setUsernameInput] = useState<string>("");
