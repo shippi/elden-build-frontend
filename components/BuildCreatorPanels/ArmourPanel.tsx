@@ -22,8 +22,11 @@ function ArmourPanel() {
     ]
 
     useEffect(() => {
-        setIndices(selectedArmours.map((armour: Armour) => { 
-            if (armour) return getIndexOfItem(armour.name, armours);
+        let indices = [-1, -1, -1, -1]
+        
+
+        setIndices(selectedArmours.map((armour: Armour, i: number) => { 
+            if (armour) return getIndexOfItem(armour.name, armoursArr[i]);
             else return -1;
         }))
     }, [selectedArmours]);
