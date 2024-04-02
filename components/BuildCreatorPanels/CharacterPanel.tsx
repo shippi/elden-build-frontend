@@ -4,8 +4,10 @@ import { DropDown, PanelTitle, StatRow } from '..'
 import { calculateTotalRunes } from '@/helpers/CharacterPanelHelper'
 import { classes } from '@/public/data/Equipment/classes'
 import BuildCreatorContext from '@/context/BuildCreatorContext'
+import { getIndexOfItem } from '@/helpers/BuildCreatorHelper'
 
 function CharacterPanel() {
+  const {characterStats} = useContext(BuildCreatorContext);
   const { selectedClass, selectedTalismans, selectedArmours, runeEffect, setSelectedClass, setCharacterStats} = useContext(BuildCreatorContext);
   
   const [index, setIndex] = useState(0);
@@ -19,6 +21,21 @@ function CharacterPanel() {
   const [intelligence, setIntelligence] = useState(0);
   const [faith, setFaith] = useState(0);
   const [arcane, setArcane] = useState(0);
+
+  useEffect(() => {
+    setVigor(characterStats.vigor);
+    setMind(characterStats.mind);
+    setEndurance(characterStats.endurance);
+    setStrength(characterStats.strength);
+    setDexterity(characterStats.dexterity);
+    setIntelligence(characterStats.intelligence);
+    setFaith(characterStats.faith);
+    setArcane(characterStats.arcane);
+  }, [characterStats]);
+  
+  useEffect(() => {
+    setIndex(getIndexOfItem(selectedClass.name, classes))
+  }, [selectedClass])
 
   // hook used to update the character stats stored in 
   // the parent component (build creator page)
@@ -35,7 +52,7 @@ function CharacterPanel() {
     });
   }, [vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane]);
 
-  
+
 
   const handleOnChange = (newIndex: number) => {
     setIndex(newIndex);

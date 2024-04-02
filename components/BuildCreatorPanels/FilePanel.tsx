@@ -7,9 +7,15 @@ import { delay } from "@/utils";
 import { checkNameExists } from "@/helpers/FileHelper";
 import { DropDown } from "..";
 import { useClickOutside } from "@/hooks";
+import { classes } from "@/public/data";
+import { getIndexOfItem, getItemFromName } from "@/helpers/BuildCreatorHelper";
 
 function FilePanel() {
-  const {selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats} = useContext(BuildCreatorContext)
+  const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
+          setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
+          setSelectedSpells, setCharacterStats } 
+         = useContext(BuildCreatorContext);
+
   const {currentUser} = useContext(AuthContext);
  
   const [saveLoading, setSaveLoading] = useState(false);
@@ -26,7 +32,7 @@ function FilePanel() {
 
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (ref.current) setBuildNameWidth(ref.current.offsetWidth + "px")
+    if (ref.current && currentUser) setBuildNameWidth(ref.current.offsetWidth + "px")
   })
 
   const dropDownRef = useRef<HTMLDivElement>(null);
@@ -37,11 +43,15 @@ function FilePanel() {
       const res = async() => {
         await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?uid=${uid}`)
         .then(async res => await res.json())
-        .then(data => setBuilds(data))
+        .then(data => setBuilds(data.sort((a: any, b: any) => a.name.localeCompare(b.name))))
       }
       res()
     }
-  }, [loadOpen])
+  }, [loadOpen, displaySuccess])
+
+  useEffect(() => {
+    setSelectedIndex(builds.findIndex((build) => build.id == saveId))
+  }, [builds])
 
   useEffect(() => {
     setDisplaySuccess(false)
@@ -128,6 +138,11 @@ function FilePanel() {
     setBuildName(builds[newIndex].name);
     setSaveId(builds[newIndex].id);
     setLoadOpen(false);
+    
+    const selectedBuild = builds[newIndex].build
+    setSelectedClass(getItemFromName(selectedBuild.selectedClass, classes));
+    setCharacterStats(selectedBuild.characterStats)
+    console.log(selectedBuild.characterStats)
   }
 
   return (
@@ -141,14 +156,14 @@ function FilePanel() {
               loadOpen ? 
               <div className="dummy-button"><i className="fa fa-angle-down rotate" aria-hidden="true"/></div>
               :
-<button onClick={handleLoad}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
+              <button onClick={handleLoad}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
             }
             
             
           </div>
          
         </div>
-        <div style={{height: "2px"}}/>
+        <div style={{height: "5px"}}/>
         {loadOpen && <div ref={dropDownRef}><DropDown items={builds} index={selectedIndex} isNullable={false} hasImages={false} showSelected={false} width={buildNameWidth} onChange={onDropDownSelect} /></div>}
 
       </div>

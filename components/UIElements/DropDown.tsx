@@ -32,7 +32,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                 else ref.current.children[index].scrollIntoView({ block: 'center' });
             }
         }   
-        else if (ref.current && index == -1) {       
+        else if (ref.current && ref.current.children[0] && index == -1) {       
             ref.current.children[0].scrollIntoView({ block: 'center' }); 
         }
     };

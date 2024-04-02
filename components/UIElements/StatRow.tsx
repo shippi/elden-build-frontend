@@ -25,6 +25,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
 
     // state for the value in the number input
     const [value, setValue] = useState((+initialValue + addedValue).toString());
+    
     const [affectedByEquipment, setAffecectedByEquipment] = useState(false);
     const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type), getRuneValue(type, greatRune)).toString();
 
@@ -38,7 +39,11 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
     useEffect(() => {
         if (getEquipmentTotalValue([...talismans, ...armours], type) + getRuneValue(type, greatRune) > 0) setAffecectedByEquipment(true);
         else setAffecectedByEquipment(false);
-    }, [talismans, armours, addedValue, greatRune])
+    }, [talismans, armours, addedValue, greatRune]);
+
+    useEffect(() => {
+        setValue((+initialValue + addedValue).toString())
+    }, [addedValue]);
 
     useOnKeyPress(['Enter', 'Tab'], () => handleClick());
 

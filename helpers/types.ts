@@ -142,6 +142,20 @@ export interface Spell {
     fpCost: number
 }
 
+export interface Build {
+    class: CharacterClass,
+    armours: Armour | null [],
+    talismans: Talisman | null [],
+    weapons: Weapon | null [],
+    wepLvls: number[],
+    affinities: string[],
+    rune: GreatRune | null,
+    arrows: Ammo | null [],
+    bolts: Ammo | null [],
+    spells: Spell | null [],
+    stats: CharacterStats
+}
+
 interface StatChange {
     maxHp?: number,
     maxFp?: number,
