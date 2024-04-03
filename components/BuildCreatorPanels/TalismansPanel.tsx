@@ -9,15 +9,12 @@ import { Talisman } from "@/helpers/types";
 function TalismansPanel() {
     const {selectedTalismans, setSelectedTalismans} = useContext(BuildCreatorContext);
 
-    const [indices, setIndices] = useState([-1, -1, -1, -1]);
+    const [indices, setIndices] = useState<number[]>(
+        selectedTalismans.map((talisman: Talisman) => { 
+        if (talisman) return getIndexOfItem(talisman.name, talismans);
+        else return -1;
+    }));
     const [currIndex, setCurrIndex] = useState(0);
-
-    useEffect(() => {
-        setIndices(selectedTalismans.map((talisman: Talisman) => { 
-            if (talisman) return getIndexOfItem(talisman.name, talismans);
-            else return -1;
-        }))
-    }, [selectedTalismans]);
 
     const handleOnChange = (newIndex: number) => {
         handleDropdownChange(indices, currIndex, newIndex, talismans, getSelectedItems, setIndices, setSelectedTalismans);

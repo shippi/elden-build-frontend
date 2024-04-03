@@ -1,8 +1,9 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useClickOutside, useOnKeyPress } from "@/hooks";
 import { Talisman, Armour, GreatRune } from "@/helpers/types";
 import { calculateStatLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/helpers/BuildCreatorHelper";
+import BuildCreatorContext from "@/context/BuildCreatorContext";
 
 interface Props {
     type: string,
@@ -21,6 +22,9 @@ interface Props {
  * @returns 
  */
 function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune, onChange}: Props) {
+    const { saveId, selectedClass } = useContext(BuildCreatorContext);
+    const previousValues = useRef({ saveId, selectedClass });
+
     const MAX = 99; // highest value that a single stat can go
 
     // state for the value in the number input
@@ -32,9 +36,12 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
     // useEffect hook to update component when initialValue prop has changed.
     // this will reset the value and change it depending on selected class
     useEffect(() => {
-        setValue(initialValue);
-        onChange(0);
-    }, [initialValue]);
+        if (previousValues.current.saveId == saveId && previousValues.current.selectedClass != selectedClass) {
+            setValue(initialValue);
+            onChange(0);
+            previousValues.current.selectedClass = selectedClass;
+        }
+    }, [selectedClass]);
 
     useEffect(() => {
         if (getEquipmentTotalValue([...talismans, ...armours], type) + getRuneValue(type, greatRune) > 0) setAffecectedByEquipment(true);

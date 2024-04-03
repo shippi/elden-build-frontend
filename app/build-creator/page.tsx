@@ -1,26 +1,34 @@
 'use client'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel, FilePanel } from '@/components'
+import BuildCreatorContext from '@/context/BuildCreatorContext';
 import useLoading from '@/hooks/useLoading';
+import { useContext, useEffect } from 'react';
 
 
 function BuildCreator() {
+    const { loadingBuild, setLoadingBuild } = useContext(BuildCreatorContext);
     const { loaded } = useLoading();
-    
+
     if (loaded) {
         return (
             <div className="build-creator">
                 <div style={{height: "40px"}}></div>
-                <div className="panels-container">    
-        
-                <h1>ELDEN RING BUILD CREATOR</h1>
-                <div style={{height: "20px", width:"100%"}}/>
-                <FilePanel/>
-                <div className="separator" style={{width:"100%"}}/>
+                <div className="panels-container">
+                    <h1>ELDEN RING BUILD CREATOR</h1>
+                    <div style={{height: "20px", width:"100%"}}/>
+                    <FilePanel/>
+                    <div className="separator" style={{width:"100%"}}/>
+                </div>
+                {
+                    !loadingBuild ?
+                    <>
+                    <div className="panels-container">    
                     <div className="subcontainer">
-                    <CharacterPanel/>
-                    <div style={{height:"40px"}}/>
-                    <GreatRunesPanel/>
+                        <CharacterPanel/>
+                        <div style={{height:"40px"}}/>
+                        <GreatRunesPanel/>
                     </div>
+
                     <div className="subcontainer">
                         <WeaponsPanel/>
                         <div style={{height:"40px"}}/>
@@ -43,13 +51,19 @@ function BuildCreator() {
                     <div style={{width:"3vw"}}/>
                     <SpellsPanel/>
                 </div>
+                    </>:
+                    <div className="panels-container" style={{height: "70vh"}}> 
+                    <Loading/>
+                    </div>
+                }
+
             </div>
         );
     }
     else {
         return (
             <>
-            <Loading/>
+            <Loading coverScreen={true}/>
             </>
         )
     }

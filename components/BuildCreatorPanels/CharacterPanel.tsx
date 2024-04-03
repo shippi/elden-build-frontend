@@ -7,35 +7,19 @@ import BuildCreatorContext from '@/context/BuildCreatorContext'
 import { getIndexOfItem } from '@/helpers/BuildCreatorHelper'
 
 function CharacterPanel() {
-  const {characterStats} = useContext(BuildCreatorContext);
-  const { selectedClass, selectedTalismans, selectedArmours, runeEffect, setSelectedClass, setCharacterStats} = useContext(BuildCreatorContext);
+  const {characterStats, selectedClass, selectedTalismans, selectedArmours, runeEffect, setSelectedClass, setCharacterStats} = useContext(BuildCreatorContext);
   
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(getIndexOfItem(selectedClass.name, classes));
   
   // states for character added stats
-  const [vigor, setVigor] = useState(0);
-  const [mind, setMind] = useState(0);
-  const [endurance, setEndurance] = useState(0);
-  const [strength, setStrength] = useState(0);
-  const [dexterity, setDexterity] = useState(0);
-  const [intelligence, setIntelligence] = useState(0);
-  const [faith, setFaith] = useState(0);
-  const [arcane, setArcane] = useState(0);
-
-  useEffect(() => {
-    setVigor(characterStats.vigor);
-    setMind(characterStats.mind);
-    setEndurance(characterStats.endurance);
-    setStrength(characterStats.strength);
-    setDexterity(characterStats.dexterity);
-    setIntelligence(characterStats.intelligence);
-    setFaith(characterStats.faith);
-    setArcane(characterStats.arcane);
-  }, [characterStats]);
-  
-  useEffect(() => {
-    setIndex(getIndexOfItem(selectedClass.name, classes))
-  }, [selectedClass])
+  const [vigor, setVigor] = useState(characterStats.vigor);
+  const [mind, setMind] = useState(characterStats.mind);
+  const [endurance, setEndurance] = useState(characterStats.endurance);
+  const [strength, setStrength] = useState(characterStats.strength);
+  const [dexterity, setDexterity] = useState(characterStats.dexterity);
+  const [intelligence, setIntelligence] = useState(characterStats.intelligence);
+  const [faith, setFaith] = useState(characterStats.faith);
+  const [arcane, setArcane] = useState(characterStats.arcane);
 
   // hook used to update the character stats stored in 
   // the parent component (build creator page)
@@ -51,8 +35,6 @@ function CharacterPanel() {
       arcane: arcane
     });
   }, [vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane]);
-
-
 
   const handleOnChange = (newIndex: number) => {
     setIndex(newIndex);

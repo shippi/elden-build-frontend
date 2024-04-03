@@ -30,7 +30,10 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         faith: 0, 
         arcane: 0
     });
-    
+
+    const [loadingBuild, setLoadingBuild] = useState(false);
+    const [saveId, setSaveId] = useState<number>(-1);
+
     const runeEffect = runeActivated ? selectedRune : undefined;
     
     const value = {
@@ -64,7 +67,11 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setRuneActivated,
         characterStats, 
         setCharacterStats,
-        runeEffect
+        runeEffect,
+        loadingBuild,
+        setLoadingBuild,
+        saveId,
+        setSaveId
     }
 
     return (

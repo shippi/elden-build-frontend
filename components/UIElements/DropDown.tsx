@@ -112,6 +112,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                                 setOpen(false); 
                             }}
                         >
+                             {hasImages && <img style={{width:"35px", height:"0px" , opacity: "0"}}/>}
                             None
                         </li>
                     }
@@ -122,7 +123,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
                                 className={i == index ? "selected-item" : isCompatible(item, i) == false ? "disabled" : ""}
                                 key={item.name + " " + i} 
                                 onClick={() => {
-                                    if(isCompatible(item, i)) {
+                                    if(isCompatible(item, i) && i != index) {
                                         onChange(i);
                                         setOpen(false);
                                         setSearch("");

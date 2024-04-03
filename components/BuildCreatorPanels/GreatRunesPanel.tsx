@@ -8,12 +8,8 @@ import { getIndexOfItem } from "@/helpers/BuildCreatorHelper";
 function GreatRunesPanel() {
     const {selectedRune, setSelectedRune, runeActivated, setRuneActivated} = useContext(BuildCreatorContext)
 
-    const [index, setIndex] = useState(-1);
+    const [index, setIndex] = useState(selectedRune ? getIndexOfItem(selectedRune.name, greatRunes) : -1);
     const disabled = index < 0;
-    
-    useEffect(() => {
-        setIndex(selectedRune ? getIndexOfItem(selectedRune.name, greatRunes) : -1);
-    }, [selectedRune])
 
     const handleIndexChange = (i: number) => {
         setIndex(i);

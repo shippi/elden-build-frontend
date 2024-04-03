@@ -26,8 +26,7 @@ function LoginModal() {
             setLoginOpened(false);
         })
         .catch(error => {
-            if (error.code == 'auth/wrong-password' || error.code == 'auth/invalid-credential') 
-                setError("Invalid log in details. Please try again.");
+            setError("Invalid log in details. Please try again.");
         })
         .finally(() => {
             setLoading(false);

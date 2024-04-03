@@ -1,12 +1,28 @@
-function Loading() {
+interface Props {
+  coverScreen?: boolean
+}
+
+function Loading({coverScreen} : Props) {
   return (
-    <div className="loading-screen">
-      <div className="centered">
-        <div className="loader">
-        <span className="spinner"></span>
+    <>
+      {
+        coverScreen ?
+        <div className="loading-screen">
+          <div className="centered">
+            <div className="loader">
+              <span className="spinner"></span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        :
+        <div className={"loading-container"}>
+          <div className="loader">
+            <span className="spinner"></span>
+          </div>
+        </div>
+      }
+    </>
+
   )
 }
 

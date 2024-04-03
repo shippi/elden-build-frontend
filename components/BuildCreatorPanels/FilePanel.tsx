@@ -13,7 +13,7 @@ import { getIndexOfItem, getItemFromName } from "@/helpers/BuildCreatorHelper";
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats } 
+          setSelectedSpells, setCharacterStats, setLoadingBuild, saveId, setSaveId } 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
@@ -23,7 +23,6 @@ function FilePanel() {
   const [loadOpen, setLoadOpen] = useState(false);
   
   const [buildName, setBuildName] = useState("Untitled");
-  const [saveId, setSaveId] = useState<number>(-1);
   const [builds, setBuilds] = useState<any[]>([]);
   const [buildNameWidth, setBuildNameWidth] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -141,7 +140,14 @@ function FilePanel() {
     setSaveId(builds[newIndex].id);
     setLoadOpen(false);
     
-    const selectedBuild = builds[newIndex].build
+    setLoadingBuild(true);
+    
+  }
+
+  useEffect(() => {
+    if (builds[selectedIndex]) {
+      const selectedBuild = builds[selectedIndex].build
+    setCharacterStats(selectedBuild.characterStats);
     setSelectedClass(getItemFromName(selectedBuild.selectedClass, classes));
     setSelectedArmours(selectedBuild.selectedArmours.map((armour: string) => getItemFromName(armour, armours)));
     setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)));
@@ -154,8 +160,9 @@ function FilePanel() {
     setSelectedBolts(selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)));
     setSelectedSpells(selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)));
 
-    setCharacterStats(selectedBuild.characterStats);
-  }
+    }
+    setTimeout(() => setLoadingBuild(false), 750);
+  }, [selectedIndex])
 
   return (
     <div className="file-panel">
@@ -170,14 +177,13 @@ function FilePanel() {
               :
               <button onClick={handleLoad}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
             }
-            
-            
+
           </div>
          
         </div>
-        <div style={{height: "5px"}}/>
-        {loadOpen && <div ref={dropDownRef}><DropDown items={builds} index={selectedIndex} isNullable={false} hasImages={false} showSelected={false} width={buildNameWidth} onChange={onDropDownSelect} /></div>}
-
+        
+        {loadOpen && <div ref={dropDownRef} style={{transform: "translateY(5px)"}}><DropDown items={builds} index={selectedIndex} isNullable={false} hasImages={false} showSelected={false} width={buildNameWidth} onChange={onDropDownSelect} /></div>}
+        
       </div>
       <button>New</button>
       <button onClick={handleSave} className={saveLoading ? "disabled" : ""} disabled={saveLoading}>Save</button>

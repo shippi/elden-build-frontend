@@ -23,7 +23,9 @@
   --gold-border: 1px #9c9478 solid;
 }
 
-:root:has(.modal) {
+:root:has(.modal),
+:root:has(.loading-screen),
+:root:has(.loading-container) {
   overflow: hidden;
 }
 
@@ -264,12 +266,16 @@ ul > .separator {
   font-size: 25px;
 }
 
-.loader {
+.loader,
+.loading-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.loading-container {
+  height: 100%;
+  width: 100%;
+}
 
 /*styling for modals page*/
 .modal {

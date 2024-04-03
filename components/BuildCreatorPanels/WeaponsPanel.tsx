@@ -5,38 +5,33 @@ import { getIndexOfItem, getIndicesOfItems, getSelectedItems, getTotalStats, isR
 import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/helpers/WeaponsHelper"
 import { weapons, affinities, wepLevels, ashes } from "@/public/data"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
+import { Weapon } from "@/helpers/types"
 
 function WeaponsPanel() {
     const { selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedWepLvls, selectedAshes, selectedAffinities, twoHanded, runeEffect, 
             setSelectedWeapons, setSelectedAshes, setSelectedAffinities, setSelectedWepLvls, setTwoHanded} = useContext(BuildCreatorContext);
     
-    const [wepIndices, setWepIndices] = useState([-1, -1, -1, -1, -1, -1]);
-    const [ashIndices, setAshIndices] = useState([-1, -1, -1, -1, -1, -1]);
-    const [affIndices, setAffIndices] = useState([0, 0, 0, 0, 0, 0]);
-    const [lvlIndices, setLvlIndices] = useState([0, 0, 0, 0, 0, 0]);
+    const [wepIndices, setWepIndices] = useState(getIndicesOfItems(selectedWeapons, weapons));
+    const [ashIndices, setAshIndices] = useState(
+        selectedWeapons.map((wep: Weapon, i: number) => {
+            if (wep && selectedAshes[i]) {
+                const availableAshes = getAvailableAshes(ashes, wep.type);
+                const index = getIndexOfItem(selectedAshes[i].name, availableAshes);
+                return index;
+            }
+            else return -1;
+        })
+    );
+    const [affIndices, setAffIndices] = useState(
+        selectedAffinities.map((aff: string) => {
+        return getIndexOfItem(aff, affinities);
+    }));
+    const [lvlIndices, setLvlIndices] = useState(selectedWepLvls);
     const [currIndex, setCurrIndex] = useState(0);
 
     const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect);
     const selectorPanels = [];
 
-    useEffect(() => {
-        setWepIndices(getIndicesOfItems(selectedWeapons, weapons));
-        setLvlIndices(selectedWepLvls);
-        setAffIndices(selectedAffinities.map((aff: string) => {
-            return getIndexOfItem(aff, affinities);
-        }));
-
-        let ashIndices = new Array(6).fill(-1);
-        weapons.forEach((wep, i) => {
-            if(wep && selectedAshes[i]) {
-                const availableAshes = getAvailableAshes(ashes, wep.type);
-                const index = getIndexOfItem(selectedAshes[i].name, availableAshes);
-                ashIndices[i] = index;
-            }
-
-        })
-        setAshIndices(ashIndices);
-    }, [selectedWeapons])
     
     const handleWepOnChange = (newIndex: number) => {
         let newIndices = [...wepIndices];

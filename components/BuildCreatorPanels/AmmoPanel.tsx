@@ -9,14 +9,9 @@ import BuildCreatorContext from "@/context/BuildCreatorContext";
 function AmmoPanel() {
     const {selectedArrows, selectedBolts, setSelectedArrows, setSelectedBolts} = useContext(BuildCreatorContext);
 
-    const [arrowsIndices, setArrowsIndices] = useState([-1, -1]);
-    const [boltsIndices, setBoltsIndices] = useState([-1, -1]);
+    const [arrowsIndices, setArrowsIndices] = useState(getIndicesOfItems(selectedArrows, arrows));
+    const [boltsIndices, setBoltsIndices] = useState(getIndicesOfItems(selectedBolts, bolts));
     const [currIndex, setCurrIndex] = useState(0);
-
-    useEffect(() => {
-        setArrowsIndices(getIndicesOfItems(selectedArrows, arrows));
-        setBoltsIndices(getIndicesOfItems(selectedBolts, bolts));
-    }, [selectedArrows])
 
     const handleArrowChange = (newIndex: number) => {
         handleDropdownChange(arrowsIndices, currIndex, newIndex, arrows, getSelectedItems, setArrowsIndices, setSelectedArrows);

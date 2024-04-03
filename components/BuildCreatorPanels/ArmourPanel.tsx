@@ -10,10 +10,6 @@ import { Armour } from "@/helpers/types"
 
 function ArmourPanel() {
     const {selectedArmours, setSelectedArmours} = useContext(BuildCreatorContext);
-
-    const [indices, setIndices] = useState([-1, -1, -1, -1]);
-    const [currIndex, setCurrIndex] = useState(0);
-
     const armoursArr = [
         [...armours].filter(armour => (armour.category == "Head")),
         [...armours].filter(armour => (armour.category == "Chest")),
@@ -21,16 +17,15 @@ function ArmourPanel() {
         [...armours].filter(armour => (armour.category == "Legs"))
     ]
 
-    useEffect(() => {
-        let indices = [-1, -1, -1, -1]
-        
+    const [currIndex, setCurrIndex] = useState(0);
 
-        setIndices(selectedArmours.map((armour: Armour, i: number) => { 
+    const [indices, setIndices] = useState<number[]>(
+        selectedArmours.map((armour: Armour, i: number) => { 
             if (armour) return getIndexOfItem(armour.name, armoursArr[i]);
             else return -1;
-        }))
-    }, [selectedArmours]);
-    
+        })
+    );
+
     const handleOnChange = (newIndex: number) => {
         handleDropdownChange(indices, currIndex, newIndex, armours, getSelectedArmours, setIndices, setSelectedArmours)
     }
