@@ -136,7 +136,7 @@ function FilePanel() {
       selectedSpells: selectedSpells, 
       characterStats: characterStats
     });
-
+    setSaveable(false);
     setMessage("Build saved succesfully!");
     await delay(2510);
     setSaveLoading(false);
