@@ -13,7 +13,7 @@ import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild } 
+          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, currentBuild } 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
@@ -94,9 +94,17 @@ function FilePanel() {
       return;
     }
 
+    
+    if (buildName.length < 3) {
+      setIsError(true);
+      setMessage("Save failed. Build name must be at least 3 characters long.");
+      await delay(2510);
+      setSaveLoading(false);
+      return;
+    }
     if (saveId < 0) {
       const nameExists = await checkNameExists(uid, buildName);
-
+      
       if (nameExists) {
         setIsError(true);
         setMessage("Save failed. Build name already exists.");
@@ -149,7 +157,7 @@ function FilePanel() {
       }
 
       try {
-        await fetch(process.env.NEXT_PUBLIC_API_URL + "buids/" + saveId, 
+        await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -182,7 +190,6 @@ function FilePanel() {
       selectedSpells: selectedSpells, 
       characterStats: characterStats
     });
-
     setSaveable(false);
     setMessage("Build saved succesfully!");
     await delay(2510);

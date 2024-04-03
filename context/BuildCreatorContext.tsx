@@ -59,10 +59,12 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     const previousBuild = useRef({currentBuild});
 
     useEffect(() => {
+        
         let saved = false;
         if (JSON.stringify(previousBuild.current.currentBuild) == JSON.stringify(currentBuild)) {
             saveableDependencies.forEach((items, i) => {
-                if (JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) {
+                if (items && Object.entries(currentBuild)[i][1] && JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) {
+                    console.log(i)
                     setSaveable(true);
                     saved = true;
                 }
@@ -72,9 +74,9 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
             previousBuild.current.currentBuild = currentBuild;
             setSaveable(false);
         }
-
+        console.log(saved)
         if (!saved) setSaveable(false)
-    }, saveableDependencies)
+    }, [...saveableDependencies, currentBuild])
 
 
     const resetBuild = () => {
@@ -166,6 +168,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         saveable,
         setSaveable,
         setCurrentBuild,
+        currentBuild,
         resetBuild
     }
 
