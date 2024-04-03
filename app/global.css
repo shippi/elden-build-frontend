@@ -220,7 +220,7 @@ input[type="checkbox"]:disabled {
   top: 60px;
   width: 70vw;
   min-width: 1500px;
-  z-index: 1;
+  z-index: 5;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -234,7 +234,7 @@ input[type="checkbox"]:disabled {
   padding: 10px 20px 10px 20px;
   background-color: var(--bg-color);
   border: var(--grey-border);
-  z-index: 2;
+  z-index: 5;
   border-radius: 5px;
 }
 
@@ -512,8 +512,8 @@ ul > .separator {
   font-style: normal;
 }
 
-.file-panel button:hover,
-.load-container:hover,
+.file-panel button:hover:not(.disabled),
+
 .dummy-button:hover  {
   cursor: pointer;
   background-color: grey;
@@ -548,7 +548,7 @@ ul > .separator {
   font-size: 16px;
   align-self: flex-end;
   text-align: center;
-  animation: fadeInAndOut 2.5s cubic-bezier(0.1, 0.1, 0.1, 0.7);
+  animation: fadeInAndOut 2.8s cubic-bezier(0.05, 1, 0.05, 0.7);
 }
 
 /*general styling for panels*/

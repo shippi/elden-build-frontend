@@ -50,7 +50,7 @@ function FilePanel() {
       }
       res();
     }
-  }, [loadOpen, saveLoading])
+  }, [loadOpen, saveLoading, currentUser])
 
   useEffect(() => {
     setSelectedIndex(builds.findIndex((build) => build.id == saveId));
@@ -96,6 +96,7 @@ function FilePanel() {
 
     
     if (buildName.length < 3) {
+      await delay(10);
       setIsError(true);
       setMessage("Save failed. Build name must be at least 3 characters long.");
       await delay(2510);
@@ -198,6 +199,11 @@ function FilePanel() {
 
   const handleLoad = async () => {
     if (!currentUser) {
+      await delay(100);
+      setIsError(true);
+      setMessage("You must be logged in to view your builds.");
+      await delay(2510);
+      setMessage("")
       return;
     }
     setLoadOpen(!loadOpen);
@@ -270,7 +276,7 @@ function FilePanel() {
               loadOpen ? 
               <div className="dummy-button"><i className="fa fa-angle-down rotate" aria-hidden="true"/></div>
               :
-              <button onClick={handleLoad}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
+              <button onClick={handleLoad} className={message ? "disabled" : ""}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
             }
           </div>
         </div>
