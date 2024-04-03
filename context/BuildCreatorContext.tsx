@@ -5,10 +5,10 @@ import { PropsWithChildren, createContext, useEffect, useRef, useState } from "r
 export const BuildCreatorContext = createContext<any>(undefined);
 
 export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>) => {
-    const [buildName, setBuildName] = useState("Untitled");
+    const [buildName, setBuildName] = useState("");
 
     const [selectedClass, setSelectedClass] = useState(classes[0]);
-    const [selectedArmours, setSelectedArmours] = useState<Armour[]>(new Array(4).fill(undefined));
+    const [selectedArmours, setSelectedArmours] = useState<Armour[]>(new Array(4).fill(null));
     const [selectedTalismans, setSelectedTalismans] = useState<Talisman[]>(new Array(4).fill(null));
     const [selectedWeapons, setSelectedWeapons] = useState<Weapon|null[]>(new Array(6).fill(null));
     const [selectedAshes, setSelectedAshes] = useState<Ash|null[]>(new Array(6).fill(null));
@@ -77,6 +77,56 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     }, saveableDependencies)
 
 
+    const resetBuild = () => {
+        setBuildName("");
+        setSaveId(-1);
+        setSelectedClass(classes[0]);
+        setSelectedArmours(new Array(4).fill(null));
+        setSelectedTalismans(new Array(4).fill(null));
+        setSelectedWeapons(new Array(6).fill(null));
+        setSelectedAshes(new Array(6).fill(null));
+        setSelectedWepLvls(new Array(6).fill(0));
+        setSelectedAffinities(new Array(6).fill("Standard"));
+        setSelectedRune(undefined);
+        setSelectedArrows(new Array(2).fill(null));
+        setSelectedBolts(new Array(2).fill(null));
+        setSelectedSpells(new Array(12).fill(null));
+        setCharacterStats({
+            vigor: 0, 
+            mind: 0, 
+            endurance: 0, 
+            strength: 0, 
+            dexterity: 0, 
+            intelligence: 0, 
+            faith: 0, 
+            arcane: 0
+        });
+        setCurrentBuild({
+            selectedClass: classes[0],
+            selectedArmours: new Array(4).fill(null), 
+            selectedTalismans: new Array(4).fill(null), 
+            selectedWeapons: new Array(6).fill(null), 
+            selectedAshes: new Array(6).fill(null), 
+            selectedWepLvls: new Array(6).fill(0),
+            selectedAffinities: new Array(6).fill("Standard"), 
+            selectedRune: undefined,
+            selectedArrows: new Array(2).fill(null), 
+            selectedBolts: new Array(2).fill(null), 
+            selectedSpells: new Array(12).fill(null), 
+            characterStats: {
+                vigor: 0, 
+                mind: 0, 
+                endurance: 0, 
+                strength: 0, 
+                dexterity: 0, 
+                intelligence: 0, 
+                faith: 0, 
+                arcane: 0
+            }
+          });
+        setSaveable(false);
+    }
+
     const value = {
         buildName, 
         setBuildName,
@@ -115,7 +165,8 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setSaveId,
         saveable,
         setSaveable,
-        setCurrentBuild
+        setCurrentBuild,
+        resetBuild
     }
 
     return (

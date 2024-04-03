@@ -13,15 +13,16 @@ import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName } 
+          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild } 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
  
   const [saveLoading, setSaveLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
   const [loadOpen, setLoadOpen] = useState(false);
-  
+  const [disabledNew, setDisableNew] = useState(true);
 
   const [oldBuildName, setOldBuildName] = useState(buildName);
   const [builds, setBuilds] = useState<any[]>([]);
@@ -41,7 +42,7 @@ function FilePanel() {
   useClickOutside(dropDownRef, () => {setLoadOpen(false)});
 
   useEffect(() => {
-    if (currentUser && uid) {
+    if (currentUser && uid && (loadOpen == true || saveLoading == false)) {
       const res = async() => {
         await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?uid=${uid}`)
         .then(async res => await res.json())
@@ -49,20 +50,24 @@ function FilePanel() {
       }
       res();
     }
-  }, [loadOpen, message])
+  }, [loadOpen, saveLoading])
 
   useEffect(() => {
     setSelectedIndex(builds.findIndex((build) => build.id == saveId));
   }, [builds])
 
   useEffect(() => {
+    setIsError(false);
     setMessage("");
   }, [saveLoading])
   
+  useEffect(() => {
+    if (selectedIndex > -1) setDisableNew(false);
+    else setDisableNew(true);
+  }, [selectedIndex])
+
   const handleSave = async () => {
-    if (!currentUser) {
-      return;
-    }
+    setSaveLoading(true);
     
     const buildData = {
       selectedClass: selectedClass.name,
@@ -79,12 +84,23 @@ function FilePanel() {
       characterStats: characterStats
     }
 
-    setSaveLoading(true);
+    
+    if (!currentUser) {
+      await delay(100);
+      setIsError(true);
+      setMessage("Save failed. You must be logged in to save builds.");
+      await delay(2510);
+      setSaveLoading(false);
+      return;
+    }
 
     if (saveId < 0) {
       const nameExists = await checkNameExists(uid, buildName);
 
       if (nameExists) {
+        setIsError(true);
+        setMessage("Save failed. Build name already exists.");
+        await delay(2510);
         setSaveLoading(false);
         return;
       } 
@@ -94,8 +110,8 @@ function FilePanel() {
         build: buildData,
         isPublic: false
       }
-    
-      await fetch(process.env.NEXT_PUBLIC_API_URL + "builds", 
+      try {
+        await fetch(process.env.NEXT_PUBLIC_API_URL + "builds", 
         {
           method: "POST",
           mode: "cors",
@@ -103,25 +119,54 @@ function FilePanel() {
         })
         .then(res=> res.json())
         .then(data => setSaveId(data.id))
-        .catch(error => console.log(error));
+      }
+      catch (error) {
+        setIsError(true);
+        setMessage("Server error.");
+        await delay(2510);
+        setSaveLoading(false);
+        return;
+      }
+
     }
     else {
+      if (oldBuildName != buildName) {
+        const nameExists = await checkNameExists(uid, buildName);
+
+        if (nameExists) {
+          setIsError(true);
+          setMessage("Save failed. Build name already exists.");
+          await delay(2510);
+          setSaveLoading(false);
+          return;
+        } 
+      }
+
       const sentData = {
         name: buildName,
         build: buildData,
         isPublic: false
       }
 
-      await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        mode: "cors",
-        body: JSON.stringify(sentData)
-      })
-      .then(res=> res.json())
-      .catch(error => console.log(error));
+      try {
+        await fetch(process.env.NEXT_PUBLIC_API_URL + "buids/" + saveId, 
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          mode: "cors",
+          body: JSON.stringify(sentData)
+        })
+        .then(res=> {if (!res.ok) throw new Error()})
+      }
+      catch (error) {
+        setIsError(true);
+        setMessage("Server error.");
+        await delay(2510);
+        setSaveLoading(false);
+        return;
+      }
     }
+
     setOldBuildName(buildName);
     setCurrentBuild({
       selectedClass: selectedClass,
@@ -137,11 +182,11 @@ function FilePanel() {
       selectedSpells: selectedSpells, 
       characterStats: characterStats
     });
+
     setSaveable(false);
     setMessage("Build saved succesfully!");
     await delay(2510);
     setSaveLoading(false);
-    
   }
 
   const handleLoad = async () => {
@@ -158,6 +203,12 @@ function FilePanel() {
     setSaveId(builds[newIndex].id);
     setLoadOpen(false);
     
+    setLoadingBuild(true);
+  }
+
+  const handleNew = () => {
+    setOldBuildName("");
+    setSelectedIndex(-1);
     setLoadingBuild(true);
   }
 
@@ -191,11 +242,15 @@ function FilePanel() {
         selectedSpells: selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)), 
         characterStats: selectedBuild.characterStats
       });
-
-      setSaveable(false);
     }
+    else {
+      resetBuild();
+    }
+    setSaveable(false);
     setTimeout(() => setLoadingBuild(false), 750);
   }, [selectedIndex])
+
+
 
   return (
     <div className="file-panel">
@@ -216,9 +271,9 @@ function FilePanel() {
         {loadOpen && <div ref={dropDownRef} style={{transform: "translateY(5px)"}}><DropDown items={builds} index={selectedIndex} isNullable={false} hasImages={false} showSelected={false} width={buildNameWidth} onChange={onDropDownSelect} /></div>}
         
       </div>
-      <button>New</button>
+      <button onClick={handleNew} className={disabledNew ? "disabled" : ""}>New</button>
       <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName) ? "disabled" : ""} disabled={saveLoading}>Save</button>
-      {message && <div className="message">{message}</div>}
+      {message && <div className="message" style={{color: isError ? "red" : " white"}}>{message}</div>}
     </div>
   )
 }

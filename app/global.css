@@ -249,6 +249,9 @@ ul > .separator {
 }
 
 .user-dropdown ul > li {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif !important;
   padding: 8px 0;
 }
 
@@ -433,7 +436,7 @@ ul > .separator {
   background-position: top left;
   background-size: 100%;
   min-width: 1500px;
-  
+
 }
 
 .build-creator h1 {
@@ -847,6 +850,7 @@ td {
 .disabled * {
   background-color: #3d3d3d !important;
   color: #6b6b6b !important;
+  pointer-events: none;
 }
 
 .disabled:hover,
