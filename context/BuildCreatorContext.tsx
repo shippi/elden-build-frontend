@@ -1,6 +1,6 @@
 import { classes } from "@/public/data";
 import { Ammo, Armour, Ash, CharacterStats, GreatRune, Spell, Talisman, Weapon } from "@/helpers/types";
-import { PropsWithChildren, createContext, useState } from "react";
+import { PropsWithChildren, createContext, useEffect, useRef, useState } from "react";
 
 export const BuildCreatorContext = createContext<any>(undefined);
 
@@ -33,9 +33,50 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
 
     const [loadingBuild, setLoadingBuild] = useState(false);
     const [saveId, setSaveId] = useState<number>(-1);
+    const [saveable, setSaveable] = useState(false);
 
+    const [currentBuild, setCurrentBuild] = useState<any>({
+        selectedClass: selectedClass,
+        selectedArmours: selectedArmours, 
+        selectedTalismans: selectedTalismans, 
+        selectedWeapons: selectedWeapons, 
+        selectedAshes: selectedAshes, 
+        selectedWepLvls: selectedWepLvls,
+        selectedAffinities: selectedAffinities, 
+        selectedRune: selectedRune, 
+        selectedArrows: selectedArrows, 
+        selectedBolts: selectedBolts, 
+        selectedSpells: selectedSpells, 
+        characterStats: characterStats
+    });
     const runeEffect = runeActivated ? selectedRune : undefined;
-    
+
+
+    const saveableDependencies = [selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, 
+            selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, 
+            selectedSpells, characterStats];
+
+    const previousBuild = useRef({currentBuild});
+
+    useEffect(() => {
+        let saved = false;
+        if (JSON.stringify(previousBuild.current.currentBuild) == JSON.stringify(currentBuild)) {
+            saveableDependencies.forEach((items, i) => {
+                if (JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) {
+                    setSaveable(true);
+                    saved = true;
+                }
+            });
+        }
+        else {
+            previousBuild.current.currentBuild = currentBuild;
+            setSaveable(false);
+        }
+
+        if (!saved) setSaveable(false)
+    }, saveableDependencies)
+
+
     const value = {
         buildName, 
         setBuildName,
@@ -71,7 +112,10 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         loadingBuild,
         setLoadingBuild,
         saveId,
-        setSaveId
+        setSaveId,
+        saveable,
+        setSaveable,
+        setCurrentBuild
     }
 
     return (

@@ -7,19 +7,19 @@ import { delay } from "@/utils";
 import { checkNameExists } from "@/helpers/FileHelper";
 import { DropDown } from "..";
 import { useClickOutside } from "@/hooks";
-import { affinities, armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data";
-import { getIndexOfItem, getItemFromName } from "@/helpers/BuildCreatorHelper";
+import { armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data";
+import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, setLoadingBuild, saveId, setSaveId } 
+          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild } 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
  
   const [saveLoading, setSaveLoading] = useState(false);
-  const [displaySuccess, setDisplaySuccess] = useState(false);
+  const [message, setMessage] = useState("");
   const [loadOpen, setLoadOpen] = useState(false);
   
   const [buildName, setBuildName] = useState("Untitled");
@@ -46,16 +46,16 @@ function FilePanel() {
         .then(async res => await res.json())
         .then(data => setBuilds(data.sort((a: any, b: any) => a.name.localeCompare(b.name))))
       }
-      res()
+      res();
     }
-  }, [loadOpen, displaySuccess])
+  }, [loadOpen, message])
 
   useEffect(() => {
-    setSelectedIndex(builds.findIndex((build) => build.id == saveId))
+    setSelectedIndex(builds.findIndex((build) => build.id == saveId));
   }, [builds])
 
   useEffect(() => {
-    setDisplaySuccess(false)
+    setMessage("");
   }, [saveLoading])
   
   const handleSave = async () => {
@@ -121,7 +121,23 @@ function FilePanel() {
       .then(res=> res.json())
       .catch(error => console.log(error));
     }
-    setDisplaySuccess(true);
+
+    setCurrentBuild({
+      selectedClass: selectedClass,
+      selectedArmours: selectedArmours, 
+      selectedTalismans: selectedTalismans, 
+      selectedWeapons: selectedWeapons, 
+      selectedAshes: selectedAshes, 
+      selectedWepLvls: selectedWepLvls,
+      selectedAffinities: selectedAffinities, 
+      selectedRune: selectedRune ? selectedRune.name : null, 
+      selectedArrows: selectedArrows, 
+      selectedBolts: selectedBolts, 
+      selectedSpells: selectedSpells, 
+      characterStats: characterStats
+    });
+
+    setMessage("Build saved succesfully!");
     await delay(2510);
     setSaveLoading(false);
     
@@ -141,25 +157,40 @@ function FilePanel() {
     setLoadOpen(false);
     
     setLoadingBuild(true);
-    
   }
 
   useEffect(() => {
     if (builds[selectedIndex]) {
       const selectedBuild = builds[selectedIndex].build
-    setCharacterStats(selectedBuild.characterStats);
-    setSelectedClass(getItemFromName(selectedBuild.selectedClass, classes));
-    setSelectedArmours(selectedBuild.selectedArmours.map((armour: string) => getItemFromName(armour, armours)));
-    setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)));
-    setSelectedWeapons(selectedBuild.selectedWeapons.map((name: string) => getItemFromName(name, weapons)));
-    setSelectedRune(getItemFromName(selectedBuild.selectedRune, greatRunes));
-    setSelectedAshes(selectedBuild.selectedAshes.map((name: string) => getItemFromName(name, ashes)));
-    setSelectedAffinities(selectedBuild.selectedAffinities);
-    setSelectedWepLvls(selectedBuild.selectedWepLvls);
-    setSelectedArrows(selectedBuild.selectedArrows.map((name: string) => getItemFromName(name, arrows)));
-    setSelectedBolts(selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)));
-    setSelectedSpells(selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)));
+      setCharacterStats(selectedBuild.characterStats);
+      setSelectedClass(getItemFromName(selectedBuild.selectedClass, classes));
+      setSelectedArmours(selectedBuild.selectedArmours.map((armour: string) => getItemFromName(armour, armours)));
+      setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)));
+      setSelectedWeapons(selectedBuild.selectedWeapons.map((name: string) => getItemFromName(name, weapons)));
+      setSelectedRune(getItemFromName(selectedBuild.selectedRune, greatRunes));
+      setSelectedAshes(selectedBuild.selectedAshes.map((name: string) => getItemFromName(name, ashes)));
+      setSelectedAffinities(selectedBuild.selectedAffinities);
+      setSelectedWepLvls(selectedBuild.selectedWepLvls);
+      setSelectedArrows(selectedBuild.selectedArrows.map((name: string) => getItemFromName(name, arrows)));
+      setSelectedBolts(selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)));
+      setSelectedSpells(selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)));
 
+      setCurrentBuild({
+        selectedClass: getItemFromName(selectedBuild.selectedClass, classes),
+        selectedArmours: selectedBuild.selectedArmours.map((armour: string) => getItemFromName(armour, armours)), 
+        selectedTalismans: selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)), 
+        selectedWeapons: selectedBuild.selectedWeapons.map((name: string) => getItemFromName(name, weapons)), 
+        selectedAshes: selectedBuild.selectedAshes.map((name: string) => getItemFromName(name, ashes)), 
+        selectedWepLvls: selectedBuild.selectedWepLvls,
+        selectedAffinities: selectedBuild.selectedAffinities, 
+        selectedRune: getItemFromName(selectedBuild.selectedRune, greatRunes),
+        selectedArrows: selectedBuild.selectedArrows.map((name: string) => getItemFromName(name, arrows)), 
+        selectedBolts: selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)), 
+        selectedSpells: selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)), 
+        characterStats: selectedBuild.characterStats
+      });
+
+      setSaveable(false);
     }
     setTimeout(() => setLoadingBuild(false), 750);
   }, [selectedIndex])
@@ -177,17 +208,15 @@ function FilePanel() {
               :
               <button onClick={handleLoad}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
             }
-
           </div>
-         
         </div>
         
         {loadOpen && <div ref={dropDownRef} style={{transform: "translateY(5px)"}}><DropDown items={builds} index={selectedIndex} isNullable={false} hasImages={false} showSelected={false} width={buildNameWidth} onChange={onDropDownSelect} /></div>}
         
       </div>
       <button>New</button>
-      <button onClick={handleSave} className={saveLoading ? "disabled" : ""} disabled={saveLoading}>Save</button>
-      {displaySuccess && <div className="success-message">Build saved succesfully!</div>}
+      <button onClick={handleSave} className={saveLoading || loadingBuild || !saveable ? "disabled" : ""} disabled={saveLoading}>Save</button>
+      {message && <div className="message">{message}</div>}
     </div>
   )
 }

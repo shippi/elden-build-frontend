@@ -537,7 +537,7 @@ ul > .separator {
   align-self: flex-end;
 }
 
-.success-message {
+.message {
   opacity: 0;
   display: flex;
   align-items: center;

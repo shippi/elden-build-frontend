@@ -30,7 +30,7 @@ function GreatRunesPanel() {
             </div>
             <br/>
             <div className={(disabled ? "disabled " : "") + "checkbox-container"} onClick={() => setRuneActivated(!runeActivated)}>
-                <input type="checkbox" checked={runeActivated} disabled={disabled} onClick={() => setRuneActivated(!runeActivated)}/>
+                <input type="checkbox" checked={runeActivated} disabled={disabled} onChange={() => setRuneActivated(!runeActivated)}/>
                 Activate
             </div>
         </div>
