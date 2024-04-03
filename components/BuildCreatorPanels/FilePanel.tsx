@@ -13,7 +13,7 @@ import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild } 
+          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName } 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
@@ -22,7 +22,8 @@ function FilePanel() {
   const [message, setMessage] = useState("");
   const [loadOpen, setLoadOpen] = useState(false);
   
-  const [buildName, setBuildName] = useState("Untitled");
+
+  const [oldBuildName, setOldBuildName] = useState(buildName);
   const [builds, setBuilds] = useState<any[]>([]);
   const [buildNameWidth, setBuildNameWidth] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -121,7 +122,7 @@ function FilePanel() {
       .then(res=> res.json())
       .catch(error => console.log(error));
     }
-
+    setOldBuildName(buildName);
     setCurrentBuild({
       selectedClass: selectedClass,
       selectedArmours: selectedArmours, 
@@ -153,6 +154,7 @@ function FilePanel() {
   const onDropDownSelect = (newIndex: number) => {
     setSelectedIndex(newIndex);
     setBuildName(builds[newIndex].name);
+    setOldBuildName(builds[newIndex].name);
     setSaveId(builds[newIndex].id);
     setLoadOpen(false);
     
@@ -215,7 +217,7 @@ function FilePanel() {
         
       </div>
       <button>New</button>
-      <button onClick={handleSave} className={saveLoading || loadingBuild || !saveable ? "disabled" : ""} disabled={saveLoading}>Save</button>
+      <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName) ? "disabled" : ""} disabled={saveLoading}>Save</button>
       {message && <div className="message">{message}</div>}
     </div>
   )
