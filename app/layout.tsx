@@ -19,10 +19,8 @@ export default function RootLayout({
       
       <body>
         <AuthContextProvider>
-          <BuildCreatorContextProvider>
             <NavBar />  
             {children}
-          </BuildCreatorContextProvider>
         </AuthContextProvider>
       </body>
       

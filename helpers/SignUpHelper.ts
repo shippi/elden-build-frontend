@@ -16,7 +16,6 @@ export async function checkEmailExists(email: string) {
 }
 
 export async function checkUsernameExists(username: string | undefined) {
-  console.log(username)
   let res = await fetch(process.env.NEXT_PUBLIC_API_URL + `users?username=${username}`);
   let data = await res.json();
 

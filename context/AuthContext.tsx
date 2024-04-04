@@ -1,5 +1,3 @@
-'use client'
-
 import { PropsWithChildren, createContext, useEffect, useState } from "react"
 import { auth } from "@/lib/firebase";
 import { User } from "firebase/auth";

@@ -60,22 +60,23 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
 
     useEffect(() => {
         
-        let saved = false;
+        
         if (JSON.stringify(previousBuild.current.currentBuild) == JSON.stringify(currentBuild)) {
+            let saved = false;
+
             saveableDependencies.forEach((items, i) => {
                 if (items && Object.entries(currentBuild)[i][1] && JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) {
-                    console.log(i)
                     setSaveable(true);
                     saved = true;
                 }
             });
+            
+            if (!saved) setSaveable(false)
         }
         else {
             previousBuild.current.currentBuild = currentBuild;
             setSaveable(false);
         }
-        console.log(saved)
-        if (!saved) setSaveable(false)
     }, [...saveableDependencies, currentBuild])
 
 

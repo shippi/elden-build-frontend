@@ -16,6 +16,7 @@ function FilePanel() {
           setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, currentBuild } 
          = useContext(BuildCreatorContext);
 
+
   const {currentUser} = useContext(AuthContext);
  
   const [saveLoading, setSaveLoading] = useState(false);
@@ -26,12 +27,12 @@ function FilePanel() {
 
   const [oldBuildName, setOldBuildName] = useState(buildName);
   const [builds, setBuilds] = useState<any[]>([]);
-  const [buildNameWidth, setBuildNameWidth] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [buildNameWidth, setBuildNameWidth] = useState("");
+
 
   let uid = "";
   if (currentUser) uid = currentUser.uid;
-
 
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {

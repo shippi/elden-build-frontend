@@ -10,7 +10,7 @@ import { Weapon } from "@/helpers/types"
 function WeaponsPanel() {
     const { selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedWepLvls, selectedAshes, selectedAffinities, twoHanded, runeEffect, 
             setSelectedWeapons, setSelectedAshes, setSelectedAffinities, setSelectedWepLvls, setTwoHanded} = useContext(BuildCreatorContext);
-    
+
     const [wepIndices, setWepIndices] = useState(getIndicesOfItems(selectedWeapons, weapons));
     const [ashIndices, setAshIndices] = useState(
         selectedWeapons.map((wep: Weapon, i: number) => {
