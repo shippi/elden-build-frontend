@@ -87,7 +87,7 @@ function FilePanel() {
 
     
     if (!currentUser) {
-      await delay(100);
+      await delay(1);
       setIsError(true);
       setMessage("Save failed. You must be logged in to save builds.");
       await delay(2510);
@@ -97,7 +97,7 @@ function FilePanel() {
 
     
     if (buildName.length < 3) {
-      await delay(10);
+      await delay(1);
       setIsError(true);
       setMessage("Save failed. Build name must be at least 3 characters long.");
       await delay(2510);
@@ -200,11 +200,14 @@ function FilePanel() {
 
   const handleLoad = async () => {
     if (!currentUser) {
-      await delay(100);
+      setSaveLoading(true);
+      await delay(1);
       setIsError(true);
       setMessage("You must be logged in to view your builds.");
+      
       await delay(2510);
-      setMessage("")
+      setSaveLoading(false);
+      setMessage("");
       return;
     }
     setLoadOpen(!loadOpen);
@@ -216,7 +219,6 @@ function FilePanel() {
     setOldBuildName(builds[newIndex].name);
     setSaveId(builds[newIndex].id);
     setLoadOpen(false);
-    
     setLoadingBuild(true);
   }
 
@@ -277,7 +279,7 @@ function FilePanel() {
               loadOpen ? 
               <div className="dummy-button"><i className="fa fa-angle-down rotate" aria-hidden="true"/></div>
               :
-              <button onClick={handleLoad} className={message ? "disabled" : ""}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
+              <button onClick={handleLoad} className={message || loadingBuild ? "disabled" : ""}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
             }
           </div>
         </div>
@@ -285,7 +287,7 @@ function FilePanel() {
         {loadOpen && <div ref={dropDownRef} style={{transform: "translateY(5px)"}}><DropDown items={builds} index={selectedIndex} isNullable={false} hasImages={false} showSelected={false} width={buildNameWidth} onChange={onDropDownSelect} /></div>}
         
       </div>
-      <button onClick={handleNew} className={disabledNew ? "disabled" : ""}>New</button>
+      <button onClick={handleNew} className={disabledNew || loadingBuild ? "disabled" : ""}>New</button>
       <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName) ? "disabled" : ""} disabled={saveLoading}>Save</button>
       {message && <div className="message" style={{color: isError ? "red" : " white"}}>{message}</div>}
     </div>
