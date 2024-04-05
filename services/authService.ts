@@ -1,3 +1,9 @@
+/**
+ * Function that sends a POST request to the back-end to sign up a user.
+ * @param email 
+ * @param username 
+ * @param password 
+ */
 export async function signup(email: string, username: string, password: string) {
     await fetch(process.env.NEXT_PUBLIC_API_URL + "users", {
         method: "POST",
@@ -13,6 +19,12 @@ export async function signup(email: string, username: string, password: string) 
     });
 }
 
+/**
+ * Used to retrieve a user's username based on their uid by
+ * sending a GET request to the back-end.
+ * @param id 
+ * @returns 
+ */
 export async function getUsername(id: string) {
     let username = "";
     await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${id}`)

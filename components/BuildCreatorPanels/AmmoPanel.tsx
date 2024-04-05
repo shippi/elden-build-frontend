@@ -1,6 +1,6 @@
 'use client'
 import { DropDown, PanelTitle } from ".."
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { getIndicesOfItems, getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
 import { calculateAmmoAttackPower } from "@/helpers/AmmoPanelHelper";
 import { arrows, bolts } from "@/public/data";

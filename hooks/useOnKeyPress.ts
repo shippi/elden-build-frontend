@@ -1,9 +1,14 @@
 import { useEffect } from "react";
 
-export default function useOnKeyPress(targetKey: string[], callback: Function) {
+/**
+ * Custom hook that triggers when the specified keys (targetKeys argument) are pressed down.
+ * @param targetKeys 
+ * @param callback 
+ */
+export default function useOnKeyPress(targetKeys: string[], callback: Function) {
     useEffect(() => {
         const keyHandler = (event: globalThis.KeyboardEvent) => {
-            if (targetKey.includes(event.key)) callback();
+            if (targetKeys.includes(event.key)) callback(); // executes callback if one of specified keys is pressed
         }
         window.addEventListener('keydown', keyHandler);
         return () => {
