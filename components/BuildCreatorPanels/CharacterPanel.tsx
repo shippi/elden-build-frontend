@@ -36,6 +36,7 @@ function CharacterPanel() {
     });
   }, [vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane]);
 
+  // handler for when user selects new class in the dropdown
   const handleOnChange = (newIndex: number) => {
     setIndex(newIndex);
     setSelectedClass(classes[newIndex]);

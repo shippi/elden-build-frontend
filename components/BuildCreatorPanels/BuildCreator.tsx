@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 
 function BuildCreator() {
-    const { loadingBuild, setLoadingBuild } = useContext(BuildCreatorContext);
+    const { loadingBuild } = useContext(BuildCreatorContext);
     const { loaded } = useLoading();
 
     if (loaded) {

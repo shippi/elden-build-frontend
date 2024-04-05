@@ -1,6 +1,13 @@
 import { CharacterStats, Armour, Talisman } from "@/helpers/types";
 import { NEGATION_NAMES } from "./consts";
 
+/**
+ * Calculates and returns physical defences (physical, strike, slash and pierce) based
+ * on total level and strength level.
+ * @param totalStats 
+ * @param level 
+ * @returns 
+ */
 export function calculatePhysicalDefences(totalStats: CharacterStats, level: number) {
     const strengthLevel = totalStats.strength;
     let baseStat = 0;
@@ -41,11 +48,16 @@ export function calculatePhysicalDefences(totalStats: CharacterStats, level: num
     return [physical, strike, slash, pierce].map(i => Math.floor(i));
   }
   
+  /**
+   * Calculates and returns negation values based on selected armours and talismans.
+   * @param selectedArmours 
+   * @param selectedTalismans 
+   * @returns 
+   */
   export function calculateNegations(selectedArmours: Armour[], selectedTalismans: Talisman[]) {
-    let negationValues = [0, 0, 0, 0, 0, 0, 0, 0];
+    let negationValues = [0, 0, 0, 0, 0, 0, 0, 0]; // initialize all negation values as 0
   
     selectedArmours.forEach((armour) => {
-      
       if (armour != null) {
         NEGATION_NAMES.forEach((name, i) => {
           negationValues[i] = negationValues[i] - ((negationValues[i] * armour.dmgNegation[name as keyof typeof armour.dmgNegation])/100) + armour.dmgNegation[name as keyof typeof armour.dmgNegation];
