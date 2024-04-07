@@ -2,22 +2,21 @@
 import { PanelTitle } from '..'
 import { useContext } from 'react';
 import { calculateTotalLevel, getTotalStats } from '@/helpers/BuildCreatorHelper'
-import { calculatePhysicalDefences, calculateMagicDefences, calculateBaseResistances, calculateArmourResistances, calculateNegations } from '@/helpers/DefencesHelper'
+import { calculatePhysicalDefences, calculateMagicDefences, calculateResistances, calculateArmourResistances, calculateNegations } from '@/helpers/DefencesHelper'
 import BuildCreatorContext from '@/context/BuildCreatorContext';
+import { PHYSICAL_DEFENCE_NAMES, MAGIC_DEFENCE_NAMES, RESISTANCE_NAMES } from '@/helpers/consts';
 
 function DefencesPanel() {
   const { selectedClass, selectedTalismans, selectedArmours, characterStats, runeEffect, setSelectedClass, setCharacterStats} = useContext(BuildCreatorContext);
   
-  const PHYSICAL_DEFENCE_NAMES = ["Physical", "VS Strike", "VS Slash", "VS Pierce"]
-  const MAGIC_DEFENCE_NAMES = ["Magic", "Fire", "Lightning", "Holy"]
-  const RESISTANCE_NAMES = ["Immunity", "Robustness", "Focus", "Vitality"]
+
   
   const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
   const totalLevel = calculateTotalLevel(totalStats);
 
   const physicalDefences = calculatePhysicalDefences(totalStats, totalLevel);
   const magicDefences = calculateMagicDefences(totalStats, totalLevel);
-  const resistances = calculateBaseResistances(totalStats, totalLevel, selectedArmours, selectedTalismans)
+  const resistances = calculateResistances(totalStats, totalLevel, selectedArmours, selectedTalismans)
   const armourResistances = calculateArmourResistances(selectedArmours);
 
   return (
