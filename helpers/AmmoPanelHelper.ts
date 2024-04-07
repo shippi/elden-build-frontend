@@ -12,7 +12,7 @@ export function calculateAmmoAttackPower(ammo: Ammo) {
     let total = 0;
     let apAlt = "Attack Power: "
     
-    ATTACK_TYPES.forEach((type, i) => {
+    ATTACK_TYPES.forEach(type => {
         let currVal = ammo?.attackPower[type as keyof typeof ammo.attackPower];
         if (currVal) {
             total += currVal;

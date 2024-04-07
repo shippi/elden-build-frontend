@@ -10,6 +10,7 @@ function NavBar() {
   const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username} = useContext(AuthContext);
   const [userDropdownOpened, setUserDropdownOpened] = useState(false);
   
+  // hook that closes the user dropdown if page or current user is changed
   useEffect(() => {
     setUserDropdownOpened(false);
   }, [pathname, currentUser])

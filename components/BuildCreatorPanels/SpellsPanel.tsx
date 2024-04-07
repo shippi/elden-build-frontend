@@ -42,7 +42,7 @@ function SpellsPanel() {
                 return (
                   <div className="selector" onClick={() => {setCurrIndex(i)}} key={i}>
                     <label>Spell {i+1}</label>
-                    <DropDown items={spells} index={spellIndex} isNullable={true} hasImages={true} incompatibilities={spellIndices} onChange={handleSpellChange} searchEnabled={true}/>
+                    <DropDown items={spells} index={spellIndex} isNullable={true} hasImages={true} otherIndices={spellIndices} onChange={handleSpellChange} searchEnabled={true}/>
                     <div className="info"> 
                       <div className="requirements-text" data-alt={isRequiredStatsMet(spells[spellIndices[i]]?.requirements, totalStats, false).reqTitle}>
                         {  

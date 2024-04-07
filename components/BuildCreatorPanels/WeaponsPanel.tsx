@@ -1,11 +1,11 @@
 'use client'
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { DisabledDropDown, DropDown, PanelTitle } from ".."
 import { getIndexOfItem, getIndicesOfItems, getSelectedItems, getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper"
 import { getAshIndex, getAvailableAshes, getSelectedAshes } from "@/helpers/WeaponsHelper"
 import { weapons, affinities, wepLevels, ashes } from "@/public/data"
-import BuildCreatorContext from "@/context/BuildCreatorContext"
 import { Weapon } from "@/helpers/types"
+import BuildCreatorContext from "@/context/BuildCreatorContext"
 
 function WeaponsPanel() {
     const { selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedWepLvls, selectedAshes, selectedAffinities, twoHanded, runeEffect, 

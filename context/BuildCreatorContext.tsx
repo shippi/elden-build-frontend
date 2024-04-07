@@ -1,6 +1,6 @@
 import { classes } from "@/public/data";
 import { Ammo, Armour, Ash, CharacterStats, GreatRune, Spell, Talisman, Weapon } from "@/helpers/types";
-import { PropsWithChildren, createContext, useEffect, useRef, useState } from "react";
+import { PropsWithChildren, createContext, useEffect, useState } from "react";
 
 export const BuildCreatorContext = createContext<any>(undefined);
 
@@ -35,6 +35,9 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     const [saveId, setSaveId] = useState<number>(-1);
     const [saveable, setSaveable] = useState(false);
 
+    const runeEffect = runeActivated ? selectedRune : undefined;
+
+    // current build state, used to store the values of the original saved build
     const [currentBuild, setCurrentBuild] = useState<any>({
         selectedClass: selectedClass,
         selectedArmours: selectedArmours, 
@@ -49,35 +52,35 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         selectedSpells: selectedSpells, 
         characterStats: characterStats
     });
-    const runeEffect = runeActivated ? selectedRune : undefined;
 
-
+    /**
+     * array of selected things that are saveable, used for comparison against the originally saved build
+     * and as a set of dependencies for the upcoming use effect hook
+     */
     const saveableDependencies = [selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, 
             selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, 
             selectedSpells, characterStats];
 
-    const previousBuild = useRef({currentBuild});
-
+    /**
+     * useEffect hook used to check if selected equipment is different to the original
+     * saved build. If so, sets saveable state to true, otherwise false.
+     */
     useEffect(() => {
-        if (JSON.stringify(previousBuild.current.currentBuild) == JSON.stringify(currentBuild)) {
-            let saved = false;
-
-            saveableDependencies.forEach((items, i) => {
-                if (items && Object.entries(currentBuild)[i][1] && JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) {
-                    setSaveable(true);
-                    saved = true;
-                }
-            });
+        let saved = false;
+        /**
+         * for each loop that compares the currently selected items to the values of the
+         * originally selected items for the saved build. If there is a difference, then 
+         * saveable set is set to true.
+         */
+        saveableDependencies.forEach((items, i) => {
+            if (items && Object.entries(currentBuild)[i][1] && JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) 
+                saved = true;
+        });
             
-            if (!saved) setSaveable(false)
-        }
-        else {
-            previousBuild.current.currentBuild = currentBuild;
-            setSaveable(false);
-        }
+         setSaveable(saved);
     }, [...saveableDependencies, currentBuild])
 
-
+    // function used to reset all the selected equipment as well as current build
     const resetBuild = () => {
         setBuildName("");
         setSaveId(-1);
@@ -126,6 +129,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
                 arcane: 0
             }
           });
+
         setSaveable(false);
     }
 

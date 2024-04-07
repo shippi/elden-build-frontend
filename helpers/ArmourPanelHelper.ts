@@ -16,9 +16,9 @@ export function getSelectedArmours(armours: Armour[], armourIndices: number[]) {
     ]
     
     let selectedArmours: any[] = [null, null, null, null];
-
     armourIndices.forEach((i, j) => {
       if (i > -1) selectedArmours[j] = armoursArr[j][i];
     });
+
     return selectedArmours;
 }

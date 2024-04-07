@@ -32,7 +32,7 @@ function AmmoPanel() {
                         return (
                         <div className="selector" onClick={() => {setCurrIndex(i)}} key={i}>
                         <label>Arrow {i+1}</label>
-                        <DropDown items={arrows} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={arrowsIndices} onChange={handleArrowChange} searchEnabled={true}/>
+                        <DropDown items={arrows} index={arrowIndex} isNullable={true} hasImages={true} otherIndices={arrowsIndices} onChange={handleArrowChange} searchEnabled={true}/>
                         <div className="info">
                             <span className="ammo-effect">{arrows[arrowIndex]?.effect && "Effect: " + arrows[arrowIndex].effect}</span>
                             <span className="ammo-ap"  data-alt={ammoAP?.apAlt}>{ammoAP && "Attack Power: " + ammoAP.atkPower}</span>
@@ -46,7 +46,7 @@ function AmmoPanel() {
                         return (
                         <div className="selector" onClick={() => {setCurrIndex(i)}} key={i}>
                         <label>Bolt {i+1}</label>
-                        <DropDown items={bolts} index={arrowIndex} isNullable={true} hasImages={true} incompatibilities={boltsIndices} onChange={handleBoltChange} searchEnabled={true}/>
+                        <DropDown items={bolts} index={arrowIndex} isNullable={true} hasImages={true} otherIndices={boltsIndices} onChange={handleBoltChange} searchEnabled={true}/>
                         <div className="info">
                             <span className="ammo-effect">{bolts[arrowIndex]?.effect && "Effect: " + bolts[arrowIndex].effect}</span>
                             <span className="ammo-ap"  data-alt={ammoAP?.apAlt}>{ammoAP && "Attack Power: " + ammoAP.atkPower}</span>

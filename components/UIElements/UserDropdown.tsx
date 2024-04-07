@@ -2,20 +2,19 @@
 import { useClickOutside } from "@/hooks";
 import { auth } from "@/lib/firebase"
 import { signOut } from "firebase/auth"
-import { useRouter } from "next/navigation";
 import { useRef } from "react";
-
 
 interface Props {
   onClickOutside: Function
 }
 
-function UserDropdown({onClickOutside}: Props) {
-  const router = useRouter();
-  const dropdownRef = useRef(null);
+function UserDropdown({ onClickOutside }: Props) {
+  const dropdownRef = useRef(null); // creates a reference to the user dropdown div
   useClickOutside(dropdownRef, onClickOutside);
 
+  // handler for when user clicks sign out on the user dropdown
   const signOutOnClick = () => {
+    // takes user to the landing page and signs them out
     window.location.href = "/";
     signOut(auth);
   }

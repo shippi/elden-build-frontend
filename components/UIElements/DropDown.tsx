@@ -7,7 +7,7 @@ interface Props {
     index: number,
     isNullable: boolean,
     hasImages: boolean,
-    incompatibilities?: number[],
+    otherIndices?: number[],
     scrollPage? : boolean,
     searchEnabled?: boolean,
     showSelected?: boolean,
@@ -15,16 +15,22 @@ interface Props {
     onChange: Function
 }
 
-function DropDown({ items, index, isNullable, incompatibilities, hasImages, scrollPage, searchEnabled, showSelected, width, onChange }: Props) {  
+function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPage, searchEnabled, showSelected, width, onChange }: Props) {  
     const [open, setOpen] = useState(showSelected == false ? true : false);
     const [search, setSearch] = useState("");
     const [dropDownWidth, setDropDownWidth] = useState("");
 
-    const ref = useRef(null);
-    useClickOutside(ref, () => {setOpen(false); setSearch("")});
-    
+    /**
+     * useRef used to reference the select-menu div, and custom hook used
+     * to close the dropdown when user clicks outside of it
+     */
+    const selectMenuRef = useRef(null);
+    useClickOutside(selectMenuRef, () => { setOpen(false); setSearch(""); });
 
-    const dropdownSelectedRef = useRef(null);
+
+    const dropdownSelectedRef = useRef(null); // references the selected item in dropdown menu
+
+    // function used to scroll to the selected item in the dropdown
     const scrollToRef = (ref: any) => {
         if (ref.current && index > -1) {
             if(ref.current.children[index]) {
@@ -37,36 +43,46 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
         }
     };
 
-    const selectedRef = useRef<HTMLDivElement>(null);
-    
+    const selectedRef = useRef<HTMLDivElement>(null); // references the selected div (not the selected item in dropdown)
+
+    /**
+     * Hook that triggers when the dropdown opens or closes. When dropdown is opened,
+     * automatically scroll to the selected item. Also changes width of dropdown menu
+     * based on width of the selected div.
+     */
     useEffect(() => {
         if (open) scrollToRef(dropdownSelectedRef);
         if (selectedRef.current) setDropDownWidth(selectedRef.current.offsetWidth + "px");
     }, [open]);
 
+    // sets dropdown width to width prop value if it is specified
     useEffect(() => {
-        if (width) {
-            setDropDownWidth(width);
-        }
-    })
+        if (width) setDropDownWidth(width);
+    }, [])
 
+    // changes the width of the dropdown menu dynamically when window size changes
     const handleWindowSizeChange = () => {
-        if (width) {
-            setDropDownWidth(width);
-            console.log(width)
-        }
+        if (width) setDropDownWidth(width);
         else if (selectedRef.current && !width) setDropDownWidth(selectedRef.current.offsetWidth + "px")
-
     }
-    
     useWindowSizeChange(() => handleWindowSizeChange());
-    
+
+    /**
+     * Function used to check if an item is incompatible (not selectable) when comparing
+     * with the other selected items from the other dropdowns this might be associated with.
+     * (only works if otherIndices is supplied as prop)
+     */
     const isCompatible = (currItem: any, currIndex: number) => {
         let compatible = true;
         
-        if (incompatibilities?.includes(currIndex) && currIndex > -1) return false;
+        // returns false if item is already selected in another dropdown
+        if (otherIndices?.includes(currIndex) && currIndex > -1) return false;
 
-        incompatibilities?.forEach(i => {
+        /**
+         * for each loop that checks if the item is in the same group as any of the
+         * other selected items from the other dropdowns (only really used for talismans)
+         */
+        otherIndices?.forEach(i => {
             let item = items[i];
             if (item?.group && currItem.group == item?.group && i != index) compatible = false;
         });
@@ -77,7 +93,7 @@ function DropDown({ items, index, isNullable, incompatibilities, hasImages, scro
     return (
         <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-        <div className="select-menu" ref={ref}>
+        <div className="select-menu" ref={selectMenuRef}>
             <div className={"selected"  + (showSelected != false ? "" : " hidden")} onClick={() => { setOpen(!open); }} ref={selectedRef}>
                 <div>
                     { index > -1 && hasImages ? <img src={items[index].image}/> : hasImages ? <div style={{height: "35px", width: "5px"}}/> : "" }

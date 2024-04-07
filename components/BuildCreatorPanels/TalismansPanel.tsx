@@ -31,7 +31,7 @@ function TalismansPanel() {
                     indices.map((i, j) => (
                         <div className="selector" onClick={() => {setCurrIndex(j)}} key={j}>
                             <label>Talisman {j+1} </label>
-                            <DropDown items={talismans} index={indices[j]} isNullable={true} incompatibilities={indices} hasImages={true} scrollPage={true} onChange={handleOnChange} searchEnabled={true}/>
+                            <DropDown items={talismans} index={indices[j]} isNullable={true} otherIndices={indices} hasImages={true} scrollPage={true} onChange={handleOnChange} searchEnabled={true}/>
                         </div>
                     ))
                 }
