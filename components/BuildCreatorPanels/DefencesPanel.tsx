@@ -8,9 +8,7 @@ import { PHYSICAL_DEFENCE_NAMES, MAGIC_DEFENCE_NAMES, RESISTANCE_NAMES } from '@
 
 function DefencesPanel() {
   const { selectedClass, selectedTalismans, selectedArmours, characterStats, runeEffect, setSelectedClass, setCharacterStats} = useContext(BuildCreatorContext);
-  
 
-  
   const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
   const totalLevel = calculateTotalLevel(totalStats);
 

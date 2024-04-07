@@ -1,6 +1,46 @@
 import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune, requiredAttributes } from "@/helpers/types";
 import { MAX_STAT_LEVEL, STAT_NAMES, WEAPON_STATS_NAMES } from "./consts";
 
+/**
+ * Returns the index of an item in an array if the name matches.
+ * @param name 
+ * @param items 
+ * @returns 
+ */
+export function getIndexOfItem(name: string, items: any[]) {
+  return items.findIndex(item => item.name == name);
+}
+
+/**
+ * Returns an item from an array if the name matches.
+ * @param name 
+ * @param items 
+ * @returns 
+ */
+export function getItemFromName(name: string, items: any[]) {
+  return items.find(item => item.name == name);
+}
+
+/**
+ * Takes an array of items and returns array of the indices for those items.
+ * @param selectedItems 
+ * @param items 
+ * @param start 
+ * @returns 
+ */
+export function getIndicesOfItems(selectedItems: any[], items: any[], start?: number) {
+  return selectedItems.map((item) => { 
+    if (item) return getIndexOfItem(item.name, items);
+    else return start ? start : -1;
+  })
+}
+
+/**
+ * Returns an array of items based on an array of indices.
+ * @param items 
+ * @param indices 
+ * @returns 
+ */
 export function getSelectedItems(items: any[], indices: number[]) {
     let selectedItems: any[] = new Array(indices.length).fill(null);
 
@@ -13,21 +53,29 @@ export function getSelectedItems(items: any[], indices: number[]) {
     return selectedItems;
 }
 
-export function getIndexOfItem(name: string, items: any[]) {
-    return items.findIndex(item => item.name == name);
-}
-
-export function getItemFromName(name: string, items: any[]) {
-  return items.find(item => item.name == name);
-}
-
-export function getIndicesOfItems(selectedItems: any[], items: any[], start?: number) {
-  return selectedItems.map((item) => { 
-    if (item) return getIndexOfItem(item.name, items);
-    else return start ? start : -1;
+/**
+ * Calculates and returns total level based on values of total stats.
+ * @param totalStats 
+ * @returns 
+ */
+export function calculateTotalLevel(totalStats: CharacterStats) {
+  let level = 0;
+  STAT_NAMES.forEach((name, i) => {
+    level += totalStats[name as keyof typeof totalStats]
   })
+  return level - 79;
 }
 
+/**
+ * Calculates and return total points for a particular stat, based on points from 
+ * starting class, added points, talismans, armours and great rune.
+ * @param classLevel 
+ * @param levelStat 
+ * @param talismanLevels 
+ * @param armourLevels 
+ * @param greatRuneLevel 
+ * @returns 
+ */
 export function calculateStatLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[], greatRuneLevel?: number) {
   let totalLevel = classLevel + levelStat;
 
@@ -40,10 +88,17 @@ export function calculateStatLevel(classLevel: number, levelStat: number, talism
   })
 
   if (greatRuneLevel) totalLevel += greatRuneLevel;
-  if (totalLevel > MAX_STAT_LEVEL) return MAX_STAT_LEVEL;
+  if (totalLevel > MAX_STAT_LEVEL) return MAX_STAT_LEVEL; // level for a stat caps at 99
   else return totalLevel;
 }
 
+/**
+ * Returns an array of added values for a particular stat that comes from
+ * an array of selected type of equipment (e.g. talismans, armours)
+ * @param selectedEquipment 
+ * @param type 
+ * @returns 
+ */
 export function getEquipmentValues(selectedEquipment: any[], type: string) {
   let itemValues: number[] = [];
 
@@ -58,6 +113,13 @@ export function getEquipmentValues(selectedEquipment: any[], type: string) {
   return itemValues;
 }
 
+/**
+ * Returns the total value for a particular stat that comes from
+ * an array of selected type of equipment (e.g. talismans, armours)
+ * @param selectedEquipment 
+ * @param type 
+ * @returns 
+ */
 export function getEquipmentTotalValue(selectedEquipment: any[], type: string) {
   let value = 0;
 
@@ -71,6 +133,12 @@ export function getEquipmentTotalValue(selectedEquipment: any[], type: string) {
   return value;
 }
 
+/**
+ * Gets the value for a particular stat that comes from selected Great Rune
+ * @param type 
+ * @param greatRune 
+ * @returns 
+ */
 export function getRuneValue(type: string, greatRune?: GreatRune) {
   if (greatRune?.statChanges) {
     return greatRune.statChanges[type.toLowerCase() as keyof typeof greatRune.statChanges] || 0;
@@ -78,6 +146,17 @@ export function getRuneValue(type: string, greatRune?: GreatRune) {
   return 0;
 }
 
+/**
+ * Gets total stats based on starting class, added points, armours, talismans, 
+ * great rune, and if two-handed is enabled or not.
+ * @param characterClass 
+ * @param characterStats 
+ * @param armours 
+ * @param talismans 
+ * @param twoHanded 
+ * @param greatRune 
+ * @returns 
+ */
 export function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean, greatRune?: GreatRune) {
   let totalStats: CharacterStats = {
       vigor: 0,
@@ -102,13 +181,7 @@ export function getTotalStats(characterClass: CharacterClass, characterStats: Ch
   return totalStats;
 }
 
-export function calculateTotalLevel(totalStats: CharacterStats) {
-  let level = 0;
-  STAT_NAMES.forEach((name, i) => {
-    level += totalStats[name as keyof typeof totalStats]
-  })
-  return level - 79;
-}
+
 
 /**
  * Returns an object that contains if the total character stats meet the 
@@ -146,9 +219,21 @@ export function isRequiredStatsMet(requirements: requiredAttributes, totalStats:
           requirementsTitle += "\n • " + (stat.charAt(0).toUpperCase() + stat.slice(1)) + ": " + "0";
       }
   });
+
   return { isMet: isMet, reqMessage: requirementsMessage.slice(0, -1), reqTitle: requirementsTitle};
 }
 
+/**
+ * Function used to handle when a new item is selected in many of the dropdown menus,
+ * particularly for choosing equipment.
+ * @param indices 
+ * @param currIndex 
+ * @param newIndex 
+ * @param items 
+ * @param getSelected 
+ * @param setIndices 
+ * @param onChange 
+ */
 export function handleDropdownChange(indices: number[], currIndex: number, newIndex: number, items: any[], getSelected: Function, setIndices: Function, onChange?: Function) {
   let newIndices = [...indices];
   newIndices[currIndex] = newIndex;

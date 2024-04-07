@@ -59,8 +59,6 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     const previousBuild = useRef({currentBuild});
 
     useEffect(() => {
-        
-        
         if (JSON.stringify(previousBuild.current.currentBuild) == JSON.stringify(currentBuild)) {
             let saved = false;
 
@@ -104,6 +102,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
             faith: 0, 
             arcane: 0
         });
+
         setCurrentBuild({
             selectedClass: classes[0],
             selectedArmours: new Array(4).fill(null), 

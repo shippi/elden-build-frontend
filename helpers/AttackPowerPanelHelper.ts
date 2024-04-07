@@ -1,7 +1,15 @@
 import { Weapon, CharacterStats, requiredAttributes } from "@/helpers/types";
 import { weaponStats, multipliers, calcCorrectGraph, attackElementsCorrect } from "@/public/data";
 import { WEAPON_STATS_NAMES } from "./consts";
-
+/**
+ * Calculates attack power for a weapon based on this guide:
+ * https://docs.google.com/document/d/1WbKxdSTRYTg3NLoOPbsCQzWnU3dxx1i5oR3NldgnQ0o/edit
+ * @param weapon 
+ * @param affinity 
+ * @param wepLvl 
+ * @param stats 
+ * @returns 
+ */
 export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats) {
     if (!weapon) return { finalAttackValues: [0], attackPowerAlt: null, sorceryScaling: 0 };
 
@@ -175,6 +183,11 @@ export function calculateSorceryScaling(attackElementId: string, attackType: str
     return Math.floor(total);
 }
 
+/**
+ * Returns the scaling letter associated with the given value.
+ * @param value 
+ * @returns 
+ */
 function getScalingLetter(value: number) {
     if (value < 25) return "E";
     if (value < 60) return "D";
