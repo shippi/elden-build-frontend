@@ -13,9 +13,8 @@ import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, currentBuild } 
+          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild } 
          = useContext(BuildCreatorContext);
-
 
   const {currentUser} = useContext(AuthContext);
  
@@ -29,7 +28,6 @@ function FilePanel() {
   const [builds, setBuilds] = useState<any[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [buildNameWidth, setBuildNameWidth] = useState("");
-
 
   let uid = "";
   if (currentUser) uid = currentUser.uid;

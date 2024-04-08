@@ -1,6 +1,7 @@
 import { Weapon, CharacterStats, requiredAttributes } from "@/helpers/types";
 import { weaponStats, multipliers, calcCorrectGraph, attackElementsCorrect } from "@/public/data";
 import { WEAPON_STATS_NAMES } from "./consts";
+
 /**
  * Calculates attack power for a weapon based on this guide:
  * https://docs.google.com/document/d/1WbKxdSTRYTg3NLoOPbsCQzWnU3dxx1i5oR3NldgnQ0o/edit
@@ -17,15 +18,12 @@ export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: n
     if (affinity == "Frost") affinity = "Cold";
     if (affinity != "Standard") weaponName = affinity + " " + weaponName;
     
-
     let baseStats = weaponStats.find(weapon => weapon.name == weaponName);
-    let wepMultipliers;
+    if (!baseStats) return { finalAttackValues: [0], attackPowerAlt: null, sorceryScaling: 0 };
 
-    if (baseStats) {
-        const correctMultId = +baseStats.reinforceType + wepLvl
-        wepMultipliers = multipliers.find(multiplier => multiplier.id == correctMultId.toString())
-    }
-
+    const correctMultId = +baseStats.reinforceType + wepLvl
+    const wepMultipliers = multipliers.find(multiplier => multiplier.id == correctMultId.toString())
+    
     let physicalAtk = 0;
     let magicAtk = 0;
     let fireAtk = 0;
@@ -52,7 +50,7 @@ export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: n
         arcaneScaling = baseStats.arcaneScaling * wepMultipliers.arcaneScaling
     }
 
-    const adjustedBaseValues = [physicalAtk, magicAtk, fireAtk, lightningAtk, holyAtk]
+    const adjustedBaseValues = [physicalAtk, magicAtk, fireAtk, lightningAtk, holyAtk];
     const adjustedScalingValues = [strengthScaling, dexterityScaling, intellectScaling, faithScaling, arcaneScaling].map(value => +value.toFixed(2));
     
     const attackTypes = ["physical", "magic", "fire", "lightning", "holy"]
