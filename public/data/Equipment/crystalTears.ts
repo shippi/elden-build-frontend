@@ -1,4 +1,4 @@
-export const crystalTears = [
+[
   {
     "id": "11000",
     "name": "Crimsonspill Crystal Tear",
@@ -18,26 +18,28 @@ export const crystalTears = [
   {
     "id": "11002",
     "name": "Crimson Crystal Tear",
-    "effect": "The resulting concoction restores half of one's maximum HP",
-    "statChanges": null
+    "effect": "The resulting concoction restores half of one's maximum HP"
   },
   {
     "id": "11004",
     "name": "Cerulean Crystal Tear",
-    "effect": "The resulting concoction restores half of one's maximum FP",
-    "statChanges": null
+    "effect": "The resulting concoction restores half of one's maximum FP"
   },
   {
     "id": "11006",
     "name": "Speckled Hardtear",
     "effect": "The resulting concoction temporarily raises all resistances and heals all status ailments",
-    "statChanges": null
+    "statChanges": {
+      "immunity": 90,
+      "robustness": 90,
+      "focus": 90,
+      "vitality": 90
+    }
   },
   {
     "id": "11007",
     "name": "Crimson Bubbletear",
-    "effect": "The resulting concoction automatically heals one's HP in the moment before death",
-    "statChanges": null
+    "effect": "The resulting concoction automatically heals one's HP in the moment before death"
   },
   {
     "id": "11008",
@@ -57,14 +59,12 @@ export const crystalTears = [
   {
     "id": "11009",
     "name": "Crimsonburst Crystal Tear",
-    "effect": "The resulting concoction gradually restores one's HP over time",
-    "statChanges": null
+    "effect": "The resulting concoction gradually restores one's HP over time"
   },
   {
     "id": "11010",
     "name": "Greenburst Crystal Tear",
-    "effect": "The resulting concoction temporarily boosts stamina recovery speed",
-    "statChanges": null
+    "effect": "The resulting concoction temporarily boosts stamina recovery speed"
   },
   {
     "id": "11011",
@@ -92,14 +92,12 @@ export const crystalTears = [
   {
     "id": "11013",
     "name": "Thorny Cracked Tear",
-    "effect": "The resulting concoction makes consecutive attacks grow stronger the longer they continue",
-    "statChanges": null
+    "effect": "The resulting concoction makes consecutive attacks grow stronger the longer they continue"
   },
   {
     "id": "11014",
     "name": "Spiked Cracked Tear",
-    "effect": "The resulting concoction increases the power of charged attacks for a certain duration",
-    "statChanges": null
+    "effect": "The resulting concoction increases the power of charged attacks for a certain duration"
   },
   {
     "id": "11015",
@@ -119,26 +117,22 @@ export const crystalTears = [
   {
     "id": "11016",
     "name": "Ruptured Crystal Tear",
-    "effect": "Causes the resulting concoction to explode",
-    "statChanges": null
+    "effect": "Causes the resulting concoction to explode"
   },
   {
     "id": "11018",
     "name": "Leaden Hardtear",
-    "effect": "The resulting concoction temporarily boosts one's poise",
-    "statChanges": null
+    "effect": "The resulting concoction temporarily boosts one's poise"
   },
   {
     "id": "11019",
     "name": "Twiggy Cracked Tear",
-    "effect": "The resulting concoction prevents one's runes from being lost upon death",
-    "statChanges": null
+    "effect": "The resulting concoction prevents one's runes from being lost upon death"
   },
   {
     "id": "11020",
     "name": "Crimsonwhorl Bubbletear",
-    "effect": "The resulting concoction converts incoming damage into recovered HP instead",
-    "statChanges": null
+    "effect": "The resulting concoction converts incoming damage into recovered HP instead"
   },
   {
     "id": "11021",
@@ -183,14 +177,12 @@ export const crystalTears = [
   {
     "id": "11026",
     "name": "Stonebarb Cracked Tear",
-    "effect": "The resulting concoction makes one's attacks more likely to break enemy stances",
-    "statChanges": null
+    "effect": "The resulting concoction makes one's attacks more likely to break enemy stances"
   },
   {
     "id": "11027",
     "name": "Purifying Crystal Tear",
-    "effect": "The resulting concoction purifies the curse from Mohg, Lord of Blood's terrifying rite of blood",
-    "statChanges": null
+    "effect": "The resulting concoction purifies the curse from Mohg, Lord of Blood's terrifying rite of blood"
   },
   {
     "id": "11028",
