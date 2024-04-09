@@ -759,7 +759,8 @@ td {
   user-select: none;
 }
 
-.great-runes-panel > .disabled {
+.great-runes-panel .disabled,
+.physick-panel .disabled {
   background-color: transparent !important;
 }
 

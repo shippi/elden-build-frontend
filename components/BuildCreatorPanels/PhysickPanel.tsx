@@ -6,10 +6,13 @@ import { crystalTears } from "@/public/data/Equipment/crystalTears";
 import { getIndicesOfItems, getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
 
 function PhysickPanel() {
-  const { selectedTears, setSelectedTears } = useContext(BuildCreatorContext);
+  const { selectedTears, setSelectedTears, tearActivated, setTearActivated } = useContext(BuildCreatorContext);
 
   const [indices, setIndices] = useState(getIndicesOfItems(selectedTears, crystalTears));
   const [currIndex, setCurrIndex] = useState(0);
+
+  const disabled = indices[0] ==- 1 && indices[1] == -1;
+
   const handleOnChange = (newIndex: number) => {
     handleDropdownChange(indices, currIndex, newIndex, crystalTears, getSelectedItems, setIndices, setSelectedTears);
   }
@@ -35,6 +38,11 @@ function PhysickPanel() {
               ))
             }
           </ul>
+        </div>
+        <br/>
+        <div className={(disabled ? "disabled " : "") + "checkbox-container"} onClick={() => setTearActivated(!tearActivated)}>
+          <input type="checkbox" checked={tearActivated} disabled={disabled} onChange={() => setTearActivated(!tearActivated)}/>
+              Activate
         </div>
     </div>
     </>
