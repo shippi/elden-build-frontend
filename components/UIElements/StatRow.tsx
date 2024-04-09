@@ -1,7 +1,6 @@
 'use client'
 import { useContext, useEffect, useRef, useState } from "react";
 import { useClickOutside, useOnKeyPress } from "@/hooks";
-import { Talisman, Armour, GreatRune } from "@/helpers/types";
 import { calculateStatLevel, getEquipmentTotalValue, getEquipmentValues, getRuneValue } from "@/helpers/BuildCreatorHelper";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 import { MAX_STAT_LEVEL } from "@/helpers/consts";
@@ -10,9 +9,6 @@ interface Props {
     type: string,
     initialValue: string,
     addedValue: number,
-    talismans: Talisman[],
-    armours: Armour[],
-    greatRune?: GreatRune,
     onChange: Function
 }
 
@@ -22,8 +18,8 @@ interface Props {
  * @param param0 
  * @returns 
  */
-function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune, onChange}: Props) {
-    const { saveId, selectedClass } = useContext(BuildCreatorContext);
+function StatRow({ type, initialValue, addedValue, onChange}: Props) {
+    const { saveId, selectedClass, selectedTalismans, selectedArmours, runeEffect } = useContext(BuildCreatorContext);
     const previousValues = useRef({ saveId, selectedClass });
     
     // state for the value in the number input
@@ -32,7 +28,7 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
     // state used to store if the particular stat is affect by equipment (e.g. talismans, armours, great rune)
     const [affectedByEquipment, setAffecectedByEquipment] = useState(false);
     
-    const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(talismans, type), getEquipmentValues(armours, type), getRuneValue(type, greatRune)).toString();
+    const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(selectedTalismans, type), getEquipmentValues(selectedArmours, type), getRuneValue(type, runeEffect)).toString();
 
     /**
      * useEffect hook to update component when initialValue prop has changed.
@@ -51,9 +47,9 @@ function StatRow({ type, initialValue, addedValue, talismans, armours, greatRune
      * if the particular stat is affected by selected equipment.
      */
     useEffect(() => {
-        if (getEquipmentTotalValue([...talismans, ...armours], type) + getRuneValue(type, greatRune) > 0) setAffecectedByEquipment(true);
+        if (getEquipmentTotalValue([...selectedTalismans, ...selectedArmours], type) + getRuneValue(type, runeEffect) > 0) setAffecectedByEquipment(true);
         else setAffecectedByEquipment(false);
-    }, [talismans, armours, addedValue, greatRune]);
+    }, [selectedTalismans, selectedArmours, addedValue, runeEffect]);
 
     // useEffect for updating the number input from the user
     useEffect(() => {

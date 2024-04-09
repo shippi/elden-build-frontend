@@ -61,14 +61,14 @@ function CharacterPanel() {
     <div className="character-panel">
       {/* div for modifying character stats */}
       <div className="character-stats">
-        <StatRow type="Vigor" initialValue={selectedClass.stats.vigor} addedValue={vigor} onChange={setVigor} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
-        <StatRow type="Mind" initialValue={selectedClass.stats.mind} addedValue={mind} onChange={setMind} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
-        <StatRow type="Endurance" initialValue={selectedClass.stats.endurance} addedValue={endurance} onChange={setEndurance} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
-        <StatRow type="Strength" initialValue={selectedClass.stats.strength} addedValue={strength} onChange={setStrength} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
-        <StatRow type="Dexterity" initialValue={selectedClass.stats.dexterity} addedValue={dexterity} onChange={setDexterity} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
-        <StatRow type="Intelligence" initialValue={selectedClass.stats.intelligence} addedValue={intelligence} onChange={setIntelligence} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
-        <StatRow type="Faith" initialValue={selectedClass.stats.faith} addedValue={faith} onChange={setFaith} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
-        <StatRow type="Arcane" initialValue={selectedClass.stats.arcane} addedValue={arcane} onChange={setArcane} talismans={selectedTalismans} armours={selectedArmours} greatRune={runeEffect}/>
+        <StatRow type="Vigor" initialValue={selectedClass.stats.vigor} addedValue={vigor} onChange={setVigor}/>
+        <StatRow type="Mind" initialValue={selectedClass.stats.mind} addedValue={mind} onChange={setMind}/>
+        <StatRow type="Endurance" initialValue={selectedClass.stats.endurance} addedValue={endurance} onChange={setEndurance}/>
+        <StatRow type="Strength" initialValue={selectedClass.stats.strength} addedValue={strength} onChange={setStrength}/>
+        <StatRow type="Dexterity" initialValue={selectedClass.stats.dexterity} addedValue={dexterity} onChange={setDexterity}/>
+        <StatRow type="Intelligence" initialValue={selectedClass.stats.intelligence} addedValue={intelligence} onChange={setIntelligence}/>
+        <StatRow type="Faith" initialValue={selectedClass.stats.faith} addedValue={faith} onChange={setFaith}/>
+        <StatRow type="Arcane" initialValue={selectedClass.stats.arcane} addedValue={arcane} onChange={setArcane}/>
       </div>
 
       {/* div for displaying level requirement for modified stats */}
