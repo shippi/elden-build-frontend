@@ -19,7 +19,7 @@ interface Props {
  * @returns 
  */
 function StatRow({ type, initialValue, addedValue, onChange}: Props) {
-    const { saveId, selectedClass, selectedTalismans, selectedArmours, runeEffect } = useContext(BuildCreatorContext);
+    const { saveId, selectedClass, selectedTalismans, selectedArmours, selectedTears, runeEffect, tearActivated } = useContext(BuildCreatorContext);
     const previousValues = useRef({ saveId, selectedClass });
     
     // state for the value in the number input
@@ -28,7 +28,7 @@ function StatRow({ type, initialValue, addedValue, onChange}: Props) {
     // state used to store if the particular stat is affect by equipment (e.g. talismans, armours, great rune)
     const [affectedByEquipment, setAffecectedByEquipment] = useState(false);
     
-    const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(selectedTalismans, type), getEquipmentValues(selectedArmours, type), getRuneValue(type, runeEffect)).toString();
+    const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(selectedTalismans, type), getEquipmentValues(selectedArmours, type), getRuneValue(type, runeEffect), tearActivated ? getEquipmentValues(selectedTears, type) : undefined).toString();
 
     /**
      * useEffect hook to update component when initialValue prop has changed.
@@ -47,9 +47,9 @@ function StatRow({ type, initialValue, addedValue, onChange}: Props) {
      * if the particular stat is affected by selected equipment.
      */
     useEffect(() => {
-        if (getEquipmentTotalValue([...selectedTalismans, ...selectedArmours], type) + getRuneValue(type, runeEffect) > 0) setAffecectedByEquipment(true);
-        else setAffecectedByEquipment(false);
-    }, [selectedTalismans, selectedArmours, addedValue, runeEffect]);
+        if (getEquipmentTotalValue([...selectedTalismans, ...selectedArmours, ...(tearActivated ? selectedTears : [])], type) + getRuneValue(type, runeEffect) > 0) setAffecectedByEquipment(true);
+        else setAffecectedByEquipment(false); 
+    }, [selectedTalismans, selectedArmours, addedValue, runeEffect, selectedTears, tearActivated]);
 
     // useEffect for updating the number input from the user
     useEffect(() => {

@@ -1,23 +1,22 @@
 'use client'
 import { useContext, useEffect, useState } from "react"
 import { DropDown, PanelTitle } from ".."
-import { Armour, CharacterClass, CharacterStats, GreatRune, Spell, Talisman } from "@/helpers/types";
+import { Armour, CharacterClass, CharacterStats, CrystalTear, GreatRune, Spell, Talisman } from "@/helpers/types";
 import { getIndicesOfItems, getSelectedItems, getTotalStats, handleDropdownChange, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper";
 import { spells } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 
 function SpellsPanel() {
-  const {selectedClass, selectedArmours, selectedTalismans, characterStats, runeEffect, selectedSpells, setSelectedSpells} = useContext(BuildCreatorContext);
+  const {selectedClass, selectedArmours, selectedTalismans, characterStats, runeEffect, selectedSpells, setSelectedSpells, tearActivated, selectedTears} = useContext(BuildCreatorContext);
 
   const [spellIndices, setSpellIndices] = useState(getIndicesOfItems(selectedSpells, spells));
   const [currIndex, setCurrIndex] = useState(0);
 
-  const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
+  const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect, tearActivated ? selectedTears : undefined);
 
   const handleSpellChange = (newIndex: number) => {
     handleDropdownChange(spellIndices, currIndex, newIndex, spells, getSelectedItems, setSpellIndices, setSelectedSpells);
   }
-  
   return (
     <div>
     <PanelTitle text="Spells" img="icons/spells.png"/>
@@ -29,6 +28,9 @@ function SpellsPanel() {
               if (spells[spellIndex]) {
                 fpCost = spells[spellIndex].fpCost;
 
+                selectedTears.forEach((tear: CrystalTear) => {
+                  if (tear?.statChanges?.fpCost !== undefined && tearActivated) fpCost *= tear.statChanges.fpCost
+                });
                 selectedTalismans.forEach((talisman: Talisman)=> {
                   if (talisman?.statChanges?.fpCost) fpCost *= talisman.statChanges.fpCost
                 });
@@ -36,6 +38,7 @@ function SpellsPanel() {
                 selectedArmours.forEach((armour: Armour) => {
                   if (armour?.statChanges?.fpCost) fpCost *= armour.statChanges.fpCost
                 });
+
               }
               
               if (!moonOfNokstellaExists && i < 10 || moonOfNokstellaExists)

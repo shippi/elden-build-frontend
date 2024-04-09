@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune, requiredAttributes } from "@/helpers/types";
+import { CharacterClass, CharacterStats, Armour, Talisman, GreatRune, requiredAttributes, CrystalTear } from "@/helpers/types";
 import { MAX_STAT_LEVEL, STAT_NAMES, WEAPON_STATS_NAMES } from "./consts";
 
 /**
@@ -76,7 +76,7 @@ export function calculateTotalLevel(totalStats: CharacterStats) {
  * @param greatRuneLevel 
  * @returns 
  */
-export function calculateStatLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[], greatRuneLevel?: number) {
+export function calculateStatLevel(classLevel: number, levelStat: number, talismanLevels?: number[], armourLevels?: number[], greatRuneLevel?: number, tearLevels?: number[]) {
   let totalLevel = classLevel + levelStat;
 
   talismanLevels?.forEach(level => {
@@ -84,6 +84,10 @@ export function calculateStatLevel(classLevel: number, levelStat: number, talism
   });
 
   armourLevels?.forEach(level => {
+    if (level) totalLevel += level;
+  })
+
+  tearLevels?.forEach(level => {
     if (level) totalLevel += level;
   })
 
@@ -157,7 +161,7 @@ export function getRuneValue(type: string, greatRune?: GreatRune) {
  * @param greatRune 
  * @returns 
  */
-export function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean, greatRune?: GreatRune) {
+export function getTotalStats(characterClass: CharacterClass, characterStats: CharacterStats, armours: Armour[], talismans: Talisman[], twoHanded: boolean, greatRune?: GreatRune, tears?: CrystalTear[]) {
   let totalStats: CharacterStats = {
       vigor: 0,
       mind: 0,
@@ -171,6 +175,8 @@ export function getTotalStats(characterClass: CharacterClass, characterStats: Ch
 
   STAT_NAMES.forEach(stat => {
       let totalLevel = +characterClass.stats[stat as keyof typeof characterStats] + characterStats[stat as keyof typeof characterStats] + getEquipmentTotalValue(armours, stat) + getEquipmentTotalValue(talismans, stat);
+      if (tears) totalLevel += getEquipmentTotalValue(tears, stat);
+
       if (greatRune && greatRune.statChanges) totalLevel += greatRune.statChanges[stat as keyof typeof greatRune.statChanges] || 0;
 
       if (totalLevel > 99) totalLevel = 99;

@@ -7,8 +7,8 @@ import { useContext } from "react";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 
 function AttackPowerPanel() {
-    const {selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedAffinities, selectedWepLvls, twoHanded, runeEffect} = useContext(BuildCreatorContext);
-    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect);
+    const {selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedAffinities, selectedWepLvls, twoHanded, runeEffect, selectedTears, tearActivated} = useContext(BuildCreatorContext);
+    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect, tearActivated ? selectedTears : undefined);
 
     return (
     <>

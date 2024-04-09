@@ -9,7 +9,7 @@ import BuildCreatorContext from "@/context/BuildCreatorContext"
 
 function WeaponsPanel() {
     const { selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, selectedWepLvls, selectedAshes, selectedAffinities, twoHanded, runeEffect, 
-            setSelectedWeapons, setSelectedAshes, setSelectedAffinities, setSelectedWepLvls, setTwoHanded} = useContext(BuildCreatorContext);
+            setSelectedWeapons, setSelectedAshes, setSelectedAffinities, setSelectedWepLvls, setTwoHanded, tearActivated, selectedTears} = useContext(BuildCreatorContext);
 
     const [wepIndices, setWepIndices] = useState(getIndicesOfItems(selectedWeapons, weapons));
     const [ashIndices, setAshIndices] = useState(
@@ -29,7 +29,7 @@ function WeaponsPanel() {
     const [lvlIndices, setLvlIndices] = useState(selectedWepLvls);
     const [currIndex, setCurrIndex] = useState(0);
 
-    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect);
+    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect, tearActivated ? selectedTears : undefined);
     const selectorPanels = [];
 
     

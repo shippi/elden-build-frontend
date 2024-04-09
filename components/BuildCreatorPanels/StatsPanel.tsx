@@ -6,14 +6,14 @@ import { getTotalStats } from "@/helpers/BuildCreatorHelper";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 
 function StatsPanel() {
-  const {selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, runeEffect} = useContext(BuildCreatorContext);
+  const {selectedClass, characterStats, selectedArmours, selectedTalismans, selectedWeapons, runeEffect, tearActivated, selectedTears} = useContext(BuildCreatorContext);
   
-  const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect);
+  const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeEffect, tearActivated ? selectedTears : undefined);
   
-  const hp = calculateHP(totalStats.vigor, selectedTalismans, selectedArmours, runeEffect);
-  const fp = calculateFP(totalStats.mind, selectedTalismans, selectedArmours, runeEffect);
-  const stamina = calculateStamina(totalStats.endurance, selectedTalismans, selectedArmours, runeEffect);
-  const equipLoad = calculateEquipLoad(totalStats.endurance, selectedTalismans, runeEffect);
+  const hp = calculateHP(totalStats.vigor, selectedTalismans, selectedArmours, runeEffect, tearActivated ? selectedTears : undefined);
+  const fp = calculateFP(totalStats.mind, selectedTalismans, selectedArmours, runeEffect, tearActivated ? selectedTears : undefined);
+  const stamina = calculateStamina(totalStats.endurance, selectedTalismans, selectedArmours, runeEffect, tearActivated ? selectedTears : undefined);
+  const equipLoad = calculateEquipLoad(totalStats.endurance, selectedTalismans, runeEffect, tearActivated ? selectedTears : undefined);
   const totalWeight = calculateWeight(selectedArmours, selectedTalismans, selectedWeapons);
   const weightRatio = getWeightRatio(totalWeight, equipLoad);
   const poise = calculatePoise(selectedArmours, selectedTalismans);

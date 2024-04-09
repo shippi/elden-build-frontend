@@ -1,4 +1,4 @@
-import { CharacterClass, CharacterStats, Talisman, Armour, Weapon, GreatRune } from "@/helpers/types";
+import { CharacterClass, CharacterStats, Talisman, Armour, Weapon, GreatRune, CrystalTear } from "@/helpers/types";
 import { getEquipmentValues, getRuneValue } from "./BuildCreatorHelper";
 
 /**
@@ -10,7 +10,7 @@ import { getEquipmentValues, getRuneValue } from "./BuildCreatorHelper";
  * @param armours 
  * @returns 
  */
-export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
+export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune, tears?: CrystalTear[]) {
     // if-else block to determine base hp from vigor. Certain level cutoffs use different type of scaling
     let hp = 0;
     if (vigorLevel < 26) {
@@ -35,7 +35,11 @@ export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: 
     armours.forEach(armour => {
         if (armour && armour.statChanges?.maxHp != null) hp *= armour.statChanges.maxHp;
     });
-    
+    if (tears) {
+      tears.forEach(tears => {
+        if (tears && tears.statChanges?.maxHp != null) hp *= tears.statChanges.maxHp;
+    });
+    }
     if (greatRune?.statChanges?.maxHp) hp *= greatRune.statChanges.maxHp;
 
     return Math.floor(hp);
@@ -50,7 +54,7 @@ export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: 
    * @param armours 
    * @returns 
    */
-  export function calculateFP(mindLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
+  export function calculateFP(mindLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune, tears?: CrystalTear[]) {
     let fp = 0;
     if (mindLevel < 16) {
       fp = 50 + 45*((mindLevel - 1)/14);
@@ -73,7 +77,10 @@ export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: 
     armours.forEach(armour => {
         if (armour && armour.statChanges?.maxFp != null) fp *= armour.statChanges.maxFp;
     });
-
+    if (tears) {
+      tears.forEach(tears => {
+        if (tears && tears.statChanges?.maxFp != null) fp *= tears.statChanges.maxFp;
+    })};
     if (greatRune?.statChanges?.maxFp) fp *= greatRune.statChanges.maxFp;
 
     return Math.floor(fp);
@@ -87,7 +94,7 @@ export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: 
    * @param armours 
    * @returns 
    */
-  export function calculateStamina(enduranceLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune) {
+  export function calculateStamina(enduranceLevel: number, talismans: Talisman[], armours: Armour[], greatRune?: GreatRune, tears?: CrystalTear[]) {
     let stamina = 0;
     if (enduranceLevel < 16) {
       stamina = 80 + 25*((enduranceLevel - 1)/14);
@@ -110,7 +117,10 @@ export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: 
     armours.forEach(armour => {
         if (armour && armour.statChanges?.maxStamina != null) stamina *= armour.statChanges.maxStamina;
     });
-
+    if (tears) {
+      tears.forEach(tears => {
+        if (tears && tears.statChanges?.maxStamina != null) stamina *= tears.statChanges.maxStamina;
+    })};
     if (greatRune?.statChanges?.maxStamina) stamina *= greatRune.statChanges.maxStamina;
 
     return Math.floor(stamina);
@@ -125,7 +135,7 @@ export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: 
    * @param talismans 
    * @returns 
    */
-  export function calculateEquipLoad(enduranceLevel: number, talismans: Talisman[], greatRune?: GreatRune) {
+  export function calculateEquipLoad(enduranceLevel: number, talismans: Talisman[], greatRune?: GreatRune, tears?: CrystalTear[]) {
     let equipLoad = 0;
     
     if (enduranceLevel < 26) equipLoad = 45 + 27*((enduranceLevel - 8)/17);
@@ -135,7 +145,10 @@ export function calculateHP(vigorLevel: number, talismans: Talisman[], armours: 
     talismans.forEach(talisman => {
       if (talisman && talisman.statChanges?.maxEquipLoad != null) equipLoad *= talisman.statChanges.maxEquipLoad;
     });
-  
+    if (tears) {
+      tears.forEach(tears => {
+        if (tears && tears.statChanges?.maxEquipLoad != null) equipLoad *= tears.statChanges.maxEquipLoad;
+    })};
     return equipLoad;
   }
   

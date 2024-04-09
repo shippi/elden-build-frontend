@@ -1,4 +1,4 @@
-import { CharacterStats, Armour, Talisman } from "@/helpers/types";
+import { CharacterStats, Armour, Talisman, CrystalTear } from "@/helpers/types";
 import { NEGATION_NAMES } from "./consts";
 
 /**
@@ -54,7 +54,7 @@ export function calculatePhysicalDefences(totalStats: CharacterStats, level: num
    * @param selectedTalismans 
    * @returns 
    */
-  export function calculateNegations(selectedArmours: Armour[], selectedTalismans: Talisman[]) {
+  export function calculateNegations(selectedArmours: Armour[], selectedTalismans: Talisman[], selectedTears?: CrystalTear[]) {
     let negationValues = [0, 0, 0, 0, 0, 0, 0, 0]; // initialize all negation values as 0
   
     // loops through each of the selected armours and calculates the new negation value
@@ -92,7 +92,22 @@ export function calculatePhysicalDefences(totalStats: CharacterStats, level: num
           }
         });
       }
-    })
+    });
+
+    if (!selectedTears) return negationValues;
+
+    selectedTears.forEach(tear => {
+      if (tear != null) {
+        NEGATION_NAMES.forEach((name, i) => {
+          if (tear.statChanges?.hasOwnProperty(name += "Negation")) {
+            let tearValue = tear.statChanges[name as keyof typeof tear.statChanges];
+            if (tearValue != undefined) 
+              negationValues[i] = negationValues[i]- ((negationValues[i] *  tearValue) / 100) + tearValue;
+          }
+        });
+      }
+    });
+
     return negationValues;
   }
   
@@ -198,7 +213,7 @@ export function calculatePhysicalDefences(totalStats: CharacterStats, level: num
    * @param selectedTalismans 
    * @returns 
    */
-  export function calculateResistances(totalStats: CharacterStats, level: number, selectedArmours: Armour[], selectedTalismans: Talisman[]) {
+  export function calculateResistances(totalStats: CharacterStats, level: number, selectedArmours: Armour[], selectedTalismans: Talisman[], selectedTears?: CrystalTear[]) {
     const vigorLevel = totalStats.vigor;
     const enduranceLevel = totalStats.endurance;
     const mindLevel = totalStats.mind;
@@ -274,6 +289,15 @@ export function calculatePhysicalDefences(totalStats: CharacterStats, level: num
       if (talisman?.statChanges?.focus) focus += +talisman.statChanges.focus;
       if (talisman?.statChanges?.vitality) vitality += +talisman.statChanges.vitality;
     })
-    
+
+    if (!selectedTears) return [immunity, robustness, focus, vitality].map(i => Math.floor(i));
+
+    selectedTears.forEach(tear => {
+      if (tear?.statChanges?.immunity) immunity += +tear.statChanges.immunity;
+      if (tear?.statChanges?.robustness) robustness += +tear.statChanges.robustness;
+      if (tear?.statChanges?.focus) focus += +tear.statChanges.focus;
+      if (tear?.statChanges?.vitality) vitality += +tear.statChanges.vitality;
+    });
+
     return [immunity, robustness, focus, vitality].map(i => Math.floor(i));
   }
