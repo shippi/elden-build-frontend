@@ -120,6 +120,13 @@ export interface GreatRune {
     statChanges?: StatChange
 }
 
+export interface CrystalTear {
+    name: string,
+    effect: string,
+    statChanges?: StatChange
+}
+
+
 export interface Ammo {
     id: string,
     name: string,

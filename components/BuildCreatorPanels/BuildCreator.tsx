@@ -1,5 +1,5 @@
 'use client'
-import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel, FilePanel } from '@/components'
+import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel, FilePanel, PhysickPanel } from '@/components'
 import BuildCreatorContext from '@/context/BuildCreatorContext';
 import useLoading from '@/hooks/useLoading';
 import { useContext } from 'react';
@@ -29,6 +29,8 @@ function BuildCreator() {
                         <CharacterPanel/>
                         <div style={{height:"40px"}}/>
                         <GreatRunesPanel/>
+                        <div style={{height:"40px"}}/>
+                        <PhysickPanel/>
                     </div>
 
                     <div className="subcontainer">

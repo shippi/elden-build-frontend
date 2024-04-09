@@ -2,17 +2,18 @@
 import { AuthContext } from "@/context/AuthContext"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
 import { useContext, useEffect, useRef, useState } from "react"
-import { Ammo, Armour, Ash, Spell, Talisman, Weapon } from "@/helpers/types";
+import { Ammo, Armour, Ash, CrystalTear, Spell, Talisman, Weapon } from "@/helpers/types";
 import { delay } from "@/utils";
 import { checkNameExists } from "@/helpers/FileHelper";
 import { DropDown } from "..";
 import { useClickOutside } from "@/hooks";
 import { armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data";
 import { getItemFromName } from "@/helpers/BuildCreatorHelper";
+import { crystalTears } from "@/public/data/Equipment/crystalTears";
 
 function FilePanel() {
-  const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, selectedSpells, characterStats,
-          setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedArrows, setSelectedBolts, 
+  const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, selectedSpells, characterStats,
+          setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedTears, setSelectedArrows, setSelectedBolts, 
           setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild } 
          = useContext(BuildCreatorContext);
 
@@ -28,7 +29,7 @@ function FilePanel() {
   const [builds, setBuilds] = useState<any[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [buildNameWidth, setBuildNameWidth] = useState("");
-
+    
   let uid = "";
   if (currentUser) uid = currentUser.uid;
 
@@ -77,6 +78,7 @@ function FilePanel() {
       selectedWepLvls: selectedWepLvls,
       selectedAffinities: selectedAffinities, 
       selectedRune: selectedRune ? selectedRune.name : null, 
+      selectedTears: selectedTears.map((tear: CrystalTear | null) => { if (tear) return(tear.name)}),
       selectedArrows: selectedArrows.map((arrow: Ammo | null) => { if (arrow) return(arrow.name)}), 
       selectedBolts: selectedBolts.map((bolt: Ammo | null) => { if (bolt) return(bolt.name)}), 
       selectedSpells: selectedSpells.map((spell: Spell | null) => { if (spell) return(spell.name)}), 
@@ -185,6 +187,7 @@ function FilePanel() {
       selectedWepLvls: selectedWepLvls,
       selectedAffinities: selectedAffinities, 
       selectedRune: selectedRune ? selectedRune.name : null, 
+      selectedTears: selectedTears,
       selectedArrows: selectedArrows, 
       selectedBolts: selectedBolts, 
       selectedSpells: selectedSpells, 
@@ -235,6 +238,7 @@ function FilePanel() {
       setSelectedTalismans(selectedBuild.selectedTalismans.map((name: string) => getItemFromName(name, talismans)));
       setSelectedWeapons(selectedBuild.selectedWeapons.map((name: string) => getItemFromName(name, weapons)));
       setSelectedRune(getItemFromName(selectedBuild.selectedRune, greatRunes));
+      setSelectedTears(selectedBuild.selectedTears.map((name: string) => getItemFromName(name, crystalTears)));
       setSelectedAshes(selectedBuild.selectedAshes.map((name: string) => getItemFromName(name, ashes)));
       setSelectedAffinities(selectedBuild.selectedAffinities);
       setSelectedWepLvls(selectedBuild.selectedWepLvls);
@@ -251,6 +255,7 @@ function FilePanel() {
         selectedWepLvls: selectedBuild.selectedWepLvls,
         selectedAffinities: selectedBuild.selectedAffinities, 
         selectedRune: getItemFromName(selectedBuild.selectedRune, greatRunes),
+        selectedTears: selectedBuild.selectedTears.map((name: string) => getItemFromName(name, crystalTears)), 
         selectedArrows: selectedBuild.selectedArrows.map((name: string) => getItemFromName(name, arrows)), 
         selectedBolts: selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)), 
         selectedSpells: selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)), 

@@ -1,7 +1,7 @@
 'use client'
 import { useContext, useEffect, useState } from "react";
 import { DropDown, PanelTitle } from "..";
-import { getIndexOfItem, getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
+import { getIndexOfItem, getIndicesOfItems, getSelectedItems, handleDropdownChange } from "@/helpers/BuildCreatorHelper";
 import { talismans } from "@/public/data";
 import BuildCreatorContext from "@/context/BuildCreatorContext";
 import { Talisman } from "@/helpers/types";
@@ -9,11 +9,7 @@ import { Talisman } from "@/helpers/types";
 function TalismansPanel() {
     const {selectedTalismans, setSelectedTalismans} = useContext(BuildCreatorContext);
 
-    const [indices, setIndices] = useState<number[]>(
-        selectedTalismans.map((talisman: Talisman) => { 
-        if (talisman) return getIndexOfItem(talisman.name, talismans);
-        else return -1;
-    }));
+    const [indices, setIndices] = useState(getIndicesOfItems(selectedTalismans, talismans));
     const [currIndex, setCurrIndex] = useState(0);
 
     const handleOnChange = (newIndex: number) => {

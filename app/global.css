@@ -561,7 +561,8 @@ ul > .separator {
 .defences-panel,
 .selectors-container,
 .ammo-panel,
-.spells-panel {
+.spells-panel,
+.physick-panel {
   display: block;
   padding: 15px 20px 10px 20px;
   background: linear-gradient(90deg, rgba(25,22,17,1) 0%, rgba(0,0,0,0) 100%);
@@ -586,7 +587,8 @@ ul > .separator {
 }
 
 .character-panel,
-.great-runes-panel {
+.great-runes-panel,
+.physick-panel {
   width: 15vw;
   min-width: 350px;
 }

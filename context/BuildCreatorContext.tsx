@@ -15,11 +15,16 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     const [selectedWepLvls, setSelectedWepLvls] = useState<any[]>(new Array(6).fill(0));
     const [selectedAffinities, setSelectedAffinities] = useState<any[]>(new Array(6).fill("Standard"));
     const [selectedRune, setSelectedRune] = useState<GreatRune|undefined>(undefined);
+    const [selectedTears, setSelectedTears] = useState<Spell|null[]>(new Array(2).fill(null));
+
     const [selectedArrows, setSelectedArrows] = useState<Ammo|null[]>(new Array(2).fill(null));
     const [selectedBolts, setSelectedBolts] = useState<Ammo|null[]>(new Array(2).fill(null));
     const [selectedSpells, setSelectedSpells] = useState<Spell|null[]>(new Array(12).fill(null));
+    
     const [twoHanded, setTwoHanded] = useState(false);
     const [runeActivated, setRuneActivated] = useState(false);
+    const [tearActivated, setTearActivated] = useState(false);
+
     const [characterStats, setCharacterStats] = useState<CharacterStats>({
         vigor: 0, 
         mind: 0, 
@@ -47,6 +52,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         selectedWepLvls: selectedWepLvls,
         selectedAffinities: selectedAffinities, 
         selectedRune: selectedRune, 
+        selectedTears: selectedTears,
         selectedArrows: selectedArrows, 
         selectedBolts: selectedBolts, 
         selectedSpells: selectedSpells, 
@@ -58,7 +64,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
      * and as a set of dependencies for the upcoming use effect hook
      */
     const saveableDependencies = [selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, 
-            selectedWepLvls, selectedAffinities, selectedRune, selectedArrows, selectedBolts, 
+            selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, 
             selectedSpells, characterStats];
 
     /**
@@ -92,6 +98,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setSelectedWepLvls(new Array(6).fill(0));
         setSelectedAffinities(new Array(6).fill("Standard"));
         setSelectedRune(undefined);
+        setSelectedTears(new Array(2).fill(null));
         setSelectedArrows(new Array(2).fill(null));
         setSelectedBolts(new Array(2).fill(null));
         setSelectedSpells(new Array(12).fill(null));
@@ -115,6 +122,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
             selectedWepLvls: new Array(6).fill(0),
             selectedAffinities: new Array(6).fill("Standard"), 
             selectedRune: undefined,
+            selectedTears: new Array(2).fill(null),
             selectedArrows: new Array(2).fill(null), 
             selectedBolts: new Array(2).fill(null), 
             selectedSpells: new Array(12).fill(null), 
@@ -152,6 +160,8 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setSelectedAffinities,
         selectedRune, 
         setSelectedRune,
+        selectedTears,
+        setSelectedTears,
         selectedArrows, 
         setSelectedArrows,
         selectedBolts, 
@@ -162,6 +172,8 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setTwoHanded,
         runeActivated, 
         setRuneActivated,
+        tearActivated,
+        setTearActivated,
         characterStats, 
         setCharacterStats,
         runeEffect,

@@ -1,4 +1,4 @@
-[
+export const crystalTears = [
   {
     "id": "11000",
     "name": "Crimsonspill Crystal Tear",
