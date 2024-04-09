@@ -34,7 +34,7 @@ function PhysickPanel() {
           <ul>
             {
               indices.map((i, j) => (
-              <li className={i > -1 ? "" : "hidden"} key={j}>{i > -1 ? crystalTears[i].effect : ""}</li>
+              <li className={i > -1 ? "" : "hidden"} key={j}>{i > -1 ? crystalTears[i].effect.charAt(0).toUpperCase() + crystalTears[i].effect.slice(1) : ""}</li>
               ))
             }
           </ul>

@@ -760,7 +760,7 @@ td {
 }
 
 .great-runes-panel .disabled,
-.physick-panel .disabled {
+.physick-panel .disabled:not(.selector *) {
   background-color: transparent !important;
 }
 
