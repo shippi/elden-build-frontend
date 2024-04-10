@@ -52,7 +52,7 @@ function FilePanel() {
       }
       res();
     }
-  }, [loadOpen, saveLoading, currentUser])
+  }, [loadOpen, saveLoading, currentUser, loadingBuild])
 
   useEffect(() => {
     setSelectedIndex(builds.findIndex((build) => build.id == saveId));
@@ -233,8 +233,28 @@ function FilePanel() {
     setSelectToggle(!selectToggle);
   }
 
-  const handleDelete = () => {
-
+  const handleDelete = async () => {
+    try {
+      setLoadingBuild(true);
+      await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        mode: "cors",
+      })
+      .then(res=> {if (!res.ok) throw new Error()})
+      setOldBuildName("");
+      setSelectedIndex(-1);
+      
+      setSelectToggle(!selectToggle);
+    }
+    catch (error) {
+      setIsError(true);
+      setMessage("Server error.");
+      await delay(2510);
+      setSaveLoading(false);
+      return;
+    }
   }
 
   useEffect(() => {
@@ -300,7 +320,7 @@ function FilePanel() {
       </div>
       <button onClick={handleNew} className={disabledNew || loadingBuild ? "disabled" : ""}>New</button>
       <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName) ? "disabled" : ""} disabled={saveLoading}>Save</button>
-      <button className={"delete-btn" + (selectedIndex < 0 || loadingBuild ? " disabled" : "")}><i className="fa fa-trash" aria-hidden="true" style={{fontSize: "26px"}}/></button>
+      <button onClick={handleDelete} className={"delete-btn" + (selectedIndex < 0 || loadingBuild ? " disabled" : "")}><i className="fa fa-trash" aria-hidden="true" style={{fontSize: "26px"}}/></button>
       {message && <div className="message" style={{color: isError ? "red" : " white"}}>{message}</div>}
     </div>
   )
