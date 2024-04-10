@@ -29,6 +29,8 @@ function FilePanel() {
   const [builds, setBuilds] = useState<any[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [buildNameWidth, setBuildNameWidth] = useState("");
+
+  const [selectToggle, setSelectToggle] = useState(false);
     
   let uid = "";
   if (currentUser) uid = currentUser.uid;
@@ -221,12 +223,14 @@ function FilePanel() {
     setSaveId(builds[newIndex].id);
     setLoadOpen(false);
     setLoadingBuild(true);
+    setSelectToggle(!selectToggle);
   }
 
   const handleNew = () => {
     setOldBuildName("");
     setSelectedIndex(-1);
     setLoadingBuild(true);
+    setSelectToggle(!selectToggle);
   }
 
   useEffect(() => {
@@ -267,7 +271,7 @@ function FilePanel() {
     }
     setSaveable(false);
     setTimeout(() => setLoadingBuild(false), 750);
-  }, [selectedIndex])
+  }, [selectToggle])
 
 
 
