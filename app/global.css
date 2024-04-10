@@ -512,13 +512,24 @@ ul > .separator {
   font-style: normal;
 }
 
-.file-panel button:hover:not(.disabled),
-
-.dummy-button:hover  {
-  cursor: pointer;
-  background-color: grey;
+.delete-btn {
+  width: fit-content !important;
+  background-color: #990029 !important;
+  border: #b50030 1px solid !important;  
 }
 
+.file-panel button:hover:not(.disabled),
+
+.dummy-button:hover,
+.delete-btn:hover  {
+  cursor: pointer;
+  background-color: grey !important;
+  border: var(--grey-border) !important;
+}
+
+.file-panel .disabled {
+  border: var(--grey-border) !important;
+}
 
 .input-container {
   display: flex;

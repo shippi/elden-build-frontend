@@ -233,6 +233,10 @@ function FilePanel() {
     setSelectToggle(!selectToggle);
   }
 
+  const handleDelete = () => {
+
+  }
+
   useEffect(() => {
     if (builds[selectedIndex]) {
       const selectedBuild = builds[selectedIndex].build
@@ -296,6 +300,7 @@ function FilePanel() {
       </div>
       <button onClick={handleNew} className={disabledNew || loadingBuild ? "disabled" : ""}>New</button>
       <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName) ? "disabled" : ""} disabled={saveLoading}>Save</button>
+      <button className={"delete-btn" + (selectedIndex < 0 || loadingBuild ? " disabled" : "")}><i className="fa fa-trash" aria-hidden="true" style={{fontSize: "26px"}}/></button>
       {message && <div className="message" style={{color: isError ? "red" : " white"}}>{message}</div>}
     </div>
   )
