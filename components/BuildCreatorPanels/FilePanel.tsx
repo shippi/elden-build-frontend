@@ -14,7 +14,7 @@ import { crystalTears } from "@/public/data/Equipment/crystalTears";
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedTears, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild } 
+          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, currentBuild } 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
@@ -61,7 +61,7 @@ function FilePanel() {
   useEffect(() => {
     setIsError(false);
     setMessage("");
-  }, [saveLoading])
+  }, [saveLoading, loadingBuild])
   
   useEffect(() => {
     if (selectedIndex > -1) setDisableNew(false);
@@ -188,7 +188,7 @@ function FilePanel() {
       selectedAshes: selectedAshes, 
       selectedWepLvls: selectedWepLvls,
       selectedAffinities: selectedAffinities, 
-      selectedRune: selectedRune ? selectedRune.name : null, 
+      selectedRune: selectedRune, 
       selectedTears: selectedTears,
       selectedArrows: selectedArrows, 
       selectedBolts: selectedBolts, 
@@ -245,7 +245,6 @@ function FilePanel() {
       .then(res=> {if (!res.ok) throw new Error()})
       setOldBuildName("");
       setSelectedIndex(-1);
-      
       setSelectToggle(!selectToggle);
     }
     catch (error) {
@@ -289,12 +288,15 @@ function FilePanel() {
         selectedSpells: selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)), 
         characterStats: selectedBuild.characterStats
       });
+      console.log(selectedRune)
+      console.log(getItemFromName(selectedBuild.selectedRune, greatRunes))
     }
     else {
       resetBuild();
     }
     setSaveable(false);
     setTimeout(() => setLoadingBuild(false), 750);
+
   }, [selectToggle])
 
 
