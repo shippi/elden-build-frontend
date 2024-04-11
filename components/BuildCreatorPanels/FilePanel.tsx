@@ -230,10 +230,21 @@ function FilePanel() {
   }
 
   const handleNew = () => {
-    setOldBuildName("");
-    setSelectedIndex(-1);
-    setLoadingBuild(true);
-    setSelectToggle(!selectToggle);
+    const newBuild = () => {
+      setOldBuildName("");
+      setSelectedIndex(-1);
+      setLoadingBuild(true);
+      setSelectToggle(!selectToggle);
+      setConfirmationOpen(false);
+    }
+    if (saveable) {
+      setConfirmationOpen(true);
+      setConfirmationMessage("Are you sure you want to create a new build without saving the current one?");
+      setConfirmationFunction(() => newBuild);
+    }
+    else {
+      newBuild();
+    }
   }
 
   const handleDelete = async () => {

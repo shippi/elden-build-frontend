@@ -436,8 +436,9 @@ ul > .separator {
 }
 
 .modal-content .button-container button {
+  text-align: center;
   width: 100px;
-  height: 30px;
+  height: 33px;
   background-color: #121212;
   border: var(--grey-border);
 }
