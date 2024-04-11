@@ -10,11 +10,12 @@ import { useClickOutside } from "@/hooks";
 import { armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data";
 import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 import { crystalTears } from "@/public/data/Equipment/crystalTears";
+import ConfirmationModal from "../Modals/ConfirmationModal";
 
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedTears, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, currentBuild } 
+          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, confirmationOpen, setConfirmationOpen, setConfirmationMessage, setConfirmationFunction} 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
@@ -24,6 +25,8 @@ function FilePanel() {
   const [isError, setIsError] = useState(false);
   const [loadOpen, setLoadOpen] = useState(false);
   const [disabledNew, setDisableNew] = useState(true);
+
+
 
   const [oldBuildName, setOldBuildName] = useState(buildName);
   const [builds, setBuilds] = useState<any[]>([]);
@@ -234,26 +237,34 @@ function FilePanel() {
   }
 
   const handleDelete = async () => {
-    try {
-      setLoadingBuild(true);
-      await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        mode: "cors",
-      })
-      .then(res=> {if (!res.ok) throw new Error()})
-      setOldBuildName("");
-      setSelectedIndex(-1);
-      setSelectToggle(!selectToggle);
+    const deleteBuild = async () => {
+      try {
+        setConfirmationOpen(false);
+        setLoadingBuild(true);
+        await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
+        {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          mode: "cors",
+        })
+        .then(res=> {if (!res.ok) throw new Error()});
+        
+        setOldBuildName("");
+        setSelectedIndex(-1);
+        setSelectToggle(!selectToggle);
+      }
+      catch (error) {
+        setIsError(true);
+        setMessage("Server error.");
+        await delay(2510);
+        setSaveLoading(false);
+      }
     }
-    catch (error) {
-      setIsError(true);
-      setMessage("Server error.");
-      await delay(2510);
-      setSaveLoading(false);
-      return;
-    }
+
+    setConfirmationOpen(true);
+    setConfirmationMessage(["Are you sure you want to delete the following build? (this action cannot be undone): ", 
+                            <><br/><br/><span className="build-name">{buildName}</span></>, ""]);
+    setConfirmationFunction(() => deleteBuild);
   }
 
   useEffect(() => {
@@ -302,7 +313,11 @@ function FilePanel() {
 
 
   return (
+    <>
+    {confirmationOpen && <ConfirmationModal/>}
+    
     <div className="file-panel">
+      
       <div>
         <label>Build Name: </label>
         <div className="input-container" ref={ref}>
@@ -325,6 +340,7 @@ function FilePanel() {
       <button onClick={handleDelete} className={"delete-btn" + (selectedIndex < 0 || loadingBuild ? " disabled" : "")}><i className="fa fa-trash" aria-hidden="true" style={{fontSize: "26px"}}/></button>
       {message && <div className="message" style={{color: isError ? "red" : " white"}}>{message}</div>}
     </div>
+    </>
   )
 }
 

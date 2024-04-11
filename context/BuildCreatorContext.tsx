@@ -40,6 +40,10 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     const [saveId, setSaveId] = useState<number>(-1);
     const [saveable, setSaveable] = useState(false);
 
+    const [confirmationOpen, setConfirmationOpen] = useState(false);
+    const [confirmationMessage, setConfirmationMessage] = useState<any>("");
+    const [confirmationFunction, setConfirmationFunction] = useState(() => {});
+
     const runeEffect = runeActivated ? selectedRune : undefined;
 
     // current build state, used to store the values of the original saved build
@@ -84,7 +88,14 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         });
             
          setSaveable(saved);
-    }, [...saveableDependencies, currentBuild])
+    }, [...saveableDependencies, currentBuild]);
+
+    useEffect(() => {
+        if (!confirmationOpen) {
+            setConfirmationMessage("");
+            setConfirmationFunction(() => {});
+        }
+    }, [confirmationOpen]);
 
     // function used to reset all the selected equipment as well as current build
     const resetBuild = () => {
@@ -185,7 +196,13 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setSaveable,
         setCurrentBuild,
         currentBuild,
-        resetBuild
+        resetBuild,
+        confirmationOpen,
+        confirmationMessage,
+        confirmationFunction,
+        setConfirmationOpen,
+        setConfirmationMessage,
+        setConfirmationFunction
     }
 
     return (

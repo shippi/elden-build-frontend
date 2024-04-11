@@ -282,6 +282,8 @@ ul > .separator {
 
 /*styling for modals page*/
 .modal {
+  top:0;
+  left:0;
   position: fixed;
   display: flex;
   justify-content: center;
@@ -289,7 +291,7 @@ ul > .separator {
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  z-index: 3;
 }
 
 .modal * {
@@ -331,7 +333,9 @@ ul > .separator {
   row-gap: 22px;
   padding: 0px 25px 25px 25px;
 }
-
+.modal-content {
+  width: fit-content;
+}
 .click-here {
   color: var(--gold);
   text-decoration: underline;
@@ -422,6 +426,27 @@ ul > .separator {
 
 .invalid {
   border-bottom: 2px #f5473b solid !important;
+}
+
+.modal-content .button-container {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.modal-content .button-container button {
+  width: 100px;
+  height: 30px;
+  background-color: #121212;
+  border: var(--grey-border);
+}
+
+.build-name {
+  font-size: 18px;
+  display: table;
+  margin: 0 auto;
+  color: var(--gold);
 }
 
 /*styling for build creator page*/
