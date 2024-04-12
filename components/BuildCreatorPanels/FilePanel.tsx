@@ -239,7 +239,7 @@ function FilePanel() {
     }
     if (saveable) {
       setConfirmationOpen(true);
-      setConfirmationMessage("Are you sure you want to create a new build without saving the current one?");
+      setConfirmationMessage("Are you sure you want to create a new build? Unsaved changes will not be saved.");
       setConfirmationFunction(() => newBuild);
     }
     else {
@@ -255,7 +255,10 @@ function FilePanel() {
         await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
         {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
+          headers: { 
+            "Content-Type": "application/json", 
+            "Authorization" : `Bearer ${currentUser.accessToken}` 
+          },
           mode: "cors",
         })
         .then(res=> {if (!res.ok) throw new Error()});
@@ -268,6 +271,7 @@ function FilePanel() {
         setIsError(true);
         setMessage("Server error.");
         await delay(2510);
+        setSelectToggle(!selectToggle);
         setSaveLoading(false);
       }
     }
