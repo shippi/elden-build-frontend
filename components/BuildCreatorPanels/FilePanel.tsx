@@ -129,6 +129,9 @@ function FilePanel() {
         await fetch(process.env.NEXT_PUBLIC_API_URL + "builds", 
         {
           method: "POST",
+          headers: {
+            "Authorization" : `Bearer ${currentUser.accessToken}` 
+          },
           mode: "cors",
           body: JSON.stringify(sentData)
         })
@@ -167,7 +170,10 @@ function FilePanel() {
         await fetch(process.env.NEXT_PUBLIC_API_URL + "builds/" + saveId, 
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
+          headers: { 
+            "Content-Type": "application/json",
+            "Authorization" : `Bearer ${currentUser.accessToken}` 
+          },
           mode: "cors",
           body: JSON.stringify(sentData)
         })
