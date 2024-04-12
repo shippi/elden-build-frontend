@@ -109,6 +109,7 @@ function FilePanel() {
       setSaveLoading(false);
       return;
     }
+    
     if (saveId < 0) {
       const nameExists = await checkNameExists(uid, buildName);
       
@@ -119,12 +120,14 @@ function FilePanel() {
         setSaveLoading(false);
         return;
       } 
+
       const sentData = {
         uid: uid,
         name: buildName,
         build: buildData,
         isPublic: false
       }
+
       try {
         await fetch(process.env.NEXT_PUBLIC_API_URL + "builds", 
         {
@@ -135,7 +138,10 @@ function FilePanel() {
           mode: "cors",
           body: JSON.stringify(sentData)
         })
-        .then(res=> res.json())
+        .then(res => {
+          if (!res.ok) throw Error;
+          return res.json()
+        })
         .then(data => setSaveId(data.id))
       }
       catch (error) {
