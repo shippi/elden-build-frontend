@@ -183,7 +183,7 @@ function FilePanel() {
           mode: "cors",
           body: JSON.stringify(sentData)
         })
-        .then(res=> {if (!res.ok) throw new Error()})
+        .then(res => {if (!res.ok) throw new Error()})
       }
       catch (error) {
         setIsError(true);
@@ -232,13 +232,24 @@ function FilePanel() {
   }
 
   const onDropDownSelect = (newIndex: number) => {
-    setSelectedIndex(newIndex);
-    setBuildName(builds[newIndex].name);
-    setOldBuildName(builds[newIndex].name);
-    setSaveId(builds[newIndex].id);
-    setLoadOpen(false);
-    setLoadingBuild(true);
-    setSelectToggle(!selectToggle);
+    const changeBuild = () => {
+      setSelectedIndex(newIndex);
+      setBuildName(builds[newIndex].name);
+      setOldBuildName(builds[newIndex].name);
+      setSaveId(builds[newIndex].id);
+      setLoadOpen(false);
+      setLoadingBuild(true);
+      setSelectToggle(!selectToggle);
+      setConfirmationOpen(false);
+    }
+    if (saveable || oldBuildName != buildName) {
+      setConfirmationOpen(true);
+      setConfirmationMessage("Are you sure you want to select a different build? Unsaved changes will not be saved.");
+      setConfirmationFunction(() => changeBuild);
+    }
+    else {
+      changeBuild();
+    }
   }
 
   const handleNew = () => {
@@ -249,7 +260,7 @@ function FilePanel() {
       setSelectToggle(!selectToggle);
       setConfirmationOpen(false);
     }
-    if (saveable) {
+    if (saveable || oldBuildName != buildName) {
       setConfirmationOpen(true);
       setConfirmationMessage("Are you sure you want to create a new build? Unsaved changes will not be saved.");
       setConfirmationFunction(() => newBuild);
@@ -354,7 +365,7 @@ function FilePanel() {
               loadOpen ? 
               <div className="dummy-button"><i className="fa fa-angle-down rotate" aria-hidden="true"/></div>
               :
-              <button onClick={handleLoad} className={message || loadingBuild ? "disabled" : ""}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
+              <button onClick={handleLoad} className={message || loadingBuild || saveLoading ? "disabled" : ""}><i className={(!loadOpen ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"/></button>
             }
           </div>
         </div>

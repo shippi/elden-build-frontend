@@ -571,6 +571,7 @@ ul > .separator {
   width: 35px;
   background-color:#3d3d3d;
   border-bottom: 1px;
+  border: var(--grey-border);
 }
 
 .load-container {
