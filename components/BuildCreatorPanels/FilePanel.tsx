@@ -15,7 +15,7 @@ import ConfirmationModal from "../Modals/ConfirmationModal";
 function FilePanel() {
   const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, selectedSpells, characterStats,
           setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedTears, setSelectedArrows, setSelectedBolts, 
-          setSelectedSpells, setCharacterStats, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, confirmationOpen, setConfirmationOpen, setConfirmationMessage, setConfirmationFunction} 
+          setSelectedSpells, setCharacterStats, isPublic, setIsPublic, loadingBuild, setLoadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, setBuildName, resetBuild, confirmationOpen, setConfirmationOpen, setConfirmationMessage, setConfirmationFunction} 
          = useContext(BuildCreatorContext);
 
   const {currentUser} = useContext(AuthContext);
@@ -25,8 +25,6 @@ function FilePanel() {
   const [isError, setIsError] = useState(false);
   const [loadOpen, setLoadOpen] = useState(false);
   const [disabledNew, setDisableNew] = useState(true);
-
-
 
   const [oldBuildName, setOldBuildName] = useState(buildName);
   const [builds, setBuilds] = useState<any[]>([]);
@@ -130,7 +128,7 @@ function FilePanel() {
         uid: uid,
         name: buildName,
         build: buildData,
-        isPublic: false
+        isPublic: isPublic
       }
 
       try {
@@ -174,7 +172,7 @@ function FilePanel() {
       const sentData = {
         name: buildName,
         build: buildData,
-        isPublic: false
+        isPublic: isPublic
       }
 
       try {
@@ -213,7 +211,8 @@ function FilePanel() {
       selectedArrows: selectedArrows, 
       selectedBolts: selectedBolts, 
       selectedSpells: selectedSpells, 
-      characterStats: characterStats
+      characterStats: characterStats,
+      isPublic: isPublic
     });
     setSaveable(false);
     setMessage("Build saved succesfully!");
@@ -310,6 +309,10 @@ function FilePanel() {
     setConfirmationFunction(() => deleteBuild);
   }
 
+  const handleVisibilityOnClick = () => {
+    setIsPublic(!isPublic);
+  }
+
   useEffect(() => {
     if (builds[selectedIndex]) {
       const selectedBuild = builds[selectedIndex].build
@@ -326,7 +329,8 @@ function FilePanel() {
       setSelectedArrows(selectedBuild.selectedArrows.map((name: string) => getItemFromName(name, arrows)));
       setSelectedBolts(selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)));
       setSelectedSpells(selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)));
-
+      setIsPublic(builds[selectedIndex].is_public);
+      
       setCurrentBuild({
         selectedClass: getItemFromName(selectedBuild.selectedClass, classes),
         selectedArmours: selectedBuild.selectedArmours.map((armour: string) => getItemFromName(armour, armours)), 
@@ -340,7 +344,8 @@ function FilePanel() {
         selectedArrows: selectedBuild.selectedArrows.map((name: string) => getItemFromName(name, arrows)), 
         selectedBolts: selectedBuild.selectedBolts.map((name: string) => getItemFromName(name, bolts)), 
         selectedSpells: selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)), 
-        characterStats: selectedBuild.characterStats
+        characterStats: selectedBuild.characterStats,
+        isPublic: builds[selectedIndex].is_public
       });
     }
     else {
@@ -360,7 +365,7 @@ function FilePanel() {
     <div className="file-panel">
       
       <div>
-        <label>Build Name: </label>
+        <label>Build Name </label>
         <div className="input-container" ref={ref}>
           <input type="text" style={{marginTop: "5px"}} value={buildName} onChange={e => setBuildName(e.target.value)}/>
           <div className="load-container">
@@ -376,6 +381,15 @@ function FilePanel() {
         {loadOpen && <div ref={dropDownRef} style={{transform: "translateY(5px)"}}><DropDown items={builds} index={selectedIndex} isNullable={false} hasImages={false} showSelected={false} width={buildNameWidth} onChange={onDropDownSelect} /></div>}
         
       </div>
+      <div >
+        <label>Visibility </label>
+        <div className="visibility-container">
+          <i className={isPublic ? "fa fa-eye fa-lg" : "fa fa-eye-slash fa-lg" } aria-hidden="true" style={{fontSize: "32px"}} onClick={handleVisibilityOnClick}/>
+        </div>
+        
+    
+      </div>
+
       <button onClick={handleNew} className={disabledNew || loadingBuild ? "disabled" : ""}>New</button>
       <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName) ? "disabled" : ""} disabled={saveLoading}>Save</button>
       <button onClick={handleDelete} className={"delete-btn" + (selectedIndex < 0 || loadingBuild ? " disabled" : "")}><i className="fa fa-trash" aria-hidden="true" style={{fontSize: "26px"}}/></button>

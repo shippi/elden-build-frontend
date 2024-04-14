@@ -578,6 +578,18 @@ ul > .separator {
   align-self: flex-end;
 }
 
+.visibility-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+
+.visibility-container *:hover {
+  cursor: pointer;
+  color: var(--gold);
+}
+
 .message {
   opacity: 0;
   display: flex;

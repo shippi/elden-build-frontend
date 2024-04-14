@@ -20,10 +20,6 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     const [selectedArrows, setSelectedArrows] = useState<Ammo|null[]>(new Array(2).fill(null));
     const [selectedBolts, setSelectedBolts] = useState<Ammo|null[]>(new Array(2).fill(null));
     const [selectedSpells, setSelectedSpells] = useState<Spell|null[]>(new Array(12).fill(null));
-    
-    const [twoHanded, setTwoHanded] = useState(false);
-    const [runeActivated, setRuneActivated] = useState(false);
-    const [tearActivated, setTearActivated] = useState(false);
 
     const [characterStats, setCharacterStats] = useState<CharacterStats>({
         vigor: 0, 
@@ -35,6 +31,12 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         faith: 0, 
         arcane: 0
     });
+
+    const [isPublic, setIsPublic] = useState(false); 
+
+    const [twoHanded, setTwoHanded] = useState(false);
+    const [runeActivated, setRuneActivated] = useState(false);
+    const [tearActivated, setTearActivated] = useState(false);
 
     const [loadingBuild, setLoadingBuild] = useState(false);
     const [saveId, setSaveId] = useState<number>(-1);
@@ -60,7 +62,8 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         selectedArrows: selectedArrows, 
         selectedBolts: selectedBolts, 
         selectedSpells: selectedSpells, 
-        characterStats: characterStats
+        characterStats: characterStats,
+        isPublic: isPublic
     });
 
     /**
@@ -69,7 +72,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
      */
     const saveableDependencies = [selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, 
             selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, 
-            selectedSpells, characterStats];
+            selectedSpells, characterStats, isPublic];
 
     /**
      * useEffect hook used to check if selected equipment is different to the original
@@ -83,8 +86,10 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
          * saveable set is set to true.
          */
         saveableDependencies.forEach((items, i) => {
-            if (items && Object.entries(currentBuild)[i][1] && JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) 
+
+            if (items != undefined && Object.entries(currentBuild)[i][1] != undefined && JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) 
                 saved = true;
+
         });
             
          setSaveable(saved);
@@ -123,7 +128,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
             faith: 0, 
             arcane: 0
         });
-
+        setIsPublic(false);
         setCurrentBuild({
             selectedClass: classes[0],
             selectedArmours: new Array(4).fill(null), 
@@ -146,7 +151,8 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
                 intelligence: 0, 
                 faith: 0, 
                 arcane: 0
-            }
+            },
+            isPublic: false
           });
 
         setSaveable(false);
@@ -179,6 +185,8 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setSelectedBolts,
         selectedSpells, 
         setSelectedSpells,
+        isPublic,
+        setIsPublic,
         twoHanded, 
         setTwoHanded,
         runeActivated, 
