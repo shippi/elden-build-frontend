@@ -49,7 +49,12 @@ function FilePanel() {
   useEffect(() => {
     if (currentUser && uid && (loadOpen == true || saveLoading == false)) {
       const res = async() => {
-        await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?uid=${uid}`)
+        await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?uid=${uid}`, {
+          method: "GET",
+          headers: {
+            "Authorization" : `Bearer ${currentUser.accessToken}` 
+          }
+        })
         .then(async res => await res.json())
         .then(data => setBuilds(data.sort((a: any, b: any) => a.name.localeCompare(b.name))))
       }
@@ -337,8 +342,6 @@ function FilePanel() {
         selectedSpells: selectedBuild.selectedSpells.map((name: string) => getItemFromName(name, spells)), 
         characterStats: selectedBuild.characterStats
       });
-      console.log(selectedRune)
-      console.log(getItemFromName(selectedBuild.selectedRune, greatRunes))
     }
     else {
       resetBuild();
