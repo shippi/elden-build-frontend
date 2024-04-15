@@ -1,10 +1,10 @@
+'use client'
 import { PropsWithChildren, createContext, useEffect, useState } from "react"
 
 export const FilePanelContext = createContext<any>(undefined)
 
 export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [saveLoading, setSaveLoading] = useState(false);
-    const [loadingBuild, setLoadingBuild] = useState(false);
 
     const [message, setMessage] = useState("");
     const [isError, setIsError] = useState(false);

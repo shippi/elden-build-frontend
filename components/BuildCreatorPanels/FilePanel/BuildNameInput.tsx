@@ -1,3 +1,5 @@
+'use client'
+
 import { DropDown } from "@/components";
 import { AuthContext } from "@/context/AuthContext";
 import { BuildCreatorContext } from "@/context/BuildCreatorContext";

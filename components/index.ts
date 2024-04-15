@@ -22,6 +22,12 @@ import ExitButton from "./UIElements/ExitButton";
 import UserDropdown from "./UIElements/UserDropdown";
 import FilePanel from "./BuildCreatorPanels/FilePanel/FilePanel";
 import PhysickPanel from "./BuildCreatorPanels/PhysickPanel";
+import BuildNameInput from "./BuildCreatorPanels/FilePanel/BuildNameInput";
+import DeleteButton from "./BuildCreatorPanels/FilePanel/DeleteButton";
+import NewButton from "./BuildCreatorPanels/FilePanel/NewButton";
+import SaveButton from "./BuildCreatorPanels/FilePanel/SaveButton";
+import VisibilityToggle from "./BuildCreatorPanels/FilePanel/VisibilityToggle";
+import ConfirmationModal from "./Modals/ConfirmationModal";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -48,5 +54,11 @@ export {
     ExitButton,
     UserDropdown,
     FilePanel,
-    PhysickPanel
+    PhysickPanel,
+    BuildNameInput,
+    DeleteButton,
+    NewButton,
+    SaveButton,
+    VisibilityToggle,
+    ConfirmationModal
 }

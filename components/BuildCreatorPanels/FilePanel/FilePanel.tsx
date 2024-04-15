@@ -1,30 +1,21 @@
 'use client'
-import { AuthContext } from "@/context/AuthContext"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
 import { useContext, useEffect } from "react"
 import { armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data";
 import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 import { crystalTears } from "@/public/data/Equipment/crystalTears";
-import ConfirmationModal from "../../Modals/ConfirmationModal";
 import { FilePanelContext } from "@/context/FilePanelContext";
-import NewButton from "./NewButton";
-import SaveButton from "./SaveButton";
-import DeleteButton from "./DeleteButton";
-import VisibilityToggle from "./VisibilityToggle";
-import BuildNameInput from "./BuildNameInput";
+import { BuildNameInput, ConfirmationModal, DeleteButton, NewButton, SaveButton, VisibilityToggle } from "@/components";
 
 function FilePanel() {
   const { setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedTears, setSelectedArrows, setSelectedBolts, 
           setSelectedSpells, setCharacterStats, setIsPublic, loadingBuild, setLoadingBuild, setSaveable, saveId, setCurrentBuild, resetBuild } 
          = useContext(BuildCreatorContext);
-
-  const { currentUser } = useContext(AuthContext);
  
   const { saveLoading, message, setMessage, isError, setIsError, selectedIndex, setSelectedIndex, builds,  selectToggle, confirmationOpen} = useContext(FilePanelContext);
 
-
   useEffect(() => {
-    setSelectedIndex(builds.findIndex((build) => build.id == saveId));
+    setSelectedIndex(builds.findIndex((build: any) => build.id == saveId));
   }, [builds])
 
 	useEffect(() => {
@@ -72,7 +63,6 @@ function FilePanel() {
     }
     setSaveable(false);
     setTimeout(() => setLoadingBuild(false), 750);
-
   }, [selectToggle]);
 
   return (

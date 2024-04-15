@@ -1,3 +1,4 @@
+'use client'
 import { classes } from "@/public/data";
 import { Ammo, Armour, Ash, CharacterStats, GreatRune, Spell, Talisman, Weapon } from "@/helpers/types";
 import { PropsWithChildren, createContext, useEffect, useState } from "react";
