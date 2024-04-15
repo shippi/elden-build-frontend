@@ -2,10 +2,10 @@
 
 import { useContext } from "react"
 import { ExitButton } from ".."
-import BuildCreatorContext from "@/context/BuildCreatorContext"
+import { FilePanelContext } from "@/context/FilePanelContext";
 
 function ConfirmationModal() {
-  const {setConfirmationOpen, confirmationMessage, confirmationFunction} = useContext(BuildCreatorContext);
+  const {setConfirmationOpen, confirmationMessage, confirmationFunction} = useContext(FilePanelContext);
   return (
     <div className="modal">
         <div className="modal-container">

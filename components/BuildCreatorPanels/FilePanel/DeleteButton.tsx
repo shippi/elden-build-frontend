@@ -5,11 +5,11 @@ import { delay } from "@/utils";
 import { useContext } from "react";
 
 function DeleteButton() {
-	const { buildName, loadingBuild, setLoadingBuild, saveId, setConfirmationOpen, 
-            setConfirmationMessage, setConfirmationFunction } = useContext(BuildCreatorContext);
+	const { buildName, loadingBuild, setLoadingBuild, saveId } = useContext(BuildCreatorContext);
 
     const { setOldBuildName, setSelectedIndex, setSelectToggle, selectToggle, 
-            selectedIndex, setIsError, setMessage, setSaveLoading } = useContext(FilePanelContext);
+            selectedIndex, setIsError, setMessage, setSaveLoading, setConfirmationOpen, 
+            setConfirmationMessage, setConfirmationFunction } = useContext(FilePanelContext);
 
     const { currentUser } = useContext(AuthContext);
     const handleDelete = async () => {

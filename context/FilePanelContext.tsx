@@ -4,6 +4,8 @@ export const FilePanelContext = createContext<any>(undefined)
 
 export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [saveLoading, setSaveLoading] = useState(false);
+    const [loadingBuild, setLoadingBuild] = useState(false);
+
     const [message, setMessage] = useState("");
     const [isError, setIsError] = useState(false);
   
@@ -12,6 +14,17 @@ export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) =>
     const [selectedIndex, setSelectedIndex] = useState(-1);
   
     const [selectToggle, setSelectToggle] = useState(false);
+
+    const [confirmationOpen, setConfirmationOpen] = useState(false);
+    const [confirmationMessage, setConfirmationMessage] = useState<any>("");
+    const [confirmationFunction, setConfirmationFunction] = useState(() => {});
+    
+    useEffect(() => {
+        if (!confirmationOpen) {
+            setConfirmationMessage("");
+            setConfirmationFunction(() => {});
+        }
+    }, [confirmationOpen]);
 
     const value = {
         saveLoading,
@@ -27,7 +40,13 @@ export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) =>
         selectedIndex,
         setSelectedIndex,
         selectToggle,
-        setSelectToggle
+        setSelectToggle,
+        confirmationOpen,
+        confirmationMessage,
+        confirmationFunction,
+        setConfirmationOpen,
+        setConfirmationMessage,
+        setConfirmationFunction
     }
 
     return (

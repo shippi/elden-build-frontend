@@ -4,11 +4,11 @@ import { FilePanelContext } from "@/context/FilePanelContext";
 import { useContext, useEffect, useRef, useState } from "react"
 
 function NewButton() {
-	const { buildName, loadingBuild, setLoadingBuild, saveable, setConfirmationOpen, 
-			setConfirmationMessage, setConfirmationFunction } = useContext(BuildCreatorContext);
+	const { buildName, loadingBuild, setLoadingBuild, saveable } = useContext(BuildCreatorContext);
 
 	const { setOldBuildName, setSelectedIndex, setSelectToggle, selectToggle, 
-			selectedIndex, oldBuildName } = useContext(FilePanelContext);
+			selectedIndex, oldBuildName, setConfirmationOpen, setConfirmationMessage, 
+			setConfirmationFunction } = useContext(FilePanelContext);
 
 	const [disabled, setDisabled] = useState(true);
 
