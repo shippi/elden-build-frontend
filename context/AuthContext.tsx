@@ -15,6 +15,8 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [loginOpened, setLoginOpened] = useState(false);
     const [username, setUsername] = useState("");
     
+    const [test, setTest] = useState<any>();
+
     // useEffect hook used to manage the current user for the application
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async user => {
@@ -31,13 +33,9 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         return unsubscribe;
     },[]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            currentUser?.getIdToken(true);
-        }, 3300000);
-
-        return () => clearInterval(interval);
-    }, [])
+    setInterval(async () => {
+        await currentUser?.getIdToken(true)
+    }, 3540000);
 
     const value = {
         currentUser,

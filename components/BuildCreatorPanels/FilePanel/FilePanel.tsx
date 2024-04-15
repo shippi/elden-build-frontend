@@ -16,7 +16,7 @@ function FilePanel() {
 
   useEffect(() => {
     setSelectedIndex(builds.findIndex((build: any) => build.id == saveId));
-  }, [builds])
+  }, [builds]);
 
 	useEffect(() => {
 		setIsError(false);
