@@ -1,6 +1,7 @@
 'use client'
 import { ArmourPanel, CharacterPanel, TalismansPanel, Loading, WeaponsPanel, DefencesPanel, StatsPanel, AttackPowerPanel, GreatRunesPanel, AmmoPanel, SpellsPanel, FilePanel, PhysickPanel } from '@/components'
 import BuildCreatorContext from '@/context/BuildCreatorContext';
+import { FilePanelContextProvider } from '@/context/FilePanelContext';
 import useLoading from '@/hooks/useLoading';
 import { useContext } from 'react';
 
@@ -16,9 +17,9 @@ function BuildCreator() {
                 <div className="panels-container" style={{zIndex: "2"}}>
                     <h1>ELDEN RING BUILD CREATOR</h1>
                     <div style={{height: "20px", width:"100%"}}/>
-                    
-                    <FilePanel/>
-                    
+                    <FilePanelContextProvider>
+                        <FilePanel/>
+                    </FilePanelContextProvider>
                     <div className="separator" style={{width:"100%"}}/>
                 </div>
                 {

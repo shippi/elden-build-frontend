@@ -29,6 +29,13 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
         return unsubscribe;
     },[]);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            currentUser?.getIdToken(true);
+        }, 3300000);
+
+        return () => clearInterval(interval);
+    }, [])
 
     const value = {
         currentUser,

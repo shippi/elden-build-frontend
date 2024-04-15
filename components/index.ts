@@ -20,7 +20,7 @@ import SignUpSuccessModal from "./Modals/SignUpSuccessModal";
 import LoginModal from "./Modals/LoginModal";
 import ExitButton from "./UIElements/ExitButton";
 import UserDropdown from "./UIElements/UserDropdown";
-import FilePanel from "./BuildCreatorPanels/FilePanel";
+import FilePanel from "./BuildCreatorPanels/FilePanel/FilePanel";
 import PhysickPanel from "./BuildCreatorPanels/PhysickPanel";
 
 // index.ts file is used to export all components for ease of importing
