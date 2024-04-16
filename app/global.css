@@ -152,7 +152,24 @@ input[type="checkbox"]:disabled {
 }
 
 /**/
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 90vh;
+  margin: auto;
+  column-gap: 20px;
+  min-width: 1500px;
+}
 
+.not-found h1 {
+  font-size: 90px;
+}
+
+.not-found h2 {
+  font-size: 50px;
+}
 
 /*styling for the navbar component*/
 .navbar {
