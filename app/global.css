@@ -171,6 +171,29 @@ input[type="checkbox"]:disabled {
   font-size: 50px;
 }
 
+/**/
+.build-page {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 90vh;
+  margin: auto;
+  min-width: 1500px;
+}
+
+.build-page .header {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(90deg, rgba(89,83,61,0.8) 10%, rgba(0,0,0,0) 100%);
+  padding: 5px;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.build-page span {
+  color: var(--gold);
+}
+
 /*styling for the navbar component*/
 .navbar {
   min-height: 50px;

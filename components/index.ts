@@ -29,6 +29,7 @@ import SaveButton from "./BuildCreatorPanels/FilePanel/SaveButton";
 import VisibilityToggle from "./BuildCreatorPanels/FilePanel/VisibilityToggle";
 import ConfirmationModal from "./Modals/ConfirmationModal";
 import NotFound from "./NotFound";
+import BuildPage from "./BuildPage";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -62,5 +63,6 @@ export {
     SaveButton,
     VisibilityToggle,
     ConfirmationModal,
-    NotFound
+    NotFound,
+    BuildPage
 }
