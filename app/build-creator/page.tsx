@@ -1,5 +1,5 @@
 'use client'
-import BuildCreator from '@/components/BuildCreatorPanels/BuildCreator';
+import BuildCreator from '@/components/BuildCreator';
 import { BuildCreatorContextProvider } from '@/context/BuildCreatorContext';
 
 export default function BuildCreatorPage() {

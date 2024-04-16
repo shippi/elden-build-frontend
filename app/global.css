@@ -46,7 +46,6 @@
 html {
   background-color: var(--bg-color);
   height: fit-content;
-  
 }
 
 label {
@@ -151,6 +150,9 @@ input[type="checkbox"]:disabled {
   font-size: 1.5vw;
   animation: rise 1s;
 }
+
+/**/
+
 
 /*styling for the navbar component*/
 .navbar {
@@ -456,13 +458,13 @@ ul > .separator {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: calc(40vh + 1850px);
-  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 44%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
+  height: calc(45vh + 2000px);
+  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
   url('./../public/builder-bg.png');
   background-position: top left;
   background-size: 100%;
   min-width: 1500px;
-
+  background-repeat: none;
 }
 
 .build-creator h1 {
