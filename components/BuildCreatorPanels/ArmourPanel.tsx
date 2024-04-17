@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { DropDown, PanelTitle } from ".."
 import { armours } from "@/public/data"
 import { getSelectedArmours } from "@/helpers/ArmourPanelHelper"

@@ -1,10 +1,11 @@
 'use client'
 import { Build } from "@/helpers/types"
+import { DisplayArmours } from "."
 
 interface Props {
     name: string,
     creatorName: string,
-    build: Build
+    build: any
 }
 
 function BuildPage({ name, creatorName, build } : Props) {
@@ -16,6 +17,9 @@ function BuildPage({ name, creatorName, build } : Props) {
                 <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
                 <div>Created by <span>{creatorName}</span></div>
             </div>
+            <div style={{height: "20px", width:"100%"}}/>
+            <DisplayArmours selectedArmours={build.selectedArmours} />
+
         </div>
     )
 }

@@ -20,16 +20,18 @@ import SignUpSuccessModal from "./Modals/SignUpSuccessModal";
 import LoginModal from "./Modals/LoginModal";
 import ExitButton from "./UIElements/ExitButton";
 import UserDropdown from "./UIElements/UserDropdown";
-import FilePanel from "./BuildCreatorPanels/FilePanel/FilePanel";
+import FilePanel from "./BuildCreatorPanels/FilePanel";
 import PhysickPanel from "./BuildCreatorPanels/PhysickPanel";
-import BuildNameInput from "./BuildCreatorPanels/FilePanel/BuildNameInput";
-import DeleteButton from "./BuildCreatorPanels/FilePanel/DeleteButton";
-import NewButton from "./BuildCreatorPanels/FilePanel/NewButton";
-import SaveButton from "./BuildCreatorPanels/FilePanel/SaveButton";
-import VisibilityToggle from "./BuildCreatorPanels/FilePanel/VisibilityToggle";
+import BuildNameInput from "./BuildCreatorPanels/FilePanelComponents/BuildNameInput";
+import DeleteButton from "./BuildCreatorPanels/FilePanelComponents/DeleteButton";
+import NewButton from "./BuildCreatorPanels/FilePanelComponents/NewButton";
+import SaveButton from "./BuildCreatorPanels/FilePanelComponents/SaveButton";
+import VisibilityToggle from "./BuildCreatorPanels/FilePanelComponents/VisibilityToggle";
 import ConfirmationModal from "./Modals/ConfirmationModal";
 import NotFound from "./NotFound";
 import BuildPage from "./BuildPage";
+import DisplayArmours from "./BuildsPanels/DisplayArmours";
+import ListItem from "./UIElements/ListItem";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -64,5 +66,7 @@ export {
     VisibilityToggle,
     ConfirmationModal,
     NotFound,
-    BuildPage
+    BuildPage,
+    DisplayArmours,
+    ListItem
 }

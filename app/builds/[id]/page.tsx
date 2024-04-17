@@ -45,9 +45,17 @@ function Build({params: {id}}: Props) {
             .then(data => setCreatorName(data[0].username))
             .catch(error => setBuild(null))
         }
-        if (build) getCreatorName();
-    }, [build])
-    setTimeout(() => setLoading(false), 1600);
+        if (build) {
+            getCreatorName();
+            setTimeout(() => setLoading(false), 600);
+        }
+        else {
+            setTimeout(() => setLoading(false), 2100);
+        }
+    }, [build]);
+
+
+
     return (
         loading ? <Loading coverScreen={true}/>
         :
