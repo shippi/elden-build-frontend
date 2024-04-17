@@ -18,6 +18,17 @@ function DisplayArmours({selectedArmours} : Props) {
                 <ListItem image={armour.image} text={armour.name}/>
             ))
         }
+        <div className="active-effects">
+            <label>Active Effects:</label>
+            <ul>
+            {
+                selectedArmours.map((armour: any) => (
+                    armour?.effect == null ? "" : 
+                    <li key={armour.name}>{armour.effect}</li>
+                ))
+            }
+            </ul>
+            </div>
         </div>
         </>
 
