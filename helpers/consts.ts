@@ -6,3 +6,4 @@ export const NEGATION_NAMES = ["physical", "strike", "slash", "pierce", "magic",
 export const PHYSICAL_DEFENCE_NAMES = ["Physical", "VS Strike", "VS Slash", "VS Pierce"]
 export const MAGIC_DEFENCE_NAMES = ["Magic", "Fire", "Lightning", "Holy"]
 export const RESISTANCE_NAMES = ["Immunity", "Robustness", "Focus", "Vitality"]
+export const ARMOUR_TYPES = ["Helmet", "Chest", "Gauntlets", "Legs"]

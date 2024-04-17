@@ -16,7 +16,7 @@ function Build({params: {id}}: Props) {
     const [creatorName, setCreatorName] = useState("");
     const [build, setBuild] = useState<any>();
     const [loading, setLoading] = useState(true);
-
+    
     useEffect(() => {
         const getBuild = async() => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${id}`, {

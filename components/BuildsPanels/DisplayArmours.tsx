@@ -1,21 +1,28 @@
-import { getItemFromName } from "@/helpers/BuildCreatorHelper"
-import { Armour } from "@/helpers/types";
-import { armours } from "@/public/data";
 import { ListItem, PanelTitle } from "..";
+import { ARMOUR_TYPES } from "@/helpers/consts";
+import { Armour } from "@/helpers/types";
 
 interface Props {
-    selectedArmours: string[]
+    selectedArmours: Armour[]
 }
 
 function DisplayArmours({selectedArmours} : Props) {
-    selectedArmours = selectedArmours.map((armour: string) => getItemFromName(armour, armours));
     return (
         <>
         <PanelTitle text="Armour" img="/icons/armour.png"/>
         <div className="armour-panel">
         {
-            selectedArmours.map((armour: any) => (
-                <ListItem image={armour.image} text={armour.name}/>
+            selectedArmours.map((armour: Armour, i: number) => (
+                <div>
+                    <label>{ARMOUR_TYPES[i]}</label>
+                    {
+                        armour ?
+                        <ListItem image={armour.image} text={armour.name}/>
+                        :
+                        <ListItem text="None"/>
+                    }
+                </div>
+
             ))
         }
         <div className="active-effects">
@@ -31,7 +38,6 @@ function DisplayArmours({selectedArmours} : Props) {
             </div>
         </div>
         </>
-
     )
 }
 

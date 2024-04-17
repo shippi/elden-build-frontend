@@ -6,6 +6,7 @@ import { getSelectedArmours } from "@/helpers/ArmourPanelHelper"
 import { getIndexOfItem, handleDropdownChange } from "@/helpers/BuildCreatorHelper"
 import BuildCreatorContext from "@/context/BuildCreatorContext"
 import { Armour } from "@/helpers/types"
+import { ARMOUR_TYPES } from "@/helpers/consts"
 
 
 function ArmourPanel() {
@@ -30,18 +31,7 @@ function ArmourPanel() {
         handleDropdownChange(indices, currIndex, newIndex, armours, getSelectedArmours, setIndices, setSelectedArmours)
     }
 
-    const armourSwitch = (index: number) => {
-        switch(index) {
-            case 0:
-                return "Helmet"
-            case 1:
-                return "Chest"
-            case 2: 
-                return "Gauntlets"
-            case 3:
-                return "Legs"
-        }
-    }
+    
 
     return (
         <div>
@@ -52,7 +42,7 @@ function ArmourPanel() {
                 {
                     indices.map((i, j) => (
                         <div className="selector" onClick={() => {setCurrIndex(j)}} key={j}>
-                            <label>{armourSwitch(j)}</label>
+                            <label>{ARMOUR_TYPES[j]}</label>
                             <DropDown items={armoursArr[j]} index={indices[j]} isNullable={true} onChange={handleOnChange} hasImages={true} searchEnabled={true}/>
                         </div>
                     ))

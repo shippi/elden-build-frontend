@@ -6,7 +6,12 @@ interface Props {
 function ListItem({image, text} : Props) {
   return (
     <div className="list-item">
-        <img src={image}/>
+        {
+          image ?
+          <img src={image}/>
+          :
+          <div className="blank" />
+        }
         {text}
     </div>
   )

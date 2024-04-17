@@ -1,6 +1,9 @@
 'use client'
 import { Build } from "@/helpers/types"
 import { DisplayArmours } from "."
+import { getItemFromName } from "@/helpers/BuildCreatorHelper"
+import { armours, talismans } from "@/public/data"
+import DisplayTalismans from "./BuildsPanels/DisplayTalismans"
 
 interface Props {
     name: string,
@@ -9,6 +12,9 @@ interface Props {
 }
 
 function BuildPage({ name, creatorName, build } : Props) {
+    const selectedArmours = build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
+    const selectedTalismans = build.selectedTalismans.map((talisman: string) => getItemFromName(talisman, talismans));
+    
     return (
         <div className="build-page">
             <div style={{height: "40px"}}></div>
@@ -18,8 +24,8 @@ function BuildPage({ name, creatorName, build } : Props) {
                 <div>Created by <span>{creatorName}</span></div>
             </div>
             <div style={{height: "20px", width:"100%"}}/>
-            <DisplayArmours selectedArmours={build.selectedArmours} />
-
+            <DisplayArmours selectedArmours={selectedArmours} />
+            <DisplayTalismans selectedTalismans={selectedTalismans} />
         </div>
     )
 }
