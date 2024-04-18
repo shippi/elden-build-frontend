@@ -147,7 +147,12 @@ function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPag
                                 }}
                             >
                                 {(item.image && hasImages) && <img src={item.image}/>}
-                                {item.name}
+                                {
+                                    item.name.length < 30 ?
+                                    item.name 
+                                    :
+                                    item.name.slice(0, 33) + "..."
+                                }
                             </li>
                         ))
                     }

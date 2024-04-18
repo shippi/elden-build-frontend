@@ -1,3 +1,9 @@
+export interface Item {
+    id: string,
+    name: string,
+    image?: string
+}
+
 export interface ClassStats { 
     level: string, 
     vigor: string, 
@@ -47,11 +53,8 @@ export interface Resistances {
     vitality: number
 }
 
-export interface Armour {
-    id: string,
-    name: string,
+export interface Armour extends Item {
     category: string,
-    image?: string,
     dmgNegation: DamageNegation,
     resistances: Resistances,
     poise: number,
@@ -60,11 +63,8 @@ export interface Armour {
     weight: number
 }
 
-export interface Weapon {
-    id: string,
-    name: string,
+export interface Weapon extends Item {
     type: string,
-    image: string,
     requiredAttributes: requiredAttributes,
     weight: number,
     changeAffinity: boolean,
@@ -74,19 +74,14 @@ export interface Weapon {
     effect?: string
 }
 
-export interface Talisman {
-    id: string,
+export interface Talisman extends Item {
     group: string,
-    name: string,
-    image: string,
     effect: string,
     statChanges?: StatChange,
     weight: number
 }
 
-export interface Ash {
-    id: string,
-    name: string,
+export interface Ash extends Item {
     availability: Availability
 }
 
@@ -120,17 +115,12 @@ export interface GreatRune {
     statChanges?: StatChange
 }
 
-export interface CrystalTear {
-    name: string,
-    effect: string,
+export interface CrystalTear extends Item {
     statChanges?: StatChange
 }
 
 
-export interface Ammo {
-    id: string,
-    name: string,
-    image: string,
+export interface Ammo extends Item {
     attackPower: {
         physical?: number,
         magic?: number,
@@ -141,10 +131,7 @@ export interface Ammo {
     effect?: string
 }
 
-export interface Spell {
-    id: string,
-    name: string,
-    image: string,
+export interface Spell extends Item {
     requirements: requiredAttributes,
     fpCost: number
 }
