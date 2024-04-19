@@ -26,26 +26,25 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
                 {
                     weapon &&
                     <div className="weapon-options">
-                        <div style={{width: "190px"}}>
+                        <div style={{width: "fit-content"}}>
                             <label>Ash of War</label>
                             {selectedAshes[j] ? selectedAshes[j] : weapon?.defaultSkill}
                             </div>
                         <div>
-                        <label>Affinity</label>
-                        {selectedAffinities[j]}
+                            <label>Affinity</label>
+                            {selectedAffinities[j]}
                         </div>
                         <div>
-                        <label>Level</label>
-                        {"+" + selectedLevels[j]}
+                            <label>Level</label>
+                            {"+" + selectedLevels[j]}
                         </div>
-                        
                     </div>
-                    
                 }
                 <br/>
             </div>
         )));
     }
+    
     return (
         <div>
             <PanelTitle text="Weapons" img="/icons/weapons.png"/>

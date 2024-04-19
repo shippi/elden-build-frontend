@@ -1,3 +1,4 @@
+'use client'
 import { PropsWithChildren, createContext, useState } from "react";
 
 export const BuildPageContext = createContext<any>(undefined)
@@ -10,7 +11,9 @@ export const BuildPageContextProvider = ({ children }: PropsWithChildren<{}>) =>
 
     const value = {
         build,
-        setBuild
+        setBuild,
+        runeActivated,
+        setRuneActivated
     }
 
     return (

@@ -1,8 +1,9 @@
 'use client'
-import { DisplayArmours, DisplayWeapons } from "."
+import { DisplayArmours, DisplayCharacter, DisplayStats, DisplayWeapons } from "."
 import { getItemFromName } from "@/helpers/BuildCreatorHelper"
-import { armours, talismans, weapons } from "@/public/data"
+import { armours, classes, greatRunes, talismans, weapons } from "@/public/data"
 import DisplayTalismans from "./BuildsPanels/DisplayTalismans"
+import DisplayGreatRune from "./BuildsPanels/DisplayGreatRune"
 
 interface Props {
     name: string,
@@ -11,12 +12,14 @@ interface Props {
 }
 
 function BuildPage({ name, creatorName, build } : Props) {
+    const selectedClass = getItemFromName(build.selectedClass, classes);
     const selectedArmours = build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
     const selectedTalismans = build.selectedTalismans.map((talisman: string) => getItemFromName(talisman, talismans));
     const selectedWeapons = build.selectedWeapons.map((weapon: string) => getItemFromName(weapon, weapons));
     const selectedAffinities = build.selectedAffinities;
     const selectedAshes = build.selectedAshes;
     const selectedWepLvls = build.selectedWepLvls;
+    const selectedRune = getItemFromName(build.selectedRune, greatRunes);
 
     return (
         <>
@@ -31,10 +34,14 @@ function BuildPage({ name, creatorName, build } : Props) {
             </div>
             </div>
             
-            
             <div className="panels-container">
                 <div className="subcontainer">
-
+                    <DisplayCharacter 
+                        selectedClass={selectedClass}
+                    />
+                    <DisplayGreatRune 
+                        selectedRune={selectedRune}
+                    />
                 </div>
                 <div className="subcontainer">
                     <DisplayWeapons 
@@ -50,7 +57,7 @@ function BuildPage({ name, creatorName, build } : Props) {
                 </div>
 
                 <div className="subcontainer">
-
+                    <DisplayStats/>
                 </div>
             </div>
         </div>

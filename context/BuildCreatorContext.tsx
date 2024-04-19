@@ -84,8 +84,11 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
          */
         saveableDependencies.forEach((items, i) => {
 
-            if (items != undefined && Object.entries(currentBuild)[i][1] != undefined && JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) 
+            if (JSON.stringify(items) != JSON.stringify(Object.entries(currentBuild)[i][1])) {
+                console.log(Object.entries(currentBuild)[i][1])
                 saved = true;
+            } 
+                
 
         });
             

@@ -2,6 +2,7 @@
 
 import { BuildPage, Loading, NotFound } from "@/components";
 import { AuthContext } from "@/context/AuthContext"
+import { BuildPageContextProvider } from "@/context/BuildPageContext";
 import { useContext, useEffect, useState } from "react"
 
 interface Props {
@@ -61,7 +62,12 @@ function Build({params: {id}}: Props) {
         :
         !build && !loading ? <NotFound message="Build does not exist or it may be private."/>
         :
-        <BuildPage creatorName={creatorName} name={build.name} build={build.build}/>
+        <>
+            <BuildPageContextProvider>
+            <BuildPage creatorName={creatorName} name={build.name} build={build.build}/>
+            </BuildPageContextProvider>
+        </>
+        
     )
 }
 
