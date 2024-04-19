@@ -4,6 +4,8 @@ import { getItemFromName } from "@/helpers/BuildCreatorHelper"
 import { armours, classes, greatRunes, talismans, weapons } from "@/public/data"
 import DisplayTalismans from "./BuildsPanels/DisplayTalismans"
 import DisplayGreatRune from "./BuildsPanels/DisplayGreatRune"
+import DisplayPhysick from "./BuildsPanels/DisplayPhysick"
+import { crystalTears } from "@/public/data/Equipment/crystalTears"
 
 interface Props {
     name: string,
@@ -20,6 +22,7 @@ function BuildPage({ name, creatorName, build } : Props) {
     const selectedAshes = build.selectedAshes;
     const selectedWepLvls = build.selectedWepLvls;
     const selectedRune = getItemFromName(build.selectedRune, greatRunes);
+    const selectedTears = build.selectedTears.map((tear: string) => getItemFromName(tear, crystalTears));
 
     return (
         <>
@@ -41,6 +44,9 @@ function BuildPage({ name, creatorName, build } : Props) {
                     />
                     <DisplayGreatRune 
                         selectedRune={selectedRune}
+                    />
+                    <DisplayPhysick 
+                        selectedTears={selectedTears}
                     />
                 </div>
                 <div className="subcontainer">

@@ -117,6 +117,7 @@ export interface GreatRune {
 
 export interface CrystalTear extends Item {
     statChanges?: StatChange
+    effect: string
 }
 
 

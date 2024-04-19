@@ -24,19 +24,32 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
                 <label>{j < 3 ? "Left Armament " + (j % 3 + 1) : "Right Armament " + (j % 3 + 1)}</label>
                 <ListItem image={weapon?.image} text={weapon?.name}/>
                 {
-                    weapon &&
                     <div className="weapon-options">
                         <div style={{width: "fit-content"}}>
                             <label>Ash of War</label>
-                            {selectedAshes[j] ? selectedAshes[j] : weapon?.defaultSkill}
+                            { 
+                                selectedAshes[j] ? 
+                                selectedAshes[j] : 
+                                weapon ?
+                                weapon.defaultSkill :
+                                "-"
+                            }
                             </div>
                         <div>
                             <label>Affinity</label>
-                            {selectedAffinities[j]}
+                            {
+                                weapon ?
+                                selectedAffinities[j] :
+                                "-"
+                            }
                         </div>
                         <div>
                             <label>Level</label>
-                            {"+" + selectedLevels[j]}
+                            {
+                                weapon ?
+                                "+" + selectedLevels[j] :
+                                "-"
+                            }
                         </div>
                     </div>
                 }

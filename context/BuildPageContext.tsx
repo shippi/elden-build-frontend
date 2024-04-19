@@ -13,7 +13,9 @@ export const BuildPageContextProvider = ({ children }: PropsWithChildren<{}>) =>
         build,
         setBuild,
         runeActivated,
-        setRuneActivated
+        setRuneActivated,
+        physickActivated,
+        setPhysickActivated
     }
 
     return (
