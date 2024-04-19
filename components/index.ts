@@ -32,6 +32,7 @@ import NotFound from "./NotFound";
 import BuildPage from "./BuildPage";
 import DisplayArmours from "./BuildsPanels/DisplayArmours";
 import ListItem from "./UIElements/ListItem";
+import DisplayWeapons from "./BuildsPanels/DisplayWeapons";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -68,5 +69,6 @@ export {
     NotFound,
     BuildPage,
     DisplayArmours,
-    ListItem
+    ListItem,
+    DisplayWeapons
 }

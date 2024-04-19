@@ -20,7 +20,7 @@ function StatsPanel() {
   const discovery = calculateDiscovery(totalStats.arcane, selectedTalismans, selectedArmours, runeEffect);
 
   return (
-    <>
+    <div>
     <PanelTitle text="Base Stats" img="icons/base-stats.png"/>
     <div className="stats-panel">
       <div>
@@ -45,7 +45,7 @@ function StatsPanel() {
         <span>Discovery</span> {discovery.toFixed(1)}
       </div>
     </div>
-    </>
+    </div>
   )
   
 }

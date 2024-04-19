@@ -48,7 +48,7 @@ function CharacterPanel() {
   const runesNeeded = calculateTotalRunes(+selectedClass.stats.level, level);
 
   return (
-    <>
+    <div>
     <div className="character-panel">
       {/* div for selecting starting class */}
       <div className="starting-class">
@@ -86,7 +86,7 @@ function CharacterPanel() {
       </div>
     </div>  
     
-    </>
+    </div>
   )
 }
 

@@ -11,7 +11,7 @@ function AttackPowerPanel() {
     const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeEffect, tearActivated ? selectedTears : undefined);
 
     return (
-    <>
+    <div>
     <PanelTitle text="Attack Power/Spell Scaling" img="icons/attack-power.png"/>
     
     <div className="attack-power-panel">
@@ -37,7 +37,7 @@ function AttackPowerPanel() {
             )})
         }
     </div>
-    </>
+    </div>
   )
 }
 

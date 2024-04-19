@@ -64,7 +64,7 @@ function BuildNameInput() {
     }
 
     useEffect(() => {
-        if (currentUser && currentUser.uid && (loadOpen == true || saveLoading == false)) {
+        if (currentUser && currentUser.uid) {
           const res = async() => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?uid=${currentUser.uid}`, {
               method: "GET",

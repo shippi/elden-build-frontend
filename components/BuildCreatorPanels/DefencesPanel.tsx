@@ -18,7 +18,7 @@ function DefencesPanel() {
   const armourResistances = calculateArmourResistances(selectedArmours);
 
   return (
-    <>
+    <div>
     <PanelTitle text="Defence/Damage Negation" img="icons/defence.png"/>
     <div className="defences-panel">
       <table>
@@ -79,7 +79,7 @@ function DefencesPanel() {
         </tbody>
       </table>
     </div>
-    </>
+    </div>
   )
 }
 

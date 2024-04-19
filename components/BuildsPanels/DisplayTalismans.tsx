@@ -9,19 +9,14 @@ interface Props {
 
 function DisplayTalismans({selectedTalismans} : Props) {
     return (
-        <>
+        <div>
         <PanelTitle text="Talismans" img="/icons/talismans.png"/>
         <div className="talismans-panel">
         {
             selectedTalismans.map((talisman: Talisman, i: number) => (
                 <div>
                     <label>Talisman {i + 1}</label>
-                    {
-                        talisman ?
-                        <ListItem image={talisman.image} text={talisman.name}/>
-                        :
-                        <ListItem text="None"/>
-                    }
+                    <ListItem image={talisman?.image} text={talisman?.name}/>    
                 </div>
 
             ))
@@ -38,7 +33,7 @@ function DisplayTalismans({selectedTalismans} : Props) {
             </ul>
             </div>
         </div>
-        </>
+        </div>
     )
 }
 

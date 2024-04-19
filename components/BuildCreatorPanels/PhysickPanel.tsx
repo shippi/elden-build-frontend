@@ -18,7 +18,7 @@ function PhysickPanel() {
   }
 
   return (
-    <>
+    <div>
     <PanelTitle text="Flask of Wondrous Physick" img="icons/physick.png"/>
     <div className="physick-panel">
         {
@@ -45,7 +45,7 @@ function PhysickPanel() {
               Activate
         </div>
     </div>
-    </>
+    </div>
   )
 }
 

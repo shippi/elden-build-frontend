@@ -28,15 +28,13 @@ function BuildCreator() {
                     <div className="panels-container">    
                     <div className="subcontainer">
                         <CharacterPanel/>
-                        <div style={{height:"40px"}}/>
                         <GreatRunesPanel/>
-                        <div style={{height:"40px"}}/>
                         <PhysickPanel/>
                     </div>
 
                     <div className="subcontainer">
                         <WeaponsPanel/>
-                        <div style={{height:"40px"}}/>
+
                         <div className='subcontainer2'>
                             <ArmourPanel/>
                             <TalismansPanel/>
@@ -44,9 +42,9 @@ function BuildCreator() {
                     </div>
                     <div className="subcontainer" >
                         <StatsPanel/>
-                        <div style={{height:"40px"}}/>
+
                         <AttackPowerPanel/>
-                        <div style={{height:"40px"}}/>
+
                         <DefencesPanel/>
                     </div>
                 </div>

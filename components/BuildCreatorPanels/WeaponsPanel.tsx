@@ -148,7 +148,7 @@ function WeaponsPanel() {
     }
 
     return (
-        <>
+        <div>
         <PanelTitle text="Weapons" img="icons/weapons.png"/>
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
@@ -161,7 +161,7 @@ function WeaponsPanel() {
                 </div>
                 <div className="selectors-container"> { selectorPanels[1] } </div>
         </div>
-        </>
+        </div>
     )
 }
 

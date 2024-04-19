@@ -8,19 +8,14 @@ interface Props {
 
 function DisplayArmours({selectedArmours} : Props) {
     return (
-        <>
+        <div>
         <PanelTitle text="Armour" img="/icons/armour.png"/>
         <div className="armour-panel">
         {
             selectedArmours.map((armour: Armour, i: number) => (
                 <div>
                     <label>{ARMOUR_TYPES[i]}</label>
-                    {
-                        armour ?
-                        <ListItem image={armour.image} text={armour.name}/>
-                        :
-                        <ListItem text="None"/>
-                    }
+                    <ListItem image={armour?.image} text={armour?.name}/>
                 </div>
 
             ))
@@ -37,7 +32,7 @@ function DisplayArmours({selectedArmours} : Props) {
             </ul>
             </div>
         </div>
-        </>
+        </div>
     )
 }
 

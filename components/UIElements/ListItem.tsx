@@ -1,6 +1,6 @@
 interface Props {
     image?: string,
-    text: string
+    text?: string
 }
 
 function ListItem({image, text} : Props) {
@@ -12,7 +12,7 @@ function ListItem({image, text} : Props) {
           :
           <div className="blank" />
         }
-        {text}
+        {text ? text : "None"}
     </div>
   )
 }

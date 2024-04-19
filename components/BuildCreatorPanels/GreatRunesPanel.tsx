@@ -18,7 +18,7 @@ function GreatRunesPanel() {
     }   
 
     return (
-        <>
+        <div>
         <PanelTitle text={"Great Runes"} img="icons/great-runes.png" />
         <div className="great-runes-panel">
             <DropDown items={greatRunes} index={index} isNullable={true} onChange={handleIndexChange} hasImages={false} />
@@ -34,7 +34,7 @@ function GreatRunesPanel() {
                 Activate
             </div>
         </div>
-        </>
+        </div>
     )
 }
 
