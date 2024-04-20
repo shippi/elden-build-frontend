@@ -1,11 +1,15 @@
+import { calculateStatLevel, getEquipmentValues } from "@/helpers/BuildCreatorHelper";
+import { Talisman } from "@/helpers/types";
+
 interface Props {
     type: string,
     initialValue: string,
-    addedValue: number
+    addedValue: number,
+    selectedTalismans: Talisman[]
 }
 
-function DisplayStatRow({type, initialValue, addedValue} : Props) {
-    const totalValue = +initialValue + addedValue;
+function DisplayStatRow({type, initialValue, addedValue, selectedTalismans} : Props) {
+    const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(selectedTalismans, type));
     return (
         <div className="stat-row">
             <div className='label'>{ type }</div>
@@ -14,7 +18,10 @@ function DisplayStatRow({type, initialValue, addedValue} : Props) {
                 &nbsp; /&nbsp; 99
             </div>
             <div style={{width: "40px", textAlign:"right"}}>
-            { totalValue }
+            <div className={(totalValue != +initialValue + addedValue) ? "adjusted" : ""}>
+                {totalValue}
+            </div>
+            
         </div>
         </div>
     )

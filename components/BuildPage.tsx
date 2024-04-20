@@ -40,8 +40,10 @@ function BuildPage({ name, creatorName, build } : Props) {
             <div className="panels-container">
                 <div className="subcontainer">
                     <DisplayCharacter 
-                            selectedClass={selectedClass} 
-                            characterStats={characterStats}                    />
+                        selectedClass={selectedClass} 
+                        characterStats={characterStats}   
+                        selectedTalismans={selectedTalismans}                 
+                    />
                     <DisplayGreatRune 
                         selectedRune={selectedRune}
                     />

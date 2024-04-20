@@ -1,18 +1,20 @@
-import { CharacterClass, CharacterStats } from "@/helpers/types"
+import { CharacterClass, CharacterStats, Talisman } from "@/helpers/types"
 import PanelTitle from "../UIElements/PanelTitle"
 import ListItem from "../UIElements/ListItem"
 import DisplayStatRow from "../UIElements/DisplayStatRow"
 import { calculateTotalRunes } from "@/helpers/CharacterPanelHelper"
+import { STAT_NAMES } from "@/helpers/consts"
 
 interface Props {
     selectedClass: CharacterClass,
-    characterStats: CharacterStats
+    characterStats: CharacterStats,
+    selectedTalismans: Talisman[]
 }
 
-function DisplayCharacter({selectedClass, characterStats} : Props) {
-  const level = calculateLevel(selectedClass.stats.level, characterStats)
-
+function DisplayCharacter({selectedClass, characterStats, selectedTalismans} : Props) {
+  const level = calculateLevel(selectedClass.stats.level, characterStats);
   const runesNeeded = calculateTotalRunes(+selectedClass.stats.level, level);
+
   return (
     <div>
         <div className="character-panel">
@@ -24,14 +26,16 @@ function DisplayCharacter({selectedClass, characterStats} : Props) {
         <div style={{height:"2vh"}}/>
         <PanelTitle text="Attribute Points" img="/icons/attribute-points.png"/>
         <div className="character-panel">
-            <DisplayStatRow type={"Vigor"} initialValue={selectedClass.stats.vigor} addedValue={characterStats.vigor}/>
-            <DisplayStatRow type={"Mind"} initialValue={selectedClass.stats.mind} addedValue={characterStats.mind}/>
-            <DisplayStatRow type={"Endurance"} initialValue={selectedClass.stats.endurance} addedValue={characterStats.endurance}/>
-            <DisplayStatRow type={"Strength"} initialValue={selectedClass.stats.strength} addedValue={characterStats.strength}/>
-            <DisplayStatRow type={"Dexterity"} initialValue={selectedClass.stats.dexterity} addedValue={characterStats.dexterity}/>
-            <DisplayStatRow type={"Intelligence"} initialValue={selectedClass.stats.intelligence} addedValue={characterStats.intelligence}/>
-            <DisplayStatRow type={"Faith"} initialValue={selectedClass.stats.faith} addedValue={characterStats.faith}/>
-            <DisplayStatRow type={"Arcane"} initialValue={selectedClass.stats.arcane} addedValue={characterStats.arcane}/>
+            {
+              STAT_NAMES.map(stat => (
+                <DisplayStatRow 
+                  type={stat.charAt(0).toUpperCase() + stat.slice(1)} 
+                  initialValue={selectedClass.stats[stat as keyof typeof selectedClass.stats]} 
+                  addedValue={characterStats[stat as keyof typeof characterStats]}
+                  selectedTalismans={selectedTalismans}
+                />
+              ))
+            }
             <div className="level-container">
             	<br/>
         		<div>
