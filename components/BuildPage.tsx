@@ -23,7 +23,7 @@ function BuildPage({ name, creatorName, build } : Props) {
     const selectedWepLvls = build.selectedWepLvls;
     const selectedRune = getItemFromName(build.selectedRune, greatRunes);
     const selectedTears = build.selectedTears.map((tear: string) => getItemFromName(tear, crystalTears));
-
+    const characterStats = build.characterStats;
     return (
         <>
         <div style={{height: "40px"}}></div>
@@ -33,15 +33,15 @@ function BuildPage({ name, creatorName, build } : Props) {
             <div className="header">
                 <h1>{name}</h1> 
                 <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-                <div>Created by <span>{creatorName}</span></div>
+                <div>Created by <span style={{color:"gold"}}>{creatorName}</span></div>
             </div>
             </div>
             
             <div className="panels-container">
                 <div className="subcontainer">
                     <DisplayCharacter 
-                        selectedClass={selectedClass}
-                    />
+                            selectedClass={selectedClass} 
+                            characterStats={characterStats}                    />
                     <DisplayGreatRune 
                         selectedRune={selectedRune}
                     />

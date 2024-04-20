@@ -192,9 +192,6 @@ input[type="checkbox"]:disabled {
   width: 70%;
 }
 
-.build-page span {
-  color: var(--gold);
-}
 
 .build-page .armour-panel,
 .build-page .talismans-panel {
