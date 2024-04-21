@@ -36,6 +36,7 @@ import DisplayWeapons from "./BuildsPanels/DisplayWeapons";
 import DisplayCharacter from "./BuildsPanels/DisplayCharacter";
 import DisplayStats from "./BuildsPanels/DisplayStats";
 import DisplayStatRow from "./UIElements/DisplayStatRow";
+import DisplayAmmo from "./BuildsPanels/DisplayAmmo";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -76,5 +77,6 @@ export {
     DisplayWeapons,
     DisplayCharacter,
     DisplayStats,
-    DisplayStatRow
+    DisplayStatRow,
+    DisplayAmmo
 }

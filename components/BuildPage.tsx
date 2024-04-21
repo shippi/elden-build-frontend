@@ -1,7 +1,7 @@
 'use client'
-import { DisplayArmours, DisplayCharacter, DisplayStats, DisplayWeapons } from "."
+import { DisplayAmmo, DisplayArmours, DisplayCharacter, DisplayStats, DisplayWeapons } from "."
 import { getItemFromName } from "@/helpers/BuildCreatorHelper"
-import { armours, classes, greatRunes, talismans, weapons } from "@/public/data"
+import { armours, arrows, bolts, classes, greatRunes, talismans, weapons } from "@/public/data"
 import DisplayTalismans from "./BuildsPanels/DisplayTalismans"
 import DisplayGreatRune from "./BuildsPanels/DisplayGreatRune"
 import DisplayPhysick from "./BuildsPanels/DisplayPhysick"
@@ -24,6 +24,8 @@ function BuildPage({ name, creatorName, build } : Props) {
     const selectedRune = getItemFromName(build.selectedRune, greatRunes);
     const selectedTears = build.selectedTears.map((tear: string) => getItemFromName(tear, crystalTears));
     const characterStats = build.characterStats;
+    const selectedArrows = build.selectedArrows.map((arrow: string) => getItemFromName(arrow, arrows));
+    const selectedBolts = build.selectedBolts.map((bolt: string) => getItemFromName(bolt, bolts));
 
     return (
         <>
@@ -71,6 +73,13 @@ function BuildPage({ name, creatorName, build } : Props) {
                 <div className="subcontainer">
                     <DisplayStats/>
                 </div>
+                <div className="separator" />
+                <div className="bottom-panels-container">
+                    <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>
+                    <div style={{width:"3vw"}}/>
+                    
+                </div>
+                
             </div>
         </div>
         </>
