@@ -1,15 +1,16 @@
 import { calculateStatLevel, getEquipmentValues } from "@/helpers/BuildCreatorHelper";
-import { Talisman } from "@/helpers/types";
+import { Armour, Talisman } from "@/helpers/types";
 
 interface Props {
     type: string,
     initialValue: string,
     addedValue: number,
-    selectedTalismans: Talisman[]
+    selectedTalismans?: Talisman[],
+    selectedArmours?: Armour[]
 }
 
-function DisplayStatRow({type, initialValue, addedValue, selectedTalismans} : Props) {
-    const totalValue = calculateStatLevel(+initialValue, +addedValue, getEquipmentValues(selectedTalismans, type));
+function DisplayStatRow({type, initialValue, addedValue, selectedTalismans, selectedArmours} : Props) {
+    const totalValue = calculateStatLevel(+initialValue, +addedValue, selectedTalismans && getEquipmentValues(selectedTalismans, type), selectedArmours && getEquipmentValues(selectedArmours, type));
     return (
         <div className="stat-row">
             <div className='label'>{ type }</div>

@@ -42,7 +42,8 @@ function BuildPage({ name, creatorName, build } : Props) {
                     <DisplayCharacter 
                         selectedClass={selectedClass} 
                         characterStats={characterStats}   
-                        selectedTalismans={selectedTalismans}                 
+                        selectedTalismans={selectedTalismans}   
+                        selectedArmours={selectedArmours}              
                     />
                     <DisplayGreatRune 
                         selectedRune={selectedRune}
