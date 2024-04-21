@@ -78,7 +78,15 @@ function BuildPage({ name, creatorName, build } : Props) {
                 </div>
 
                 <div className="subcontainer">
-                    <DisplayStats/>
+                    <DisplayStats
+                        selectedClass={selectedClass} 
+                        characterStats={characterStats}   
+                        selectedTalismans={selectedTalismans}   
+                        selectedArmours={selectedArmours}  
+                        greatRune={selectedRune} 
+                        selectedTears={selectedTears}     
+                        selectedWeapons={selectedWeapons}      
+                    />
                 </div>
                 <div className="separator" />
                 <div className="bottom-panels-container">
