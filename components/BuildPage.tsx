@@ -107,10 +107,10 @@ function BuildPage({ name, creatorName, build } : Props) {
                         selectedTears={selectedTears}                   
                     />
                 </div>
-                <div className="separator" />
+                <div className="separator" style={{width: "100%"}}/>
                 <div className="bottom-panels-container">
                     <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>
-                    <div style={{width:"3vw"}}/>
+                    <div style={{width:"5vw"}}/>
                     <DisplaySpells 
                         selectedClass={selectedClass} 
                         characterStats={characterStats}   

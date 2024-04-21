@@ -18,8 +18,8 @@ interface Props {
 }
 
 function DisplayAttackPower({selectedWeapons, selectedAffinities, selectedLevels, selectedClass, characterStats, selectedTalismans, selectedArmours, greatRune, selectedTears} : Props) {
-    const { physickActivated, runeActivated } = useContext(BuildPageContext);
-    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, false, runeActivated ? greatRune : undefined, physickActivated ? selectedTears : undefined);
+    const { physickActivated, runeActivated, twoHanded } = useContext(BuildPageContext);
+    const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeActivated ? greatRune : undefined, physickActivated ? selectedTears : undefined);
     return (
         <div>
         <PanelTitle text="Attack Power/Spell Scaling" img="/icons/attack-power.png"/>
