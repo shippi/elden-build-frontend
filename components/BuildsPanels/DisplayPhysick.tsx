@@ -17,7 +17,7 @@ function DisplayPhysick({selectedTears} : Props) {
             <div className="physick-panel">
                 {
                     selectedTears.map((tear, i) => (
-                        <div>
+                        <div key={i}>
                             <label>Crystal Tear {i+1}</label>
                             <div>{tear ? tear.name : "None"}</div>
                             <br/>
@@ -37,7 +37,7 @@ function DisplayPhysick({selectedTears} : Props) {
                 </div>
                 <br/>
                 <div className={(!selectedTears[0] && !selectedTears[1] ? "disabled " : "") + "checkbox-container"} onClick={() => setPhysickActivated(!physickActivated)}>
-                <input type="checkbox" disabled={!selectedTears[0] && !selectedTears[1]} checked={physickActivated} onClick={() => setPhysickActivated(!physickActivated)}/>
+                <input type="checkbox" disabled={!selectedTears[0] && !selectedTears[1]} checked={physickActivated} onChange={() => setPhysickActivated(!physickActivated)}/>
                     Activate
                 </div>
             </div>

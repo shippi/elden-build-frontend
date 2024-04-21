@@ -30,7 +30,7 @@ function DisplayCharacter({selectedClass, characterStats, selectedTalismans, sel
         <PanelTitle text="Attribute Points" img="/icons/attribute-points.png"/>
         <div className="character-panel">
             {
-              STAT_NAMES.map(stat => (
+              STAT_NAMES.map((stat, i) => (
                 <DisplayStatRow 
                   type={stat.charAt(0).toUpperCase() + stat.slice(1)} 
                   initialValue={selectedClass.stats[stat as keyof typeof selectedClass.stats]} 
@@ -39,6 +39,7 @@ function DisplayCharacter({selectedClass, characterStats, selectedTalismans, sel
                   selectedArmours={selectedArmours}
                   greatRune={greatRune}
                   selectedTears={selectedTears}
+                  key={i}
                 />
               ))
             }

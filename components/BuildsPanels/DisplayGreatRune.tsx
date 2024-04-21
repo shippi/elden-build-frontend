@@ -24,7 +24,7 @@ function DisplayGreatRune({selectedRune} : Props) {
             </div>
             <br/>
             <div className={(!selectedRune ? "disabled " : "") + "checkbox-container"} onClick={() => setRuneActivated(!runeActivated)}>
-                <input type="checkbox" disabled={!selectedRune} checked={runeActivated} onClick={() => setRuneActivated(!runeActivated)}/>
+                <input type="checkbox" disabled={!selectedRune} checked={runeActivated} onChange={() => setRuneActivated(!runeActivated)}/>
                 Activate
             </div>
         </div>

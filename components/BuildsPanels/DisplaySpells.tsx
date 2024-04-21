@@ -44,7 +44,7 @@ function DisplaySpells({selectedClass, characterStats, selectedTalismans, select
                         }
                         if (!moonOfNokstellaExists && i < 10 || moonOfNokstellaExists)
                             return (
-                                <div className="selector">
+                                <div className="selector" key={i}>
                                     <label>Spell {i + 1}</label>
                                     <ListItem image={spell?.image} text={spell?.name}/>
                                     <div className="info"> 

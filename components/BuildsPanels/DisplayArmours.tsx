@@ -13,7 +13,7 @@ function DisplayArmours({selectedArmours} : Props) {
         <div className="armour-panel">
         {
             selectedArmours.map((armour: Armour, i: number) => (
-                <div>
+                <div  key={i}>
                     <label>{ARMOUR_TYPES[i]}</label>
                     <ListItem image={armour?.image} text={armour?.name}/>
                 </div>

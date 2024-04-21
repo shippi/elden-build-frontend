@@ -14,7 +14,7 @@ function DisplayTalismans({selectedTalismans} : Props) {
         <div className="talismans-panel">
         {
             selectedTalismans.map((talisman: Talisman, i: number) => (
-                <div>
+                <div key={i}>
                     <label>Talisman {i + 1}</label>
                     <ListItem image={talisman?.image} text={talisman?.name}/>    
                 </div>

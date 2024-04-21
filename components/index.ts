@@ -39,6 +39,7 @@ import DisplayStatRow from "./UIElements/DisplayStatRow";
 import DisplayAmmo from "./BuildsPanels/DisplayAmmo";
 import DisplaySpells from "./BuildsPanels/DisplaySpells";
 import DisplayAttackPower from "./BuildsPanels/DisplayAttackPower";
+import DisplayDefenses from "./BuildsPanels/DisplayDefenses";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -82,5 +83,6 @@ export {
     DisplayStatRow,
     DisplayAmmo,
     DisplaySpells,
-    DisplayAttackPower
+    DisplayAttackPower,
+    DisplayDefenses
 }
