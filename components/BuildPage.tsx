@@ -1,7 +1,7 @@
 'use client'
-import { DisplayAmmo, DisplayArmours, DisplayCharacter, DisplayStats, DisplayWeapons } from "."
+import { DisplayAmmo, DisplayArmours, DisplayCharacter, DisplaySpells, DisplayStats, DisplayWeapons } from "."
 import { getItemFromName } from "@/helpers/BuildCreatorHelper"
-import { armours, arrows, bolts, classes, greatRunes, talismans, weapons } from "@/public/data"
+import { armours, arrows, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data"
 import DisplayTalismans from "./BuildsPanels/DisplayTalismans"
 import DisplayGreatRune from "./BuildsPanels/DisplayGreatRune"
 import DisplayPhysick from "./BuildsPanels/DisplayPhysick"
@@ -26,6 +26,7 @@ function BuildPage({ name, creatorName, build } : Props) {
     const characterStats = build.characterStats;
     const selectedArrows = build.selectedArrows.map((arrow: string) => getItemFromName(arrow, arrows));
     const selectedBolts = build.selectedBolts.map((bolt: string) => getItemFromName(bolt, bolts));
+    const selectedSpells = build.selectedSpells.map((spell: string) => getItemFromName(spell, spells));
 
     return (
         <>
@@ -77,7 +78,15 @@ function BuildPage({ name, creatorName, build } : Props) {
                 <div className="bottom-panels-container">
                     <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>
                     <div style={{width:"3vw"}}/>
-                    
+                    <DisplaySpells 
+                        selectedClass={selectedClass} 
+                        characterStats={characterStats}   
+                        selectedTalismans={selectedTalismans}   
+                        selectedArmours={selectedArmours}  
+                        greatRune={selectedRune}
+                        selectedTears={selectedTears} 
+                        selectedSpells={selectedSpells}
+                    />
                 </div>
                 
             </div>
