@@ -20,7 +20,7 @@ interface Props {
 }
 
 function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, selectedLevels, selectedClass, characterStats, selectedTalismans, selectedArmours, greatRune, selectedTears} : Props) {
-    const { physickActivated, runeActivated, twoHanded } = useContext(BuildPageContext);
+    const { physickActivated, runeActivated, twoHanded, setTwoHanded } = useContext(BuildPageContext);
     const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeActivated ? greatRune : undefined, physickActivated ? selectedTears : undefined);
     const selectorPanels = [];
 
@@ -85,7 +85,11 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
             <PanelTitle text="Weapons" img="/icons/weapons.png"/>
             <div className="weapons-panel">
                 <div className="selectors-container">
-                    { selectorPanels[0] } 
+                    { selectorPanels[0] } <br/>  
+                    <div className="checkbox-container" onClick={() => setTwoHanded(!twoHanded)}>
+                        <input type="checkbox" checked={twoHanded} onChange={() => setTwoHanded(!twoHanded)}/>
+                        Two-Handed
+                    </div>
                 </div>
                 <div className="selectors-container">
                     { selectorPanels[1] } 

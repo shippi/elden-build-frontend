@@ -177,7 +177,7 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 90vh;
+  height: 100%;
   margin: auto;
   min-width: 1500px;
 }
@@ -536,7 +536,7 @@ ul > .separator {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: calc(45vh + 2000px);
+  height: 100%;
   background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
   url('./../public/builder-bg.png');
   background-position: top left;
@@ -1008,7 +1008,7 @@ button[type="submit"] .disabled:hover {
 
 .select-menu ul {
   overflow: auto;
-  max-height: 35vh;
+  max-height: calc(20vh + 200px);
 }
 
 .select-menu ul li {

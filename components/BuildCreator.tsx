@@ -54,7 +54,8 @@ function BuildCreator() {
                     <div style={{width:"3vw"}}/>
                     <SpellsPanel/>
                 </div>
-                    </>:
+                <div style={{height:"27vw"}}/>
+                </>:
                     <div className="panels-container" style={{height: "70vh"}}> 
                     <Loading/>
                     </div>

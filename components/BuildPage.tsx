@@ -96,6 +96,7 @@ function BuildPage({ name, creatorName, build } : Props) {
                 </div>
                 
             </div>
+            <div style={{height:"5vw"}}/>
         </div>
         </>
     )
