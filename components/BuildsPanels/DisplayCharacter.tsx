@@ -1,4 +1,4 @@
-import { Armour, CharacterClass, CharacterStats, Talisman } from "@/helpers/types"
+import { Armour, CharacterClass, CharacterStats, GreatRune, Talisman } from "@/helpers/types"
 import PanelTitle from "../UIElements/PanelTitle"
 import ListItem from "../UIElements/ListItem"
 import DisplayStatRow from "../UIElements/DisplayStatRow"
@@ -9,10 +9,11 @@ interface Props {
     selectedClass: CharacterClass,
     characterStats: CharacterStats,
     selectedTalismans: Talisman[],
-    selectedArmours: Armour[]
+    selectedArmours: Armour[],
+    greatRune: GreatRune | undefined
 }
 
-function DisplayCharacter({selectedClass, characterStats, selectedTalismans, selectedArmours} : Props) {
+function DisplayCharacter({selectedClass, characterStats, selectedTalismans, selectedArmours, greatRune} : Props) {
   const level = calculateLevel(selectedClass.stats.level, characterStats);
   const runesNeeded = calculateTotalRunes(+selectedClass.stats.level, level);
 
@@ -35,6 +36,7 @@ function DisplayCharacter({selectedClass, characterStats, selectedTalismans, sel
                   addedValue={characterStats[stat as keyof typeof characterStats]}
                   selectedTalismans={selectedTalismans}
                   selectedArmours={selectedArmours}
+                  greatRune={greatRune}
                 />
               ))
             }
