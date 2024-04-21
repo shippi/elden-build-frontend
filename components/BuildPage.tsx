@@ -63,7 +63,13 @@ function BuildPage({ name, creatorName, build } : Props) {
                         selectedWeapons={selectedWeapons} 
                         selectedAffinities={selectedAffinities} 
                         selectedAshes={selectedAshes} 
-                        selectedLevels={selectedWepLvls}                        
+                        selectedLevels={selectedWepLvls}   
+                        selectedClass={selectedClass} 
+                        characterStats={characterStats}   
+                        selectedTalismans={selectedTalismans}   
+                        selectedArmours={selectedArmours}  
+                        greatRune={selectedRune} 
+                        selectedTears={selectedTears}                      
                     />
                     <div className="subcontainer2">
                         <DisplayArmours selectedArmours={selectedArmours} />

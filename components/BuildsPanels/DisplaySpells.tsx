@@ -48,12 +48,12 @@ function DisplaySpells({selectedClass, characterStats, selectedTalismans, select
                                     <label>Spell {i + 1}</label>
                                     <ListItem image={spell?.image} text={spell?.name}/>
                                     <div className="info"> 
-                                        <div className="requirements-text" data-alt={isRequiredStatsMet(spell?.requirements, totalStats, false).reqTitle}>
+                                        <div className="requirements-text" data-alt={requirementsMet.reqTitle}>
                                         {  
                                             requirementsMet.isMet ? "" : 
                                             requirementsMet.reqMessage
                                         }
-                                    </div>
+                                        </div>
                                     <div>
                                     {
                                         spell && "FP Cost: " + Math.floor(fpCost)

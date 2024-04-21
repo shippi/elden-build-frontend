@@ -814,7 +814,7 @@ td {
 }
 
 .selector:not(:last-child) {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .weapon-options {
