@@ -24,6 +24,7 @@ function BuildPage({ name, creatorName, build } : Props) {
     const selectedRune = getItemFromName(build.selectedRune, greatRunes);
     const selectedTears = build.selectedTears.map((tear: string) => getItemFromName(tear, crystalTears));
     const characterStats = build.characterStats;
+
     return (
         <>
         <div style={{height: "40px"}}></div>
@@ -44,7 +45,8 @@ function BuildPage({ name, creatorName, build } : Props) {
                         characterStats={characterStats}   
                         selectedTalismans={selectedTalismans}   
                         selectedArmours={selectedArmours}  
-                        greatRune={selectedRune}            
+                        greatRune={selectedRune} 
+                        selectedTears={selectedTears}           
                     />
                     <DisplayGreatRune 
                         selectedRune={selectedRune}

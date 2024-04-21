@@ -1,6 +1,6 @@
 import { BuildPageContext } from "@/context/BuildPageContext";
 import { calculateStatLevel, getEquipmentValues, getRuneValue } from "@/helpers/BuildCreatorHelper";
-import { Armour, GreatRune, Talisman } from "@/helpers/types";
+import { Armour, CrystalTear, GreatRune, Talisman } from "@/helpers/types";
 import { useContext } from "react";
 
 interface Props {
@@ -9,12 +9,13 @@ interface Props {
     addedValue: number,
     selectedTalismans?: Talisman[],
     selectedArmours?: Armour[],
-    greatRune?: GreatRune
+    greatRune?: GreatRune,
+    selectedTears?: CrystalTear[]
 }
 
-function DisplayStatRow({type, initialValue, addedValue, selectedTalismans, selectedArmours, greatRune} : Props) {
+function DisplayStatRow({type, initialValue, addedValue, selectedTalismans, selectedArmours, greatRune, selectedTears} : Props) {
     const { runeActivated, physickActivated } = useContext(BuildPageContext);
-    const totalValue = calculateStatLevel(+initialValue, +addedValue, selectedTalismans && getEquipmentValues(selectedTalismans, type), selectedArmours && getEquipmentValues(selectedArmours, type), runeActivated && getRuneValue(type, greatRune));
+    const totalValue = calculateStatLevel(+initialValue, +addedValue, selectedTalismans && getEquipmentValues(selectedTalismans, type), selectedArmours && getEquipmentValues(selectedArmours, type), runeActivated && getRuneValue(type, greatRune), (selectedTears && physickActivated) ? getEquipmentValues(selectedTears, type) : undefined);
     return (
         <div className="stat-row">
             <div className='label'>{ type }</div>
