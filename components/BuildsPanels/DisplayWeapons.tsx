@@ -6,7 +6,6 @@ import { getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper"
 import { useContext } from "react";
 
 interface Props {
-    
     selectedWeapons: Weapon[],
     selectedAffinities: string[],
     selectedAshes: string[],

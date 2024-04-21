@@ -1,5 +1,5 @@
 'use client'
-import { DisplayAmmo, DisplayArmours, DisplayCharacter, DisplaySpells, DisplayStats, DisplayWeapons } from "."
+import { DisplayAmmo, DisplayArmours, DisplayAttackPower, DisplayCharacter, DisplaySpells, DisplayStats, DisplayWeapons } from "."
 import { getItemFromName } from "@/helpers/BuildCreatorHelper"
 import { armours, arrows, bolts, classes, greatRunes, spells, talismans, weapons } from "@/public/data"
 import DisplayTalismans from "./BuildsPanels/DisplayTalismans"
@@ -86,6 +86,17 @@ function BuildPage({ name, creatorName, build } : Props) {
                         greatRune={selectedRune} 
                         selectedTears={selectedTears}     
                         selectedWeapons={selectedWeapons}      
+                    />
+                    <DisplayAttackPower 
+                        selectedWeapons={selectedWeapons} 
+                        selectedAffinities={selectedAffinities} 
+                        selectedLevels={selectedWepLvls}   
+                        selectedClass={selectedClass} 
+                        characterStats={characterStats}   
+                        selectedTalismans={selectedTalismans}   
+                        selectedArmours={selectedArmours}  
+                        greatRune={selectedRune} 
+                        selectedTears={selectedTears}     
                     />
                 </div>
                 <div className="separator" />
