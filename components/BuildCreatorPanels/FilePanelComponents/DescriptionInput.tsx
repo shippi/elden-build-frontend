@@ -3,6 +3,7 @@ import { useContext } from "react"
 
 function DescriptionInput() {
     const { description, setDescription } = useContext(BuildCreatorContext);
+    console.log(description)
     return (
         <div className="description-container">
             <div style={{height: "10px"}}/>

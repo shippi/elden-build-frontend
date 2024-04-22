@@ -64,7 +64,7 @@ function Build({params: {id}}: Props) {
         :
         <>
             <BuildPageContextProvider>
-            <BuildPage creatorName={creatorName} name={build.name} build={build.build}/>
+            <BuildPage creatorName={creatorName} name={build.name} description={build.description} build={build.build}/>
             </BuildPageContextProvider>
         </>
         

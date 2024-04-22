@@ -210,6 +210,12 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
 }
 
+.description {
+  width: 800px;
+  align-self: flex-start;
+  white-space: pre-line;
+}
+
 /**/
 .list-item {
   display: flex;
@@ -571,7 +577,7 @@ ul > .separator {
 .subcontainer {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+
   row-gap: 40px;
 }
 

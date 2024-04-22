@@ -9,11 +9,12 @@ import { crystalTears } from "@/public/data/Equipment/crystalTears"
 
 interface Props {
     name: string,
+    description: string,
     creatorName: string,
     build: any
 }
 
-function BuildPage({ name, creatorName, build } : Props) {
+function BuildPage({ name, description, creatorName, build } : Props) {
     const selectedClass = getItemFromName(build.selectedClass, classes);
     const selectedArmours = build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
     const selectedTalismans = build.selectedTalismans.map((talisman: string) => getItemFromName(talisman, talismans));
@@ -27,7 +28,7 @@ function BuildPage({ name, creatorName, build } : Props) {
     const selectedArrows = build.selectedArrows.map((arrow: string) => getItemFromName(arrow, arrows));
     const selectedBolts = build.selectedBolts.map((bolt: string) => getItemFromName(bolt, bolts));
     const selectedSpells = build.selectedSpells.map((spell: string) => getItemFromName(spell, spells));
-
+    
     return (
         <>
         <div style={{height: "40px"}}></div>
@@ -39,6 +40,14 @@ function BuildPage({ name, creatorName, build } : Props) {
                 <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
                 <div>Created by <span style={{color:"gold"}}>{creatorName}</span></div>
             </div>
+            
+            </div>
+            <div style={{height:"15px"}}/>
+            <div className="panels-container">
+                <div className="description">
+                {description}
+                </div>
+                <div className="separator" style={{width: "100%"}}/>
             </div>
             
             <div className="panels-container">
