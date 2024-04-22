@@ -708,6 +708,23 @@ ul > .separator {
   border-bottom: 2px var(--gold) solid;
 }
 
+.share-link {
+  display:flex;
+  align-items: center;
+  align-self: flex-end;
+
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 240px;
+  padding: 5px;
+  height: 35px;
+  border-bottom: var(--grey-border);
+}
+
 /*general styling for panels*/
 .character-panel,
 .great-runes-panel,

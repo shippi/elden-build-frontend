@@ -9,7 +9,7 @@ function DescriptionInput() {
             <div style={{height: "10px"}}/>
             <label>Description</label>
             <div style={{height: "5px"}}/>
-            <textarea rows={5} cols={45} value={description} onChange={e => setDescription(e.target.value)}>
+            <textarea rows={5} cols={76} value={description} onChange={e => setDescription(e.target.value)}>
                 
             </textarea>
         </div>

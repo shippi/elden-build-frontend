@@ -41,6 +41,7 @@ import DisplaySpells from "./BuildsPanels/DisplaySpells";
 import DisplayAttackPower from "./BuildsPanels/DisplayAttackPower";
 import DisplayDefenses from "./BuildsPanels/DisplayDefenses";
 import DescriptionInput from "./BuildCreatorPanels/FilePanelComponents/DescriptionInput";
+import ShareLink from "./BuildCreatorPanels/FilePanelComponents/ShareLink";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -86,5 +87,6 @@ export {
     DisplaySpells,
     DisplayAttackPower,
     DisplayDefenses,
-    DescriptionInput
+    DescriptionInput,
+    ShareLink
 }

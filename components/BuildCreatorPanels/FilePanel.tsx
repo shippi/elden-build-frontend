@@ -5,7 +5,7 @@ import { armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, 
 import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 import { crystalTears } from "@/public/data/Equipment/crystalTears";
 import { FilePanelContext } from "@/context/FilePanelContext";
-import { BuildNameInput, ConfirmationModal, DeleteButton, DescriptionInput, NewButton, SaveButton, VisibilityToggle } from "@/components";
+import { BuildNameInput, ConfirmationModal, DeleteButton, DescriptionInput, NewButton, SaveButton, ShareLink, VisibilityToggle } from "@/components";
 
 function FilePanel() {
   const { setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedTears, setSelectedArrows, setSelectedBolts, 
@@ -74,6 +74,7 @@ function FilePanel() {
 			<NewButton />
 			<SaveButton />
 			<DeleteButton />
+      <ShareLink />
       {message && <div className="message" style={{color: isError ? "red" : " white"}}>{message}</div>}
     </div>
     
