@@ -683,6 +683,25 @@ ul > .separator {
   animation: fadeInAndOut 2.8s cubic-bezier(0.05, 1, 0.05, 0.7);
 }
 
+.description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-container textarea {
+  background-color: #121212;
+  
+  border: none;
+  border-bottom: var(--grey-border);
+  outline: none;
+  resize: none;
+  padding: 7px;
+}
+
+.description-container textarea:focus {
+  border-bottom: 2px var(--gold) solid;
+}
+
 /*general styling for panels*/
 .character-panel,
 .great-runes-panel,

@@ -8,10 +8,10 @@ import { useContext } from "react";
 
 function SaveButton() {
     const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, selectedSpells, characterStats,
-            isPublic, loadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName} 
+            isPublic, loadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, description} 
             = useContext(BuildCreatorContext);
     
-    const { oldBuildName, saveLoading, setSaveLoading, setIsError, setMessage, setOldBuildName } = useContext(FilePanelContext);
+    const { oldBuildName, oldDescription, saveLoading, setSaveLoading, setIsError, setMessage, setOldBuildName, setOldDescription } = useContext(FilePanelContext);
     const { currentUser } = useContext(AuthContext);
 
     let uid = "";
@@ -73,6 +73,7 @@ function SaveButton() {
           const sentData = {
             uid: uid,
             name: buildName,
+            description: description,
             build: buildData,
             isPublic: isPublic
           }
@@ -117,6 +118,7 @@ function SaveButton() {
     
           const sentData = {
             name: buildName,
+            description: description,
             build: buildData,
             isPublic: isPublic
           }
@@ -144,6 +146,7 @@ function SaveButton() {
         }
     
         setOldBuildName(buildName);
+        setOldDescription(description);
         setCurrentBuild({
           selectedClass: selectedClass,
           selectedArmours: selectedArmours, 
@@ -166,7 +169,7 @@ function SaveButton() {
         setSaveLoading(false);
     }
     return (
-        <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName) ? "disabled" : ""} disabled={saveLoading}>Save</button>
+        <button onClick={handleSave} className={saveLoading || loadingBuild || (!saveable && oldBuildName == buildName && oldDescription == description) ? "disabled" : ""} disabled={saveLoading}>Save</button>
     )
 }
 

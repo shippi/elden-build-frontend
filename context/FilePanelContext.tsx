@@ -10,6 +10,7 @@ export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) =>
     const [isError, setIsError] = useState(false);
   
     const [oldBuildName, setOldBuildName] = useState("");
+    const [oldDescription, setOldDescription] = useState("");
     const [builds, setBuilds] = useState<any[]>([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
   
@@ -35,6 +36,8 @@ export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) =>
         setIsError,
         oldBuildName,
         setOldBuildName,
+        oldDescription,
+        setOldDescription,
         builds,
         setBuilds,
         selectedIndex,

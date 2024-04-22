@@ -7,6 +7,7 @@ export const BuildCreatorContext = createContext<any>(undefined);
 
 export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [buildName, setBuildName] = useState("");
+    const [description, setDescription] = useState("");
 
     const [selectedClass, setSelectedClass] = useState(classes[0]);
     const [selectedArmours, setSelectedArmours] = useState<Armour[]>(new Array(4).fill(null));
@@ -98,6 +99,7 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
     // function used to reset all the selected equipment as well as current build
     const resetBuild = () => {
         setBuildName("");
+        setDescription("");
         setSaveId(-1);
         setSelectedClass(classes[0]);
         setSelectedArmours(new Array(4).fill(null));
@@ -197,7 +199,9 @@ export const BuildCreatorContextProvider = ({ children }: PropsWithChildren<{}>)
         setSaveable,
         setCurrentBuild,
         currentBuild,
-        resetBuild
+        resetBuild,
+        description,
+        setDescription
     }
 
     return (
