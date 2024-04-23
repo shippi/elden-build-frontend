@@ -4,6 +4,7 @@ import { GreatRune } from "@/helpers/types"
 import PanelTitle from "../UIElements/PanelTitle"
 import { useContext } from "react"
 import { BuildPageContext } from "@/context/BuildPageContext"
+import Link from "next/link"
 
 interface Props {
     selectedRune: GreatRune
@@ -15,7 +16,12 @@ function DisplayGreatRune({selectedRune} : Props) {
         <div>
         <PanelTitle text={"Great Rune"} img="/icons/great-runes.png" />
         <div className="great-runes-panel">
-            {selectedRune ? selectedRune.name : "None"}
+            {
+                selectedRune ? 
+                <Link href={process.env.NEXT_PUBLIC_WIKI_URL + selectedRune.name} target="_blank">
+                    {selectedRune.name} 
+                </Link>
+                : "None"}
             <div className="active-effects" style={{marginTop: "15px"}}>
                 <label>Passive Effect:</label>
                 <ul>

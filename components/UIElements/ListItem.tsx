@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 interface Props {
     image?: string,
     text?: string
@@ -12,7 +14,14 @@ function ListItem({image, text} : Props) {
           :
           <div className="blank" />
         }
-        {text ? text : "None"}
+        {
+          text ? 
+          <Link href={process.env.NEXT_PUBLIC_WIKI_URL + text} target="_blank">
+            { text }
+          </Link>
+          
+          : "None"
+        }
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { BuildPageContext } from "@/context/BuildPageContext"
 import { CrystalTear } from "@/helpers/types";
 import { useContext } from "react"
 import PanelTitle from "../UIElements/PanelTitle";
+import Link from "next/link";
 
 interface Props {
     selectedTears: CrystalTear[]
@@ -19,7 +20,9 @@ function DisplayPhysick({selectedTears} : Props) {
                     selectedTears.map((tear, i) => (
                         <div key={i}>
                             <label>Crystal Tear {i+1}</label>
-                            <div>{tear ? tear.name : "None"}</div>
+                            <div>
+                            <Link href={process.env.NEXT_PUBLIC_WIKI_URL + tear.name} target="_blank">{tear ? tear.name : "None"}</Link>
+                            </div>
                             <br/>
                         </div>
                     ))

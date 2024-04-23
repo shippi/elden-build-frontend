@@ -4,6 +4,7 @@ import ListItem from "../UIElements/ListItem";
 import { BuildPageContext } from "@/context/BuildPageContext";
 import { getTotalStats, isRequiredStatsMet } from "@/helpers/BuildCreatorHelper";
 import { useContext } from "react";
+import Link from "next/link";
 
 interface Props {
     selectedWeapons: Weapon[],
@@ -51,7 +52,11 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
                                     selectedAshes[j] ? 
                                     selectedAshes[j] : 
                                     weapon ?
-                                    weapon.defaultSkill :
+                                    <Link href={process.env.NEXT_PUBLIC_WIKI_URL + weapon.defaultSkill} target="_blank">
+                                    {
+                                        weapon.defaultSkill
+                                    }
+                                    </Link> :
                                     "-"
                                 }
                                 </div>

@@ -42,11 +42,18 @@ function BuildPage({ name, description, creatorName, build } : Props) {
             </div>
             
             </div>
-            <div style={{height:"15px"}}/>
+            
+            {
+                
+            }
             <div className="panels-container">
-                <div className="description">
-                {description}
-                </div>
+                {
+                    description &&
+                    <div>
+                        <div style={{height:"15px"}}/>
+                        <div className="description">{description}</div>
+                    </div>
+                }
                 <div className="separator" style={{width: "100%"}}/>
             </div>
             
