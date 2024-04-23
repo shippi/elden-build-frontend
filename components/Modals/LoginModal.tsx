@@ -33,11 +33,11 @@ function LoginModal() {
         });
     }
 
-
     const handleClick = () => {
         setLoginOpened(false);
         setSignUpOpened(true);
     }
+    
     return (
         <div className="modal">
             <div className="modal-container">
