@@ -126,7 +126,8 @@ function BuildPage({ name, description, creatorName, build } : Props) {
                 <div className="separator" style={{width: "100%"}}/>
                 <div className="bottom-panels-container">
                     <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>
-                    <div style={{width:"5vw"}}/>
+                    
+                    <div style={{width:"3vw"}}/>
                     <DisplaySpells 
                         selectedClass={selectedClass} 
                         characterStats={characterStats}   

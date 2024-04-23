@@ -19,10 +19,10 @@ function SignUpSuccessModal() {
         <ExitButton onClick={() => setSignUpSuccessOpened(false)}/>
         <div><h1 style={{textAlign: "center"}}>Registration successful!</h1></div>
         <hr/>
-        <div className="modal-content">
+        <div className="modal-content" style={{width: "100%"}}>
           <br/>
-          <div style={{textAlign: "center"}}>
-            <span className="click-here" onClick={handleClick}>Click here</span> to login.
+          <div style={{textAlign: "center", width:"100%"}}>
+            <span className="click-here" onClick={handleClick}>Click here to login.</span>
           </div>
         </div>
       </div>

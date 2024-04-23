@@ -16,10 +16,9 @@ function ListItem({image, text} : Props) {
         }
         {
           text ? 
-          <Link href={process.env.NEXT_PUBLIC_WIKI_URL + text} target="_blank">
+          <Link href={process.env.NEXT_PUBLIC_WIKI_URL + text.replace(/[0-9+]/g, "")} target="_blank">
             { text }
           </Link>
-          
           : "None"
         }
     </div>

@@ -50,7 +50,9 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
                                 <label>Ash of War</label>
                                 { 
                                     selectedAshes[j] ? 
-                                    selectedAshes[j] : 
+                                    <Link href={process.env.NEXT_PUBLIC_WIKI_URL + selectedAshes[j]} target="_blank">
+                                    {selectedAshes[j]}
+                                    </Link> : 
                                     weapon ?
                                     <Link href={process.env.NEXT_PUBLIC_WIKI_URL + weapon.defaultSkill} target="_blank">
                                     {

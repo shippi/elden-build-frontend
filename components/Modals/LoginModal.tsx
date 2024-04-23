@@ -7,7 +7,7 @@ import { auth } from "@/lib/firebase";
 import { delay } from "@/utils";
 
 function LoginModal() {
-    const {setLoginOpened} = useContext(AuthContext);
+    const {setLoginOpened, setSignUpOpened} = useContext(AuthContext);
     
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [usernameInput, setUsernameInput] = useState<string>("");
@@ -33,6 +33,11 @@ function LoginModal() {
         });
     }
 
+
+    const handleClick = () => {
+        setLoginOpened(false);
+        setSignUpOpened(true);
+    }
     return (
         <div className="modal">
             <div className="modal-container">
@@ -54,7 +59,11 @@ function LoginModal() {
                     </div>
                     <span className="error">{error}</span>
                     <button type="submit" className={!(passwordInput && usernameInput) ? "disabled" : ""} disabled={loading}>{loading ? <span className="spinner"></span> : "Log In"}</button>
+                    <div>
+                        Don't have an account? <span className="click-here" onClick={handleClick}>Click here to sign up.</span>
+                    </div>
                 </form>
+
             </div>
         </div>
     )
