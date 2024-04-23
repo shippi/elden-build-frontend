@@ -30,6 +30,17 @@ function Build({params: {id}}: Props) {
             .catch(error => {})
         }
 
+        const addView = async() => {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `view-counts`, {
+                method: "POST",
+                body: JSON.stringify({
+                    build_id: id,
+                    user_id: currentUser?.uid
+                })
+            })
+            .catch();
+        }
+
         const getBuild = async() => {
             
             await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${id}`, {
@@ -43,13 +54,13 @@ function Build({params: {id}}: Props) {
                 return res.json()
             }) 
             .then(data => {
-                setBuild(data);
-                getCreatorName(data);
+                if (data) {
+                    setBuild(data);
+                    getCreatorName(data);
+                    addView();
+                }
             })
-            .catch(error => {
-                
-                
-            })
+            .catch(error => {})
             .finally(() => {
                 setLoading(false);
             })
@@ -57,7 +68,7 @@ function Build({params: {id}}: Props) {
 
         const timeout = setTimeout(() => {
             getBuild();
-        }, 500);
+        }, 1000);
       
         return () => clearTimeout(timeout);
     }, [currentUser]);
