@@ -42,7 +42,8 @@ import DisplayAttackPower from "./BuildsPanels/DisplayAttackPower";
 import DisplayDefenses from "./BuildsPanels/DisplayDefenses";
 import DescriptionInput from "./BuildCreatorPanels/FilePanelComponents/DescriptionInput";
 import ShareLink from "./BuildCreatorPanels/FilePanelComponents/ShareLink";
-
+import SearchBar from "./UIElements/SearchBar";
+import SortBy from "./UIElements/SortBy";
 // index.ts file is used to export all components for ease of importing
 export {
     CharacterPanel,
@@ -88,5 +89,7 @@ export {
     DisplayAttackPower,
     DisplayDefenses,
     DescriptionInput,
-    ShareLink
+    ShareLink,
+    SearchBar,
+    SortBy
 }

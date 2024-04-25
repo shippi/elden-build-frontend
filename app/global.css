@@ -78,6 +78,12 @@ a:hover {
   transform: translate(-50%, -70%);
 }
 
+.unselectable {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 input[type="checkbox"] {
   appearance: none;
   margin-right: 5px;
