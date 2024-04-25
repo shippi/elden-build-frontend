@@ -30,10 +30,9 @@ function Build({params: {id}}: Props) {
         }
 
         const addView = async() => {
-            await fetch(process.env.NEXT_PUBLIC_API_URL + `view-counts`, {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${id}/view-count`, {
                 method: "POST",
                 body: JSON.stringify({
-                    build_id: id,
                     user_id: currentUser?.uid
                 })
             })

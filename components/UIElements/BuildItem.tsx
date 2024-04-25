@@ -8,7 +8,7 @@ interface Props {
 
 function BuildItem({ build } : Props) {
     const [creatorName, setCreatorName] = useState("")
-
+    const date = new Date(build.updated_at);
     useEffect(() => {
         const getCreatorName = async(build: any) => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${build?.uid}`)
@@ -37,6 +37,8 @@ function BuildItem({ build } : Props) {
                 <strong>
                 {creatorName}
                 </strong>
+                , updated on <div style={{width: "5px"}}/>
+                {date.toLocaleString().split(",")[0]}
             </div>
     </div>
   )
