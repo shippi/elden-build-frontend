@@ -44,6 +44,9 @@ import DescriptionInput from "./BuildCreatorPanels/FilePanelComponents/Descripti
 import ShareLink from "./BuildCreatorPanels/FilePanelComponents/ShareLink";
 import SearchBar from "./UIElements/SearchBar";
 import SortBy from "./UIElements/SortBy";
+import BuildsList from "./BuildsList";
+import BuildItem from "./UIElements/BuildItem";
+
 // index.ts file is used to export all components for ease of importing
 export {
     CharacterPanel,
@@ -91,5 +94,7 @@ export {
     DescriptionInput,
     ShareLink,
     SearchBar,
-    SortBy
+    SortBy,
+    BuildsList,
+    BuildItem
 }

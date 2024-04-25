@@ -199,7 +199,6 @@ input[type="checkbox"]:disabled {
 }
 
 .header {
-  
   display: flex;
   flex-direction: row;
   background: linear-gradient(90deg, rgba(89,83,61,0.8) 10%, rgba(0,0,0,0) 100%);
@@ -207,6 +206,7 @@ input[type="checkbox"]:disabled {
   column-gap: 20px;
   align-items: center;
   width: 70%;
+  min-width: 1500px;
 }
 
 
@@ -247,8 +247,9 @@ input[type="checkbox"]:disabled {
 }
 
 .header .search-box {
-  height: 40px;
+  height: 30px;
   width: 500px;
+  padding: 0;
 }
 
 .header .search-box input[type="text"] {
@@ -256,6 +257,18 @@ input[type="checkbox"]:disabled {
   font-weight: 600;
   font-size: 16px;
   background: none;
+  padding: 0;
+
+}
+
+.header .search-box i {
+  padding: 10px;
+}
+
+.header .search-box i:hover {
+  cursor: pointer;
+  background-color: #6b6b6b;
+  border-radius: 50px;
 }
 
 .select-container {
@@ -323,6 +336,27 @@ input[type="checkbox"]:disabled {
   height: 35px;
   margin-right: 10px;
   background-color: #121212;
+}
+
+/**/
+.build-item *,
+.build-item {
+  font-family: "Inter", sans-serif !important;
+}
+
+.build-item {
+  border: var(--grey-border);
+  padding: 10px;
+  width: 600px;
+}
+
+.build-item h3 {
+  text-decoration: underline;
+  padding-bottom: 5px;
+}
+
+.build-item strong {
+  color: var(--gold);
 }
 
 /*styling for the navbar component*/

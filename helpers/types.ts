@@ -120,7 +120,6 @@ export interface CrystalTear extends Item {
     effect: string
 }
 
-
 export interface Ammo extends Item {
     attackPower: {
         physical?: number,
@@ -149,6 +148,18 @@ export interface Build {
     bolts: Ammo | null [],
     spells: Spell | null [],
     stats: CharacterStats
+}
+
+export interface BuildJSON {
+    
+}
+
+export interface BuildJSON {
+    id: number,
+    uid: string,
+    name: string,
+    description: string,
+
 }
 
 interface StatChange {
