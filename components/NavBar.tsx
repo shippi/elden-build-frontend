@@ -24,7 +24,7 @@ function NavBar() {
     <div className="navbar">
         <Link href="/" className="logo">ELDEN BUILDER</Link>
         <div className="navbar-buttons">
-          <Link href="" className={"navbar-btn" + (pathname == "/builds" ? " selected-page" : "")}>View Builds</Link>
+          <Link href="/builds" className={"navbar-btn" + (pathname == "/builds" ? " selected-page" : "")}>View Builds</Link>
           <Link href="/build-creator" className={"navbar-btn" + (pathname == "/build-creator" ? " selected-page" : "")}>Build Creator</Link>
           {
             username ?

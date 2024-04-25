@@ -23,7 +23,7 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
     const { physickActivated, runeActivated, twoHanded, setTwoHanded } = useContext(BuildPageContext);
     const totalStats = getTotalStats(selectedClass, characterStats, selectedArmours, selectedTalismans, twoHanded, runeActivated ? greatRune : undefined, physickActivated ? selectedTears : undefined);
     const selectorPanels = [];
-
+    
     for (let i = 0; i < 2; i++) {
         const condition = (i: number, j:number) => {
             if (i == 0) return j < 3;
@@ -31,7 +31,7 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
         }
 
         selectorPanels.push(selectedWeapons.map((weapon, j) => {
-            const requirementsMet = isRequiredStatsMet(weapon?.requiredAttributes, totalStats)
+            const requirementsMet = isRequiredStatsMet(weapon?.requiredAttributes, totalStats, twoHanded)
         
             return (
                 condition(i, j) &&

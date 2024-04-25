@@ -192,7 +192,8 @@ input[type="checkbox"]:disabled {
   color: var(--gold);
 }
 
-.build-page .header {
+.header {
+  
   display: flex;
   flex-direction: row;
   background: linear-gradient(90deg, rgba(89,83,61,0.8) 10%, rgba(0,0,0,0) 100%);
@@ -221,9 +222,59 @@ input[type="checkbox"]:disabled {
 }
 
 .description {
+  display:flex;
   width: 800px;
   align-self: flex-start;
   white-space: pre-line;
+}
+
+/**/
+.page-content {
+  background-repeat: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  min-width: 1500px;
+}
+
+.header .search-box {
+  height: 40px;
+  width: 500px;
+}
+
+.header .search-box input[type="text"] {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600;
+  font-size: 16px;
+  background: none;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+}
+
+.select-container:hover {
+  cursor: pointer;
+}
+
+.select-container:hover > .select {
+  color: var(--gold);
+  transition: 0.5s ease-out;
+}
+
+.select {
+  width: 80px;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600;
+  font-size: 16px;
+  background: none;
+  border: none;
+  appearance: none;
+  padding: 5px;
 }
 
 /**/
@@ -749,7 +800,7 @@ ul > .separator {
 .physick-panel,
 .description {
   display: block;
-  padding: 15px 20px 10px 20px;
+  padding: 10px 20px 10px 20px;
   background: linear-gradient(90deg, rgba(25,22,17,1) 0%, rgba(0,0,0,0) 100%);
   border-left-width: 3px;
   border-left-style: solid;

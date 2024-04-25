@@ -6,7 +6,7 @@ import { useContext, useEffect, useRef, useState } from "react"
 function NewButton() {
 	const { buildName, loadingBuild, setLoadingBuild, saveable } = useContext(BuildCreatorContext);
 
-	const { setOldBuildName, setSelectedIndex, setSelectToggle, selectToggle, 
+	const { saveLoading, setOldBuildName, setSelectedIndex, setSelectToggle, selectToggle, 
 			selectedIndex, oldBuildName, setConfirmationOpen, setConfirmationMessage, 
 			setConfirmationFunction } = useContext(FilePanelContext);
 
@@ -37,7 +37,7 @@ function NewButton() {
 	}, [selectedIndex])
 	
 	return (
-    	<button onClick={handleNew} className={disabled || loadingBuild ? "disabled" : ""}>New</button>
+    	<button onClick={handleNew} className={disabled || loadingBuild || saveLoading ? "disabled" : ""}>New</button>
   	)
 }
 

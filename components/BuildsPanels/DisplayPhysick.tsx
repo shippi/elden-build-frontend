@@ -21,7 +21,7 @@ function DisplayPhysick({selectedTears} : Props) {
                         <div key={i}>
                             <label>Crystal Tear {i+1}</label>
                             <div>
-                            <Link href={process.env.NEXT_PUBLIC_WIKI_URL + tear.name} target="_blank">{tear ? tear.name : "None"}</Link>
+                            <Link href={process.env.NEXT_PUBLIC_WIKI_URL + tear?.name} target="_blank">{tear ? tear.name : "None"}</Link>
                             </div>
                             <br/>
                         </div>
