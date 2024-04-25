@@ -277,6 +277,27 @@ input[type="checkbox"]:disabled {
   padding: 5px;
 }
 
+.dropdown-container .dropdown {
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown-container .dropdown ul {
+  width: 180px;
+  padding: 10px 20px 10px 20px;
+  background-color: var(--bg-color);
+  border: var(--grey-border);
+  list-style-type: none;
+  border-radius: 5px;
+}
+
+.dropdown-container .dropdown ul li {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif !important;
+  padding: 8px 0;
+}
+
 /**/
 .list-item {
   display: flex;
@@ -322,7 +343,8 @@ input[type="checkbox"]:disabled {
 
 .navbar-btn:hover,
 .navbar-btn:hover div,
-.user-dropdown ul > li:hover {
+.user-dropdown ul > li:hover,
+.dropdown-container .dropdown ul li:hover {
   cursor: pointer;
   color: var(--gold);
   transition: 0.5s ease-out;
@@ -394,7 +416,7 @@ ul > .separator {
   list-style-type: none;
 }
 
-.user-dropdown ul > li {
+.user-dropdown ul li {
   font-size: 15px;
   font-weight: 500;
   font-family: "Inter", sans-serif !important;

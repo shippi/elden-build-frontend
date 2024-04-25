@@ -17,15 +17,16 @@ function Builds() {
                     />
                 </div>
 				<div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-				<div>
+				<div className="dropdown-container">
 					<div className="select-container">
 						<div className="select">Sort By</div>
 						<div className="select-icon">
 							<i className=" fa fa-angle-down" aria-hidden="true"/>
 						</div>
 					</div>
-
+			
 					<div className="dropdown">
+						<br/>
 						<ul>
 							<li>Recently Updated</li>
 							<li>Trending</li>
