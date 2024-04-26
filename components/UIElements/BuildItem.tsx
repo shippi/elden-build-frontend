@@ -1,6 +1,7 @@
 'use client'
 
 import { calculateLevel, getItemFromName } from "@/helpers/BuildCreatorHelper";
+import { Armour } from "@/helpers/types";
 import { classes, armours, talismans, weapons, greatRunes, arrows, bolts, spells } from "@/public/data";
 import { crystalTears } from "@/public/data/Equipment/crystalTears";
 import { useEffect, useState } from "react"
@@ -14,7 +15,7 @@ function BuildItem({ build } : Props) {
     const [viewCount, setViewCount] = useState("");
 
     const selectedClass = getItemFromName(build.build.selectedClass, classes);
-   
+    const selectedArmours = build.build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
     const characterStats = build.build.characterStats;
    
     const level = calculateLevel(selectedClass.stats.level, characterStats);
@@ -64,9 +65,20 @@ function BuildItem({ build } : Props) {
                 {date.toLocaleString().split(",")[0]}
             </div>
             <div className="separator"/>
-            <div>
-                <label>Total Level: <span style={{color: "white"}}>{level}</span></label>
+            <div className="equipment">
+                <div className="armours">
+                    {
+                        selectedArmours.map((armour: Armour) => (
+                            armour ?
+                            <img src={armour.image}/>
+                            :
+                            <div className="blank"/>
+                        ))
+                    }
+                </div>
+               
             </div>
+            <label>Total Level: <span style={{color: "white"}}>{level}</span></label>
             <div className="separator"/>
             <div style={{display: "flex", color: "lightgray"}}>
                 <div style={{display: "flex", alignItems: "center"}}>

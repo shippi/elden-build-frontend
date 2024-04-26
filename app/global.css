@@ -331,7 +331,7 @@ input[type="checkbox"]:disabled {
   margin-right: 10px;
 }
 
-.list-item .blank {
+.blank {
   width: 35px;
   height: 35px;
   margin-right: 10px;
@@ -344,12 +344,15 @@ input[type="checkbox"]:disabled {
   font-family: "Inter", sans-serif !important;
 }
 
-
 .build-item {
   border: var(--grey-border);
   padding: 18px;
   width: 600px;
   border-radius: 4px;
+}
+
+.build-item img {
+  width: 35px;
 }
 
 .build-item h3 {
@@ -364,6 +367,23 @@ input[type="checkbox"]:disabled {
   display: flex;
   flex-direction: column;
   row-gap: 24px;
+}
+
+.equipment {
+  display: flex;
+  padding: 8px 0;
+}
+
+.armours .blank {
+  margin: 0;
+}
+
+.armours {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100px;
+  column-gap: 12px;
+  row-gap: 12px;
 }
 
 /*styling for the navbar component*/

@@ -38,6 +38,7 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
                 <div className="selector" key={j}>
                     <label>{j < 3 ? "Left Armament " + (j % 3 + 1) : "Right Armament " + (j % 3 + 1)}</label>
                     <ListItem image={weapon?.image} text={weapon?.name}/>
+                    <div style={{height: "4px"}}/>
                     <div className="requirements-text" data-alt={requirementsMet.reqTitle}>
                         {  
                             requirementsMet.isMet ? "" : 
