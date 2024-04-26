@@ -40,7 +40,6 @@ function Build({params: {id}}: Props) {
         }
 
         const getBuild = async() => {
-            
             await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${id}`, {
                 method: "GET",
                 headers: {
@@ -66,7 +65,7 @@ function Build({params: {id}}: Props) {
 
         const timeout = setTimeout(() => {
             getBuild();
-        }, 1000);
+        }, 500);
       
         return () => clearTimeout(timeout);
     }, [currentUser]);
