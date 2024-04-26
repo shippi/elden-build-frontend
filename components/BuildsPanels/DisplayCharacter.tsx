@@ -4,6 +4,7 @@ import ListItem from "../UIElements/ListItem"
 import DisplayStatRow from "../UIElements/DisplayStatRow"
 import { calculateTotalRunes } from "@/helpers/CharacterPanelHelper"
 import { STAT_NAMES } from "@/helpers/consts"
+import { calculateLevel } from "@/helpers/BuildCreatorHelper"
 
 interface Props {
     selectedClass: CharacterClass,
@@ -60,13 +61,6 @@ function DisplayCharacter({selectedClass, characterStats, selectedTalismans, sel
   )
 }
 
-function calculateLevel(classLevel: string, stats: CharacterStats) {
-  let level = +classLevel;
 
-  Object.entries(stats).forEach((stat, i) => {
-    level += stat[1];
-  })
-  return level;
-}
 
 export default DisplayCharacter

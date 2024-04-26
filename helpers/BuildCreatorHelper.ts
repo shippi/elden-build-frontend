@@ -66,6 +66,15 @@ export function calculateTotalLevel(totalStats: CharacterStats) {
   return level - 79;
 }
 
+export function calculateLevel(classLevel: string, stats: CharacterStats) {
+  let level = +classLevel;
+
+  Object.entries(stats).forEach((stat, i) => {
+    level += stat[1];
+  })
+  return level;
+}
+
 /**
  * Calculates and return total points for a particular stat, based on points from 
  * starting class, added points, talismans, armours and great rune.

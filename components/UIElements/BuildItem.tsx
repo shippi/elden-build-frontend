@@ -1,5 +1,8 @@
 'use client'
 
+import { calculateLevel, getItemFromName } from "@/helpers/BuildCreatorHelper";
+import { classes, armours, talismans, weapons, greatRunes, arrows, bolts, spells } from "@/public/data";
+import { crystalTears } from "@/public/data/Equipment/crystalTears";
 import { useEffect, useState } from "react"
 
 interface Props {
@@ -9,7 +12,14 @@ interface Props {
 function BuildItem({ build } : Props) {
     const [creatorName, setCreatorName] = useState("");
     const [viewCount, setViewCount] = useState("");
+
+    const selectedClass = getItemFromName(build.build.selectedClass, classes);
+   
+    const characterStats = build.build.characterStats;
+   
+    const level = calculateLevel(selectedClass.stats.level, characterStats);
     const date = new Date(build.updated_at);
+
     useEffect(() => {
         const getCreatorName = async(build: any) => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${build.uid}`)
@@ -34,7 +44,7 @@ function BuildItem({ build } : Props) {
         getCreatorName(build);
         getViewCount(build);
     }, []);
-    console.log()
+
     return (
         <div className="build-item">
             <h3>
@@ -54,14 +64,17 @@ function BuildItem({ build } : Props) {
                 {date.toLocaleString().split(",")[0]}
             </div>
             <div className="separator"/>
+            <div>
+                <label>Total Level: <span style={{color: "white"}}>{level}</span></label>
+            </div>
             <div className="separator"/>
             <div style={{display: "flex", color: "lightgray"}}>
                 <div style={{display: "flex", alignItems: "center"}}>
-                    <i className="fa fa-eye fa-lg"/> &nbsp;
-                    {viewCount}
+                    <i className="fa fa-eye fa-lg"/> &nbsp; 
+                    <label>{viewCount}</label>
                 </div>
             </div>
-    </div>
+        </div>
   )
 }
 

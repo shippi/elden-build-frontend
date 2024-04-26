@@ -49,7 +49,7 @@ html {
 }
 
 label {
-  font-size: 13px;
+  font-size: 14px;
   color: gray;
 }
 
@@ -344,19 +344,26 @@ input[type="checkbox"]:disabled {
   font-family: "Inter", sans-serif !important;
 }
 
+
 .build-item {
   border: var(--grey-border);
-  padding: 10px;
+  padding: 18px;
   width: 600px;
+  border-radius: 4px;
 }
 
 .build-item h3 {
-  text-decoration: underline;
   padding-bottom: 5px;
 }
 
 .build-item strong {
   color: var(--gold);
+}
+
+.builds-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
 }
 
 /*styling for the navbar component*/

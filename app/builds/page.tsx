@@ -35,7 +35,7 @@ function Builds() {
 				<div style={{borderLeft: "1px solid grey", height:"25px"}}/>
 				<SortBy/>
             </div>
-			<div style={{height: "20px", width:"100%"}}/>
+			<div style={{height: "24px", width:"100%"}}/>
 			{
 				isLoading ? 
 				<div style={{height: "70vh"}}><Loading/></div> :
