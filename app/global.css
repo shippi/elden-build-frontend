@@ -201,14 +201,14 @@ input[type="checkbox"]:disabled {
 .header {
   display: flex;
   flex-direction: row;
-  background: linear-gradient(90deg, rgba(89,83,61,0.8) 10%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(90deg, rgba(89,83,61,0.8) 10%, rgba(99, 92, 66, 0.8) 100%);
   padding: 5px;
   column-gap: 20px;
   align-items: center;
-  width: 70%;
+
+  width: 100%;
   min-width: 1500px;
 }
-
 
 .build-page .armour-panel,
 .build-page .talismans-panel {
@@ -228,7 +228,7 @@ input[type="checkbox"]:disabled {
 }
 
 .description {
-  display:flex;
+  display: flex;
   width: 800px;
   align-self: flex-start;
   white-space: pre-line;
@@ -236,19 +236,20 @@ input[type="checkbox"]:disabled {
 
 /**/
 .page-content {
+  background-color:#121212;
   background-repeat: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  min-height: 91vh;
   margin: auto;
   min-width: 1500px;
 }
 
 .header .search-box {
   height: 30px;
-  width: 500px;
+  width: 600px;
   padding: 0;
 }
 
@@ -272,6 +273,7 @@ input[type="checkbox"]:disabled {
 }
 
 .select-container {
+  width: 200px;
   display: flex;
   align-items: center;
 }
@@ -286,8 +288,8 @@ input[type="checkbox"]:disabled {
 }
 
 .select {
-  width: 80px;
   font-family: "Inter", sans-serif !important;
+  width: 160px;
   font-weight: 600;
   font-size: 16px;
   background: none;
@@ -311,10 +313,21 @@ input[type="checkbox"]:disabled {
 }
 
 .dropdown-container .dropdown ul li {
+  padding: 8px 0;
+}
+
+.dropdown-container .dropdown ul li a {
   font-size: 15px;
   font-weight: 500;
   font-family: "Inter", sans-serif !important;
-  padding: 8px 0;
+}
+
+.dropdown-container .dropdown ul li:hover {
+  cursor: default !important;
+}
+
+.dropdown-container .dropdown ul li a:hover {
+  color: var(--gold);
 }
 
 /**/
@@ -339,16 +352,26 @@ input[type="checkbox"]:disabled {
 }
 
 /**/
+.builds .header {
+  justify-content: center;
+}
+
+/**/
 .build-item div,
 .build-item {
   font-family: "Inter", sans-serif !important;
 }
 
 .build-item {
+  background-color: #1c1c1c;
   border: var(--grey-border);
-  padding: 18px;
+  padding: 24px;
   width: 600px;
   border-radius: 4px;
+}
+
+.build-item:hover {
+  background-color:#333333;
 }
 
 .build-item img {
@@ -367,6 +390,7 @@ input[type="checkbox"]:disabled {
   display: flex;
   flex-direction: column;
   row-gap: 24px;
+
 }
 
 .equipment {
@@ -382,8 +406,8 @@ input[type="checkbox"]:disabled {
   display: flex;
   flex-wrap: wrap;
   width: 100px;
-  column-gap: 12px;
-  row-gap: 12px;
+  column-gap: 8px;
+  row-gap: 8px;
 }
 
 /*styling for the navbar component*/

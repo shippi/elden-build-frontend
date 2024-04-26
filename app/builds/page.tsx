@@ -29,11 +29,9 @@ function Builds() {
       	<div style={{height: "40px"}}/>
       	<div className="page-content">
         	<div className="header unselectable">
-          		<h1>ELDEN RING BUILDS</h1>
-				<div style={{borderLeft: "1px solid grey", height:"25px"}}/>
 				<SearchBar/>
 				<div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-				<SortBy/>
+				<SortBy selected={sort} page={page} />
             </div>
 			<div style={{height: "24px", width:"100%"}}/>
 			{

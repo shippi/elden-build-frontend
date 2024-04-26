@@ -1,17 +1,35 @@
 'use client'
 
 import { useClickOutside } from "@/hooks";
+import { delay } from "@/utils";
+import Link from "next/link";
 import { useRef, useState } from "react";
 
-function SortBy() {
+interface Props {
+    selected?: string,
+    page?: number
+}
+
+function SortBy({ selected, page }: Props) {
     const [open, setOpen] = useState(false);
     const selectRef = useRef(null);
-    useClickOutside(selectRef, () => {setOpen(false)})
+    useClickOutside(selectRef, () => { setOpen(false) })
+
+    switch (selected) {
+        case "mostviewed":
+            selected = "Most Viewed"
+            break;
+        case "latest":
+            selected = "Recently Updated"
+            break;
+        default:
+            selected = "Trending"
+    }
 
     return (
-        <div className="dropdown-container">
-        <div className="select-container unselectable" onClick={() => setOpen(!open)} ref={selectRef}>
-            <div className="select">Sort By</div>
+        <div className="dropdown-container" ref={selectRef}>
+        <div className="select-container unselectable" onClick={() => setOpen(!open)} >
+            <div className="select">{selected ? selected : "Sort By"}</div>
             <div className="select-icon">
                 <i className=" fa fa-angle-down" aria-hidden="true"/>
             </div>
@@ -20,9 +38,9 @@ function SortBy() {
         <div className={"dropdown " + (!open && " hidden")}>
             <br/>
             <ul>
-                <li>Trending</li>
-                <li>Most Viewed</li>
-                <li>Recently Updated</li>
+                <li onClick={() => {setOpen(false)}}><Link href={`builds?sort=trending&page=${page ? page : 1}`}>Trending</Link></li>
+                <li onClick={() => {setOpen(false)}}><Link href={`builds?sort=mostViewed&page=${page ? page : 1}`}>Most Viewed</Link></li>
+                <li onClick={() => {setOpen(false)}}><Link href={`builds?sort=latest&page=${page ? page : 1}`}>Recently Updated</Link></li>
             </ul>
         </div>
     </div>

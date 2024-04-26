@@ -4,6 +4,7 @@ import { calculateLevel, getItemFromName } from "@/helpers/BuildCreatorHelper";
 import { Armour } from "@/helpers/types";
 import { classes, armours, talismans, weapons, greatRunes, arrows, bolts, spells } from "@/public/data";
 import { crystalTears } from "@/public/data/Equipment/crystalTears";
+import Link from "next/link";
 import { useEffect, useState } from "react"
 
 interface Props {
@@ -47,15 +48,20 @@ function BuildItem({ build } : Props) {
     }, []);
 
     return (
+        <Link href={`/builds/${build.id}`} target="_blank">
         <div className="build-item">
+            
             <h3>
+            
             {
             build.name.length < 40 ?
             build.name 
             :
             build.name.slice(0, 40) + "..."
             }
+            
             </h3>
+            
             <div style={{display: "flex"}}>
                 Created by <div style={{width: "5px"}}/>
                 <strong>
@@ -87,6 +93,7 @@ function BuildItem({ build } : Props) {
                 </div>
             </div>
         </div>
+        </Link>
   )
 }
 
