@@ -36,7 +36,7 @@ function Builds() {
 			<div style={{height: "24px", width:"100%"}}/>
 			{
 				isLoading ? 
-				<div style={{height: "70vh"}}><Loading/></div> :
+				<div style={{height: "80vh"}}><Loading/></div> :
 				<BuildsList builds={builds}/>
 			}
       	</div>

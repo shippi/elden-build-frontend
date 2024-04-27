@@ -1,7 +1,7 @@
 'use client'
 
 import { calculateLevel, getItemFromName } from "@/helpers/BuildCreatorHelper";
-import { Armour } from "@/helpers/types";
+import { Armour, Weapon } from "@/helpers/types";
 import { classes, armours, talismans, weapons, greatRunes, arrows, bolts, spells } from "@/public/data";
 import { crystalTears } from "@/public/data/Equipment/crystalTears";
 import Link from "next/link";
@@ -17,6 +17,7 @@ function BuildItem({ build } : Props) {
 
     const selectedClass = getItemFromName(build.build.selectedClass, classes);
     const selectedArmours = build.build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
+    const selectedWeapons = build.build.selectedWeapons.map((weapon: string) => getItemFromName(weapon, weapons));
     const characterStats = build.build.characterStats;
    
     const level = calculateLevel(selectedClass.stats.level, characterStats);
@@ -82,7 +83,18 @@ function BuildItem({ build } : Props) {
                         ))
                     }
                 </div>
-               
+                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
+                <div className="weapons">
+                    {
+                        selectedWeapons.map((weapon: Weapon) => (
+                            weapon ?
+                            <img src={weapon.image}/>
+                            :
+                            <div className="blank"/>
+                        ))
+                    }
+                </div>
+                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
             </div>
             <label>Total Level: <span style={{color: "white"}}>{level}</span></label>
             <div className="separator"/>
