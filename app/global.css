@@ -394,6 +394,7 @@ input[type="checkbox"]:disabled {
 
 .equipment {
   display: flex;
+  justify-content: space-around;
   align-items: center;
   column-gap: 16px;
   padding: 8px 0;
@@ -403,8 +404,10 @@ input[type="checkbox"]:disabled {
   margin: 0;
 }
 
-.armours ,
-.weapons {
+.armours,
+.talismans,
+.weapons,
+.spells {
   display: flex;
   flex-wrap: wrap;
   width: 78px;
@@ -413,8 +416,11 @@ input[type="checkbox"]:disabled {
 }
 
 .weapons {
-  justify-content: space-around;
   width: 121px;
+}
+
+.spells {
+  width: 165px;
 }
 
 /*styling for the navbar component*/
