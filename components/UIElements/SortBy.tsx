@@ -38,9 +38,9 @@ function SortBy({ selected, page }: Props) {
         <div className={"dropdown " + (!open && " hidden")}>
             <br/>
             <ul>
-                <li onClick={() => {setOpen(false)}}><Link href={`builds?sort=trending&page=${page ? page : 1}`}>Trending</Link></li>
-                <li onClick={() => {setOpen(false)}}><Link href={`builds?sort=mostViewed&page=${page ? page : 1}`}>Most Viewed</Link></li>
-                <li onClick={() => {setOpen(false)}}><Link href={`builds?sort=latest&page=${page ? page : 1}`}>Recently Updated</Link></li>
+                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=trending&page=${page ? page : 1}`}>Trending</a></li>
+                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=mostViewed&page=${page ? page : 1}`}>Most Viewed</a></li>
+                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=latest&page=${page ? page : 1}`}>Recently Updated</a></li>
             </ul>
         </div>
     </div>

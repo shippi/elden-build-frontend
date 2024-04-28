@@ -19,7 +19,7 @@ function Builds() {
 			if (!res.ok) throw Error;
 			return res.json();
 		}) 
-		.then(data => setBuilds(data))
+		.then(data => setBuilds(data.builds))
 		.catch(error => {})
 		.finally(() => setLoading(false));
 	}, []);
@@ -39,6 +39,7 @@ function Builds() {
 				<div style={{height: "80vh"}}><Loading/></div> :
 				<BuildsList builds={builds}/>
 			}
+			<div style={{height: "24px", width:"100%"}}/>
       	</div>
     </div>
   )

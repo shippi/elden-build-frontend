@@ -219,7 +219,7 @@ input[type="checkbox"]:disabled {
 
 .build-page .weapon-options {
   column-gap: 60px;
-  padding-top: 10px;
+  padding-top: 4px;
 }
 
 .build-page .weapon-options div {
@@ -236,7 +236,7 @@ input[type="checkbox"]:disabled {
 
 /**/
 .page-content {
-  background-color:#121212;
+  background-color:#1212127F;
   background-repeat: none;
   display: flex;
   flex-direction: column;
@@ -352,6 +352,13 @@ input[type="checkbox"]:disabled {
 }
 
 /**/
+.builds {
+  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
+  url('./../public/builder-bg.png');
+  background-position: top left;
+  background-size: 100%;
+}
+
 .builds .header {
   justify-content: center;
 }
