@@ -12,6 +12,7 @@ function BuildsList({ builds } : Props) {
                     return <BuildItem build={build}/>
                 })
             }
+            
         </div>
     )
 }

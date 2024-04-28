@@ -46,6 +46,7 @@ import SearchBar from "./UIElements/SearchBar";
 import SortBy from "./UIElements/SortBy";
 import BuildsList from "./BuildsList";
 import BuildItem from "./UIElements/BuildItem";
+import Pagination from "./UIElements/Pagination";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -96,5 +97,6 @@ export {
     SearchBar,
     SortBy,
     BuildsList,
-    BuildItem
+    BuildItem,
+    Pagination
 }

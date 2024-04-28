@@ -353,10 +353,12 @@ input[type="checkbox"]:disabled {
 
 /**/
 .builds {
-  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
+  background-image: linear-gradient(0deg, rgb(59, 56, 47) 0%, rgba(31,26,8,1) 60%, rgba(0,0,0,0) 80%, rgba(28,28,28,1) 100%), 
   url('./../public/builder-bg.png');
   background-position: top left;
   background-size: 100%;
+  min-width: 1500px;
+  background-repeat: no-repeat;
 }
 
 .builds .header {
@@ -429,6 +431,19 @@ input[type="checkbox"]:disabled {
 .spells {
   width: 165px;
 }
+
+/*pagination buttons tyling*/
+.pagination {
+  display: flex;
+  column-gap: 16px;
+}
+
+.pagination button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+}
+
 
 /*styling for the navbar component*/
 .navbar {

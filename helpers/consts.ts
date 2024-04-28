@@ -8,3 +8,4 @@ export const MAGIC_DEFENCE_NAMES = ["Magic", "Fire", "Lightning", "Holy"]
 export const RESISTANCE_NAMES = ["Immunity", "Robustness", "Focus", "Vitality"]
 export const ARMOUR_TYPES = ["Helmet", "Chest", "Gauntlets", "Legs"]
 export const SORT_OPTIONS = ["trending", "mostviewed", "latest"]
+export const PAGE_ITEM_LIMIT = 10;
