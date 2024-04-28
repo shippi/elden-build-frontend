@@ -48,11 +48,11 @@ function Builds() {
 				<BuildsList builds={builds}/>
 			}
 			{
-				//builds.length > 0 &&
+				builds.length > 0 &&
 				<>
 				<div style={{height: "48px", width:"100%"}}/>
 				<Pagination 
-					numPages={8} 
+					numPages={pageCount} 
 					currPage={page} 
 					onClick={paginationOnClick}
 				/>

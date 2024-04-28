@@ -40,11 +40,23 @@ function Pagination({numPages, currPage, onClick} : Props) {
 
     return (
         <div className="pagination">
-            <button>&lt;</button>
+            {
+                currPage > 1 ?
+                <button onClick={() => onClick(currPage - 1)}>&lt;</button>
+                :
+                <div style={{width: "40px"}}/>
+            }
+            
             {
                 pageButtons
             }
-            <button>&gt;</button>
+            {
+                currPage < numPages ?
+                <button onClick={() => onClick(currPage + 1)}>&gt;</button>
+                :
+                <div style={{width: "40px"}}/>
+            }
+            
         </div>
     )
 }
