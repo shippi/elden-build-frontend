@@ -435,15 +435,31 @@ input[type="checkbox"]:disabled {
 /*pagination buttons tyling*/
 .pagination {
   display: flex;
-  column-gap: 16px;
+  column-gap: 32px;
 }
 
 .pagination button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
   background-color: transparent;
   border: none;
   font-size: 24px;
+  border-radius: 4px;
 }
 
+.pagination button:hover {
+  cursor: pointer;
+  background-color: #ffd7481c;
+  transition: 0.15s ease-out;
+}
+
+.pagination .selected {
+  color: var(--gold);
+  background-color: #ffc8002c;
+}
 
 /*styling for the navbar component*/
 .navbar {
@@ -1216,7 +1232,7 @@ td {
   width: 100%;
 }
 
-.selected {
+.select-menu .selected {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1228,7 +1244,7 @@ td {
   margin: 5px 0px;
 }
 
-.selected div {
+.select-menu .selected div {
   display: flex;
   align-items: center;
 }

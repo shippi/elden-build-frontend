@@ -13,7 +13,11 @@ function Builds() {
 
 	const [builds, setBuilds] = useState<any[]>([]);
 	const [pageCount, setPageCount] = useState(1);
-	console.log(pageCount)
+
+	const paginationOnClick = (pageNum: number) => {
+		window.location.href=`builds?sort=${sort}&page=${pageNum}`
+	}
+
 	useEffect(() => {
 		fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}`)
 		.then(res => {
@@ -47,7 +51,11 @@ function Builds() {
 				//builds.length > 0 &&
 				<>
 				<div style={{height: "48px", width:"100%"}}/>
-				<Pagination numPages={16} currPage={page} />
+				<Pagination 
+					numPages={8} 
+					currPage={page} 
+					onClick={paginationOnClick}
+				/>
 				<div style={{height: "128px", width:"100%"}}/>
 				</>
 			}

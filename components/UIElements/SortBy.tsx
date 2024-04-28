@@ -1,8 +1,6 @@
 'use client'
 
 import { useClickOutside } from "@/hooks";
-import { delay } from "@/utils";
-import Link from "next/link";
 import { useRef, useState } from "react";
 
 interface Props {
