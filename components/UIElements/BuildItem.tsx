@@ -15,7 +15,7 @@ function BuildItem({ build } : Props) {
     const { currentUser } = useContext(AuthContext);
 
     const [likesCount, setLikesCount] = useState(build.likes || 0);
-    const [liked, setLiked] = useState(build.liked_by_user || false);
+    const [liked, setLiked] = useState(build.liked || false);
 
     const creatorName = build.username;
     const viewCount = build.views;
@@ -36,7 +36,7 @@ function BuildItem({ build } : Props) {
                 method: "POST",
                 headers: {
                     "Authorization" : `Bearer ${currentUser.accessToken}` 
-                  },
+                },
                 body: JSON.stringify({
                     build_id: build.id
                 })
@@ -57,6 +57,9 @@ function BuildItem({ build } : Props) {
         }
 
         event.preventDefault();
+
+        if (!currentUser) return;
+
         if (liked) {
             removeLike();
             setLikesCount(likesCount - 1);
@@ -146,7 +149,7 @@ function BuildItem({ build } : Props) {
                     <label>{viewCount}</label>
                 </div>
                 <div style={{display: "flex", alignItems: "center"}}>
-                    <i className="fa fa-heart-o" onClick={onLikeClicked}/> &nbsp; 
+                    <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
                     <label>{likesCount}</label>
                 </div>
             </div>

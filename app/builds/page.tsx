@@ -1,11 +1,14 @@
 'use client'
 
 import { BuildsList, Loading, Pagination, SearchBar, SortBy } from "@/components"
+import { AuthContext } from "@/context/AuthContext";
 import { PAGE_ITEM_LIMIT, SORT_OPTIONS } from "@/helpers/consts";
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function Builds() {
+	const { currentUser } = useContext(AuthContext);
+
 	const searchParams = useSearchParams();
 	const page = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1
 	const sort = SORT_OPTIONS.includes(searchParams.get("sort")?.toLowerCase() || "") ? searchParams.get("sort")?.toLowerCase() : SORT_OPTIONS[0];
@@ -19,7 +22,12 @@ function Builds() {
 	}
 
 	useEffect(() => {
-		fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}`)
+		fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}`, {
+			method: "GET",
+			headers: {
+				"Authorization" : `Bearer ${currentUser?.accessToken}` 
+			},
+		})
 		.then(res => {
 			if (!res.ok) throw Error;
 			return res.json();
@@ -31,8 +39,6 @@ function Builds() {
 		.catch(error => {})
 		.finally(() => setLoading(false));
 	}, []);
-
-	console.log(buildsData)
 	
 	return (
     <div className="builds">
