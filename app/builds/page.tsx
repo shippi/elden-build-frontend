@@ -3,6 +3,7 @@
 import { BuildsList, Loading, Pagination, SearchBar, SortBy } from "@/components"
 import { AuthContext } from "@/context/AuthContext";
 import { PAGE_ITEM_LIMIT, SORT_OPTIONS } from "@/helpers/consts";
+import { delay } from "@/utils";
 import { useSearchParams } from "next/navigation"
 import { useContext, useEffect, useState } from "react";
 
@@ -22,6 +23,8 @@ function Builds() {
 	}
 
 	useEffect(() => {
+		delay(100);
+		setLoading(true);
 		fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}`, {
 			method: "GET",
 			headers: {
@@ -38,8 +41,8 @@ function Builds() {
 		})
 		.catch(error => {})
 		.finally(() => setLoading(false));
-	}, []);
-	
+	}, [currentUser]);
+
 	return (
     <div className="builds">
       	<div style={{height: "40px"}}/>
@@ -56,7 +59,7 @@ function Builds() {
 				<BuildsList buildsData={buildsData}/>
 			}
 			{
-				buildsData.length > 0 &&
+				(buildsData.length > 0 && !isLoading) &&
 				<>
 				<div style={{height: "48px", width:"100%"}}/>
 				<Pagination 
