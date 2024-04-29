@@ -8,8 +8,6 @@ function Pagination({numPages, currPage, onClick} : Props) {
     let pageButtons = [];
     const displayPages = numPages < 8 ? numPages : 8;
 
-
-    console.log(displayPages)
     if (currPage < 4) {
         for (let i: number = 1; i <= displayPages; i++) {
             pageButtons.push(

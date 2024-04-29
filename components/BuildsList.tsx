@@ -9,7 +9,7 @@ function BuildsList({ builds } : Props) {
         <div className="builds-list">
             {
                 builds.map(build => {
-                    return <BuildItem build={build}/>
+                    return <BuildItem build={build} key={build.id}/>
                 })
             }
             

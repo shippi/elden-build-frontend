@@ -13,7 +13,8 @@ interface Props {
 
 function BuildItem({ build } : Props) {
     const [creatorName, setCreatorName] = useState("");
-    const [viewCount, setViewCount] = useState("");
+    const [viewCount, setViewCount] = useState("0");
+    const [likesCount, setLikesCount] = useState("0");
 
     const selectedClass = getItemFromName(build.build.selectedClass, classes);
     const selectedArmours = build.build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
@@ -46,8 +47,19 @@ function BuildItem({ build } : Props) {
             .catch(error => {})
         }
 
+        const getLikesCount = async(build: any) => {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${build.id}/likes`)
+            .then(res => {
+                if (!res.ok) throw Error;
+                return res.json();
+            }) 
+            .then(data => setLikesCount(data.count))
+            .catch(error => {})
+        }
+
         getCreatorName(build);
         getViewCount(build);
+        getLikesCount(build);
     }, []);
 
     return (
@@ -77,54 +89,58 @@ function BuildItem({ build } : Props) {
             <div className="equipment">
                 <div className="armours">
                     {
-                        selectedArmours.map((armour: Armour) => (
+                        selectedArmours.map((armour: Armour, i: number) => (
                             armour ?
-                            <img src={armour.image}/>
+                            <img src={armour.image} key={i}/>
                             :
-                            <div className="blank"/>
+                            <div className="blank" key={i}/>
                         ))
                     }
                 </div>
                 <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
                 <div className="talismans">
                     {
-                        selectedTalismans.map((talisman: Talisman) => (
+                        selectedTalismans.map((talisman: Talisman, i: number) => (
                             talisman ?
-                            <img src={talisman.image}/>
+                            <img src={talisman.image} key={i}/>
                             :
-                            <div className="blank"/>
+                            <div className="blank" key={i}/>
                         ))
                     }
                 </div>
                 <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
                 <div className="weapons">
                     {
-                        selectedWeapons.map((weapon: Weapon) => (
+                        selectedWeapons.map((weapon: Weapon, i: number) => (
                             weapon ?
-                            <img src={weapon.image}/>
+                            <img src={weapon.image} key={i}/>
                             :
-                            <div className="blank"/>
+                            <div className="blank" key={i}/>
                         ))
                     }
                 </div>
                 <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
                 <div className="spells">
                     {
-                        selectedSpells.map((spell: Item) => (
+                        selectedSpells.map((spell: Item, i: number) => (
                             spell ?
-                            <img src={spell.image}/>
+                            <img src={spell.image} key={i}/>
                             :
-                            <div className="blank"/>
+                            <div className="blank" key={i}/>
                         ))
                     }
                 </div>
             </div>
             <label>Total Level: <span style={{color: "white"}}>{level}</span></label>
             <div className="separator"/>
-            <div style={{display: "flex", color: "lightgray"}}>
+            <div style={{display: "flex", color: "lightgray", justifyContent: "space-between"}}>
                 <div style={{display: "flex", alignItems: "center"}}>
                     <i className="fa fa-eye fa-lg"/> &nbsp; 
                     <label>{viewCount}</label>
+                </div>
+                <div style={{display: "flex", alignItems: "center"}}>
+                    <i className="fa fa-heart-o"/> &nbsp; 
+                    <label>{likesCount}</label>
                 </div>
             </div>
         </div>

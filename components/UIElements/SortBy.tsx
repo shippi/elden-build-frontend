@@ -4,11 +4,10 @@ import { useClickOutside } from "@/hooks";
 import { useRef, useState } from "react";
 
 interface Props {
-    selected?: string,
-    page?: number
+    selected?: string
 }
 
-function SortBy({ selected, page }: Props) {
+function SortBy({ selected }: Props) {
     const [open, setOpen] = useState(false);
     const selectRef = useRef(null);
     useClickOutside(selectRef, () => { setOpen(false) })
@@ -36,9 +35,9 @@ function SortBy({ selected, page }: Props) {
         <div className={"dropdown " + (!open && " hidden")}>
             <br/>
             <ul>
-                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=trending&page=${page ? page : 1}`}>Trending</a></li>
-                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=mostViewed&page=${page ? page : 1}`}>Most Viewed</a></li>
-                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=latest&page=${page ? page : 1}`}>Recently Updated</a></li>
+                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=trending&page=1`}>Trending</a></li>
+                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=mostViewed&page=1`}>Most Viewed</a></li>
+                <li onClick={() => {setOpen(false)}}><a href={`builds?sort=latest&page=1`}>Recently Updated</a></li>
             </ul>
         </div>
     </div>

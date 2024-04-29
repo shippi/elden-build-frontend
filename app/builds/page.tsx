@@ -32,6 +32,8 @@ function Builds() {
 		.finally(() => setLoading(false));
 	}, []);
 
+	
+	
 	return (
     <div className="builds">
       	<div style={{height: "40px"}}/>
@@ -39,7 +41,7 @@ function Builds() {
         	<div className="header unselectable">
 				<SearchBar/>
 				<div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-				<SortBy selected={sort} page={page} />
+				<SortBy selected={sort} />
             </div>
 			<div style={{height: "24px", width:"100%"}}/>
 			{
