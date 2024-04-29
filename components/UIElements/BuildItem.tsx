@@ -1,21 +1,24 @@
 'use client'
 
+import { AuthContext } from "@/context/AuthContext";
 import { calculateLevel, getItemFromName } from "@/helpers/BuildCreatorHelper";
 import { Armour, Item, Talisman, Weapon } from "@/helpers/types";
-import { classes, armours, talismans, weapons, greatRunes, arrows, bolts, spells } from "@/public/data";
-import { crystalTears } from "@/public/data/Equipment/crystalTears";
+import { classes, armours, talismans, weapons, spells } from "@/public/data";
 import Link from "next/link";
-import { useEffect, useState } from "react"
+import { MouseEvent, useContext, useState } from "react"
 
 interface Props {
     build: any
 }
 
 function BuildItem({ build } : Props) {
-    const creatorName = build.username;
-    const viewCount = build.views;
+    const { currentUser } = useContext(AuthContext);
+
     const [likesCount, setLikesCount] = useState(build.likes || 0);
     const [liked, setLiked] = useState(build.liked_by_user || false);
+
+    const creatorName = build.username;
+    const viewCount = build.views;
 
     const selectedClass = getItemFromName(build.build.selectedClass, classes);
     const selectedArmours = build.build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
@@ -27,12 +30,40 @@ function BuildItem({ build } : Props) {
     const level = calculateLevel(selectedClass.stats.level, characterStats);
     const date = new Date(build.updated_at);
     
-    const onLikeClicked = () => {
+    const onLikeClicked = (event: MouseEvent) => {
+        const addLike = async() => {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser.uid}/likes`, {
+                method: "POST",
+                headers: {
+                    "Authorization" : `Bearer ${currentUser.accessToken}` 
+                  },
+                body: JSON.stringify({
+                    build_id: build.id
+                })
+            })
+            .catch();
+        }
+        const removeLike = async() => {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser?.uid}/likes`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization" : `Bearer ${currentUser.accessToken}` 
+                },
+                body: JSON.stringify({
+                    build_id: build.id
+                })
+            })
+            .catch();
+        }
+
+        event.preventDefault();
         if (liked) {
+            removeLike();
             setLikesCount(likesCount - 1);
         }
         else {
-            setLikesCount(likesCount + 1)
+            addLike();
+            setLikesCount(likesCount + 1);
         };
 
         setLiked(!liked);
