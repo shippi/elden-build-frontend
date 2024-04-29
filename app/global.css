@@ -372,9 +372,12 @@ input[type="checkbox"]:disabled {
 }
 
 .build-item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
   background-color: #1c1c1c;
   border: var(--grey-border);
-  padding: 24px;
+  padding: 16px;
   width: 600px;
   border-radius: 4px;
 }
@@ -430,6 +433,37 @@ input[type="checkbox"]:disabled {
 
 .spells {
   width: 165px;
+}
+
+/**/
+.analytics {
+  display: flex;
+  justify-content: center;
+  column-gap: 120px;
+}
+
+.analytics * i {
+  font-size: 20px;
+}
+
+.likes,
+.views {
+  display: flex;
+  column-gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.likes i:not(.fa-heart):hover {
+  color:gray;
+}
+
+.fa-heart {
+  color:rgb(255, 0, 0);
+}
+
+.fa-heart:hover {
+  color:rgb(182, 1, 1);
 }
 
 /*pagination buttons tyling*/

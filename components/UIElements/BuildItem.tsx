@@ -143,14 +143,17 @@ function BuildItem({ build } : Props) {
             </div>
             <label>Total Level: <span style={{color: "white"}}>{level}</span></label>
             <div className="separator"/>
-            <div style={{display: "flex", color: "lightgray", justifyContent: "space-between"}}>
-                <div style={{display: "flex", alignItems: "center"}}>
+            <div className="analytics">
+                <div className="views">
                     <i className="fa fa-eye fa-lg"/> &nbsp; 
                     <label>{viewCount}</label>
                 </div>
-                <div style={{display: "flex", alignItems: "center"}}>
+                <div className="likes">
                     <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
                     <label>{likesCount}</label>
+                </div>
+                <div>
+                    <i className="fa fa-bookmark-o"/>
                 </div>
             </div>
         </div>
