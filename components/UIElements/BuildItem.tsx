@@ -12,9 +12,10 @@ interface Props {
 }
 
 function BuildItem({ build } : Props) {
-    const [creatorName, setCreatorName] = useState("");
-    const [viewCount, setViewCount] = useState("0");
-    const [likesCount, setLikesCount] = useState("0");
+    const creatorName = build.username;
+    const viewCount = build.views;
+    const [likesCount, setLikesCount] = useState(build.likes || 0);
+    const [liked, setLiked] = useState(build.liked_by_user || false);
 
     const selectedClass = getItemFromName(build.build.selectedClass, classes);
     const selectedArmours = build.build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
@@ -25,42 +26,17 @@ function BuildItem({ build } : Props) {
    
     const level = calculateLevel(selectedClass.stats.level, characterStats);
     const date = new Date(build.updated_at);
-
-    useEffect(() => {
-        const getCreatorName = async(build: any) => {
-            await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${build.uid}`)
-            .then(res => {
-                if (!res.ok) throw Error;
-                return res.json();
-            }) 
-            .then(data => setCreatorName(data[0].username))
-            .catch(error => {})
+    
+    const onLikeClicked = () => {
+        if (liked) {
+            setLikesCount(likesCount - 1);
         }
-        
-        const getViewCount = async(build: any) => {
-            await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${build.id}/view-count`)
-            .then(res => {
-                if (!res.ok) throw Error;
-                return res.json();
-            }) 
-            .then(data => setViewCount(data.count))
-            .catch(error => {})
-        }
+        else {
+            setLikesCount(likesCount + 1)
+        };
 
-        const getLikesCount = async(build: any) => {
-            await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${build.id}/likes`)
-            .then(res => {
-                if (!res.ok) throw Error;
-                return res.json();
-            }) 
-            .then(data => setLikesCount(data.count))
-            .catch(error => {})
-        }
-
-        getCreatorName(build);
-        getViewCount(build);
-        getLikesCount(build);
-    }, []);
+        setLiked(!liked);
+    }
 
     return (
         <Link href={`/builds/${build.id}`} target="_blank">
@@ -139,7 +115,7 @@ function BuildItem({ build } : Props) {
                     <label>{viewCount}</label>
                 </div>
                 <div style={{display: "flex", alignItems: "center"}}>
-                    <i className="fa fa-heart-o"/> &nbsp; 
+                    <i className="fa fa-heart-o" onClick={onLikeClicked}/> &nbsp; 
                     <label>{likesCount}</label>
                 </div>
             </div>

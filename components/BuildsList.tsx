@@ -1,14 +1,14 @@
 import BuildItem from "./UIElements/BuildItem"
 
 interface Props {
-    builds: any[]
+    buildsData: any[]
 }
 
-function BuildsList({ builds } : Props) {
+function BuildsList({ buildsData } : Props) {
     return (
         <div className="builds-list">
             {
-                builds.map(build => {
+                buildsData.map(build => {
                     return <BuildItem build={build} key={build.id}/>
                 })
             }

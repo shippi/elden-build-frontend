@@ -11,7 +11,7 @@ function Builds() {
 	const sort = SORT_OPTIONS.includes(searchParams.get("sort")?.toLowerCase() || "") ? searchParams.get("sort")?.toLowerCase() : SORT_OPTIONS[0];
 	const [isLoading, setLoading] = useState(true);
 
-	const [builds, setBuilds] = useState<any[]>([]);
+	const [buildsData, setBuildsData] = useState<any[]>([]);
 	const [pageCount, setPageCount] = useState(1);
 
 	const paginationOnClick = (pageNum: number) => {
@@ -25,14 +25,14 @@ function Builds() {
 			return res.json();
 		}) 
 		.then(data => {
-			setBuilds(data.builds);
+			setBuildsData(data.builds);
 			setPageCount(Math.ceil(data.totalCount / PAGE_ITEM_LIMIT));
 		})
 		.catch(error => {})
 		.finally(() => setLoading(false));
 	}, []);
 
-	
+	console.log(buildsData)
 	
 	return (
     <div className="builds">
@@ -47,10 +47,10 @@ function Builds() {
 			{
 				isLoading ? 
 				<div style={{height: "80vh"}}><Loading/></div> :
-				<BuildsList builds={builds}/>
+				<BuildsList buildsData={buildsData}/>
 			}
 			{
-				builds.length > 0 &&
+				buildsData.length > 0 &&
 				<>
 				<div style={{height: "48px", width:"100%"}}/>
 				<Pagination 
