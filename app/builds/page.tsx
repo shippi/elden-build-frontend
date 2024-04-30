@@ -3,7 +3,6 @@
 import { BuildsList, Loading, Pagination, SearchBar, SortBy } from "@/components"
 import { AuthContext } from "@/context/AuthContext";
 import { PAGE_ITEM_LIMIT, SORT_OPTIONS } from "@/helpers/consts";
-import { delay } from "@/utils";
 import { useSearchParams } from "next/navigation"
 import { useContext, useEffect, useState } from "react";
 
@@ -13,35 +12,45 @@ function Builds() {
 	const searchParams = useSearchParams();
 	const page = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1
 	const sort = SORT_OPTIONS.includes(searchParams.get("sort")?.toLowerCase() || "") ? searchParams.get("sort")?.toLowerCase() : SORT_OPTIONS[0];
+	const search = searchParams.get("search") || "";
+	
 	const [isLoading, setLoading] = useState(true);
 
 	const [buildsData, setBuildsData] = useState<any[]>([]);
 	const [pageCount, setPageCount] = useState(1);
 
 	const paginationOnClick = (pageNum: number) => {
-		window.location.href=`builds?sort=${sort}&page=${pageNum}`
+		window.location.href=`builds?sort=${sort}&page=${pageNum}&search=${search}`
 	}
-
+	
 	useEffect(() => {
-		delay(100);
-		setLoading(true);
-		fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}`, {
-			method: "GET",
-			headers: {
-				"Authorization" : `Bearer ${currentUser?.accessToken}` 
-			},
-		})
-		.then(res => {
-			if (!res.ok) throw Error;
-			return res.json();
-		}) 
-		.then(data => {
-			setBuildsData(data.builds);
-			setPageCount(Math.ceil(data.totalCount / PAGE_ITEM_LIMIT));
-		})
-		.catch(error => {})
-		.finally(() => setLoading(false));
+		const getBuilds = async () => {
+			setLoading(true);
+			await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}&search=${search}`, {
+				method: "GET",
+				headers: {
+					"Authorization" : `Bearer ${currentUser?.accessToken}` 
+				},
+			})
+			.then(res => {
+				if (!res.ok) throw Error;
+				return res.json();
+			}) 
+			.then(data => {
+				setBuildsData(data.builds);
+				setPageCount(Math.ceil(data.totalCount / PAGE_ITEM_LIMIT));
+			})
+			.catch(error => {})
+			.finally(() => setLoading(false));
+		}
+
+        const timeout = setTimeout(() => {
+            getBuilds();
+        }, 600);
+      
+        return () => clearTimeout(timeout);
 	}, [currentUser]);
+
 
 	return (
     <div className="builds">
@@ -50,7 +59,7 @@ function Builds() {
         	<div className="header unselectable">
 				<SearchBar/>
 				<div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-				<SortBy selected={sort} />
+				<SortBy selected={sort} search={search}/>
             </div>
 			<div style={{height: "24px", width:"100%"}}/>
 			{

@@ -5,7 +5,7 @@ import { calculateLevel, getItemFromName } from "@/helpers/BuildCreatorHelper";
 import { Armour, Item, Talisman, Weapon } from "@/helpers/types";
 import { classes, armours, talismans, weapons, spells } from "@/public/data";
 import Link from "next/link";
-import { MouseEvent, useContext, useState } from "react"
+import { MouseEvent, useContext, useEffect, useState } from "react"
 
 interface Props {
     build: any
@@ -16,6 +16,7 @@ function BuildItem({ build } : Props) {
 
     const [likesCount, setLikesCount] = useState(build.likes || 0);
     const [liked, setLiked] = useState(build.liked || false);
+    const [bookmarked, setBookmarked] = useState(build.bookmarked || false);
 
     const creatorName = build.username;
     const viewCount = build.views;
@@ -29,7 +30,12 @@ function BuildItem({ build } : Props) {
    
     const level = calculateLevel(selectedClass.stats.level, characterStats);
     const date = new Date(build.updated_at);
-    
+
+    useEffect(() => {
+        setLiked(build.liked);
+        setBookmarked(build.bookmarked);
+    }, [build])
+
     const onLikeClicked = (event: MouseEvent) => {
         const addLike = async() => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser.uid}/likes`, {
@@ -72,6 +78,45 @@ function BuildItem({ build } : Props) {
         setLiked(!liked);
     }
 
+    const onBookmarkClicked = (event: MouseEvent) => {
+        event.preventDefault();
+
+        const addBookmark = async() => {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser.uid}/bookmarks`, {
+                method: "POST",
+                headers: {
+                    "Authorization" : `Bearer ${currentUser.accessToken}` 
+                },
+                body: JSON.stringify({
+                    build_id: build.id
+                })
+            })
+            .catch();
+        }
+        const removeBookmark = async() => {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser?.uid}/bookmarks`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization" : `Bearer ${currentUser.accessToken}` 
+                },
+                body: JSON.stringify({
+                    build_id: build.id
+                })
+            })
+            .catch();
+        }
+
+        if (!currentUser) return;
+
+        if (bookmarked) {
+            removeBookmark();
+        }
+        else {
+            addBookmark();
+        }
+
+        setBookmarked(!bookmarked);
+    }
     return (
         <Link href={`/builds/${build.id}`} target="_blank">
         <div className="build-item">
@@ -153,7 +198,7 @@ function BuildItem({ build } : Props) {
                     <label>{likesCount}</label>
                 </div>
                 <div>
-                    <i className="fa fa-bookmark-o"/>
+                    <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>
                 </div>
             </div>
         </div>

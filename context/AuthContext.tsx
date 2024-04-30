@@ -14,8 +14,6 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [signUpSuccessOpened, setSignUpSuccessOpened] = useState(false);
     const [loginOpened, setLoginOpened] = useState(false);
     const [username, setUsername] = useState("");
-    
-    const [test, setTest] = useState<any>();
 
     // useEffect hook used to manage the current user for the application
     useEffect(() => {

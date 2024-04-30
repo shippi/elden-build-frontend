@@ -454,7 +454,8 @@ input[type="checkbox"]:disabled {
   align-items: center;
 }
 
-.likes i:not(.fa-heart):hover {
+.fa-heart-o:hover,
+.fa-bookmark-o:hover {
   color:gray;
 }
 
@@ -464,6 +465,14 @@ input[type="checkbox"]:disabled {
 
 .fa-heart:hover {
   color:rgb(182, 1, 1);
+}
+
+.fa-bookmark {
+  color: var(--gold);
+}
+
+.fa-bookmark:hover {
+  color:rgb(182, 125, 1);
 }
 
 /*pagination buttons tyling*/
@@ -491,6 +500,7 @@ input[type="checkbox"]:disabled {
 }
 
 .pagination .selected {
+  pointer-events: none;
   color: var(--gold);
   background-color: #ffc8002c;
 }
