@@ -3,16 +3,23 @@
 import { BuildsList, Loading, Pagination, SearchBar, SortBy } from "@/components"
 import { AuthContext } from "@/context/AuthContext";
 import { PAGE_ITEM_LIMIT, SORT_OPTIONS } from "@/helpers/consts";
-import { useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
-function Builds() {
-	const { currentUser } = useContext(AuthContext);
+interface Props {
+	searchParams: {
+	  page?: number,
+	  sort?: string,
+	  search?:string
+	}
+  }
 
-	const searchParams = useSearchParams();
-	const page = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1
-	const sort = SORT_OPTIONS.includes(searchParams.get("sort")?.toLowerCase() || "") ? searchParams.get("sort")?.toLowerCase() : SORT_OPTIONS[0];
-	const search = searchParams.get("search") || "";
+function Builds({searchParams: {page, sort, search}} : Props) {
+	const { currentUser } = useContext(AuthContext);
+	const router = useRouter();
+	page = Number(page) ? Number(page) : 1
+	sort = SORT_OPTIONS.includes(sort?.toLowerCase() || "") ? sort?.toLowerCase() : SORT_OPTIONS[0];
+	search = search || "";
 	
 	const [isLoading, setLoading] = useState(true);
 
@@ -20,16 +27,18 @@ function Builds() {
 	const [pageCount, setPageCount] = useState(1);
 
 	const paginationOnClick = (pageNum: number) => {
-		window.location.href=`builds?sort=${sort}&page=${pageNum}&search=${search}`
+		//window.location.href=`builds?sort=${sort}&page=${pageNum}&search=${search}`
+		router.push(`/builds?sort=${sort}&page=${pageNum}&search=${search}`);
 	}
 	
 	const submitSearch = (search: string) => {
-		window.location.href=`builds?sort=${sort}&page=${page}&search=${search}`
+		//window.location.href=`builds?sort=${sort}&page=${page}&search=${search}`
+		router.push(`/builds?sort=${sort}&page=${page}&search=${search}`)
 	}
 
 	useEffect(() => {
 		const getBuilds = async () => {
-			setLoading(true);
+			
 			await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}&search=${search}`, {
 				method: "GET",
 				headers: {
@@ -48,12 +57,13 @@ function Builds() {
 			.finally(() => setLoading(false));
 		}
 
+		setLoading(true);
         const timeout = setTimeout(() => {
             getBuilds();
         }, 600);
       
         return () => clearTimeout(timeout);
-	}, [currentUser]);
+	}, [currentUser, page, sort, search]);
 
 
 	return (
@@ -77,7 +87,7 @@ function Builds() {
 				<div style={{height: "48px", width:"100%"}}/>
 				<Pagination 
 					numPages={pageCount} 
-					currPage={page} 
+					currPage={page || 1} 
 					onClick={paginationOnClick}
 				/>
 				<div style={{height: "128px", width:"100%"}}/>

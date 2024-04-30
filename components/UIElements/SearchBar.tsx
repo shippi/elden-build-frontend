@@ -10,6 +10,7 @@ interface Props {
 function SearchBar({startSearch, submitSearch} : Props) {
 	const [search, setSearch] = useState(startSearch || "");
 	useOnKeyPress(["Enter"], () => submitSearch(search));
+	
 	return (
     	<div className="search-box">
         	<i className="fa fa-search" aria-hidden="true" onClick={() => submitSearch(search)}/>
