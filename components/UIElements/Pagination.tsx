@@ -11,7 +11,7 @@ function Pagination({numPages, currPage, onClick} : Props) {
     if (currPage < 4) {
         for (let i: number = 1; i <= displayPages; i++) {
             pageButtons.push(
-                <button key={i} className={i == currPage ? "selected" : ""} onClick={() => onClick(i)}>
+                <button key={i} className={i == currPage ? "selected" : ""} onClick={i == currPage ? () => {} : () => onClick(i)}>
                     {i}
                 </button>
             )

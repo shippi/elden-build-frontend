@@ -500,7 +500,6 @@ input[type="checkbox"]:disabled {
 }
 
 .pagination .selected {
-  pointer-events: none;
   color: var(--gold);
   background-color: #ffc8002c;
 }

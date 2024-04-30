@@ -1,5 +1,5 @@
 'use client'
-import { useClickOutside, useWindowSizeChange } from '@/hooks';
+import { useClickOutside, useFocus, useWindowSizeChange } from '@/hooks';
 import { useEffect, useRef, useState } from 'react'
 
 interface Props {
@@ -27,7 +27,6 @@ function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPag
     const selectMenuRef = useRef(null);
     useClickOutside(selectMenuRef, () => { setOpen(false); setSearch(""); });
 
-
     const dropdownSelectedRef = useRef(null); // references the selected item in dropdown menu
 
     // function used to scroll to the selected item in the dropdown
@@ -45,13 +44,20 @@ function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPag
 
     const selectedRef = useRef<HTMLDivElement>(null); // references the selected div (not the selected item in dropdown)
 
+    //
+    const searchRef = useRef(null);
+    const { setFocus } = useFocus(searchRef); 
+
     /**
      * Hook that triggers when the dropdown opens or closes. When dropdown is opened,
      * automatically scroll to the selected item. Also changes width of dropdown menu
      * based on width of the selected div.
      */
     useEffect(() => {
-        if (open) scrollToRef(dropdownSelectedRef);
+        if (open) {
+            scrollToRef(dropdownSelectedRef);
+            setFocus();
+        }
         if (selectedRef.current) setDropDownWidth(selectedRef.current.offsetWidth + "px");
     }, [open]);
 
@@ -113,6 +119,7 @@ function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPag
                             value={search}
                             placeholder="Search..."
                             onChange={(e) => setSearch(e.target.value)}
+                            ref={searchRef}
                         />
                         </div> 
                     }
