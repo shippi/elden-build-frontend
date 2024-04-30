@@ -56,7 +56,7 @@ function BuildCreator() {
                 </div>
                 <div style={{height:"calc(30vh + 200px)"}}/>
                 </>:
-                    <div className="panels-container" style={{height: "70vh"}}> 
+                    <div className="panels-container" style={{height: "60vh"}}> 
                     <Loading/>
                     </div>
                 }

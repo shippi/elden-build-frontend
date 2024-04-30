@@ -201,13 +201,17 @@ input[type="checkbox"]:disabled {
 .header {
   display: flex;
   flex-direction: row;
-  background: linear-gradient(90deg, rgba(89,83,61,0.8) 10%, rgba(99, 92, 66, 0.8) 100%);
+  background: linear-gradient(90deg, rgba(89,83,61,0.8) 50%, rgba(0,0,0,0) 100%);
   padding: 5px;
   column-gap: 20px;
   align-items: center;
 
   width: 100%;
   min-width: 1500px;
+}
+
+.header .analytics {
+  margin-left: auto;
 }
 
 .build-page .armour-panel,
@@ -304,6 +308,7 @@ input[type="checkbox"]:disabled {
 }
 
 .dropdown-container .dropdown ul {
+  box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.452);
   width: 180px;
   padding: 10px 20px 10px 20px;
   background-color: var(--bg-color);
@@ -439,7 +444,6 @@ input[type="checkbox"]:disabled {
 .analytics {
   display: flex;
   justify-content: center;
-  column-gap: 120px;
 }
 
 .analytics * i {
@@ -450,20 +454,24 @@ input[type="checkbox"]:disabled {
 .views {
   display: flex;
   column-gap: 4px;
-  justify-content: center;
+  justify-content:flex-start;
   align-items: center;
+  width: 150px;
 }
 
 .fa-heart-o:hover,
 .fa-bookmark-o:hover {
+  cursor: pointer;
   color:gray;
 }
 
 .fa-heart {
+  
   color:rgb(255, 0, 0);
 }
 
 .fa-heart:hover {
+  cursor: pointer;
   color:rgb(182, 1, 1);
 }
 
@@ -472,6 +480,7 @@ input[type="checkbox"]:disabled {
 }
 
 .fa-bookmark:hover {
+  cursor: pointer;
   color:rgb(182, 125, 1);
 }
 

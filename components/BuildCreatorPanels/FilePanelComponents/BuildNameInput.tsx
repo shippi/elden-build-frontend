@@ -80,7 +80,7 @@ function BuildNameInput() {
           res();
         }
     }, [loadOpen, saveLoading, currentUser, loadingBuild]);
-
+    
     return (
         <div>
         <label>Build Name </label>

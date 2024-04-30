@@ -117,6 +117,7 @@ function BuildItem({ build } : Props) {
 
         setBookmarked(!bookmarked);
     }
+
     return (
         <Link href={`/builds/${build.id}`} target="_blank">
         <div className="build-item">
@@ -191,11 +192,11 @@ function BuildItem({ build } : Props) {
             <div className="analytics">
                 <div className="views">
                     <i className="fa fa-eye fa-lg"/> &nbsp; 
-                    <label>{viewCount}</label>
+                    <label>{viewCount.toLocaleString()}</label>
                 </div>
                 <div className="likes">
                     <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
-                    <label>{likesCount}</label>
+                    <label>{likesCount.toLocaleString()}</label>
                 </div>
                 <div>
                     <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>

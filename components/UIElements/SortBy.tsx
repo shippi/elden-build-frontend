@@ -33,7 +33,7 @@ function SortBy({ selected, search }: Props) {
             </div>
         </div>
 
-        <div className={"dropdown " + (!open && " hidden")}>
+        <div className={"dropdown" + (!open ? " hidden" : "")}>
             <br/>
             <ul>
                 <li onClick={() => {setOpen(false)}}><a href={`builds?sort=trending&page=1&search=${search}`}>Trending</a></li>
