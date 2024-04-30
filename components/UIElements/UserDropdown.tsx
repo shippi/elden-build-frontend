@@ -20,8 +20,9 @@ function UserDropdown({ onClickOutside }: Props) {
   }
 
   return (
-    <div className="user-dropdown-container">
-        <div className="user-dropdown" ref={dropdownRef}>
+    <div className="user-dropdown-container ">
+      <div className = "dropdown-container">
+      <div className="dropdown" ref={dropdownRef}>
             <ul>
                 <li>View Likes</li>
                 <li>View Bookmarks</li>
@@ -29,6 +30,8 @@ function UserDropdown({ onClickOutside }: Props) {
                 <li onClick={() => signOutOnClick()}>Sign Out</li>
             </ul>
         </div>
+      </div>
+
     </div>
   )
 }
