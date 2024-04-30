@@ -23,6 +23,10 @@ function Builds() {
 		window.location.href=`builds?sort=${sort}&page=${pageNum}&search=${search}`
 	}
 	
+	const submitSearch = (search: string) => {
+		window.location.href=`builds?sort=${sort}&page=${page}&search=${search}`
+	}
+
 	useEffect(() => {
 		const getBuilds = async () => {
 			setLoading(true);
@@ -57,7 +61,7 @@ function Builds() {
       	<div style={{height: "40px"}}/>
       	<div className="page-content">
         	<div className="header unselectable">
-				<SearchBar/>
+				<SearchBar startSearch={search} submitSearch={submitSearch}/>
 				<div style={{borderLeft: "1px solid grey", height:"25px"}}/>
 				<SortBy selected={sort} search={search}/>
             </div>
