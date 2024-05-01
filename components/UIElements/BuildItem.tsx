@@ -19,7 +19,7 @@ function BuildItem({ build } : Props) {
     const [bookmarked, setBookmarked] = useState(build.bookmarked || false);
 
     const creatorName = build.username;
-    const viewCount = build.views;
+    const viewCount = build.views || 0;
 
     const selectedClass = getItemFromName(build.build.selectedClass, classes);
     const selectedArmours = build.build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
