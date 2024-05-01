@@ -27,18 +27,15 @@ function Builds({searchParams: {page, sort, search}} : Props) {
 	const [pageCount, setPageCount] = useState(1);
 
 	const paginationOnClick = (pageNum: number) => {
-		//window.location.href=`builds?sort=${sort}&page=${pageNum}&search=${search}`
 		router.push(`/builds?sort=${sort}&page=${pageNum}&search=${search}`);
 	}
 	
 	const submitSearch = (search: string) => {
-		//window.location.href=`builds?sort=${sort}&page=${page}&search=${search}`
 		router.push(`/builds?sort=${sort}&page=${page}&search=${search}`)
 	}
 
 	useEffect(() => {
 		const getBuilds = async () => {
-			
 			await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}&search=${search}`, {
 				method: "GET",
 				headers: {

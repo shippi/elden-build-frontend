@@ -2,6 +2,7 @@
 import { useClickOutside } from "@/hooks";
 import { auth } from "@/lib/firebase"
 import { signOut } from "firebase/auth"
+import Link from "next/link";
 import { useRef } from "react";
 
 interface Props {
@@ -24,8 +25,8 @@ function UserDropdown({ onClickOutside }: Props) {
       <div className = "dropdown-container">
       <div className="dropdown" ref={dropdownRef}>
             <ul>
-                <li>View Likes</li>
-                <li>View Bookmarks</li>
+                <Link href={'/i/likes'}><li>View Likes</li></Link>
+                <Link href={'/i/bookmarks'}><li>View Bookmarks</li></Link>
                 <div className="separator"/>
                 <li onClick={() => signOutOnClick()}>Sign Out</li>
             </ul>

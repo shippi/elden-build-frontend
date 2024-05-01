@@ -125,10 +125,10 @@ function BuildItem({ build } : Props) {
             <h3>
             
             {
-            build.name.length < 40 ?
+            build.name.length < 50 ?
             build.name 
             :
-            build.name.slice(0, 40) + "..."
+            build.name.slice(0, 50) + "..."
             }
             
             </h3>

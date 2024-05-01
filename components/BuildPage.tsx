@@ -144,8 +144,9 @@ function BuildPage({ buildData } : Props) {
                 <h1>{name}</h1> 
                 <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
                 <div>Created by <span style={{color:"gold"}}>{creatorName}</span></div>
-                <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
+                
                 <div className="analytics">
+                    
                 <div className="views">
                     <i className="fa fa-eye fa-lg"/> &nbsp; 
                     <label style={{color: "white"}}>{viewCount.toLocaleString()}</label>
