@@ -15,7 +15,7 @@ interface Props {
   }
 
 function Likes({searchParams: {page, sort, search}} : Props) {
-	const { currentUser } = useContext(AuthContext);
+	const { currentUser, setLoginOpened } = useContext(AuthContext);
 	const router = useRouter();
 	page = Number(page) ? Number(page) : 1
 	search = search || "";
@@ -52,12 +52,16 @@ function Likes({searchParams: {page, sort, search}} : Props) {
 			.catch(error => {})
             .finally(() => setLoading(false))
 		}
-
 		setLoading(true);
         const timeout = setTimeout(() => {
             if (currentUser) getBuilds();
-            else setLoading(false);
+            else  {
+              setLoginOpened(true);
+              setLoading(false)
+            }
         }, 600);
+      
+        return () => clearTimeout(timeout);
       
         return () => clearTimeout(timeout);
 	}, [currentUser, page, sort, search]);
@@ -81,7 +85,7 @@ function Likes({searchParams: {page, sort, search}} : Props) {
 				<BuildsList buildsData={buildsData}/>
 			}
 			{
-				(buildsData.length > 0 && !isLoading) ?
+				(buildsData.length > 0 && !isLoading) &&
 				<>
 				<div style={{height: "48px", width:"100%"}}/>
 				<Pagination 
@@ -90,10 +94,7 @@ function Likes({searchParams: {page, sort, search}} : Props) {
 					onClick={paginationOnClick}
 				/>
 				<div style={{height: "128px", width:"100%"}}/>
-				</>
-                :
-                (!isLoading && !currentUser) &&
-                <LoginModal />
+				</>     
 			}
 			
       	</div>

@@ -5,16 +5,24 @@ import { AuthContext } from "@/context/AuthContext"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { delay } from "@/utils";
+import { useRouter } from "next/navigation";
 
 function LoginModal() {
     const {setLoginOpened, setSignUpOpened} = useContext(AuthContext);
-    
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [usernameInput, setUsernameInput] = useState<string>("");
     const [passwordInput, setPasswordInput] = useState<string>("");
     const [error, setError] = useState<string>("");
 
     const [loading, setLoading] = useState(false);
+
+    const router = useRouter();
+
+    const handleExit = () => {
+        if (["/i/bookmarks", "/i/likes"].includes(window.location.pathname)) router.push("/");
+        setLoginOpened(false);
+        
+    }
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -41,7 +49,7 @@ function LoginModal() {
     return (
         <div className="modal">
             <div className="modal-container">
-                <ExitButton onClick={() => setLoginOpened(false)}/>
+                <ExitButton onClick={() => handleExit()}/>
                 <div><h1>Log In</h1></div>
                 <form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>
                     <div className="form-group">

@@ -15,7 +15,7 @@ interface Props {
   }
 
 function Bookmarks({searchParams: {page, sort, search}} : Props) {
-	const { currentUser } = useContext(AuthContext);
+	const { currentUser, setLoginOpened } = useContext(AuthContext);
 	const router = useRouter();
 	page = Number(page) ? Number(page) : 1
 	search = search || "";
@@ -56,7 +56,10 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
 		setLoading(true);
         const timeout = setTimeout(() => {
             if (currentUser) getBuilds();
-            else setLoading(false);
+            else  {
+              setLoginOpened(true);
+              setLoading(false)
+            }
         }, 600);
       
         return () => clearTimeout(timeout);
@@ -70,9 +73,7 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
         	<div className="header unselectable">
                 <h1>BOOKMARKED BUILDS</h1>
                 <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-				<SearchBar startSearch={search} submitSearch={submitSearch}/>
-				
-				
+				        <SearchBar startSearch={search} submitSearch={submitSearch}/>
             </div>
 			<div style={{height: "24px", width:"100%"}}/>
 			{
@@ -81,7 +82,7 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
 				<BuildsList buildsData={buildsData}/>
 			}
 			{
-				(buildsData.length > 0 && !isLoading) ?
+				(buildsData.length > 0 && !isLoading) &&
 				<>
 				<div style={{height: "48px", width:"100%"}}/>
 				<Pagination 
@@ -90,10 +91,7 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
 					onClick={paginationOnClick}
 				/>
 				<div style={{height: "128px", width:"100%"}}/>
-				</>
-                :
-                (!isLoading && !currentUser) &&
-                <LoginModal />
+				</>  
 			}
 			
       	</div>
