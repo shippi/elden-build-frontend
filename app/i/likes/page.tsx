@@ -26,11 +26,11 @@ function Likes({searchParams: {page, sort, search}} : Props) {
 	const [pageCount, setPageCount] = useState(1);
 
 	const paginationOnClick = (pageNum: number) => {
-		router.push(`/builds?sort=${sort}&page=${pageNum}&search=${search}`);
+		router.push(`/i/likes?page=${pageNum}&search=${search}`);
 	}
 	
 	const submitSearch = (search: string) => {
-		router.push(`/builds?sort=${sort}&page=${page}&search=${search}`)
+		router.push(`/i/likes?&page=${page}&search=${search}`)
 	}
 
 	useEffect(() => {
