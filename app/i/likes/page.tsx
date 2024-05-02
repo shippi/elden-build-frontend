@@ -62,8 +62,6 @@ function Likes({searchParams: {page, sort, search}} : Props) {
         }, 600);
       
         return () => clearTimeout(timeout);
-      
-        return () => clearTimeout(timeout);
 	}, [currentUser, page, sort, search]);
 
 

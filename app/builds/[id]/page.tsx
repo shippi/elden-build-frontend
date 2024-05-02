@@ -41,7 +41,7 @@ function Build({params: {id}}: Props) {
 
         const timeout = setTimeout(() => {
             getBuild();
-        }, 500);
+        }, 600);
       
         return () => clearTimeout(timeout);
     }, [currentUser]);
