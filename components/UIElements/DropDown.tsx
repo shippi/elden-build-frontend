@@ -153,7 +153,7 @@ function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPag
                                     }
                                 }}
                             >
-                                {(item.image && hasImages) && <img src={item.image} loading="lazy"/>}
+                                {(item.image && hasImages) && <img src={item.image}/>}
                                 {
                                     item.name.length < 33 ?
                                     item.name 
