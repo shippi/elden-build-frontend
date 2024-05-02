@@ -12,7 +12,7 @@ interface Props {
 }
 
 function BuildItem({ build } : Props) {
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser, setLoginOpened } = useContext(AuthContext);
 
     const [likesCount, setLikesCount] = useState(build.likes || 0);
     const [liked, setLiked] = useState(build.liked || false);
@@ -64,7 +64,10 @@ function BuildItem({ build } : Props) {
 
         event.preventDefault();
 
-        if (!currentUser) return;
+        if (!currentUser) {
+            setLoginOpened(true);
+            return;
+        }
 
         if (liked) {
             removeLike();
@@ -106,7 +109,10 @@ function BuildItem({ build } : Props) {
             .catch();
         }
 
-        if (!currentUser) return;
+        if (!currentUser) {
+            setLoginOpened(true);
+            return;
+        }
 
         if (bookmarked) {
             removeBookmark();
