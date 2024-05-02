@@ -5,7 +5,7 @@ export const armours: Armour[] =[
     "id": "40000",
     "name": "Iron Helmet",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/08/ER_Icon_Armor_Iron_Helmet.png/",
+    "image": "/equipment_images/armours/Iron_Helmet.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -29,7 +29,7 @@ export const armours: Armour[] =[
     "id": "40100",
     "name": "Scale Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/69/ER_Icon_Armor_Scale_Armor.png/",
+    "image": "/equipment_images/armours/Scale_Armor.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 10.2,
@@ -53,7 +53,7 @@ export const armours: Armour[] =[
     "id": "40200",
     "name": "Iron Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d3/ER_Icon_Armor_Iron_Gauntlets.png/",
+    "image": "/equipment_images/armours/Iron_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 2.3,
@@ -77,7 +77,7 @@ export const armours: Armour[] =[
     "id": "40300",
     "name": "Leather Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/03/ER_Icon_Armor_Leather_Trousers.png/",
+    "image": "/equipment_images/armours/Leather_Trousers.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 5.4,
@@ -101,7 +101,7 @@ export const armours: Armour[] =[
     "id": "50000",
     "name": "Kaiden Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/38/ER_Icon_Armor_Kaiden_Helm.png/",
+    "image": "/equipment_images/armours/Kaiden_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -125,7 +125,7 @@ export const armours: Armour[] =[
     "id": "50100",
     "name": "Kaiden Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/51/ER_Icon_Armor_Kaiden_Armor.png/",
+    "image": "/equipment_images/armours/Kaiden_Armor.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 8.8,
@@ -149,7 +149,7 @@ export const armours: Armour[] =[
     "id": "50200",
     "name": "Kaiden Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6b/ER_Icon_Armor_Kaiden_Gauntlets.png/",
+    "image": "/equipment_images/armours/Kaiden_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.9,
       "strike": 2.1,
@@ -173,7 +173,7 @@ export const armours: Armour[] =[
     "id": "50300",
     "name": "Kaiden Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/09/ER_Icon_Armor_Kaiden_Trousers.png/",
+    "image": "/equipment_images/armours/Kaiden_Trousers.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 4.5,
@@ -197,7 +197,7 @@ export const armours: Armour[] =[
     "id": "60000",
     "name": "Drake Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2f/ER_Icon_Armor_Drake_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Drake_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4,
       "strike": 3.4,
@@ -221,7 +221,7 @@ export const armours: Armour[] =[
     "id": "60100",
     "name": "Drake Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b1/ER_Icon_Armor_Drake_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Drake_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 11.4,
       "strike": 9.5,
@@ -245,7 +245,7 @@ export const armours: Armour[] =[
     "id": "60200",
     "name": "Drake Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/43/ER_Icon_Armor_Drake_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Drake_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 2.3,
@@ -269,7 +269,7 @@ export const armours: Armour[] =[
     "id": "60300",
     "name": "Drake Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6a/ER_Icon_Armor_Drake_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Drake_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 5.4,
@@ -293,7 +293,7 @@ export const armours: Armour[] =[
     "id": "61000",
     "name": "Drake Knight Helm (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d1/ER_Icon_Armor_Drake_Knight_Helm_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Drake_Knight_Helm_(Altered).webp",
     "dmgNegation": {
       "physical": 3.6,
       "strike": 2.9,
@@ -317,7 +317,7 @@ export const armours: Armour[] =[
     "id": "61100",
     "name": "Drake Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b3/ER_Icon_Armor_Drake_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Drake_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 11.2,
       "strike": 8.6,
@@ -341,7 +341,7 @@ export const armours: Armour[] =[
     "id": "80000",
     "name": "Scaled Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0b/ER_Icon_Armor_Scaled_Helm.png/",
+    "image": "/equipment_images/armours/Scaled_Helm.webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5,
@@ -365,7 +365,7 @@ export const armours: Armour[] =[
     "id": "80100",
     "name": "Scaled Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/38/ER_Icon_Armor_Scaled_Armor.png/",
+    "image": "/equipment_images/armours/Scaled_Armor.webp",
     "dmgNegation": {
       "physical": 16,
       "strike": 13.9,
@@ -389,7 +389,7 @@ export const armours: Armour[] =[
     "id": "80200",
     "name": "Scaled Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f1/ER_Icon_Armor_Scaled_Gauntlets.png/",
+    "image": "/equipment_images/armours/Scaled_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4,
       "strike": 3.4,
@@ -413,7 +413,7 @@ export const armours: Armour[] =[
     "id": "80300",
     "name": "Scaled Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f3/ER_Icon_Armor_Scaled_Greaves.png/",
+    "image": "/equipment_images/armours/Scaled_Greaves.webp",
     "dmgNegation": {
       "physical": 9.2,
       "strike": 8,
@@ -437,7 +437,7 @@ export const armours: Armour[] =[
     "id": "81100",
     "name": "Scaled Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/46/ER_Icon_Armor_Scaled_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Scaled_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 15.3,
       "strike": 13.4,
@@ -461,7 +461,7 @@ export const armours: Armour[] =[
     "id": "90000",
     "name": "Perfumer Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/da/ER_Icon_Armor_Perfumer_Hood.png/",
+    "image": "/equipment_images/armours/Perfumer_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 2.1,
@@ -485,7 +485,7 @@ export const armours: Armour[] =[
     "id": "90100",
     "name": "Perfumer Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e3/ER_Icon_Armor_Perfumer_Robe.png/",
+    "image": "/equipment_images/armours/Perfumer_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.7,
@@ -509,7 +509,7 @@ export const armours: Armour[] =[
     "id": "90200",
     "name": "Perfumer Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/82/ER_Icon_Armor_Perfumer_Gloves.png/",
+    "image": "/equipment_images/armours/Perfumer_Gloves.webp",
     "dmgNegation": {
       "physical": 1,
       "strike": 1.5,
@@ -533,7 +533,7 @@ export const armours: Armour[] =[
     "id": "90300",
     "name": "Perfumer Sarong",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a8/ER_Icon_Armor_Perfumer_Sarong.png/",
+    "image": "/equipment_images/armours/Perfumer_Sarong.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 3.4,
@@ -557,7 +557,7 @@ export const armours: Armour[] =[
     "id": "91100",
     "name": "Perfumer Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d1/ER_Icon_Armor_Perfumer_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Perfumer_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 6.1,
@@ -581,7 +581,7 @@ export const armours: Armour[] =[
     "id": "100000",
     "name": "Traveler's Hat",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6d/ER_Icon_Armor_Traveler%27s_Hat.png/",
+    "image": "/equipment_images/armours/Traveler's_Hat.webp",
     "dmgNegation": {
       "physical": 1.8,
       "strike": 1.8,
@@ -605,7 +605,7 @@ export const armours: Armour[] =[
     "id": "100100",
     "name": "Perfumer's Traveling Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/97/ER_Icon_Armor_Perfumer%27s_Traveling_Garb.png/",
+    "image": "/equipment_images/armours/Perfumer's_Traveling_Garb.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.1,
@@ -629,7 +629,7 @@ export const armours: Armour[] =[
     "id": "100200",
     "name": "Traveler's Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b1/ER_Icon_Armor_Traveler%27s_Gloves.png/",
+    "image": "/equipment_images/armours/Traveler's_Gloves.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 1.3,
@@ -653,7 +653,7 @@ export const armours: Armour[] =[
     "id": "100300",
     "name": "Traveler's Slops",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8e/ER_Icon_Armor_Traveler%27s_Slops.png/",
+    "image": "/equipment_images/armours/Traveler's_Slops.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 3,
@@ -677,7 +677,7 @@ export const armours: Armour[] =[
     "id": "101100",
     "name": "Perfumer's Traveling Garb (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/86/ER_Icon_Armor_Perfumer%27s_Traveling_Garb_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Perfumer's_Traveling_Garb_(Altered).webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 5.3,
@@ -701,7 +701,7 @@ export const armours: Armour[] =[
     "id": "120000",
     "name": "Alberich's Pointed Hat",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2b/ER_Icon_Armor_Alberich%27s_Pointed_Hat.png/",
+    "image": "/equipment_images/armours/Alberich's_Pointed_Hat.webp",
     "dmgNegation": {
       "physical": 1.8,
       "strike": 1.4,
@@ -726,7 +726,7 @@ export const armours: Armour[] =[
     "id": "120100",
     "name": "Alberich's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/22/ER_Icon_Armor_Alberich%27s_Robe.png/",
+    "image": "/equipment_images/armours/Alberich's_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 4.2,
@@ -751,7 +751,7 @@ export const armours: Armour[] =[
     "id": "120200",
     "name": "Alberich's Bracers",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/66/ER_Icon_Armor_Alberich%27s_Bracers.png/",
+    "image": "/equipment_images/armours/Alberich's_Bracers.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 1,
@@ -775,7 +775,7 @@ export const armours: Armour[] =[
     "id": "120300",
     "name": "Alberich's Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9f/ER_Icon_Armor_Alberich%27s_Trousers.png/",
+    "image": "/equipment_images/armours/Alberich's_Trousers.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 2.3,
@@ -799,7 +799,7 @@ export const armours: Armour[] =[
     "id": "121000",
     "name": "Alberich's Pointed Hat (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6e/ER_Icon_Armor_Alberich%27s_Pointed_Hat_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Alberich's_Pointed_Hat_(Altered).webp",
     "dmgNegation": {
       "physical": 0.9,
       "strike": 0.2,
@@ -824,7 +824,7 @@ export const armours: Armour[] =[
     "id": "121100",
     "name": "Alberich's Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/73/ER_Icon_Armor_Alberich%27s_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Alberich's_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 2.7,
@@ -848,7 +848,7 @@ export const armours: Armour[] =[
     "id": "130000",
     "name": "Spellblade's Pointed Hat",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3a/ER_Icon_Armor_Spellblade%27s_Pointed_Hat.png/",
+    "image": "/equipment_images/armours/Spellblade's_Pointed_Hat.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 0.8,
@@ -873,7 +873,7 @@ export const armours: Armour[] =[
     "id": "130100",
     "name": "Spellblade's Traveling Attire",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/81/ER_Icon_Armor_Spellblade%27s_Traveling_Attire.png/",
+    "image": "/equipment_images/armours/Spellblade's_Traveling_Attire.webp",
     "dmgNegation": {
       "physical": 4.1,
       "strike": 2.6,
@@ -898,7 +898,7 @@ export const armours: Armour[] =[
     "id": "130200",
     "name": "Spellblade's Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3d/ER_Icon_Armor_Spellblade%27s_Gloves.png/",
+    "image": "/equipment_images/armours/Spellblade's_Gloves.webp",
     "dmgNegation": {
       "physical": 0.9,
       "strike": 0.5,
@@ -922,7 +922,7 @@ export const armours: Armour[] =[
     "id": "130300",
     "name": "Spellblade's Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/df/ER_Icon_Armor_Spellblade%27s_Trousers.png/",
+    "image": "/equipment_images/armours/Spellblade's_Trousers.webp",
     "dmgNegation": {
       "physical": 2.9,
       "strike": 2.2,
@@ -946,7 +946,7 @@ export const armours: Armour[] =[
     "id": "131100",
     "name": "Spellblade's Traveling Attire (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/be/ER_Icon_Armor_Spellblade%27s_Traveling_Attire_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Spellblade's_Traveling_Attire_(Altered).webp",
     "dmgNegation": {
       "physical": 2.6,
       "strike": 0.5,
@@ -971,7 +971,7 @@ export const armours: Armour[] =[
     "id": "140000",
     "name": "Bull-Goat Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b2/ER_Icon_Armor_Bull-Goat_Helm.png/",
+    "image": "/equipment_images/armours/Bull-Goat_Helm.webp",
     "dmgNegation": {
       "physical": 7.5,
       "strike": 7.4,
@@ -995,7 +995,7 @@ export const armours: Armour[] =[
     "id": "140100",
     "name": "Bull-Goat Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f9/ER_Icon_Armor_Bull-Goat_Armor.png/",
+    "image": "/equipment_images/armours/Bull-Goat_Armor.webp",
     "dmgNegation": {
       "physical": 20.4,
       "strike": 20.2,
@@ -1019,7 +1019,7 @@ export const armours: Armour[] =[
     "id": "140200",
     "name": "Bull-Goat Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/98/ER_Icon_Armor_Bull-Goat_Gauntlets.png/",
+    "image": "/equipment_images/armours/Bull-Goat_Gauntlets.webp",
     "dmgNegation": {
       "physical": 5.2,
       "strike": 5.2,
@@ -1043,7 +1043,7 @@ export const armours: Armour[] =[
     "id": "140300",
     "name": "Bull-Goat Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/34/ER_Icon_Armor_Bull-Goat_Greaves.png/",
+    "image": "/equipment_images/armours/Bull-Goat_Greaves.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 11.8,
@@ -1067,7 +1067,7 @@ export const armours: Armour[] =[
     "id": "150000",
     "name": "Iron Kasa",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/29/ER_Icon_Armor_Iron_Kasa.png/",
+    "image": "/equipment_images/armours/Iron_Kasa.webp",
     "dmgNegation": {
       "physical": 3.6,
       "strike": 3.6,
@@ -1091,7 +1091,7 @@ export const armours: Armour[] =[
     "id": "150100",
     "name": "Ronin's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f9/ER_Icon_Armor_Ronin%27s_Armor.png/",
+    "image": "/equipment_images/armours/Ronin's_Armor.webp",
     "dmgNegation": {
       "physical": 10.5,
       "strike": 10.5,
@@ -1115,7 +1115,7 @@ export const armours: Armour[] =[
     "id": "150200",
     "name": "Ronin's Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5d/ER_Icon_Armor_Ronin%27s_Gauntlets.png/",
+    "image": "/equipment_images/armours/Ronin's_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.7,
       "strike": 2.7,
@@ -1139,7 +1139,7 @@ export const armours: Armour[] =[
     "id": "150300",
     "name": "Ronin's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/07/ER_Icon_Armor_Ronin%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Ronin's_Greaves.webp",
     "dmgNegation": {
       "physical": 6.2,
       "strike": 6.2,
@@ -1163,7 +1163,7 @@ export const armours: Armour[] =[
     "id": "151100",
     "name": "Ronin's Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/76/ER_Icon_Armor_Ronin%27s_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Ronin's_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 8.8,
       "strike": 8.8,
@@ -1187,7 +1187,7 @@ export const armours: Armour[] =[
     "id": "160000",
     "name": "Guilty Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/eb/ER_Icon_Armor_Guilty_Hood.png/",
+    "image": "/equipment_images/armours/Guilty_Hood.webp",
     "dmgNegation": {
       "physical": 0.9,
       "strike": 1.4,
@@ -1211,7 +1211,7 @@ export const armours: Armour[] =[
     "id": "160100",
     "name": "Cloth Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/79/ER_Icon_Armor_Cloth_Garb.png/",
+    "image": "/equipment_images/armours/Cloth_Garb.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 4.2,
@@ -1235,7 +1235,7 @@ export const armours: Armour[] =[
     "id": "160300",
     "name": "Cloth Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/ac/ER_Icon_Armor_Cloth_Trousers.png/",
+    "image": "/equipment_images/armours/Cloth_Trousers.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 2.3,
@@ -1259,7 +1259,7 @@ export const armours: Armour[] =[
     "id": "170000",
     "name": "Black Wolf Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/ca/ER_Icon_Armor_Black_Wolf_Mask.png/",
+    "image": "/equipment_images/armours/Black_Wolf_Mask.webp",
     "dmgNegation": {
       "physical": 5.2,
       "strike": 4.6,
@@ -1283,7 +1283,7 @@ export const armours: Armour[] =[
     "id": "170100",
     "name": "Blaidd's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0c/ER_Icon_Armor_Blaidd%27s_Armor.png/",
+    "image": "/equipment_images/armours/Blaidd's_Armor.webp",
     "dmgNegation": {
       "physical": 14.6,
       "strike": 12.9,
@@ -1307,7 +1307,7 @@ export const armours: Armour[] =[
     "id": "170200",
     "name": "Blaidd's Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/aa/ER_Icon_Armor_Blaidd%27s_Gauntlets.png/",
+    "image": "/equipment_images/armours/Blaidd's_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.6,
       "strike": 3.2,
@@ -1331,7 +1331,7 @@ export const armours: Armour[] =[
     "id": "170300",
     "name": "Blaidd's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2f/ER_Icon_Armor_Blaidd%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Blaidd's_Greaves.webp",
     "dmgNegation": {
       "physical": 8.4,
       "strike": 7.3,
@@ -1355,7 +1355,7 @@ export const armours: Armour[] =[
     "id": "171100",
     "name": "Blaidd's Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f2/ER_Icon_Armor_Blaidd%27s_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Blaidd's_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 14,
       "strike": 12.4,
@@ -1379,7 +1379,7 @@ export const armours: Armour[] =[
     "id": "180000",
     "name": "Black Knife Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e2/ER_Icon_Armor_Black_Knife_Hood.png/",
+    "image": "/equipment_images/armours/Black_Knife_Hood.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 3.6,
@@ -1403,7 +1403,7 @@ export const armours: Armour[] =[
     "id": "180100",
     "name": "Black Knife Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b6/ER_Icon_Armor_Black_Knife_Armor.png/",
+    "image": "/equipment_images/armours/Black_Knife_Armor.webp",
     "dmgNegation": {
       "physical": 11.4,
       "strike": 10.9,
@@ -1428,7 +1428,7 @@ export const armours: Armour[] =[
     "id": "180200",
     "name": "Black Knife Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e7/ER_Icon_Armor_Black_Knife_Gauntlets.png/",
+    "image": "/equipment_images/armours/Black_Knife_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 2.7,
@@ -1452,7 +1452,7 @@ export const armours: Armour[] =[
     "id": "180300",
     "name": "Black Knife Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bd/ER_Icon_Armor_Black_Knife_Greaves.png/",
+    "image": "/equipment_images/armours/Black_Knife_Greaves.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 6.2,
@@ -1476,7 +1476,7 @@ export const armours: Armour[] =[
     "id": "181100",
     "name": "Black Knife Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f5/ER_Icon_Armor_Black_Knife_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Black_Knife_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 11.3,
       "strike": 10.8,
@@ -1500,7 +1500,7 @@ export const armours: Armour[] =[
     "id": "190000",
     "name": "Exile Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Exile_Hood.png/",
+    "image": "/equipment_images/armours/Exile_Hood.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -1524,7 +1524,7 @@ export const armours: Armour[] =[
     "id": "190100",
     "name": "Exile Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d7/ER_Icon_Armor_Exile_Armor.png/",
+    "image": "/equipment_images/armours/Exile_Armor.webp",
     "dmgNegation": {
       "physical": 12.4,
       "strike": 9.5,
@@ -1548,7 +1548,7 @@ export const armours: Armour[] =[
     "id": "190200",
     "name": "Exile Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9b/ER_Icon_Armor_Exile_Gauntlets.png/",
+    "image": "/equipment_images/armours/Exile_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.9,
       "strike": 2.1,
@@ -1572,7 +1572,7 @@ export const armours: Armour[] =[
     "id": "190300",
     "name": "Exile Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bb/ER_Icon_Armor_Exile_Greaves.png/",
+    "image": "/equipment_images/armours/Exile_Greaves.webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 5.4,
@@ -1596,7 +1596,7 @@ export const armours: Armour[] =[
     "id": "200000",
     "name": "Banished Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/ab/ER_Icon_Armor_Banished_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Banished_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 5.4,
@@ -1620,7 +1620,7 @@ export const armours: Armour[] =[
     "id": "200100",
     "name": "Banished Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7b/ER_Icon_Armor_Banished_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Banished_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 18.7,
       "strike": 15,
@@ -1644,7 +1644,7 @@ export const armours: Armour[] =[
     "id": "200200",
     "name": "Banished Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6c/ER_Icon_Armor_Banished_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Banished_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.7,
       "strike": 3.7,
@@ -1668,7 +1668,7 @@ export const armours: Armour[] =[
     "id": "200300",
     "name": "Banished Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/57/ER_Icon_Armor_Banished_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Banished_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 10.8,
       "strike": 8.6,
@@ -1692,7 +1692,7 @@ export const armours: Armour[] =[
     "id": "201000",
     "name": "Banished Knight Helm (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Banished_Knight_Helm_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Banished_Knight_Helm_(Altered).webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 5.2,
@@ -1716,7 +1716,7 @@ export const armours: Armour[] =[
     "id": "201100",
     "name": "Banished Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/01/ER_Icon_Armor_Banished_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Banished_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 18.3,
       "strike": 14.4,
@@ -1740,7 +1740,7 @@ export const armours: Armour[] =[
     "id": "210000",
     "name": "Briar Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/32/ER_Icon_Armor_Briar_Helm.png/",
+    "image": "/equipment_images/armours/Briar_Helm.webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 4,
@@ -1765,7 +1765,7 @@ export const armours: Armour[] =[
     "id": "210100",
     "name": "Briar Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/09/ER_Icon_Armor_Briar_Armor.png/",
+    "image": "/equipment_images/armours/Briar_Armor.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 11.4,
@@ -1790,7 +1790,7 @@ export const armours: Armour[] =[
     "id": "210200",
     "name": "Briar Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/50/ER_Icon_Armor_Briar_Gauntlets.png/",
+    "image": "/equipment_images/armours/Briar_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.8,
@@ -1815,7 +1815,7 @@ export const armours: Armour[] =[
     "id": "210300",
     "name": "Briar Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/68/ER_Icon_Armor_Briar_Greaves.png/",
+    "image": "/equipment_images/armours/Briar_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.5,
@@ -1840,7 +1840,7 @@ export const armours: Armour[] =[
     "id": "211100",
     "name": "Briar Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6e/ER_Icon_Armor_Briar_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Briar_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 12.4,
       "strike": 10.9,
@@ -1865,7 +1865,7 @@ export const armours: Armour[] =[
     "id": "220000",
     "name": "Page Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5a/ER_Icon_Armor_Page_Hood.png/",
+    "image": "/equipment_images/armours/Page_Hood.webp",
     "dmgNegation": {
       "physical": 1.8,
       "strike": 1.4,
@@ -1889,7 +1889,7 @@ export const armours: Armour[] =[
     "id": "220100",
     "name": "Page Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/26/ER_Icon_Armor_Page_Garb.png/",
+    "image": "/equipment_images/armours/Page_Garb.webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 6.1,
@@ -1913,7 +1913,7 @@ export const armours: Armour[] =[
     "id": "220300",
     "name": "Page Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/22/ER_Icon_Armor_Page_Trousers.png/",
+    "image": "/equipment_images/armours/Page_Trousers.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3,
@@ -1937,7 +1937,7 @@ export const armours: Armour[] =[
     "id": "221100",
     "name": "Page Garb (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4d/ER_Icon_Armor_Page_Garb_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Page_Garb_(Altered).webp",
     "dmgNegation": {
       "physical": 6.3,
       "strike": 5.5,
@@ -1961,7 +1961,7 @@ export const armours: Armour[] =[
     "id": "230000",
     "name": "Night's Cavalry Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c3/ER_Icon_Armor_Night%27s_Cavalry_Helm.png/",
+    "image": "/equipment_images/armours/Night's_Cavalry_Helm.webp",
     "dmgNegation": {
       "physical": 5,
       "strike": 4.6,
@@ -1985,7 +1985,7 @@ export const armours: Armour[] =[
     "id": "230100",
     "name": "Night's Cavalry Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/51/ER_Icon_Armor_Night%27s_Cavalry_Armor.png/",
+    "image": "/equipment_images/armours/Night's_Cavalry_Armor.webp",
     "dmgNegation": {
       "physical": 14,
       "strike": 12.9,
@@ -2009,7 +2009,7 @@ export const armours: Armour[] =[
     "id": "230200",
     "name": "Night's Cavalry Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/17/ER_Icon_Armor_Night%27s_Cavalry_Gauntlets.png/",
+    "image": "/equipment_images/armours/Night's_Cavalry_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.5,
       "strike": 3.2,
@@ -2033,7 +2033,7 @@ export const armours: Armour[] =[
     "id": "230300",
     "name": "Night's Cavalry Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a5/ER_Icon_Armor_Night%27s_Cavalry_Greaves.png/",
+    "image": "/equipment_images/armours/Night's_Cavalry_Greaves.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 7.3,
@@ -2057,7 +2057,7 @@ export const armours: Armour[] =[
     "id": "231000",
     "name": "Night's Cavalry Helm (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/83/ER_Icon_Armor_Night%27s_Cavalry_Helm_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Night's_Cavalry_Helm_(Altered).webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4.4,
@@ -2081,7 +2081,7 @@ export const armours: Armour[] =[
     "id": "231100",
     "name": "Night's Cavalry Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ed/ER_Icon_Armor_Night%27s_Cavalry_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Night's_Cavalry_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 12.4,
@@ -2105,7 +2105,7 @@ export const armours: Armour[] =[
     "id": "240000",
     "name": "Blue Silver Mail Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ef/ER_Icon_Armor_Blue_Silver_Mail_Hood.png/",
+    "image": "/equipment_images/armours/Blue_Silver_Mail_Hood.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 3.1,
@@ -2129,7 +2129,7 @@ export const armours: Armour[] =[
     "id": "240100",
     "name": "Blue Silver Mail Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/83/ER_Icon_Armor_Blue_Silver_Mail_Armor.png/",
+    "image": "/equipment_images/armours/Blue_Silver_Mail_Armor.webp",
     "dmgNegation": {
       "physical": 12.4,
       "strike": 9.5,
@@ -2153,7 +2153,7 @@ export const armours: Armour[] =[
     "id": "240200",
     "name": "Blue Silver Bracelets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d6/ER_Icon_Armor_Blue_Silver_Bracelets.png/",
+    "image": "/equipment_images/armours/Blue_Silver_Bracelets.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 1.5,
@@ -2177,7 +2177,7 @@ export const armours: Armour[] =[
     "id": "240300",
     "name": "Blue Silver Mail Skirt",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/63/ER_Icon_Armor_Blue_Silver_Mail_Skirt.png/",
+    "image": "/equipment_images/armours/Blue_Silver_Mail_Skirt.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 5,
@@ -2201,7 +2201,7 @@ export const armours: Armour[] =[
     "id": "241100",
     "name": "Blue Silver Mail Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6e/ER_Icon_Armor_Blue_Silver_Mail_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Blue_Silver_Mail_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 12.1,
       "strike": 9,
@@ -2225,7 +2225,7 @@ export const armours: Armour[] =[
     "id": "250000",
     "name": "Nomadic Merchant's Chapeau",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/52/ER_Icon_Armor_Nomadic_Merchant%27s_Chapeau.png/",
+    "image": "/equipment_images/armours/Nomadic_Merchant's_Chapeau.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.1,
@@ -2249,7 +2249,7 @@ export const armours: Armour[] =[
     "id": "250100",
     "name": "Nomadic Merchant's Finery",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b5/ER_Icon_Armor_Nomadic_Merchant%27s_Finery.png/",
+    "image": "/equipment_images/armours/Nomadic_Merchant's_Finery.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 8.8,
@@ -2273,7 +2273,7 @@ export const armours: Armour[] =[
     "id": "250300",
     "name": "Nomadic Merchant's Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/ce/ER_Icon_Armor_Nomadic_Merchant%27s_Trousers.png/",
+    "image": "/equipment_images/armours/Nomadic_Merchant's_Trousers.webp",
     "dmgNegation": {
       "physical": 4.5,
       "strike": 5,
@@ -2297,7 +2297,7 @@ export const armours: Armour[] =[
     "id": "251100",
     "name": "Nomadic Merchant's Finery (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f8/ER_Icon_Armor_Nomadic_Merchant%27s_Finery_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Nomadic_Merchant's_Finery_(Altered).webp",
     "dmgNegation": {
       "physical": 7,
       "strike": 7.9,
@@ -2321,7 +2321,7 @@ export const armours: Armour[] =[
     "id": "260000",
     "name": "Malformed Dragon Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/54/ER_Icon_Armor_Malformed_Dragon_Helm.png/",
+    "image": "/equipment_images/armours/Malformed_Dragon_Helm.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 5.4,
@@ -2345,7 +2345,7 @@ export const armours: Armour[] =[
     "id": "260100",
     "name": "Malformed Dragon Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/77/ER_Icon_Armor_Malformed_Dragon_Armor.png/",
+    "image": "/equipment_images/armours/Malformed_Dragon_Armor.webp",
     "dmgNegation": {
       "physical": 16.8,
       "strike": 15,
@@ -2369,7 +2369,7 @@ export const armours: Armour[] =[
     "id": "260200",
     "name": "Malformed Dragon Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/83/ER_Icon_Armor_Malformed_Dragon_Gauntlets.png/",
+    "image": "/equipment_images/armours/Malformed_Dragon_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 3.7,
@@ -2393,7 +2393,7 @@ export const armours: Armour[] =[
     "id": "260300",
     "name": "Malformed Dragon Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6d/ER_Icon_Armor_Malformed_Dragon_Greaves.png/",
+    "image": "/equipment_images/armours/Malformed_Dragon_Greaves.webp",
     "dmgNegation": {
       "physical": 9.6,
       "strike": 8.6,
@@ -2417,7 +2417,7 @@ export const armours: Armour[] =[
     "id": "270000",
     "name": "Tree Sentinel Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/ca/ER_Icon_Armor_Tree_Sentinel_Helm.png/",
+    "image": "/equipment_images/armours/Tree_Sentinel_Helm.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 5.4,
@@ -2441,7 +2441,7 @@ export const armours: Armour[] =[
     "id": "270100",
     "name": "Tree Sentinel Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/06/ER_Icon_Armor_Tree_Sentinel_Armor.png/",
+    "image": "/equipment_images/armours/Tree_Sentinel_Armor.webp",
     "dmgNegation": {
       "physical": 18.7,
       "strike": 15,
@@ -2465,7 +2465,7 @@ export const armours: Armour[] =[
     "id": "270200",
     "name": "Tree Sentinel Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/da/ER_Icon_Armor_Tree_Sentinel_Gauntlets.png/",
+    "image": "/equipment_images/armours/Tree_Sentinel_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.7,
       "strike": 3.7,
@@ -2489,7 +2489,7 @@ export const armours: Armour[] =[
     "id": "270300",
     "name": "Tree Sentinel Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ee/ER_Icon_Armor_Tree_Sentinel_Greaves.png/",
+    "image": "/equipment_images/armours/Tree_Sentinel_Greaves.webp",
     "dmgNegation": {
       "physical": 10.8,
       "strike": 8.6,
@@ -2513,7 +2513,7 @@ export const armours: Armour[] =[
     "id": "271100",
     "name": "Tree Sentinel Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f5/ER_Icon_Armor_Tree_Sentinel_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Tree_Sentinel_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 18.5,
       "strike": 14.8,
@@ -2537,7 +2537,7 @@ export const armours: Armour[] =[
     "id": "280000",
     "name": "Royal Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/aa/ER_Icon_Armor_Royal_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Royal_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -2561,7 +2561,7 @@ export const armours: Armour[] =[
     "id": "280100",
     "name": "Royal Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f8/ER_Icon_Armor_Royal_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Royal_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 16,
       "strike": 14.4,
@@ -2585,7 +2585,7 @@ export const armours: Armour[] =[
     "id": "280200",
     "name": "Royal Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2a/ER_Icon_Armor_Royal_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Royal_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4,
       "strike": 3.6,
@@ -2609,7 +2609,7 @@ export const armours: Armour[] =[
     "id": "280300",
     "name": "Royal Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e6/ER_Icon_Armor_Royal_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Royal_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 9.2,
       "strike": 8.3,
@@ -2633,7 +2633,7 @@ export const armours: Armour[] =[
     "id": "281100",
     "name": "Royal Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b2/ER_Icon_Armor_Royal_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Royal_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 15.8,
       "strike": 14.2,
@@ -2657,7 +2657,7 @@ export const armours: Armour[] =[
     "id": "290000",
     "name": "Nox Monk Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/89/ER_Icon_Armor_Nox_Monk_Hood.png/",
+    "image": "/equipment_images/armours/Nox_Monk_Hood.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.1,
@@ -2681,7 +2681,7 @@ export const armours: Armour[] =[
     "id": "290100",
     "name": "Nox Monk Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/23/ER_Icon_Armor_Nox_Monk_Armor.png/",
+    "image": "/equipment_images/armours/Nox_Monk_Armor.webp",
     "dmgNegation": {
       "physical": 9.3,
       "strike": 10,
@@ -2705,7 +2705,7 @@ export const armours: Armour[] =[
     "id": "290200",
     "name": "Nox Bracelets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5f/ER_Icon_Armor_Nox_Monk_Bracelets.png/",
+    "image": "/equipment_images/armours/Nox_Bracelets.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 2.3,
@@ -2729,7 +2729,7 @@ export const armours: Armour[] =[
     "id": "290300",
     "name": "Nox Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Nox_Monk_Greaves.png/",
+    "image": "/equipment_images/armours/Nox_Greaves.webp",
     "dmgNegation": {
       "physical": 5.4,
       "strike": 5.8,
@@ -2753,7 +2753,7 @@ export const armours: Armour[] =[
     "id": "291000",
     "name": "Nox Monk Hood (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e6/ER_Icon_Armor_Nox_Monk_Hood_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Nox_Monk_Hood_(Altered).webp",
     "dmgNegation": {
       "physical": 2.5,
       "strike": 2.8,
@@ -2777,7 +2777,7 @@ export const armours: Armour[] =[
     "id": "291100",
     "name": "Nox Monk Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/66/ER_Icon_Armor_Nox_Monk_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Nox_Monk_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 8.6,
       "strike": 9.3,
@@ -2801,7 +2801,7 @@ export const armours: Armour[] =[
     "id": "292000",
     "name": "Nox Swordstress Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b0/ER_Icon_Armor_Nox_Swordstress_Crown.png/",
+    "image": "/equipment_images/armours/Nox_Swordstress_Crown.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.4,
@@ -2825,7 +2825,7 @@ export const armours: Armour[] =[
     "id": "292100",
     "name": "Nox Swordstress Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/90/ER_Icon_Armor_Nox_Swordstress_Armor.png/",
+    "image": "/equipment_images/armours/Nox_Swordstress_Armor.webp",
     "dmgNegation": {
       "physical": 8.8,
       "strike": 10.2,
@@ -2849,7 +2849,7 @@ export const armours: Armour[] =[
     "id": "293000",
     "name": "Night Maiden Twin Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9f/ER_Icon_Armor_Night_Maiden_Twin_Crown.png/",
+    "image": "/equipment_images/armours/Night_Maiden_Twin_Crown.webp",
     "dmgNegation": {
       "physical": 2.5,
       "strike": 3.1,
@@ -2873,7 +2873,7 @@ export const armours: Armour[] =[
     "id": "293100",
     "name": "Night Maiden Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/da/ER_Icon_Armor_Night_Maiden_Armor.png/",
+    "image": "/equipment_images/armours/Night_Maiden_Armor.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 9.5,
@@ -2897,7 +2897,7 @@ export const armours: Armour[] =[
     "id": "294000",
     "name": "Nox Swordstress Crown (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/15/Nox_Swordstress_Crown_%28Altered%29_-_MENU_Knowledge_15470.png/",
+    "image": "/equipment_images/armours/Nox_Swordstress_Crown_(Altered).webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.8,
@@ -2921,7 +2921,7 @@ export const armours: Armour[] =[
     "id": "294100",
     "name": "Nox Swordstress Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9c/ER_Icon_Armor_Nox_Swordstress_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Nox_Swordstress_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 9.5,
@@ -2945,7 +2945,7 @@ export const armours: Armour[] =[
     "id": "300000",
     "name": "Great Horned Headband",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ed/ER_Icon_Armor_Great_Horned_Headband.png/",
+    "image": "/equipment_images/armours/Great_Horned_Headband.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.1,
@@ -2969,7 +2969,7 @@ export const armours: Armour[] =[
     "id": "300100",
     "name": "Fur Raiment",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6d/ER_Icon_Armor_Fur_Raiment.png/",
+    "image": "/equipment_images/armours/Fur_Raiment.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.7,
@@ -2993,7 +2993,7 @@ export const armours: Armour[] =[
     "id": "300300",
     "name": "Fur Leggings",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Fur_Leggings.png/",
+    "image": "/equipment_images/armours/Fur_Leggings.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.8,
@@ -3017,7 +3017,7 @@ export const armours: Armour[] =[
     "id": "301000",
     "name": "Shining Horned Headband",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/06/ER_Icon_Armor_Shining_Horned_Headband.png/",
+    "image": "/equipment_images/armours/Shining_Horned_Headband.webp",
     "dmgNegation": {
       "physical": 2.5,
       "strike": 2.8,
@@ -3042,7 +3042,7 @@ export const armours: Armour[] =[
     "id": "301100",
     "name": "Shaman Furs",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ed/ER_Icon_Armor_Shaman_Furs.png/",
+    "image": "/equipment_images/armours/Shaman_Furs.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.1,
@@ -3066,7 +3066,7 @@ export const armours: Armour[] =[
     "id": "301300",
     "name": "Shaman Leggings",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/51/ER_Icon_Armor_Shaman_Leggings.png/",
+    "image": "/equipment_images/armours/Shaman_Leggings.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 3.4,
@@ -3090,7 +3090,7 @@ export const armours: Armour[] =[
     "id": "310000",
     "name": "Duelist Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/12/ER_Icon_Armor_Duelist_Helm.png/",
+    "image": "/equipment_images/armours/Duelist_Helm.webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -3115,7 +3115,7 @@ export const armours: Armour[] =[
     "id": "310100",
     "name": "Gravekeeper Cloak",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7a/ER_Icon_Armor_Gravekeeper_Cloak.png/",
+    "image": "/equipment_images/armours/Gravekeeper_Cloak.webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 8.8,
@@ -3142,7 +3142,7 @@ export const armours: Armour[] =[
     "id": "310300",
     "name": "Duelist Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b6/ER_Icon_Armor_Duelist_Greaves.png/",
+    "image": "/equipment_images/armours/Duelist_Greaves.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 7.1,
@@ -3167,7 +3167,7 @@ export const armours: Armour[] =[
     "id": "311100",
     "name": "Gravekeeper Cloak (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/23/ER_Icon_Armor_Gravekeeper_Cloak_%28Altered%29_Type_B.png/",
+    "image": "/equipment_images/armours/Gravekeeper_Cloak_(Altered).webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 8,
@@ -3192,7 +3192,7 @@ export const armours: Armour[] =[
     "id": "320000",
     "name": "Sanguine Noble Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b4/ER_Icon_Armor_Sanguine_Noble_Hood.png/",
+    "image": "/equipment_images/armours/Sanguine_Noble_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 0.9,
@@ -3216,7 +3216,7 @@ export const armours: Armour[] =[
     "id": "320100",
     "name": "Sanguine Noble Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/51/ER_Icon_Armor_Sanguine_Noble_Robe.png/",
+    "image": "/equipment_images/armours/Sanguine_Noble_Robe.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 5.3,
@@ -3240,7 +3240,7 @@ export const armours: Armour[] =[
     "id": "320300",
     "name": "Sanguine Noble Waistcloth",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7c/ER_Icon_Armor_Sanguine_Noble_Waistcloth.png/",
+    "image": "/equipment_images/armours/Sanguine_Noble_Waistcloth.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 2.3,
@@ -3264,7 +3264,7 @@ export const armours: Armour[] =[
     "id": "330000",
     "name": "Guardian Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e5/ER_Icon_Armor_Guardian_Mask.png/",
+    "image": "/equipment_images/armours/Guardian_Mask.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 3.6,
@@ -3288,7 +3288,7 @@ export const armours: Armour[] =[
     "id": "330100",
     "name": "Guardian Garb (Full Bloom)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b7/ER_Icon_Armor_Guardian_Garb_%28Full_Bloom%29.png/",
+    "image": "/equipment_images/armours/Guardian_Garb_(Full_Bloom).webp",
     "dmgNegation": {
       "physical": 10.2,
       "strike": 10.2,
@@ -3313,7 +3313,7 @@ export const armours: Armour[] =[
     "id": "330200",
     "name": "Guardian Bracers",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9e/ER_Icon_Armor_Guardian_Bracers.png/",
+    "image": "/equipment_images/armours/Guardian_Bracers.webp",
     "dmgNegation": {
       "physical": 2.7,
       "strike": 2.5,
@@ -3337,7 +3337,7 @@ export const armours: Armour[] =[
     "id": "330300",
     "name": "Guardian Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/65/ER_Icon_Armor_Guardian_Greaves.png/",
+    "image": "/equipment_images/armours/Guardian_Greaves.webp",
     "dmgNegation": {
       "physical": 6.2,
       "strike": 5.8,
@@ -3361,7 +3361,7 @@ export const armours: Armour[] =[
     "id": "331100",
     "name": "Guardian Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3a/ER_Icon_Armor_Guardian_Garb.png/",
+    "image": "/equipment_images/armours/Guardian_Garb.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 9.5,
@@ -3385,7 +3385,7 @@ export const armours: Armour[] =[
     "id": "340000",
     "name": "Cleanrot Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/90/ER_Icon_Armor_Cleanrot_Helm.png/",
+    "image": "/equipment_images/armours/Cleanrot_Helm.webp",
     "dmgNegation": {
       "physical": 5.2,
       "strike": 4.8,
@@ -3409,7 +3409,7 @@ export const armours: Armour[] =[
     "id": "340100",
     "name": "Cleanrot Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0b/ER_Icon_Armor_Cleanrot_Armor.png/",
+    "image": "/equipment_images/armours/Cleanrot_Armor.webp",
     "dmgNegation": {
       "physical": 14.6,
       "strike": 13.4,
@@ -3433,7 +3433,7 @@ export const armours: Armour[] =[
     "id": "340200",
     "name": "Cleanrot Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2e/ER_Icon_Armor_Cleanrot_Gauntlets.png/",
+    "image": "/equipment_images/armours/Cleanrot_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.6,
       "strike": 3.3,
@@ -3457,7 +3457,7 @@ export const armours: Armour[] =[
     "id": "340300",
     "name": "Cleanrot Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Cleanrot_Greaves.png/",
+    "image": "/equipment_images/armours/Cleanrot_Greaves.webp",
     "dmgNegation": {
       "physical": 8.4,
       "strike": 7.6,
@@ -3481,7 +3481,7 @@ export const armours: Armour[] =[
     "id": "341000",
     "name": "Cleanrot Helm (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b3/ER_Icon_Armor_Cleanrot_Helm_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Cleanrot_Helm_(Altered).webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 4.2,
@@ -3505,7 +3505,7 @@ export const armours: Armour[] =[
     "id": "341100",
     "name": "Cleanrot Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d8/ER_Icon_Armor_Cleanrot_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Cleanrot_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 12.4,
@@ -3529,7 +3529,7 @@ export const armours: Armour[] =[
     "id": "350000",
     "name": "Fire Monk Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/01/ER_Icon_Armor_Fire_Monk_Hood.png/",
+    "image": "/equipment_images/armours/Fire_Monk_Hood.webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 3.8,
@@ -3553,7 +3553,7 @@ export const armours: Armour[] =[
     "id": "350100",
     "name": "Fire Monk Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8d/ER_Icon_Armor_Fire_Monk_Armor.png/",
+    "image": "/equipment_images/armours/Fire_Monk_Armor.webp",
     "dmgNegation": {
       "physical": 14,
       "strike": 12.4,
@@ -3577,7 +3577,7 @@ export const armours: Armour[] =[
     "id": "350200",
     "name": "Fire Monk Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bc/ER_Icon_Armor_Fire_Monk_Gauntlets.png/",
+    "image": "/equipment_images/armours/Fire_Monk_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.5,
       "strike": 3.1,
@@ -3601,7 +3601,7 @@ export const armours: Armour[] =[
     "id": "350300",
     "name": "Fire Monk Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/61/ER_Icon_Armor_Fire_Monk_Greaves.png/",
+    "image": "/equipment_images/armours/Fire_Monk_Greaves.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 7.1,
@@ -3625,7 +3625,7 @@ export const armours: Armour[] =[
     "id": "351000",
     "name": "Blackflame Monk Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/82/ER_Icon_Armor_Blackflame_Monk_Hood.png/",
+    "image": "/equipment_images/armours/Blackflame_Monk_Hood.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -3649,7 +3649,7 @@ export const armours: Armour[] =[
     "id": "351100",
     "name": "Blackflame Monk Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9d/ER_Icon_Armor_Blackflame_Monk_Armor.png/",
+    "image": "/equipment_images/armours/Blackflame_Monk_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.4,
@@ -3673,7 +3673,7 @@ export const armours: Armour[] =[
     "id": "351200",
     "name": "Blackflame Monk Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/46/ER_Icon_Armor_Blackflame_Monk_Gauntlets.png/",
+    "image": "/equipment_images/armours/Blackflame_Monk_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.8,
@@ -3697,7 +3697,7 @@ export const armours: Armour[] =[
     "id": "351300",
     "name": "Blackflame Monk Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/76/ER_Icon_Armor_Blackflame_Monk_Greaves.png/",
+    "image": "/equipment_images/armours/Blackflame_Monk_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.5,
@@ -3721,7 +3721,7 @@ export const armours: Armour[] =[
     "id": "360000",
     "name": "Fire Prelate Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bf/ER_Icon_Armor_Fire_Prelate_Helm.png/",
+    "image": "/equipment_images/armours/Fire_Prelate_Helm.webp",
     "dmgNegation": {
       "physical": 7,
       "strike": 6.1,
@@ -3745,7 +3745,7 @@ export const armours: Armour[] =[
     "id": "360100",
     "name": "Fire Prelate Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4f/ER_Icon_Armor_Fire_Prelate_Armor.png/",
+    "image": "/equipment_images/armours/Fire_Prelate_Armor.webp",
     "dmgNegation": {
       "physical": 19.2,
       "strike": 17,
@@ -3769,7 +3769,7 @@ export const armours: Armour[] =[
     "id": "360200",
     "name": "Fire Prelate Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4f/ER_Icon_Armor_Fire_Prelate_Gauntlets.png/",
+    "image": "/equipment_images/armours/Fire_Prelate_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.9,
       "strike": 4.3,
@@ -3793,7 +3793,7 @@ export const armours: Armour[] =[
     "id": "360300",
     "name": "Fire Prelate Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7d/ER_Icon_Armor_Fire_Prelate_Greaves.png/",
+    "image": "/equipment_images/armours/Fire_Prelate_Greaves.webp",
     "dmgNegation": {
       "physical": 11.1,
       "strike": 9.8,
@@ -3817,7 +3817,7 @@ export const armours: Armour[] =[
     "id": "361100",
     "name": "Fire Prelate Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/44/ER_Icon_Armor_Fire_Prelate_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Fire_Prelate_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 18.7,
       "strike": 16.3,
@@ -3841,7 +3841,7 @@ export const armours: Armour[] =[
     "id": "370000",
     "name": "Aristocrat Headband",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/57/ER_Icon_Armor_Aristocrat_Headband.png/",
+    "image": "/equipment_images/armours/Aristocrat_Headband.webp",
     "dmgNegation": {
       "physical": 1.9,
       "strike": 1.9,
@@ -3865,7 +3865,7 @@ export const armours: Armour[] =[
     "id": "370100",
     "name": "Aristocrat Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bc/ER_Icon_Armor_Aristocrat_Garb.png/",
+    "image": "/equipment_images/armours/Aristocrat_Garb.webp",
     "dmgNegation": {
       "physical": 7.8,
       "strike": 8.6,
@@ -3889,7 +3889,7 @@ export const armours: Armour[] =[
     "id": "370300",
     "name": "Aristocrat Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9d/ER_Icon_Armor_Aristocrat_Boots.png/",
+    "image": "/equipment_images/armours/Aristocrat_Boots.webp",
     "dmgNegation": {
       "physical": 4.3,
       "strike": 4.8,
@@ -3913,7 +3913,7 @@ export const armours: Armour[] =[
     "id": "371100",
     "name": "Aristocrat Garb (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e8/ER_Icon_Armor_Aristocrat_Garb_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Aristocrat_Garb_(Altered).webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 8,
@@ -3937,7 +3937,7 @@ export const armours: Armour[] =[
     "id": "380000",
     "name": "Aristocrat Hat",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/68/ER_Icon_Armor_Aristocrat_Hat.png/",
+    "image": "/equipment_images/armours/Aristocrat_Hat.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 3.1,
@@ -3961,7 +3961,7 @@ export const armours: Armour[] =[
     "id": "380100",
     "name": "Aristocrat Coat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/71/ER_Icon_Armor_Aristocrat_Coat.png/",
+    "image": "/equipment_images/armours/Aristocrat_Coat.webp",
     "dmgNegation": {
       "physical": 8.8,
       "strike": 8.8,
@@ -3985,7 +3985,7 @@ export const armours: Armour[] =[
     "id": "390000",
     "name": "Old Aristocrat Cowl",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/50/ER_Icon_Armor_Old_Aristocrat_Cowl.png/",
+    "image": "/equipment_images/armours/Old_Aristocrat_Cowl.webp",
     "dmgNegation": {
       "physical": 2.5,
       "strike": 2.5,
@@ -4009,7 +4009,7 @@ export const armours: Armour[] =[
     "id": "390100",
     "name": "Old Aristocrat Gown",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/20/ER_Icon_Armor_Old_Aristocrat_Gown.png/",
+    "image": "/equipment_images/armours/Old_Aristocrat_Gown.webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 7.1,
@@ -4033,7 +4033,7 @@ export const armours: Armour[] =[
     "id": "390300",
     "name": "Old Aristocrat Shoes",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/cb/ER_Icon_Armor_Old_Aristocrat_Shoes.png/",
+    "image": "/equipment_images/armours/Old_Aristocrat_Shoes.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.4,
@@ -4057,7 +4057,7 @@ export const armours: Armour[] =[
     "id": "420000",
     "name": "Vulgar Militia Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Vulgar_Militia_Helm.png/",
+    "image": "/equipment_images/armours/Vulgar_Militia_Helm.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.8,
@@ -4081,7 +4081,7 @@ export const armours: Armour[] =[
     "id": "420100",
     "name": "Vulgar Militia Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/39/ER_Icon_Armor_Vulgar_Militia_Armor.png/",
+    "image": "/equipment_images/armours/Vulgar_Militia_Armor.webp",
     "dmgNegation": {
       "physical": 8.8,
       "strike": 10.2,
@@ -4105,7 +4105,7 @@ export const armours: Armour[] =[
     "id": "420200",
     "name": "Vulgar Militia Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ea/ER_Icon_Armor_Vulgar_Militia_Gauntlets.png/",
+    "image": "/equipment_images/armours/Vulgar_Militia_Gauntlets.webp",
     "dmgNegation": {
       "physical": 1.7,
       "strike": 2.1,
@@ -4129,7 +4129,7 @@ export const armours: Armour[] =[
     "id": "420300",
     "name": "Vulgar Militia Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/53/ER_Icon_Armor_Vulgar_Militia_Greaves.png/",
+    "image": "/equipment_images/armours/Vulgar_Militia_Greaves.webp",
     "dmgNegation": {
       "physical": 5.4,
       "strike": 6.2,
@@ -4153,7 +4153,7 @@ export const armours: Armour[] =[
     "id": "430000",
     "name": "Sage Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/81/ER_Icon_Armor_Sage_Hood.png/",
+    "image": "/equipment_images/armours/Sage_Hood.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.1,
@@ -4177,7 +4177,7 @@ export const armours: Armour[] =[
     "id": "430100",
     "name": "Sage Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/13/ER_Icon_Armor_Sage_Robe.png/",
+    "image": "/equipment_images/armours/Sage_Robe.webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 6.1,
@@ -4201,7 +4201,7 @@ export const armours: Armour[] =[
     "id": "430300",
     "name": "Sage Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f4/ER_Icon_Armor_Sage_Trousers.png/",
+    "image": "/equipment_images/armours/Sage_Trousers.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3,
@@ -4225,7 +4225,7 @@ export const armours: Armour[] =[
     "id": "440000",
     "name": "Pumpkin Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fb/ER_Icon_Armor_Pumpkin_Helm.png/",
+    "image": "/equipment_images/armours/Pumpkin_Helm.webp",
     "dmgNegation": {
       "physical": 7,
       "strike": 5.9,
@@ -4250,7 +4250,7 @@ export const armours: Armour[] =[
     "id": "460000",
     "name": "Elden Lord Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9b/ER_Icon_Armor_Elden_Lord_Crown.png/",
+    "image": "/equipment_images/armours/Elden_Lord_Crown.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 3.4,
@@ -4274,7 +4274,7 @@ export const armours: Armour[] =[
     "id": "460100",
     "name": "Elden Lord Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d2/ER_Icon_Armor_Elden_Lord_Armor.png/",
+    "image": "/equipment_images/armours/Elden_Lord_Armor.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 10.9,
@@ -4298,7 +4298,7 @@ export const armours: Armour[] =[
     "id": "460200",
     "name": "Elden Lord Bracers",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ee/ER_Icon_Armor_Elden_Lord_Bracers.png/",
+    "image": "/equipment_images/armours/Elden_Lord_Bracers.webp",
     "dmgNegation": {
       "physical": 2.9,
       "strike": 2.7,
@@ -4322,7 +4322,7 @@ export const armours: Armour[] =[
     "id": "460300",
     "name": "Elden Lord Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/30/ER_Icon_Armor_Elden_Lord_Greaves.png/",
+    "image": "/equipment_images/armours/Elden_Lord_Greaves.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 5.8,
@@ -4346,7 +4346,7 @@ export const armours: Armour[] =[
     "id": "461100",
     "name": "Elden Lord Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/86/ER_Icon_Armor_Elden_Lord_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Elden_Lord_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 11.1,
       "strike": 9.9,
@@ -4370,7 +4370,7 @@ export const armours: Armour[] =[
     "id": "470000",
     "name": "Radahn's Redmane Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9e/ER_Icon_Armor_Radahn%27s_Redmane_Helm.png/",
+    "image": "/equipment_images/armours/Radahn's_Redmane_Helm.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 5.4,
@@ -4394,7 +4394,7 @@ export const armours: Armour[] =[
     "id": "470100",
     "name": "Radahn's Lion Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6a/ER_Icon_Armor_Radahn%27s_Lion_Armor.png/",
+    "image": "/equipment_images/armours/Radahn's_Lion_Armor.webp",
     "dmgNegation": {
       "physical": 18.7,
       "strike": 15,
@@ -4418,7 +4418,7 @@ export const armours: Armour[] =[
     "id": "470200",
     "name": "Radahn's Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d0/ER_Icon_Armor_Radahn%27s_Gauntlets.png/",
+    "image": "/equipment_images/armours/Radahn's_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.7,
       "strike": 3.7,
@@ -4442,7 +4442,7 @@ export const armours: Armour[] =[
     "id": "470300",
     "name": "Radahn's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bb/ER_Icon_Armor_Radahn%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Radahn's_Greaves.webp",
     "dmgNegation": {
       "physical": 10.8,
       "strike": 8.6,
@@ -4466,7 +4466,7 @@ export const armours: Armour[] =[
     "id": "471100",
     "name": "Radahn's Lion Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a0/ER_Icon_Armor_Radahn%27s_Lion_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Radahn's_Lion_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 18.5,
       "strike": 14.6,
@@ -4490,7 +4490,7 @@ export const armours: Armour[] =[
     "id": "480100",
     "name": "Lord of Blood's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f8/ER_Icon_Armor_Lord_of_Blood%27s_Robe.png/",
+    "image": "/equipment_images/armours/Lord_of_Blood's_Robe.webp",
     "dmgNegation": {
       "physical": 9.3,
       "strike": 10,
@@ -4514,7 +4514,7 @@ export const armours: Armour[] =[
     "id": "481100",
     "name": "Lord of Blood's Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a0/ER_Icon_Armor_Lord_of_Blood%27s_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Lord_of_Blood's_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 8.9,
       "strike": 9.6,
@@ -4538,7 +4538,7 @@ export const armours: Armour[] =[
     "id": "510000",
     "name": "Queen's Crescent Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0a/ER_Icon_Armor_Queen%27s_Crescent_Crown.png/",
+    "image": "/equipment_images/armours/Queen's_Crescent_Crown.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 1.8,
@@ -4566,7 +4566,7 @@ export const armours: Armour[] =[
     "id": "510100",
     "name": "Queen's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ea/ER_Icon_Armor_Queen%27s_Robe.png/",
+    "image": "/equipment_images/armours/Queen's_Robe.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 5.3,
@@ -4590,7 +4590,7 @@ export const armours: Armour[] =[
     "id": "510200",
     "name": "Queen's Bracelets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/00/ER_Icon_Armor_Queen%27s_Bracelets.png/",
+    "image": "/equipment_images/armours/Queen's_Bracelets.webp",
     "dmgNegation": {
       "physical": 1.5,
       "strike": 1.3,
@@ -4614,7 +4614,7 @@ export const armours: Armour[] =[
     "id": "510300",
     "name": "Queen's Leggings",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/00/ER_Icon_Armor_Queen%27s_Leggings.png/",
+    "image": "/equipment_images/armours/Queen's_Leggings.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 1.5,
@@ -4638,7 +4638,7 @@ export const armours: Armour[] =[
     "id": "520000",
     "name": "Godskin Apostle Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5c/ER_Icon_Armor_Godskin_Apostle_Hood.png/",
+    "image": "/equipment_images/armours/Godskin_Apostle_Hood.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.1,
@@ -4662,7 +4662,7 @@ export const armours: Armour[] =[
     "id": "520100",
     "name": "Godskin Apostle Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/88/ER_Icon_Armor_Godskin_Apostle_Robe.png/",
+    "image": "/equipment_images/armours/Godskin_Apostle_Robe.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 5.3,
@@ -4686,7 +4686,7 @@ export const armours: Armour[] =[
     "id": "520200",
     "name": "Godskin Apostle Bracelets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c5/ER_Icon_Armor_Godskin_Apostle_Bracelets.png/",
+    "image": "/equipment_images/armours/Godskin_Apostle_Bracelets.webp",
     "dmgNegation": {
       "physical": 1.7,
       "strike": 1.6,
@@ -4710,7 +4710,7 @@ export const armours: Armour[] =[
     "id": "520300",
     "name": "Godskin Apostle Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b1/ER_Icon_Armor_Godskin_Apostle_Trousers.png/",
+    "image": "/equipment_images/armours/Godskin_Apostle_Trousers.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3,
@@ -4734,7 +4734,7 @@ export const armours: Armour[] =[
     "id": "530000",
     "name": "Godskin Noble Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3b/ER_Icon_Armor_Godskin_Noble_Hood.png/",
+    "image": "/equipment_images/armours/Godskin_Noble_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 2.8,
@@ -4758,7 +4758,7 @@ export const armours: Armour[] =[
     "id": "530100",
     "name": "Godskin Noble Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/da/ER_Icon_Armor_Godskin_Noble_Robe.png/",
+    "image": "/equipment_images/armours/Godskin_Noble_Robe.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 9.5,
@@ -4783,7 +4783,7 @@ export const armours: Armour[] =[
     "id": "530200",
     "name": "Godskin Noble Bracelets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c0/ER_Icon_Armor_Godskin_Noble_Bracelets.png/",
+    "image": "/equipment_images/armours/Godskin_Noble_Bracelets.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 2.1,
@@ -4807,7 +4807,7 @@ export const armours: Armour[] =[
     "id": "530300",
     "name": "Godskin Noble Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/74/ER_Icon_Armor_Godskin_Noble_Trousers.png/",
+    "image": "/equipment_images/armours/Godskin_Noble_Trousers.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 4.5,
@@ -4831,7 +4831,7 @@ export const armours: Armour[] =[
     "id": "540000",
     "name": "Depraved Perfumer Headscarf",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8a/ER_Icon_Armor_Depraved_Perfumer_Headscarf.png/",
+    "image": "/equipment_images/armours/Depraved_Perfumer_Headscarf.webp",
     "dmgNegation": {
       "physical": 2,
       "strike": 2,
@@ -4855,7 +4855,7 @@ export const armours: Armour[] =[
     "id": "540100",
     "name": "Depraved Perfumer Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/44/ER_Icon_Armor_Depraved_Perfumer_Robe.png/",
+    "image": "/equipment_images/armours/Depraved_Perfumer_Robe.webp",
     "dmgNegation": {
       "physical": 6,
       "strike": 6,
@@ -4879,7 +4879,7 @@ export const armours: Armour[] =[
     "id": "540200",
     "name": "Depraved Perfumer Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/00/ER_Icon_Armor_Depraved_Perfumer_Gloves.png/",
+    "image": "/equipment_images/armours/Depraved_Perfumer_Gloves.webp",
     "dmgNegation": {
       "physical": 1.5,
       "strike": 1.5,
@@ -4903,7 +4903,7 @@ export const armours: Armour[] =[
     "id": "540300",
     "name": "Depraved Perfumer Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2b/ER_Icon_Armor_Depraved_Perfumer_Trousers.png/",
+    "image": "/equipment_images/armours/Depraved_Perfumer_Trousers.webp",
     "dmgNegation": {
       "physical": 3.9,
       "strike": 3.9,
@@ -4927,7 +4927,7 @@ export const armours: Armour[] =[
     "id": "541100",
     "name": "Depraved Perfumer Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/45/ER_Icon_Armor_Depraved_Perfumer_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Depraved_Perfumer_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 5.2,
@@ -4951,7 +4951,7 @@ export const armours: Armour[] =[
     "id": "570000",
     "name": "Crucible Axe Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/77/ER_Icon_Armor_Crucible_Axe_Helm.png/",
+    "image": "/equipment_images/armours/Crucible_Axe_Helm.webp",
     "dmgNegation": {
       "physical": 6.3,
       "strike": 5,
@@ -4976,7 +4976,7 @@ export const armours: Armour[] =[
     "id": "570100",
     "name": "Crucible Axe Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/51/ER_Icon_Armor_Crucible_Axe_Armor.png/",
+    "image": "/equipment_images/armours/Crucible_Axe_Armor.webp",
     "dmgNegation": {
       "physical": 17.5,
       "strike": 13.9,
@@ -5001,7 +5001,7 @@ export const armours: Armour[] =[
     "id": "570200",
     "name": "Crucible Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a3/ER_Icon_Armor_Crucible_Gauntlets.png/",
+    "image": "/equipment_images/armours/Crucible_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -5025,7 +5025,7 @@ export const armours: Armour[] =[
     "id": "570300",
     "name": "Crucible Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/25/ER_Icon_Armor_Crucible_Greaves.png/",
+    "image": "/equipment_images/armours/Crucible_Greaves.webp",
     "dmgNegation": {
       "physical": 10.1,
       "strike": 8,
@@ -5049,7 +5049,7 @@ export const armours: Armour[] =[
     "id": "571000",
     "name": "Crucible Tree Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/32/ER_Icon_Armor_Crucible_Tree_Helm.png/",
+    "image": "/equipment_images/armours/Crucible_Tree_Helm.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 5,
@@ -5074,7 +5074,7 @@ export const armours: Armour[] =[
     "id": "571100",
     "name": "Crucible Tree Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/87/ER_Icon_Armor_Crucible_Tree_Armor.png/",
+    "image": "/equipment_images/armours/Crucible_Tree_Armor.webp",
     "dmgNegation": {
       "physical": 17.7,
       "strike": 13.9,
@@ -5099,7 +5099,7 @@ export const armours: Armour[] =[
     "id": "572100",
     "name": "Crucible Axe Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/be/ER_Icon_Armor_Crucible_Axe_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Crucible_Axe_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 16.8,
       "strike": 13.4,
@@ -5124,7 +5124,7 @@ export const armours: Armour[] =[
     "id": "573100",
     "name": "Crucible Tree Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/26/ER_Icon_Armor_Crucible_Tree_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Crucible_Tree_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 17,
       "strike": 13.4,
@@ -5149,7 +5149,7 @@ export const armours: Armour[] =[
     "id": "580000",
     "name": "Lusat's Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Lusat%27s_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Lusat's_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 2.3,
@@ -5177,7 +5177,7 @@ export const armours: Armour[] =[
     "id": "580100",
     "name": "Lusat's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/50/ER_Icon_Armor_Lusat%27s_Robe.png/",
+    "image": "/equipment_images/armours/Lusat's_Robe.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 6.1,
@@ -5201,7 +5201,7 @@ export const armours: Armour[] =[
     "id": "580200",
     "name": "Lusat's Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/99/ER_Icon_Armor_Lusat%27s_Manchettes.png/",
+    "image": "/equipment_images/armours/Lusat's_Manchettes.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 0.1,
@@ -5225,7 +5225,7 @@ export const armours: Armour[] =[
     "id": "580300",
     "name": "Old Sorcerer's Legwraps",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/48/ER_Icon_Armor_Old_Sorcerer%27s_Legwraps.png/",
+    "image": "/equipment_images/armours/Old_Sorcerer's_Legwraps.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 1.5,
@@ -5249,7 +5249,7 @@ export const armours: Armour[] =[
     "id": "581000",
     "name": "Azur's Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/55/ER_Icon_Armor_Azur%27s_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Azur's_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 2.3,
@@ -5277,7 +5277,7 @@ export const armours: Armour[] =[
     "id": "581100",
     "name": "Azur's Glintstone Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3d/ER_Icon_Armor_Azur%27s_Glintstone_Robe.png/",
+    "image": "/equipment_images/armours/Azur's_Glintstone_Robe.webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 6.1,
@@ -5301,7 +5301,7 @@ export const armours: Armour[] =[
     "id": "581200",
     "name": "Azur's Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5e/ER_Icon_Armor_Azur%27s_Manchettes.png/",
+    "image": "/equipment_images/armours/Azur's_Manchettes.webp",
     "dmgNegation": {
       "physical": 1,
       "strike": 0.1,
@@ -5325,7 +5325,7 @@ export const armours: Armour[] =[
     "id": "590000",
     "name": "All-Knowing Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/13/ER_Icon_Armor_All-Knowing_Helm.png/",
+    "image": "/equipment_images/armours/All-Knowing_Helm.webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 4.2,
@@ -5349,7 +5349,7 @@ export const armours: Armour[] =[
     "id": "590100",
     "name": "All-Knowing Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/1a/ER_Icon_Armor_All-Knowing_Armor.png/",
+    "image": "/equipment_images/armours/All-Knowing_Armor.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 11.9,
@@ -5373,7 +5373,7 @@ export const armours: Armour[] =[
     "id": "590200",
     "name": "All-Knowing Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6d/ER_Icon_Armor_All-Knowing_Gauntlets.png/",
+    "image": "/equipment_images/armours/All-Knowing_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.9,
@@ -5397,7 +5397,7 @@ export const armours: Armour[] =[
     "id": "590300",
     "name": "All-Knowing Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2b/ER_Icon_Armor_All-Knowing_Greaves.png/",
+    "image": "/equipment_images/armours/All-Knowing_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.8,
@@ -5421,7 +5421,7 @@ export const armours: Armour[] =[
     "id": "591100",
     "name": "All-Knowing Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/37/ER_Icon_Armor_All-Knowing_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/All-Knowing_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 12.4,
       "strike": 10.9,
@@ -5445,7 +5445,7 @@ export const armours: Armour[] =[
     "id": "600000",
     "name": "Twinned Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/60/ER_Icon_Armor_Twinned_Helm.png/",
+    "image": "/equipment_images/armours/Twinned_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4.4,
@@ -5469,7 +5469,7 @@ export const armours: Armour[] =[
     "id": "600100",
     "name": "Twinned Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4d/ER_Icon_Armor_Twinned_Armor.png/",
+    "image": "/equipment_images/armours/Twinned_Armor.webp",
     "dmgNegation": {
       "physical": 14.6,
       "strike": 13.4,
@@ -5493,7 +5493,7 @@ export const armours: Armour[] =[
     "id": "600200",
     "name": "Twinned Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f5/ER_Icon_Armor_Twinned_Gauntlets.png/",
+    "image": "/equipment_images/armours/Twinned_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 3.1,
@@ -5517,7 +5517,7 @@ export const armours: Armour[] =[
     "id": "600300",
     "name": "Twinned Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/44/ER_Icon_Armor_Twinned_Greaves.png/",
+    "image": "/equipment_images/armours/Twinned_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 7.1,
@@ -5541,7 +5541,7 @@ export const armours: Armour[] =[
     "id": "601100",
     "name": "Twinned Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bd/ER_Icon_Armor_Twinned_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Twinned_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 14,
       "strike": 12.9,
@@ -5562,10 +5562,154 @@ export const armours: Armour[] =[
     "weight": 12.8
   },
   {
+    "id": "610000",
+    "name": "Ragged Hat",
+    "category": "Head",
+    "image": "/equipment_images/armours/Ragged_Hat.webp",
+    "dmgNegation": {
+      "physical": 3.1,
+      "strike": 3.4,
+      "slash": 3.1,
+      "pierce": 3.1,
+      "magic": 3.6,
+      "fire": 3.8,
+      "lightning": 4,
+      "holy": 3.6
+    },
+    "resistances": {
+      "immunity": 26,
+      "robustness": 16,
+      "focus": 22,
+      "vitality": 22
+    },
+    "poise": 4,
+    "weight": 3.3
+  },
+  {
+    "id": "610100",
+    "name": "Ragged Armor",
+    "category": "Chest",
+    "image": "/equipment_images/armours/Ragged_Armor.webp",
+    "dmgNegation": {
+      "physical": 9.5,
+      "strike": 10.2,
+      "slash": 9.5,
+      "pierce": 9.5,
+      "magic": 10.9,
+      "fire": 11.4,
+      "lightning": 11.9,
+      "holy": 10.9
+    },
+    "resistances": {
+      "immunity": 63,
+      "robustness": 42,
+      "focus": 55,
+      "vitality": 55
+    },
+    "poise": 17,
+    "weight": 9.2
+  },
+  {
+    "id": "610200",
+    "name": "Ragged Gloves",
+    "category": "Arms",
+    "image": "/equipment_images/armours/Ragged_Gloves.webp",
+    "dmgNegation": {
+      "physical": 2.3,
+      "strike": 2.5,
+      "slash": 2.3,
+      "pierce": 2.3,
+      "magic": 2.7,
+      "fire": 2.8,
+      "lightning": 2.9,
+      "holy": 2.7
+    },
+    "resistances": {
+      "immunity": 21,
+      "robustness": 14,
+      "focus": 18,
+      "vitality": 18
+    },
+    "poise": 4,
+    "weight": 2.9
+  },
+  {
+    "id": "610300",
+    "name": "Ragged Loincloth",
+    "category": "Legs",
+    "image": "/equipment_images/armours/Ragged_Loincloth.webp",
+    "dmgNegation": {
+      "physical": 4,
+      "strike": 4.5,
+      "slash": 4,
+      "pierce": 4,
+      "magic": 5,
+      "fire": 5.4,
+      "lightning": 5.8,
+      "holy": 5
+    },
+    "resistances": {
+      "immunity": 34,
+      "robustness": 20,
+      "focus": 26,
+      "vitality": 26
+    },
+    "poise": 3,
+    "weight": 3.1
+  },
+  {
+    "id": "611000",
+    "name": "Ragged Hat (Altered)",
+    "category": "Head",
+    "image": "/equipment_images/armours/Ragged_Hat_(Altered).webp",
+    "dmgNegation": {
+      "physical": 2.8,
+      "strike": 3.1,
+      "slash": 2.8,
+      "pierce": 2.8,
+      "magic": 3.4,
+      "fire": 3.6,
+      "lightning": 3.8,
+      "holy": 3.4
+    },
+    "resistances": {
+      "immunity": 21,
+      "robustness": 13,
+      "focus": 18,
+      "vitality": 18
+    },
+    "poise": 3,
+    "weight": 3
+  },
+  {
+    "id": "611100",
+    "name": "Ragged Armor (Altered)",
+    "category": "Chest",
+    "image": "/equipment_images/armours/Ragged_Armor_(Altered).webp",
+    "dmgNegation": {
+      "physical": 9.1,
+      "strike": 9.8,
+      "slash": 9.1,
+      "pierce": 9.1,
+      "magic": 10.5,
+      "fire": 11.2,
+      "lightning": 11.7,
+      "holy": 10.5
+    },
+    "resistances": {
+      "immunity": 60,
+      "robustness": 38,
+      "focus": 50,
+      "vitality": 50
+    },
+    "poise": 16,
+    "weight": 8.5
+  },
+  {
     "id": "620000",
     "name": "Prophet Blindfold",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/cd/ER_Icon_Armor_Prophet_Blindfold.png/",
+    "image": "/equipment_images/armours/Prophet_Blindfold.webp",
     "dmgNegation": {
       "physical": 0.2,
       "strike": 0.9,
@@ -5589,7 +5733,7 @@ export const armours: Armour[] =[
     "id": "620100",
     "name": "Corhyn's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/66/ER_Icon_Armor_Corhyn%27s_Robe.png/",
+    "image": "/equipment_images/armours/Corhyn's_Robe.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.7,
@@ -5613,7 +5757,7 @@ export const armours: Armour[] =[
     "id": "620300",
     "name": "Prophet Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fd/ER_Icon_Armor_Prophet_Trousers.png/",
+    "image": "/equipment_images/armours/Prophet_Trousers.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 3.4,
@@ -5637,7 +5781,7 @@ export const armours: Armour[] =[
     "id": "621100",
     "name": "Prophet Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/40/ER_Icon_Armor_Prophet_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Prophet_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.1,
@@ -5661,7 +5805,7 @@ export const armours: Armour[] =[
     "id": "622100",
     "name": "Prophet Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/13/ER_Icon_Armor_Prophet_Robe.png/",
+    "image": "/equipment_images/armours/Prophet_Robe.webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 6.7,
@@ -5685,7 +5829,7 @@ export const armours: Armour[] =[
     "id": "630000",
     "name": "Astrologer Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dd/ER_Icon_Armor_Astrologer_Hood.png/",
+    "image": "/equipment_images/armours/Astrologer_Hood.webp",
     "dmgNegation": {
       "physical": 1.8,
       "strike": 1.4,
@@ -5709,7 +5853,7 @@ export const armours: Armour[] =[
     "id": "630100",
     "name": "Astrologer Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9d/ER_Icon_Armor_Astrologer_Robe.png/",
+    "image": "/equipment_images/armours/Astrologer_Robe.webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 6.1,
@@ -5733,7 +5877,7 @@ export const armours: Armour[] =[
     "id": "630200",
     "name": "Astrologer Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b4/ER_Icon_Armor_Astrologer_Gloves.png/",
+    "image": "/equipment_images/armours/Astrologer_Gloves.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 1,
@@ -5757,7 +5901,7 @@ export const armours: Armour[] =[
     "id": "630300",
     "name": "Astrologer Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7d/ER_Icon_Armor_Astrologer_Trousers.png/",
+    "image": "/equipment_images/armours/Astrologer_Trousers.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 3.4,
@@ -5781,7 +5925,7 @@ export const armours: Armour[] =[
     "id": "631100",
     "name": "Astrologer Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/09/ER_Icon_Armor_Astrologer_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Astrologer_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 5.3,
@@ -5805,7 +5949,7 @@ export const armours: Armour[] =[
     "id": "640000",
     "name": "Lionel's Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f2/ER_Icon_Armor_Lionel%27s_Helm.png/",
+    "image": "/equipment_images/armours/Lionel's_Helm.webp",
     "dmgNegation": {
       "physical": 6.3,
       "strike": 5.9,
@@ -5829,7 +5973,7 @@ export const armours: Armour[] =[
     "id": "640100",
     "name": "Lionel's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d0/ER_Icon_Armor_Lionel%27s_Armor.png/",
+    "image": "/equipment_images/armours/Lionel's_Armor.webp",
     "dmgNegation": {
       "physical": 17.5,
       "strike": 16.3,
@@ -5853,7 +5997,7 @@ export const armours: Armour[] =[
     "id": "640200",
     "name": "Lionel's Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/ae/ER_Icon_Armor_Lionel%27s_Gauntlets.png/",
+    "image": "/equipment_images/armours/Lionel's_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 4.1,
@@ -5877,7 +6021,7 @@ export const armours: Armour[] =[
     "id": "640300",
     "name": "Lionel's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c9/ER_Icon_Armor_Lionel%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Lionel's_Greaves.webp",
     "dmgNegation": {
       "physical": 10.1,
       "strike": 9.4,
@@ -5901,7 +6045,7 @@ export const armours: Armour[] =[
     "id": "641100",
     "name": "Lionel's Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/43/ER_Icon_Armor_Lionel%27s_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Lionel's_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 17.1,
       "strike": 15.9,
@@ -5925,7 +6069,7 @@ export const armours: Armour[] =[
     "id": "650000",
     "name": "Hoslow's Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/61/ER_Icon_Armor_Hoslow%27s_Helm.png/",
+    "image": "/equipment_images/armours/Hoslow's_Helm.webp",
     "dmgNegation": {
       "physical": 5.2,
       "strike": 4.4,
@@ -5949,7 +6093,7 @@ export const armours: Armour[] =[
     "id": "650100",
     "name": "Hoslow's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/09/ER_Icon_Armor_Hoslow%27s_Armor.png/",
+    "image": "/equipment_images/armours/Hoslow's_Armor.webp",
     "dmgNegation": {
       "physical": 14,
       "strike": 11.9,
@@ -5973,7 +6117,7 @@ export const armours: Armour[] =[
     "id": "650200",
     "name": "Hoslow's Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/62/ER_Icon_Armor_Hoslow%27s_Gauntlets.png/",
+    "image": "/equipment_images/armours/Hoslow's_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.5,
       "strike": 2.9,
@@ -5997,7 +6141,7 @@ export const armours: Armour[] =[
     "id": "650300",
     "name": "Hoslow's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fc/ER_Icon_Armor_Hoslow%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Hoslow's_Greaves.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 6.8,
@@ -6021,7 +6165,7 @@ export const armours: Armour[] =[
     "id": "651000",
     "name": "Diallos's Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0d/ER_Icon_Armor_Diallos%27s_Mask.png/",
+    "image": "/equipment_images/armours/Diallos's_Mask.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 3.8,
@@ -6045,7 +6189,7 @@ export const armours: Armour[] =[
     "id": "652100",
     "name": "Hoslow's Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/86/ER_Icon_Armor_Hoslow%27s_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Hoslow's_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.6,
       "strike": 11.5,
@@ -6069,7 +6213,7 @@ export const armours: Armour[] =[
     "id": "660000",
     "name": "Vagabond Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a9/ER_Icon_Armor_Vagabond_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Vagabond_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 3.6,
@@ -6093,7 +6237,7 @@ export const armours: Armour[] =[
     "id": "660100",
     "name": "Vagabond Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7c/ER_Icon_Armor_Vagabond_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Vagabond_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.4,
@@ -6117,7 +6261,7 @@ export const armours: Armour[] =[
     "id": "660200",
     "name": "Vagabond Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/72/ER_Icon_Armor_Vagabond_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Vagabond_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.8,
@@ -6141,7 +6285,7 @@ export const armours: Armour[] =[
     "id": "660300",
     "name": "Vagabond Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4d/ER_Icon_Armor_Vagabond_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Vagabond_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 5.8,
@@ -6165,7 +6309,7 @@ export const armours: Armour[] =[
     "id": "661100",
     "name": "Vagabond Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0f/ER_Icon_Armor_Vagabond_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Vagabond_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.2,
       "strike": 10.5,
@@ -6189,7 +6333,7 @@ export const armours: Armour[] =[
     "id": "670000",
     "name": "Blue Cloth Cowl",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a6/ER_Icon_Armor_Blue_Cloth_Cowl.png/",
+    "image": "/equipment_images/armours/Blue_Cloth_Cowl.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 2.8,
@@ -6213,7 +6357,7 @@ export const armours: Armour[] =[
     "id": "670100",
     "name": "Blue Cloth Vest",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/18/ER_Icon_Armor_Blue_Cloth_Vest.png/",
+    "image": "/equipment_images/armours/Blue_Cloth_Vest.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 9.5,
@@ -6237,7 +6381,7 @@ export const armours: Armour[] =[
     "id": "670200",
     "name": "Warrior Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/be/ER_Icon_Armor_Warrior_Gauntlets.png/",
+    "image": "/equipment_images/armours/Warrior_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.3,
@@ -6261,7 +6405,7 @@ export const armours: Armour[] =[
     "id": "670300",
     "name": "Warrior Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/50/ER_Icon_Armor_Warrior_Greaves.png/",
+    "image": "/equipment_images/armours/Warrior_Greaves.webp",
     "dmgNegation": {
       "physical": 5.4,
       "strike": 5.4,
@@ -6285,7 +6429,7 @@ export const armours: Armour[] =[
     "id": "680000",
     "name": "White Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fd/ER_Icon_Armor_White_Mask.png/",
+    "image": "/equipment_images/armours/White_Mask.webp",
     "dmgNegation": {
       "physical": 2.7,
       "strike": 3,
@@ -6310,7 +6454,7 @@ export const armours: Armour[] =[
     "id": "680100",
     "name": "War Surgeon Gown",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/37/ER_Icon_Armor_War_Surgeon_Gown.png/",
+    "image": "/equipment_images/armours/War_Surgeon_Gown.webp",
     "dmgNegation": {
       "physical": 7,
       "strike": 7.9,
@@ -6334,7 +6478,7 @@ export const armours: Armour[] =[
     "id": "680200",
     "name": "War Surgeon Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/79/ER_Icon_Armor_War_Surgeon_Gloves.png/",
+    "image": "/equipment_images/armours/War_Surgeon_Gloves.webp",
     "dmgNegation": {
       "physical": 1.6,
       "strike": 1.8,
@@ -6358,7 +6502,7 @@ export const armours: Armour[] =[
     "id": "680300",
     "name": "War Surgeon Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f2/ER_Icon_Armor_War_Surgeon_Trousers.png/",
+    "image": "/equipment_images/armours/War_Surgeon_Trousers.webp",
     "dmgNegation": {
       "physical": 3.9,
       "strike": 4.4,
@@ -6382,7 +6526,7 @@ export const armours: Armour[] =[
     "id": "681100",
     "name": "War Surgeon Gown (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/1b/ER_Icon_Armor_War_Surgeon_Gown_%28Altered%29.png/",
+    "image": "/equipment_images/armours/War_Surgeon_Gown_(Altered).webp",
     "dmgNegation": {
       "physical": 6.6,
       "strike": 7,
@@ -6406,7 +6550,7 @@ export const armours: Armour[] =[
     "id": "690000",
     "name": "Royal Remains Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9d/ER_Icon_Armor_Royal_Remains_Helm.png/",
+    "image": "/equipment_images/armours/Royal_Remains_Helm.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 4,
@@ -6431,7 +6575,7 @@ export const armours: Armour[] =[
     "id": "690100",
     "name": "Royal Remains Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/df/ER_Icon_Armor_Royal_Remains_Armor.png/",
+    "image": "/equipment_images/armours/Royal_Remains_Armor.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 11.4,
@@ -6456,7 +6600,7 @@ export const armours: Armour[] =[
     "id": "690200",
     "name": "Royal Remains Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/23/ER_Icon_Armor_Royal_Remains_Gauntlets.png/",
+    "image": "/equipment_images/armours/Royal_Remains_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.9,
       "strike": 2.8,
@@ -6481,7 +6625,7 @@ export const armours: Armour[] =[
     "id": "690300",
     "name": "Royal Remains Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f1/ER_Icon_Armor_Royal_Remains_Greaves.png/",
+    "image": "/equipment_images/armours/Royal_Remains_Greaves.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 6.5,
@@ -6506,7 +6650,7 @@ export const armours: Armour[] =[
     "id": "720000",
     "name": "Beast Champion Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c0/ER_Icon_Armor_Beast_Champion_Helm.png/",
+    "image": "/equipment_images/armours/Beast_Champion_Helm.webp",
     "dmgNegation": {
       "physical": 6.3,
       "strike": 5.9,
@@ -6530,7 +6674,7 @@ export const armours: Armour[] =[
     "id": "720100",
     "name": "Beast Champion Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9c/ER_Icon_Armor_Beast_Champion_Armor.png/",
+    "image": "/equipment_images/armours/Beast_Champion_Armor.webp",
     "dmgNegation": {
       "physical": 17.5,
       "strike": 16.3,
@@ -6554,7 +6698,7 @@ export const armours: Armour[] =[
     "id": "720200",
     "name": "Beast Champion Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/68/ER_Icon_Armor_Beast_Champion_Gauntlets.png/",
+    "image": "/equipment_images/armours/Beast_Champion_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 4.1,
@@ -6578,7 +6722,7 @@ export const armours: Armour[] =[
     "id": "720300",
     "name": "Beast Champion Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/48/ER_Icon_Armor_Beast_Champion_Greaves.png/",
+    "image": "/equipment_images/armours/Beast_Champion_Greaves.webp",
     "dmgNegation": {
       "physical": 10.1,
       "strike": 9.4,
@@ -6602,7 +6746,7 @@ export const armours: Armour[] =[
     "id": "721100",
     "name": "Beast Champion Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/93/ER_Icon_Armor_Beast_Champion_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Beast_Champion_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 17.2,
       "strike": 15.9,
@@ -6626,7 +6770,7 @@ export const armours: Armour[] =[
     "id": "730000",
     "name": "Champion Headband",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b1/ER_Icon_Armor_Champion_Headband.png/",
+    "image": "/equipment_images/armours/Champion_Headband.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 3.1,
@@ -6650,7 +6794,7 @@ export const armours: Armour[] =[
     "id": "730100",
     "name": "Champion Pauldron",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b0/ER_Icon_Armor_Champion_Pauldron.png/",
+    "image": "/equipment_images/armours/Champion_Pauldron.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 8,
@@ -6674,7 +6818,7 @@ export const armours: Armour[] =[
     "id": "730200",
     "name": "Champion Bracers",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/69/ER_Icon_Armor_Champion_Bracers.png/",
+    "image": "/equipment_images/armours/Champion_Bracers.webp",
     "dmgNegation": {
       "physical": 1.6,
       "strike": 2.1,
@@ -6698,7 +6842,7 @@ export const armours: Armour[] =[
     "id": "730300",
     "name": "Champion Gaiters",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/89/ER_Icon_Armor_Champion_Gaiters.png/",
+    "image": "/equipment_images/armours/Champion_Gaiters.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 5,
@@ -6722,7 +6866,7 @@ export const armours: Armour[] =[
     "id": "740000",
     "name": "Crimson Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8f/ER_Icon_Armor_Crimson_Hood.png/",
+    "image": "/equipment_images/armours/Crimson_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 1.8,
@@ -6750,7 +6894,7 @@ export const armours: Armour[] =[
     "id": "740100",
     "name": "Noble's Traveling Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5f/ER_Icon_Armor_Noble%27s_Traveling_Garb.png/",
+    "image": "/equipment_images/armours/Noble's_Traveling_Garb.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.7,
@@ -6774,7 +6918,7 @@ export const armours: Armour[] =[
     "id": "740200",
     "name": "Noble's Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a1/ER_Icon_Armor_Noble%27s_Gloves.png/",
+    "image": "/equipment_images/armours/Noble's_Gloves.webp",
     "dmgNegation": {
       "physical": 1.5,
       "strike": 1.6,
@@ -6798,7 +6942,7 @@ export const armours: Armour[] =[
     "id": "740300",
     "name": "Noble's Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/24/ER_Icon_Armor_Noble%27s_Trousers.png/",
+    "image": "/equipment_images/armours/Noble's_Trousers.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.8,
@@ -6822,7 +6966,7 @@ export const armours: Armour[] =[
     "id": "741000",
     "name": "Navy Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/23/ER_Icon_Armor_Navy_Hood.png/",
+    "image": "/equipment_images/armours/Navy_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 2.1,
@@ -6850,7 +6994,7 @@ export const armours: Armour[] =[
     "id": "760000",
     "name": "Maliketh's Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e8/ER_Icon_Armor_Maliketh%27s_Helm.png/",
+    "image": "/equipment_images/armours/Maliketh's_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4.2,
@@ -6874,7 +7018,7 @@ export const armours: Armour[] =[
     "id": "760100",
     "name": "Maliketh's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/65/ER_Icon_Armor_Maliketh%27s_Armor.png/",
+    "image": "/equipment_images/armours/Maliketh's_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.9,
@@ -6898,7 +7042,7 @@ export const armours: Armour[] =[
     "id": "760200",
     "name": "Maliketh's Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/77/ER_Icon_Armor_Maliketh%27s_Gauntlets.png/",
+    "image": "/equipment_images/armours/Maliketh's_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.9,
@@ -6922,7 +7066,7 @@ export const armours: Armour[] =[
     "id": "760300",
     "name": "Maliketh's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e5/ER_Icon_Armor_Maliketh%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Maliketh's_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.8,
@@ -6946,7 +7090,7 @@ export const armours: Armour[] =[
     "id": "761100",
     "name": "Maliketh's Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c6/ER_Icon_Armor_Maliketh%27s_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Maliketh's_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 11.4,
@@ -6970,7 +7114,7 @@ export const armours: Armour[] =[
     "id": "770000",
     "name": "Malenia's Winged Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fc/ER_Icon_Armor_Malenia%27s_Winged_Helm.png/",
+    "image": "/equipment_images/armours/Malenia's_Winged_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -6994,7 +7138,7 @@ export const armours: Armour[] =[
     "id": "770100",
     "name": "Malenia's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e4/ER_Icon_Armor_Malenia%27s_Armor.png/",
+    "image": "/equipment_images/armours/Malenia's_Armor.webp",
     "dmgNegation": {
       "physical": 10.9,
       "strike": 7.1,
@@ -7018,7 +7162,7 @@ export const armours: Armour[] =[
     "id": "770200",
     "name": "Malenia's Gauntlet",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/36/ER_Icon_Armor_Malenia%27s_Gauntlet.png/",
+    "image": "/equipment_images/armours/Malenia's_Gauntlet.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 2.3,
@@ -7042,7 +7186,7 @@ export const armours: Armour[] =[
     "id": "770300",
     "name": "Malenia's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c7/ER_Icon_Armor_Malenia%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Malenia's_Greaves.webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 5.4,
@@ -7066,7 +7210,7 @@ export const armours: Armour[] =[
     "id": "771100",
     "name": "Malenia's Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/90/ER_Icon_Armor_Malenia%27s_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Malenia's_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 10,
       "strike": 6.5,
@@ -7090,7 +7234,7 @@ export const armours: Armour[] =[
     "id": "780000",
     "name": "Veteran's Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f3/ER_Icon_Armor_Veteran%27s_Helm.png/",
+    "image": "/equipment_images/armours/Veteran's_Helm.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 6.1,
@@ -7114,7 +7258,7 @@ export const armours: Armour[] =[
     "id": "780100",
     "name": "Veteran's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/54/ER_Icon_Armor_Veteran%27s_Armor.png/",
+    "image": "/equipment_images/armours/Veteran's_Armor.webp",
     "dmgNegation": {
       "physical": 18.7,
       "strike": 17,
@@ -7138,7 +7282,7 @@ export const armours: Armour[] =[
     "id": "780200",
     "name": "Veteran's Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4a/ER_Icon_Armor_Veteran%27s_Gauntlets.png/",
+    "image": "/equipment_images/armours/Veteran's_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.7,
       "strike": 4.3,
@@ -7162,7 +7306,7 @@ export const armours: Armour[] =[
     "id": "780300",
     "name": "Veteran's Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2e/ER_Icon_Armor_Veteran%27s_Greaves.png/",
+    "image": "/equipment_images/armours/Veteran's_Greaves.webp",
     "dmgNegation": {
       "physical": 10.8,
       "strike": 9.8,
@@ -7186,7 +7330,7 @@ export const armours: Armour[] =[
     "id": "781100",
     "name": "Veteran's Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8b/ER_Icon_Armor_Veteran%27s_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Veteran's_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 18.1,
       "strike": 16.8,
@@ -7210,7 +7354,7 @@ export const armours: Armour[] =[
     "id": "790000",
     "name": "Bloodhound Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7d/ER_Icon_Armor_Bloodhound_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Bloodhound_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 4,
@@ -7234,7 +7378,7 @@ export const armours: Armour[] =[
     "id": "790100",
     "name": "Bloodhound Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9b/ER_Icon_Armor_Bloodhound_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Bloodhound_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 12.4,
       "strike": 11.4,
@@ -7258,7 +7402,7 @@ export const armours: Armour[] =[
     "id": "790200",
     "name": "Bloodhound Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f5/ER_Icon_Armor_Bloodhound_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Bloodhound_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 2.8,
@@ -7282,7 +7426,7 @@ export const armours: Armour[] =[
     "id": "790300",
     "name": "Bloodhound Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a8/ER_Icon_Armor_Bloodhound_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Bloodhound_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 6.5,
@@ -7306,7 +7450,7 @@ export const armours: Armour[] =[
     "id": "791100",
     "name": "Bloodhound Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/1b/ER_Icon_Armor_Bloodhound_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Bloodhound_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 12.1,
       "strike": 11.1,
@@ -7330,7 +7474,7 @@ export const armours: Armour[] =[
     "id": "800000",
     "name": "Festive Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c1/ER_Icon_Armor_Festive_Hood.png/",
+    "image": "/equipment_images/armours/Festive_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 1.8,
@@ -7354,7 +7498,7 @@ export const armours: Armour[] =[
     "id": "800100",
     "name": "Festive Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/cf/ER_Icon_Armor_Festive_Garb.png/",
+    "image": "/equipment_images/armours/Festive_Garb.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 5.3,
@@ -7378,7 +7522,7 @@ export const armours: Armour[] =[
     "id": "801000",
     "name": "Festive Hood (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c9/ER_Icon_Armor_Festive_Hood_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Festive_Hood_(Altered).webp",
     "dmgNegation": {
       "physical": 0.2,
       "strike": 0.9,
@@ -7402,7 +7546,7 @@ export const armours: Armour[] =[
     "id": "801100",
     "name": "Festive Garb (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/85/ER_Icon_Armor_Festive_Garb_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Festive_Garb_(Altered).webp",
     "dmgNegation": {
       "physical": 2.7,
       "strike": 4.2,
@@ -7426,7 +7570,7 @@ export const armours: Armour[] =[
     "id": "802000",
     "name": "Blue Festive Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/de/ER_Icon_Armor_Blue_Festive_Hood.png/",
+    "image": "/equipment_images/armours/Blue_Festive_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 1.4,
@@ -7450,7 +7594,7 @@ export const armours: Armour[] =[
     "id": "802100",
     "name": "Blue Festive Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d0/ER_Icon_Armor_Blue_Festive_Garb.png/",
+    "image": "/equipment_images/armours/Blue_Festive_Garb.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 4.2,
@@ -7474,7 +7618,7 @@ export const armours: Armour[] =[
     "id": "810000",
     "name": "Commoner's Headband",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/cc/ER_Icon_Armor_Commoner%27s_Headband.png/",
+    "image": "/equipment_images/armours/Commoner's_Headband.webp",
     "dmgNegation": {
       "physical": 0.9,
       "strike": 1.8,
@@ -7498,7 +7642,7 @@ export const armours: Armour[] =[
     "id": "810100",
     "name": "Commoner's Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/89/ER_Icon_Armor_Commoner%27s_Garb.png/",
+    "image": "/equipment_images/armours/Commoner's_Garb.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.7,
@@ -7526,7 +7670,7 @@ export const armours: Armour[] =[
     "id": "810300",
     "name": "Commoner's Shoes",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/39/ER_Icon_Armor_Commoner%27s_Shoes.png/",
+    "image": "/equipment_images/armours/Commoner's_Shoes.webp",
     "dmgNegation": {
       "physical": 1.5,
       "strike": 3,
@@ -7550,7 +7694,7 @@ export const armours: Armour[] =[
     "id": "811000",
     "name": "Commoner's Headband (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9f/ER_Icon_Armor_Commoner%27s_Headband_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Commoner's_Headband_(Altered).webp",
     "dmgNegation": {
       "physical": 0.1,
       "strike": 1.1,
@@ -7574,7 +7718,7 @@ export const armours: Armour[] =[
     "id": "811100",
     "name": "Commoner's Garb (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e6/ER_Icon_Armor_Commoner%27s_Garb_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Commoner's_Garb_(Altered).webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 6.1,
@@ -7602,7 +7746,7 @@ export const armours: Armour[] =[
     "id": "812000",
     "name": "Commoner's Simple Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/df/ER_Icon_Armor_Commoner%27s_Simple_Garb.png/",
+    "image": "/equipment_images/armours/Commoner's_Simple_Garb.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 6.7,
@@ -7630,7 +7774,7 @@ export const armours: Armour[] =[
     "id": "812100",
     "name": "Commoner's Simple Garb (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8b/ER_Icon_Armor_Commoner%27s_Simple_Garb_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Commoner's_Simple_Garb_(Altered).webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 6.1,
@@ -7658,7 +7802,7 @@ export const armours: Armour[] =[
     "id": "820000",
     "name": "Envoy Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/60/ER_Icon_Armor_Envoy_Crown.png/",
+    "image": "/equipment_images/armours/Envoy_Crown.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.1,
@@ -7683,7 +7827,7 @@ export const armours: Armour[] =[
     "id": "830000",
     "name": "Twinsage Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0e/ER_Icon_Armor_Twinsage_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Twinsage_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -7713,7 +7857,7 @@ export const armours: Armour[] =[
     "id": "830100",
     "name": "Raya Lucarian Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a6/ER_Icon_Armor_Raya_Lucarian_Robe.png/",
+    "image": "/equipment_images/armours/Raya_Lucarian_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.1,
@@ -7737,7 +7881,7 @@ export const armours: Armour[] =[
     "id": "830200",
     "name": "Sorcerer Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7e/ER_Icon_Armor_Sorcerer_Manchettes.png/",
+    "image": "/equipment_images/armours/Sorcerer_Manchettes.webp",
     "dmgNegation": {
       "physical": 1,
       "strike": 1.3,
@@ -7761,7 +7905,7 @@ export const armours: Armour[] =[
     "id": "830300",
     "name": "Sorcerer Leggings",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/02/ER_Icon_Armor_Sorcerer_Leggings.png/",
+    "image": "/equipment_images/armours/Sorcerer_Leggings.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 3,
@@ -7785,7 +7929,7 @@ export const armours: Armour[] =[
     "id": "831000",
     "name": "Olivinus Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bc/ER_Icon_Armor_Olivinus_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Olivinus_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -7814,7 +7958,7 @@ export const armours: Armour[] =[
     "id": "832000",
     "name": "Lazuli Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6e/ER_Icon_Armor_Lazuli_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Lazuli_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -7844,7 +7988,7 @@ export const armours: Armour[] =[
     "id": "833000",
     "name": "Karolos Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/da/ER_Icon_Armor_Karolos_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Karolos_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -7873,7 +8017,7 @@ export const armours: Armour[] =[
     "id": "834000",
     "name": "Witch's Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9b/ER_Icon_Armor_Witch%27s_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Witch's_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -7903,7 +8047,7 @@ export const armours: Armour[] =[
     "id": "840000",
     "name": "Marionette Soldier Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/66/ER_Icon_Armor_Marionette_Soldier_Helm.png/",
+    "image": "/equipment_images/armours/Marionette_Soldier_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -7927,7 +8071,7 @@ export const armours: Armour[] =[
     "id": "840100",
     "name": "Marionette Soldier Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0b/ER_Icon_Armor_Marionette_Soldier_Armor.png/",
+    "image": "/equipment_images/armours/Marionette_Soldier_Armor.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 8.8,
@@ -7951,7 +8095,7 @@ export const armours: Armour[] =[
     "id": "850000",
     "name": "Marionette Soldier Birdhelm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d0/ER_Icon_Armor_Marionette_Soldier_Birdhelm.png/",
+    "image": "/equipment_images/armours/Marionette_Soldier_Birdhelm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.1,
@@ -7975,7 +8119,7 @@ export const armours: Armour[] =[
     "id": "860000",
     "name": "Raging Wolf Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/aa/ER_Icon_Armor_Raging_Wolf_Helm.png/",
+    "image": "/equipment_images/armours/Raging_Wolf_Helm.webp",
     "dmgNegation": {
       "physical": 4.7,
       "strike": 4.1,
@@ -7999,7 +8143,7 @@ export const armours: Armour[] =[
     "id": "860100",
     "name": "Raging Wolf Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7b/ER_Icon_Armor_Raging_Wolf_Armor.png/",
+    "image": "/equipment_images/armours/Raging_Wolf_Armor.webp",
     "dmgNegation": {
       "physical": 13.2,
       "strike": 11.6,
@@ -8023,7 +8167,7 @@ export const armours: Armour[] =[
     "id": "860200",
     "name": "Raging Wolf Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/de/ER_Icon_Armor_Raging_Wolf_Gauntlets.png/",
+    "image": "/equipment_images/armours/Raging_Wolf_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.8,
@@ -8047,7 +8191,7 @@ export const armours: Armour[] =[
     "id": "860300",
     "name": "Raging Wolf Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d3/ER_Icon_Armor_Raging_Wolf_Greaves.png/",
+    "image": "/equipment_images/armours/Raging_Wolf_Greaves.webp",
     "dmgNegation": {
       "physical": 7.5,
       "strike": 6.6,
@@ -8071,7 +8215,7 @@ export const armours: Armour[] =[
     "id": "861100",
     "name": "Raging Wolf Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Raging_Wolf_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Raging_Wolf_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 12.8,
       "strike": 10.8,
@@ -8095,7 +8239,7 @@ export const armours: Armour[] =[
     "id": "870000",
     "name": "Land of Reeds Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/52/ER_Icon_Armor_Land_of_Reeds_Helm.png/",
+    "image": "/equipment_images/armours/Land_of_Reeds_Helm.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 3.4,
@@ -8119,7 +8263,7 @@ export const armours: Armour[] =[
     "id": "870100",
     "name": "Land of Reeds Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/66/ER_Icon_Armor_Land_of_Reeds_Armor.png/",
+    "image": "/equipment_images/armours/Land_of_Reeds_Armor.webp",
     "dmgNegation": {
       "physical": 8.8,
       "strike": 9.5,
@@ -8143,7 +8287,7 @@ export const armours: Armour[] =[
     "id": "870200",
     "name": "Land of Reeds Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4b/ER_Icon_Armor_Land_of_Reeds_Gauntlets.png/",
+    "image": "/equipment_images/armours/Land_of_Reeds_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 2.3,
@@ -8167,7 +8311,7 @@ export const armours: Armour[] =[
     "id": "870300",
     "name": "Land of Reeds Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0e/ER_Icon_Armor_Land_of_Reeds_Greaves.png/",
+    "image": "/equipment_images/armours/Land_of_Reeds_Greaves.webp",
     "dmgNegation": {
       "physical": 5,
       "strike": 5.4,
@@ -8191,7 +8335,7 @@ export const armours: Armour[] =[
     "id": "871100",
     "name": "Land of Reeds Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/21/ER_Icon_Armor_Land_of_Reeds_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Land_of_Reeds_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 8.8,
@@ -8215,7 +8359,7 @@ export const armours: Armour[] =[
     "id": "872000",
     "name": "Okina Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f8/ER_Icon_Armor_Okina_Mask.png/",
+    "image": "/equipment_images/armours/Okina_Mask.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.6,
@@ -8244,7 +8388,7 @@ export const armours: Armour[] =[
     "id": "872100",
     "name": "White Reed Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8a/ER_Icon_Armor_White_Reed_Armor.png/",
+    "image": "/equipment_images/armours/White_Reed_Armor.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 10.2,
@@ -8268,7 +8412,7 @@ export const armours: Armour[] =[
     "id": "872200",
     "name": "White Reed Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/34/ER_Icon_Armor_White_Reed_Gauntlets.png/",
+    "image": "/equipment_images/armours/White_Reed_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.5,
@@ -8292,7 +8436,7 @@ export const armours: Armour[] =[
     "id": "872300",
     "name": "White Reed Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3d/ER_Icon_Armor_White_Reed_Greaves.png/",
+    "image": "/equipment_images/armours/White_Reed_Greaves.webp",
     "dmgNegation": {
       "physical": 5.4,
       "strike": 5.8,
@@ -8316,7 +8460,7 @@ export const armours: Armour[] =[
     "id": "880000",
     "name": "Confessor Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/ff/ER_Icon_Armor_Confessor_Hood.png/",
+    "image": "/equipment_images/armours/Confessor_Hood.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.6,
@@ -8340,7 +8484,7 @@ export const armours: Armour[] =[
     "id": "880100",
     "name": "Confessor Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c7/ER_Icon_Armor_Confessor_Armor.png/",
+    "image": "/equipment_images/armours/Confessor_Armor.webp",
     "dmgNegation": {
       "physical": 8.8,
       "strike": 10.9,
@@ -8364,7 +8508,7 @@ export const armours: Armour[] =[
     "id": "880200",
     "name": "Confessor Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/28/ER_Icon_Armor_Confessor_Gloves.png/",
+    "image": "/equipment_images/armours/Confessor_Gloves.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 2.7,
@@ -8388,7 +8532,7 @@ export const armours: Armour[] =[
     "id": "880300",
     "name": "Confessor Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/99/ER_Icon_Armor_Confessor_Boots.png/",
+    "image": "/equipment_images/armours/Confessor_Boots.webp",
     "dmgNegation": {
       "physical": 4.5,
       "strike": 5.8,
@@ -8412,7 +8556,7 @@ export const armours: Armour[] =[
     "id": "881000",
     "name": "Confessor Hood (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/ff/ER_Icon_Armor_Confessor_Hood_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Confessor_Hood_(Altered).webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 3.1,
@@ -8436,7 +8580,7 @@ export const armours: Armour[] =[
     "id": "881100",
     "name": "Confessor Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fb/ER_Icon_Armor_Confessor_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Confessor_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 7.6,
       "strike": 9.8,
@@ -8460,7 +8604,7 @@ export const armours: Armour[] =[
     "id": "890000",
     "name": "Prisoner Iron Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/62/ER_Icon_Armor_Prisoner_Iron_Mask.png/",
+    "image": "/equipment_images/armours/Prisoner_Iron_Mask.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 5.9,
@@ -8484,7 +8628,7 @@ export const armours: Armour[] =[
     "id": "890100",
     "name": "Prisoner Clothing",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/18/ER_Icon_Armor_Prisoner_Clothing.png/",
+    "image": "/equipment_images/armours/Prisoner_Clothing.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 5.3,
@@ -8508,7 +8652,7 @@ export const armours: Armour[] =[
     "id": "890300",
     "name": "Prisoner Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fb/ER_Icon_Armor_Prisoner_Trousers.png/",
+    "image": "/equipment_images/armours/Prisoner_Trousers.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 3,
@@ -8532,7 +8676,7 @@ export const armours: Armour[] =[
     "id": "891000",
     "name": "Blackguard's Iron Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a5/ER_Icon_Armor_Blackguard%27s_Iron_Mask.png/",
+    "image": "/equipment_images/armours/Blackguard's_Iron_Mask.webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 4.4,
@@ -8556,7 +8700,7 @@ export const armours: Armour[] =[
     "id": "900000",
     "name": "Traveling Maiden Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/ca/ER_Icon_Armor_Traveling_Maiden_Hood.png/",
+    "image": "/equipment_images/armours/Traveling_Maiden_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 1.8,
@@ -8580,7 +8724,7 @@ export const armours: Armour[] =[
     "id": "900100",
     "name": "Traveling Maiden Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a6/ER_Icon_Armor_Traveling_Maiden_Robe.png/",
+    "image": "/equipment_images/armours/Traveling_Maiden_Robe.webp",
     "dmgNegation": {
       "physical": 5.4,
       "strike": 6.2,
@@ -8604,7 +8748,7 @@ export const armours: Armour[] =[
     "id": "900200",
     "name": "Traveling Maiden Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8e/ER_Icon_Armor_Traveling_Maiden_Gloves.png/",
+    "image": "/equipment_images/armours/Traveling_Maiden_Gloves.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 1.5,
@@ -8628,7 +8772,7 @@ export const armours: Armour[] =[
     "id": "900300",
     "name": "Traveling Maiden Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/46/ER_Icon_Armor_Traveling_Maiden_Boots.png/",
+    "image": "/equipment_images/armours/Traveling_Maiden_Boots.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 3.5,
@@ -8652,7 +8796,7 @@ export const armours: Armour[] =[
     "id": "901100",
     "name": "Traveling Maiden Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/2c/ER_Icon_Armor_Traveling_Maiden_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Traveling_Maiden_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 4.3,
       "strike": 5.4,
@@ -8676,7 +8820,7 @@ export const armours: Armour[] =[
     "id": "902000",
     "name": "Finger Maiden Fillet",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f4/ER_Icon_Armor_Finger_Maiden_Fillet.png/",
+    "image": "/equipment_images/armours/Finger_Maiden_Fillet.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 1.8,
@@ -8700,7 +8844,7 @@ export const armours: Armour[] =[
     "id": "902100",
     "name": "Finger Maiden Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/04/ER_Icon_Armor_Finger_Maiden_Robe.png/",
+    "image": "/equipment_images/armours/Finger_Maiden_Robe.webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 4.7,
@@ -8724,7 +8868,7 @@ export const armours: Armour[] =[
     "id": "902300",
     "name": "Finger Maiden Shoes",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3d/ER_Icon_Armor_Finger_Maiden_Shoes.png/",
+    "image": "/equipment_images/armours/Finger_Maiden_Shoes.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 2.3,
@@ -8748,7 +8892,7 @@ export const armours: Armour[] =[
     "id": "903100",
     "name": "Finger Maiden Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/41/ER_Icon_Armor_Finger_Maiden_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Finger_Maiden_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 2.7,
@@ -8772,7 +8916,7 @@ export const armours: Armour[] =[
     "id": "910000",
     "name": "Preceptor's Big Hat",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/35/ER_Icon_Armor_Preceptor%27s_Big_Hat.png/",
+    "image": "/equipment_images/armours/Preceptor's_Big_Hat.webp",
     "dmgNegation": {
       "physical": 2.5,
       "strike": 2.8,
@@ -8801,7 +8945,7 @@ export const armours: Armour[] =[
     "id": "910100",
     "name": "Preceptor's Long Gown",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9a/ER_Icon_Armor_Preceptor%27s_Long_Gown.png/",
+    "image": "/equipment_images/armours/Preceptor's_Long_Gown.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.7,
@@ -8825,7 +8969,7 @@ export const armours: Armour[] =[
     "id": "910200",
     "name": "Preceptor's Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/62/ER_Icon_Armor_Preceptor%27s_Gloves.png/",
+    "image": "/equipment_images/armours/Preceptor's_Gloves.webp",
     "dmgNegation": {
       "physical": 1.5,
       "strike": 1.6,
@@ -8849,7 +8993,7 @@ export const armours: Armour[] =[
     "id": "910300",
     "name": "Preceptor's Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6b/ER_Icon_Armor_Preceptor%27s_Trousers.png/",
+    "image": "/equipment_images/armours/Preceptor's_Trousers.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.8,
@@ -8873,7 +9017,7 @@ export const armours: Armour[] =[
     "id": "911000",
     "name": "Mask of Confidence",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8f/ER_Icon_Armor_Mask_of_Confidence.png/",
+    "image": "/equipment_images/armours/Mask_of_Confidence.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.5,
@@ -8901,7 +9045,7 @@ export const armours: Armour[] =[
     "id": "911100",
     "name": "Preceptor's Long Gown (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/94/ER_Icon_Armor_Preceptor%27s_Long_Gown_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Preceptor's_Long_Gown_(Altered).webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 4.2,
@@ -8925,7 +9069,7 @@ export const armours: Armour[] =[
     "id": "930000",
     "name": "Skeletal Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/ca/ER_Icon_Armor_Skeletal_Mask.png/",
+    "image": "/equipment_images/armours/Skeletal_Mask.webp",
     "dmgNegation": {
       "physical": 2.5,
       "strike": 2.8,
@@ -8949,7 +9093,7 @@ export const armours: Armour[] =[
     "id": "930100",
     "name": "Raptor's Black Feathers",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/38/ER_Icon_Armor_Raptor%27s_Black_Feathers.png/",
+    "image": "/equipment_images/armours/Raptor's_Black_Feathers.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 8.8,
@@ -8974,7 +9118,7 @@ export const armours: Armour[] =[
     "id": "930200",
     "name": "Bandit Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/74/ER_Icon_Armor_Bandit_Manchettes.png/",
+    "image": "/equipment_images/armours/Bandit_Manchettes.webp",
     "dmgNegation": {
       "physical": 1.5,
       "strike": 1.6,
@@ -8998,7 +9142,7 @@ export const armours: Armour[] =[
     "id": "930300",
     "name": "Bandit Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/17/ER_Icon_Armor_Bandit_Boots.png/",
+    "image": "/equipment_images/armours/Bandit_Boots.webp",
     "dmgNegation": {
       "physical": 4,
       "strike": 4.5,
@@ -9022,7 +9166,7 @@ export const armours: Armour[] =[
     "id": "931100",
     "name": "Bandit Garb",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/21/ER_Icon_Armor_Bandit_Garb.png/",
+    "image": "/equipment_images/armours/Bandit_Garb.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 8.8,
@@ -9046,7 +9190,7 @@ export const armours: Armour[] =[
     "id": "940000",
     "name": "Eccentric's Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/35/ER_Icon_Armor_Eccentric%27s_Hood.png/",
+    "image": "/equipment_images/armours/Eccentric's_Hood.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -9070,7 +9214,7 @@ export const armours: Armour[] =[
     "id": "940100",
     "name": "Eccentric's Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/55/ER_Icon_Armor_Eccentric%27s_Armor.png/",
+    "image": "/equipment_images/armours/Eccentric's_Armor.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 10.9,
@@ -9094,7 +9238,7 @@ export const armours: Armour[] =[
     "id": "940200",
     "name": "Eccentric's Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4e/ER_Icon_Armor_Eccentric%27s_Manchettes.png/",
+    "image": "/equipment_images/armours/Eccentric's_Manchettes.webp",
     "dmgNegation": {
       "physical": 2.9,
       "strike": 2.1,
@@ -9118,7 +9262,7 @@ export const armours: Armour[] =[
     "id": "940300",
     "name": "Eccentric's Breeches",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/99/ER_Icon_Armor_Eccentric%27s_Breeches.png/",
+    "image": "/equipment_images/armours/Eccentric's_Breeches.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 4.5,
@@ -9142,7 +9286,7 @@ export const armours: Armour[] =[
     "id": "941000",
     "name": "Eccentric's Hood (Altered)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/65/ER_Icon_Armor_Eccentric%27s_Hood_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Eccentric's_Hood_(Altered).webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -9166,7 +9310,7 @@ export const armours: Armour[] =[
     "id": "950000",
     "name": "Fingerprint Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c1/ER_Icon_Armor_Fingerprint_Helm.png/",
+    "image": "/equipment_images/armours/Fingerprint_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4.2,
@@ -9190,7 +9334,7 @@ export const armours: Armour[] =[
     "id": "950100",
     "name": "Fingerprint Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/da/ER_Icon_Armor_Fingerprint_Armor.png/",
+    "image": "/equipment_images/armours/Fingerprint_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.9,
@@ -9214,7 +9358,7 @@ export const armours: Armour[] =[
     "id": "950200",
     "name": "Fingerprint Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/32/ER_Icon_Armor_Fingerprint_Gauntlets.png/",
+    "image": "/equipment_images/armours/Fingerprint_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.9,
@@ -9238,7 +9382,7 @@ export const armours: Armour[] =[
     "id": "950300",
     "name": "Fingerprint Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bd/ER_Icon_Armor_Fingerprint_Greaves.png/",
+    "image": "/equipment_images/armours/Fingerprint_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.8,
@@ -9262,7 +9406,7 @@ export const armours: Armour[] =[
     "id": "951100",
     "name": "Fingerprint Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5c/ER_Icon_Armor_Fingerprint_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Fingerprint_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 11.5,
@@ -9286,7 +9430,7 @@ export const armours: Armour[] =[
     "id": "960000",
     "name": "Consort's Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9c/ER_Icon_Armor_Consort%27s_Mask.png/",
+    "image": "/equipment_images/armours/Consort's_Mask.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 2.8,
@@ -9314,7 +9458,7 @@ export const armours: Armour[] =[
     "id": "960100",
     "name": "Consort's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/93/ER_Icon_Armor_Consort%27s_Robe.png/",
+    "image": "/equipment_images/armours/Consort's_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 4.2,
@@ -9338,7 +9482,7 @@ export const armours: Armour[] =[
     "id": "960300",
     "name": "Consort's Trousers",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/14/ER_Icon_Armor_Consort%27s_Trousers.png/",
+    "image": "/equipment_images/armours/Consort's_Trousers.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 2.3,
@@ -9362,7 +9506,7 @@ export const armours: Armour[] =[
     "id": "961000",
     "name": "Ruler's Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9f/ER_Icon_Armor_Ruler%27s_Mask.png/",
+    "image": "/equipment_images/armours/Ruler's_Mask.webp",
     "dmgNegation": {
       "physical": 1.8,
       "strike": 2.3,
@@ -9390,7 +9534,7 @@ export const armours: Armour[] =[
     "id": "961100",
     "name": "Ruler's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ef/ER_Icon_Armor_Ruler%27s_Robe.png/",
+    "image": "/equipment_images/armours/Ruler's_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.7,
@@ -9414,7 +9558,7 @@ export const armours: Armour[] =[
     "id": "962100",
     "name": "Upper-Class Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/51/ER_Icon_Armor_Upper-Class_Robe.png/",
+    "image": "/equipment_images/armours/Upper-Class_Robe.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 6.1,
@@ -9438,7 +9582,7 @@ export const armours: Armour[] =[
     "id": "963000",
     "name": "Marais Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3c/ER_Icon_Armor_Marais_Mask.png/",
+    "image": "/equipment_images/armours/Marais_Mask.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 2.3,
@@ -9466,7 +9610,7 @@ export const armours: Armour[] =[
     "id": "963100",
     "name": "Marais Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d7/ER_Icon_Armor_Marais_Robe.png/",
+    "image": "/equipment_images/armours/Marais_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.1,
@@ -9490,7 +9634,7 @@ export const armours: Armour[] =[
     "id": "963200",
     "name": "Bloodsoaked Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Bloodsoaked_Manchettes.png/",
+    "image": "/equipment_images/armours/Bloodsoaked_Manchettes.webp",
     "dmgNegation": {
       "physical": 1.3,
       "strike": 1.5,
@@ -9514,7 +9658,7 @@ export const armours: Armour[] =[
     "id": "964000",
     "name": "Bloodsoaked Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0b/ER_Icon_Armor_Bloodsoaked_Mask.png/",
+    "image": "/equipment_images/armours/Bloodsoaked_Mask.webp",
     "dmgNegation": {
       "physical": 1.8,
       "strike": 1.8,
@@ -9538,7 +9682,7 @@ export const armours: Armour[] =[
     "id": "964100",
     "name": "Official's Attire",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/95/ER_Icon_Armor_Official%27s_Attire.png/",
+    "image": "/equipment_images/armours/Official's_Attire.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 4.2,
@@ -9562,7 +9706,7 @@ export const armours: Armour[] =[
     "id": "970000",
     "name": "Omen Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7f/ER_Icon_Armor_Omen_Helm.png/",
+    "image": "/equipment_images/armours/Omen_Helm.webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 5.4,
@@ -9586,7 +9730,7 @@ export const armours: Armour[] =[
     "id": "970100",
     "name": "Omen Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/88/ER_Icon_Armor_Omen_Armor.png/",
+    "image": "/equipment_images/armours/Omen_Armor.webp",
     "dmgNegation": {
       "physical": 18.3,
       "strike": 15,
@@ -9610,7 +9754,7 @@ export const armours: Armour[] =[
     "id": "970200",
     "name": "Omen Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ed/ER_Icon_Armor_Omen_Gauntlets.png/",
+    "image": "/equipment_images/armours/Omen_Gauntlets.webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 3.7,
@@ -9634,7 +9778,7 @@ export const armours: Armour[] =[
     "id": "970300",
     "name": "Omen Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/23/ER_Icon_Armor_Omen_Greaves.png/",
+    "image": "/equipment_images/armours/Omen_Greaves.webp",
     "dmgNegation": {
       "physical": 10.6,
       "strike": 8.6,
@@ -9658,7 +9802,7 @@ export const armours: Armour[] =[
     "id": "980000",
     "name": "Carian Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6f/ER_Icon_Armor_Carian_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Carian_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 3.8,
@@ -9682,7 +9826,7 @@ export const armours: Armour[] =[
     "id": "980100",
     "name": "Carian Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/76/ER_Icon_Armor_Carian_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Carian_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 11.8,
       "strike": 10.8,
@@ -9706,7 +9850,7 @@ export const armours: Armour[] =[
     "id": "980200",
     "name": "Carian Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/86/ER_Icon_Armor_Carian_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Carian_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.9,
       "strike": 2.7,
@@ -9730,7 +9874,7 @@ export const armours: Armour[] =[
     "id": "980300",
     "name": "Carian Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/08/ER_Icon_Armor_Carian_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Carian_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 6.2,
@@ -9754,7 +9898,7 @@ export const armours: Armour[] =[
     "id": "981100",
     "name": "Carian Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/06/ER_Icon_Armor_Carian_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Carian_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 11.7,
       "strike": 9.8,
@@ -9778,7 +9922,7 @@ export const armours: Armour[] =[
     "id": "990000",
     "name": "Hierodas Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bf/ER_Icon_Armor_Hierodas_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Hierodas_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.3,
@@ -9808,7 +9952,7 @@ export const armours: Armour[] =[
     "id": "990100",
     "name": "Errant Sorcerer Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/98/ER_Icon_Armor_Errant_Sorcerer_Robe.png/",
+    "image": "/equipment_images/armours/Errant_Sorcerer_Robe.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 4.2,
@@ -9832,7 +9976,7 @@ export const armours: Armour[] =[
     "id": "990200",
     "name": "Errant Sorcerer Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c8/ER_Icon_Armor_Errant_Sorcerer_Manchettes.png/",
+    "image": "/equipment_images/armours/Errant_Sorcerer_Manchettes.webp",
     "dmgNegation": {
       "physical": 0.6,
       "strike": 0.6,
@@ -9856,7 +10000,7 @@ export const armours: Armour[] =[
     "id": "990300",
     "name": "Errant Sorcerer Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/57/ER_Icon_Armor_Errant_Sorcerer_Boots.png/",
+    "image": "/equipment_images/armours/Errant_Sorcerer_Boots.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 3,
@@ -9880,7 +10024,7 @@ export const armours: Armour[] =[
     "id": "991100",
     "name": "Errant Sorcerer Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/20/ER_Icon_Armor_Errant_Sorcerer_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Errant_Sorcerer_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 2.7,
       "strike": 2.7,
@@ -9904,7 +10048,7 @@ export const armours: Armour[] =[
     "id": "1000000",
     "name": "Haima Glintstone Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/46/ER_Icon_Armor_Haima_Glintstone_Crown.png/",
+    "image": "/equipment_images/armours/Haima_Glintstone_Crown.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.5,
@@ -9934,7 +10078,7 @@ export const armours: Armour[] =[
     "id": "1000100",
     "name": "Battlemage Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/04/ER_Icon_Armor_Battlemage_Robe.png/",
+    "image": "/equipment_images/armours/Battlemage_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.1,
@@ -9958,7 +10102,7 @@ export const armours: Armour[] =[
     "id": "1000200",
     "name": "Battlemage Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a8/ER_Icon_Armor_Battlemage_Manchettes.png/",
+    "image": "/equipment_images/armours/Battlemage_Manchettes.webp",
     "dmgNegation": {
       "physical": 1,
       "strike": 1.3,
@@ -9982,7 +10126,7 @@ export const armours: Armour[] =[
     "id": "1000300",
     "name": "Battlemage Legwraps",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9c/ER_Icon_Armor_Battlemage_Legwraps.png/",
+    "image": "/equipment_images/armours/Battlemage_Legwraps.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 3.4,
@@ -10006,7 +10150,7 @@ export const armours: Armour[] =[
     "id": "1010000",
     "name": "Snow Witch Hat",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c1/ER_Icon_Armor_Snow_Witch_Hat.png/",
+    "image": "/equipment_images/armours/Snow_Witch_Hat.webp",
     "dmgNegation": {
       "physical": 1.8,
       "strike": 2.1,
@@ -10031,7 +10175,7 @@ export const armours: Armour[] =[
     "id": "1010100",
     "name": "Snow Witch Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/18/ER_Icon_Armor_Snow_Witch_Robe.png/",
+    "image": "/equipment_images/armours/Snow_Witch_Robe.webp",
     "dmgNegation": {
       "physical": 5.7,
       "strike": 6.5,
@@ -10055,7 +10199,7 @@ export const armours: Armour[] =[
     "id": "1010300",
     "name": "Snow Witch Skirt",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/46/ER_Icon_Armor_Snow_Witch_Skirt.png/",
+    "image": "/equipment_images/armours/Snow_Witch_Skirt.webp",
     "dmgNegation": {
       "physical": 3,
       "strike": 3.4,
@@ -10079,7 +10223,7 @@ export const armours: Armour[] =[
     "id": "1011100",
     "name": "Snow Witch Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f6/ER_Icon_Armor_Snow_Witch_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Snow_Witch_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 5.7,
@@ -10103,7 +10247,7 @@ export const armours: Armour[] =[
     "id": "1020100",
     "name": "Traveler's Clothes",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/52/ER_Icon_Armor_Traveler%27s_Clothes.png/",
+    "image": "/equipment_images/armours/Traveler's_Clothes.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 5.3,
@@ -10127,7 +10271,7 @@ export const armours: Armour[] =[
     "id": "1020200",
     "name": "Traveler's Manchettes",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a4/ER_Icon_Armor_Traveler%27s_Manchettes.png/",
+    "image": "/equipment_images/armours/Traveler's_Manchettes.webp",
     "dmgNegation": {
       "physical": 1.6,
       "strike": 1.5,
@@ -10151,7 +10295,7 @@ export const armours: Armour[] =[
     "id": "1020300",
     "name": "Traveler's Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e9/ER_Icon_Armor_Traveler%27s_Boots.png/",
+    "image": "/equipment_images/armours/Traveler's_Boots.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 3.4,
@@ -10175,7 +10319,7 @@ export const armours: Armour[] =[
     "id": "1030000",
     "name": "Juvenile Scholar Cap",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/01/ER_Icon_Armor_Juvenile_Scholar_Cap.png/",
+    "image": "/equipment_images/armours/Juvenile_Scholar_Cap.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 1.8,
@@ -10199,7 +10343,7 @@ export const armours: Armour[] =[
     "id": "1030100",
     "name": "Juvenile Scholar Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/40/ER_Icon_Armor_Juvenile_Scholar_Robe.png/",
+    "image": "/equipment_images/armours/Juvenile_Scholar_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.1,
@@ -10223,7 +10367,7 @@ export const armours: Armour[] =[
     "id": "1040000",
     "name": "Radiant Gold Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/10/ER_Icon_Armor_Radiant_Gold_Mask.png/",
+    "image": "/equipment_images/armours/Radiant_Gold_Mask.webp",
     "dmgNegation": {
       "physical": 2.3,
       "strike": 2.1,
@@ -10248,7 +10392,7 @@ export const armours: Armour[] =[
     "id": "1040100",
     "name": "Goldmask's Rags",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a9/ER_Icon_Armor_Goldmask%27s_Rags.png/",
+    "image": "/equipment_images/armours/Goldmask's_Rags.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 2.7,
@@ -10272,7 +10416,7 @@ export const armours: Armour[] =[
     "id": "1040200",
     "name": "Gold Bracelets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a9/ER_Icon_Armor_Gold_Bracelets.png/",
+    "image": "/equipment_images/armours/Gold_Bracelets.webp",
     "dmgNegation": {
       "physical": 1,
       "strike": 0.6,
@@ -10296,7 +10440,7 @@ export const armours: Armour[] =[
     "id": "1040300",
     "name": "Gold Waistwrap",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/59/ER_Icon_Armor_Gold_Waistwrap.png/",
+    "image": "/equipment_images/armours/Gold_Waistwrap.webp",
     "dmgNegation": {
       "physical": 4,
       "strike": 3.8,
@@ -10320,7 +10464,7 @@ export const armours: Armour[] =[
     "id": "1050100",
     "name": "Fell Omen Cloak",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/58/ER_Icon_Armor_Fell_Omen_Cloak.png/",
+    "image": "/equipment_images/armours/Fell_Omen_Cloak.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.7,
@@ -10344,7 +10488,7 @@ export const armours: Armour[] =[
     "id": "1060000",
     "name": "Albinauric Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ed/ER_Icon_Armor_Albinauric_Mask.png/",
+    "image": "/equipment_images/armours/Albinauric_Mask.webp",
     "dmgNegation": {
       "physical": 4,
       "strike": 3.1,
@@ -10372,7 +10516,7 @@ export const armours: Armour[] =[
     "id": "1060100",
     "name": "Dirty Chainmail",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e9/ER_Icon_Armor_Dirty_Chainmail.png/",
+    "image": "/equipment_images/armours/Dirty_Chainmail.webp",
     "dmgNegation": {
       "physical": 11.4,
       "strike": 8.8,
@@ -10396,7 +10540,7 @@ export const armours: Armour[] =[
     "id": "1070000",
     "name": "Zamor Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0f/ER_Icon_Armor_Zamor_Mask.png/",
+    "image": "/equipment_images/armours/Zamor_Mask.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 3.4,
@@ -10420,7 +10564,7 @@ export const armours: Armour[] =[
     "id": "1070100",
     "name": "Zamor Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b1/ER_Icon_Armor_Zamor_Armor.png/",
+    "image": "/equipment_images/armours/Zamor_Armor.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 9.5,
@@ -10444,7 +10588,7 @@ export const armours: Armour[] =[
     "id": "1070200",
     "name": "Zamor Bracelets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/8f/ER_Icon_Armor_Zamor_Bracelets.png/",
+    "image": "/equipment_images/armours/Zamor_Bracelets.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 2.1,
@@ -10468,7 +10612,7 @@ export const armours: Armour[] =[
     "id": "1070300",
     "name": "Zamor Legwraps",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/66/ER_Icon_Armor_Zamor_Legwraps.png/",
+    "image": "/equipment_images/armours/Zamor_Legwraps.webp",
     "dmgNegation": {
       "physical": 6.5,
       "strike": 5,
@@ -10492,7 +10636,7 @@ export const armours: Armour[] =[
     "id": "1080000",
     "name": "Imp Head (Cat)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/aa/ER_Icon_Armor_Imp_Head_%28Cat%29.png/",
+    "image": "/equipment_images/armours/Imp_Head_(Cat).webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -10510,7 +10654,6 @@ export const armours: Armour[] =[
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increase intelligence",
     "statChanges": {
       "intelligence": 2
     },
@@ -10520,7 +10663,7 @@ export const armours: Armour[] =[
     "id": "1081000",
     "name": "Imp Head (Fanged)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3a/ER_Icon_Armor_Imp_Head_%28Fanged%29.png/",
+    "image": "/equipment_images/armours/Imp_Head_(Fanged).webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -10538,7 +10681,6 @@ export const armours: Armour[] =[
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increase strength",
     "statChanges": {
       "strength": 2
     },
@@ -10548,7 +10690,7 @@ export const armours: Armour[] =[
     "id": "1082000",
     "name": "Imp Head (Long-Tongued)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/09/ER_Icon_Armor_Imp_Head_%28Long-Tongued%29.png/",
+    "image": "/equipment_images/armours/Imp_Head_(Long-Tongued).webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -10566,7 +10708,6 @@ export const armours: Armour[] =[
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increase dexterity",
     "statChanges": {
       "dexterity": 2
     },
@@ -10576,7 +10717,7 @@ export const armours: Armour[] =[
     "id": "1083000",
     "name": "Imp Head (Corpse)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7e/ER_Icon_Armor_Imp_Head_%28Corpse%29.png/",
+    "image": "/equipment_images/armours/Imp_Head_(Corpse).webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -10594,7 +10735,6 @@ export const armours: Armour[] =[
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increase faith",
     "statChanges": {
       "faith": 2
     },
@@ -10604,7 +10744,7 @@ export const armours: Armour[] =[
     "id": "1084000",
     "name": "Imp Head (Wolf)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fa/ER_Icon_Armor_Imp_Head_%28Wolf%29.png/",
+    "image": "/equipment_images/armours/Imp_Head_(Wolf).webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -10622,7 +10762,6 @@ export const armours: Armour[] =[
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increase endurance",
     "statChanges": {
       "endurance": 2
     },
@@ -10632,7 +10771,7 @@ export const armours: Armour[] =[
     "id": "1085000",
     "name": "Imp Head (Elder)",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/10/ER_Icon_Armor_Imp_Head_%28Elder%29.png/",
+    "image": "/equipment_images/armours/Imp_Head_(Elder).webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.2,
@@ -10650,7 +10789,6 @@ export const armours: Armour[] =[
       "vitality": 20
     },
     "poise": 10,
-    "effect": "Increase arcane",
     "statChanges": {
       "arcane": 2
     },
@@ -10660,7 +10798,7 @@ export const armours: Armour[] =[
     "id": "1090000",
     "name": "Silver Tear Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4c/ER_Icon_Armor_Silver_Tear_Mask.png/",
+    "image": "/equipment_images/armours/Silver_Tear_Mask.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 3.6,
@@ -10688,7 +10826,7 @@ export const armours: Armour[] =[
     "id": "1100000",
     "name": "Chain Coif",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/31/ER_Icon_Armor_Chain_Coif_Type_A.png/",
+    "image": "/equipment_images/armours/Chain_Coif.webp",
     "dmgNegation": {
       "physical": 4.2,
       "strike": 3.1,
@@ -10712,7 +10850,7 @@ export const armours: Armour[] =[
     "id": "1100100",
     "name": "Chain Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Chain_Armor_Type_A.png/",
+    "image": "/equipment_images/armours/Chain_Armor.webp",
     "dmgNegation": {
       "physical": 11.9,
       "strike": 8.8,
@@ -10736,7 +10874,7 @@ export const armours: Armour[] =[
     "id": "1100300",
     "name": "Chain Leggings",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/33/ER_Icon_Armor_Chain_Leggings.png/",
+    "image": "/equipment_images/armours/Chain_Leggings.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 5,
@@ -10760,7 +10898,7 @@ export const armours: Armour[] =[
     "id": "1101000",
     "name": "Greathelm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bd/ER_Icon_Armor_Greathelm.png/",
+    "image": "/equipment_images/armours/Greathelm.webp",
     "dmgNegation": {
       "physical": 5.5,
       "strike": 4.2,
@@ -10784,7 +10922,7 @@ export const armours: Armour[] =[
     "id": "1101100",
     "name": "Eye Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/da/ER_Icon_Armor_Eye_Surcoat.png/",
+    "image": "/equipment_images/armours/Eye_Surcoat.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 8.8,
@@ -10808,7 +10946,7 @@ export const armours: Armour[] =[
     "id": "1102100",
     "name": "Tree Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/ca/ER_Icon_Armor_Tree_Surcoat.png/",
+    "image": "/equipment_images/armours/Tree_Surcoat.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 8.8,
@@ -10832,7 +10970,7 @@ export const armours: Armour[] =[
     "id": "1110000",
     "name": "Octopus Head",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f9/ER_Icon_Armor_Octopus_Head.png/",
+    "image": "/equipment_images/armours/Octopus_Head.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 5.4,
@@ -10856,7 +10994,7 @@ export const armours: Armour[] =[
     "id": "1120000",
     "name": "Jar",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fc/ER_Icon_Armor_Jar.png/",
+    "image": "/equipment_images/armours/Jar.webp",
     "dmgNegation": {
       "physical": 6.8,
       "strike": 3.4,
@@ -10881,7 +11019,7 @@ export const armours: Armour[] =[
     "id": "1130000",
     "name": "Mushroom Head",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/67/ER_Icon_Armor_Mushroom_Head.png/",
+    "image": "/equipment_images/armours/Mushroom_Head.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 2.5,
@@ -10905,7 +11043,7 @@ export const armours: Armour[] =[
     "id": "1130100",
     "name": "Mushroom Body",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/47/ER_Icon_Armor_Mushroom_Body.png/",
+    "image": "/equipment_images/armours/Mushroom_Body.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 7.1,
@@ -10929,7 +11067,7 @@ export const armours: Armour[] =[
     "id": "1130200",
     "name": "Mushroom Arms",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7f/ER_Icon_Armor_Mushroom_Arms.png/",
+    "image": "/equipment_images/armours/Mushroom_Arms.webp",
     "dmgNegation": {
       "physical": 1.5,
       "strike": 1.7,
@@ -10953,7 +11091,7 @@ export const armours: Armour[] =[
     "id": "1130300",
     "name": "Mushroom Legs",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d9/ER_Icon_Armor_Mushroom_Legs.png/",
+    "image": "/equipment_images/armours/Mushroom_Legs.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 4,
@@ -10977,7 +11115,7 @@ export const armours: Armour[] =[
     "id": "1300000",
     "name": "Nox Mirrorhelm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5f/ER_Icon_Armor_Nox_Mirrorhelm.png/",
+    "image": "/equipment_images/armours/Nox_Mirrorhelm.webp",
     "dmgNegation": {
       "physical": 4,
       "strike": 3.4,
@@ -11001,7 +11139,7 @@ export const armours: Armour[] =[
     "id": "1301000",
     "name": "Iji's Mirrorhelm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a2/ER_Icon_Armor_Iji%27s_Mirrorhelm.png/",
+    "image": "/equipment_images/armours/Iji's_Mirrorhelm.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 3.8,
@@ -11025,7 +11163,7 @@ export const armours: Armour[] =[
     "id": "1400000",
     "name": "Black Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/15/ER_Icon_Armor_Black_Hood.png/",
+    "image": "/equipment_images/armours/Black_Hood.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.1,
@@ -11049,7 +11187,7 @@ export const armours: Armour[] =[
     "id": "1400100",
     "name": "Leather Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/db/ER_Icon_Armor_Leather_Armor.png/",
+    "image": "/equipment_images/armours/Leather_Armor.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 9.5,
@@ -11073,7 +11211,7 @@ export const armours: Armour[] =[
     "id": "1400200",
     "name": "Leather Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/11/ER_Icon_Armor_Leather_Gloves.png/",
+    "image": "/equipment_images/armours/Leather_Gloves.webp",
     "dmgNegation": {
       "physical": 1.9,
       "strike": 2.3,
@@ -11097,7 +11235,7 @@ export const armours: Armour[] =[
     "id": "1400300",
     "name": "Leather Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/48/ER_Icon_Armor_Leather_Boots.png/",
+    "image": "/equipment_images/armours/Leather_Boots.webp",
     "dmgNegation": {
       "physical": 4.5,
       "strike": 5.4,
@@ -11121,7 +11259,7 @@ export const armours: Armour[] =[
     "id": "1401000",
     "name": "Bandit Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c0/ER_Icon_Armor_Bandit_Mask.png/",
+    "image": "/equipment_images/armours/Bandit_Mask.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.1,
@@ -11145,7 +11283,7 @@ export const armours: Armour[] =[
     "id": "1500000",
     "name": "Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/14/ER_Icon_Armor_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 4.2,
@@ -11169,7 +11307,7 @@ export const armours: Armour[] =[
     "id": "1500100",
     "name": "Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e9/ER_Icon_Armor_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Knight_Armor.webp",
     "dmgNegation": {
       "physical": 12.4,
       "strike": 11.9,
@@ -11193,7 +11331,7 @@ export const armours: Armour[] =[
     "id": "1500200",
     "name": "Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/76/ER_Icon_Armor_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 2.9,
@@ -11217,7 +11355,7 @@ export const armours: Armour[] =[
     "id": "1500300",
     "name": "Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7a/ER_Icon_Armor_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.1,
       "strike": 6.8,
@@ -11241,7 +11379,7 @@ export const armours: Armour[] =[
     "id": "1600000",
     "name": "Greathood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f5/ER_Icon_Armor_Greathood.png/",
+    "image": "/equipment_images/armours/Greathood.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 3.6,
@@ -11271,7 +11409,7 @@ export const armours: Armour[] =[
     "id": "1700000",
     "name": "Godrick Soldier Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/69/ER_Icon_Armor_Godrick_Soldier_Helm.png/",
+    "image": "/equipment_images/armours/Godrick_Soldier_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.6,
@@ -11295,7 +11433,7 @@ export const armours: Armour[] =[
     "id": "1700100",
     "name": "Tree-and-Beast Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/54/ER_Icon_Armor_Tree-and-Beast_Surcoat.png/",
+    "image": "/equipment_images/armours/Tree-and-Beast_Surcoat.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 11.4,
@@ -11319,7 +11457,7 @@ export const armours: Armour[] =[
     "id": "1700200",
     "name": "Godrick Soldier Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/53/ER_Icon_Armor_Godrick_Soldier_Gauntlets.png/",
+    "image": "/equipment_images/armours/Godrick_Soldier_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.8,
@@ -11343,7 +11481,7 @@ export const armours: Armour[] =[
     "id": "1700300",
     "name": "Godrick Soldier Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fa/ER_Icon_Armor_Godrick_Soldier_Greaves.png/",
+    "image": "/equipment_images/armours/Godrick_Soldier_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.5,
@@ -11367,7 +11505,7 @@ export const armours: Armour[] =[
     "id": "1710000",
     "name": "Raya Lucarian Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/ad/ER_Icon_Armor_Raya_Lucarian_Helm.png/",
+    "image": "/equipment_images/armours/Raya_Lucarian_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.4,
@@ -11391,7 +11529,7 @@ export const armours: Armour[] =[
     "id": "1710100",
     "name": "Cuckoo Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a5/ER_Icon_Armor_Cuckoo_Surcoat.png/",
+    "image": "/equipment_images/armours/Cuckoo_Surcoat.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 10.9,
@@ -11415,7 +11553,7 @@ export const armours: Armour[] =[
     "id": "1710200",
     "name": "Raya Lucarian Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d8/ER_Icon_Armor_Raya_Lucarian_Gauntlets.png/",
+    "image": "/equipment_images/armours/Raya_Lucarian_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.7,
@@ -11439,7 +11577,7 @@ export const armours: Armour[] =[
     "id": "1710300",
     "name": "Raya Lucarian Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/ba/ER_Icon_Armor_Raya_Lucarian_Greaves.png/",
+    "image": "/equipment_images/armours/Raya_Lucarian_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.2,
@@ -11463,7 +11601,7 @@ export const armours: Armour[] =[
     "id": "1720000",
     "name": "Leyndell Soldier Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e1/ER_Icon_Armor_Leyndell_Soldier_Helm.png/",
+    "image": "/equipment_images/armours/Leyndell_Soldier_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.8,
@@ -11487,7 +11625,7 @@ export const armours: Armour[] =[
     "id": "1720100",
     "name": "Erdtree Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e3/ER_Icon_Armor_Erdtree_Surcoat.png/",
+    "image": "/equipment_images/armours/Erdtree_Surcoat.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 11.9,
@@ -11511,7 +11649,7 @@ export const armours: Armour[] =[
     "id": "1720200",
     "name": "Leyndell Soldier Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4c/ER_Icon_Armor_Leyndell_Soldier_Gauntlets.png/",
+    "image": "/equipment_images/armours/Leyndell_Soldier_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.9,
@@ -11535,7 +11673,7 @@ export const armours: Armour[] =[
     "id": "1720300",
     "name": "Leyndell Soldier Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/36/ER_Icon_Armor_Leyndell_Soldier_Greaves.png/",
+    "image": "/equipment_images/armours/Leyndell_Soldier_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.8,
@@ -11559,7 +11697,7 @@ export const armours: Armour[] =[
     "id": "1730000",
     "name": "Radahn Soldier Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e5/ER_Icon_Armor_Radahn_Soldier_Helm.png/",
+    "image": "/equipment_images/armours/Radahn_Soldier_Helm.webp",
     "dmgNegation": {
       "physical": 4.6,
       "strike": 3.4,
@@ -11583,7 +11721,7 @@ export const armours: Armour[] =[
     "id": "1730100",
     "name": "Redmane Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f6/ER_Icon_Armor_Redmane_Surcoat.png/",
+    "image": "/equipment_images/armours/Redmane_Surcoat.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 10.9,
@@ -11607,7 +11745,7 @@ export const armours: Armour[] =[
     "id": "1730200",
     "name": "Radahn Soldier Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b1/ER_Icon_Armor_Radahn_Soldier_Gauntlets.png/",
+    "image": "/equipment_images/armours/Radahn_Soldier_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.7,
@@ -11631,7 +11769,7 @@ export const armours: Armour[] =[
     "id": "1730300",
     "name": "Radahn Soldier Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f2/ER_Icon_Armor_Radahn_Soldier_Greaves.png/",
+    "image": "/equipment_images/armours/Radahn_Soldier_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.2,
@@ -11655,7 +11793,7 @@ export const armours: Armour[] =[
     "id": "1740100",
     "name": "Mausoleum Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/20/ER_Icon_Armor_Mausoleum_Surcoat.png/",
+    "image": "/equipment_images/armours/Mausoleum_Surcoat.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 10.9,
@@ -11679,7 +11817,7 @@ export const armours: Armour[] =[
     "id": "1740200",
     "name": "Mausoleum Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/74/ER_Icon_Armor_Mausoleum_Gauntlets.png/",
+    "image": "/equipment_images/armours/Mausoleum_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.7,
@@ -11703,7 +11841,7 @@ export const armours: Armour[] =[
     "id": "1740300",
     "name": "Mausoleum Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9b/ER_Icon_Armor_Mausoleum_Greaves.png/",
+    "image": "/equipment_images/armours/Mausoleum_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.2,
@@ -11727,7 +11865,7 @@ export const armours: Armour[] =[
     "id": "1750000",
     "name": "Haligtree Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/92/ER_Icon_Armor_Haligtree_Helm.png/",
+    "image": "/equipment_images/armours/Haligtree_Helm.webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 3.8,
@@ -11755,7 +11893,7 @@ export const armours: Armour[] =[
     "id": "1750100",
     "name": "Haligtree Crest Surcoat",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Haligtree_Crest_Surcoat.png/",
+    "image": "/equipment_images/armours/Haligtree_Crest_Surcoat.webp",
     "dmgNegation": {
       "physical": 12.9,
       "strike": 11.9,
@@ -11779,7 +11917,7 @@ export const armours: Armour[] =[
     "id": "1750200",
     "name": "Haligtree Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/45/ER_Icon_Armor_Haligtree_Gauntlets.png/",
+    "image": "/equipment_images/armours/Haligtree_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.2,
       "strike": 2.9,
@@ -11803,7 +11941,7 @@ export const armours: Armour[] =[
     "id": "1750300",
     "name": "Haligtree Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/df/ER_Icon_Armor_Haligtree_Greaves.png/",
+    "image": "/equipment_images/armours/Haligtree_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.8,
@@ -11827,7 +11965,7 @@ export const armours: Armour[] =[
     "id": "1760000",
     "name": "Gelmir Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ec/ER_Icon_Armor_Gelmir_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Gelmir_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4,
@@ -11851,7 +11989,7 @@ export const armours: Armour[] =[
     "id": "1760100",
     "name": "Gelmir Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b5/ER_Icon_Armor_Gelmir_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Gelmir_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.4,
@@ -11875,7 +12013,7 @@ export const armours: Armour[] =[
     "id": "1760200",
     "name": "Gelmir Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ed/ER_Icon_Armor_Gelmir_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Gelmir_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.8,
@@ -11899,7 +12037,7 @@ export const armours: Armour[] =[
     "id": "1760300",
     "name": "Gelmir Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fb/ER_Icon_Armor_Gelmir_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Gelmir_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.5,
@@ -11923,7 +12061,7 @@ export const armours: Armour[] =[
     "id": "1761100",
     "name": "Gelmir Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/86/ER_Icon_Armor_Gelmir_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Gelmir_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 11,
@@ -11947,7 +12085,7 @@ export const armours: Armour[] =[
     "id": "1770000",
     "name": "Godrick Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/fc/ER_Icon_Armor_Godrick_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Godrick_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4.2,
@@ -11971,7 +12109,7 @@ export const armours: Armour[] =[
     "id": "1770100",
     "name": "Godrick Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/38/ER_Icon_Armor_Godrick_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Godrick_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.9,
@@ -11995,7 +12133,7 @@ export const armours: Armour[] =[
     "id": "1770200",
     "name": "Godrick Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e9/ER_Icon_Armor_Godrick_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Godrick_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.9,
@@ -12019,7 +12157,7 @@ export const armours: Armour[] =[
     "id": "1770300",
     "name": "Godrick Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a7/ER_Icon_Armor_Godrick_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Godrick_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.8,
@@ -12043,7 +12181,7 @@ export const armours: Armour[] =[
     "id": "1771100",
     "name": "Godrick Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/8/82/ER_Icon_Armor_Godrick_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Godrick_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 11.5,
@@ -12067,7 +12205,7 @@ export const armours: Armour[] =[
     "id": "1780000",
     "name": "Cuckoo Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d3/ER_Icon_Armor_Cuckoo_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Cuckoo_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4,
@@ -12091,7 +12229,7 @@ export const armours: Armour[] =[
     "id": "1780100",
     "name": "Cuckoo Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/02/ER_Icon_Armor_Cuckoo_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Cuckoo_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.4,
@@ -12115,7 +12253,7 @@ export const armours: Armour[] =[
     "id": "1780200",
     "name": "Cuckoo Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/59/ER_Icon_Armor_Cuckoo_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Cuckoo_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.8,
@@ -12139,7 +12277,7 @@ export const armours: Armour[] =[
     "id": "1780300",
     "name": "Cuckoo Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/30/ER_Icon_Armor_Cuckoo_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Cuckoo_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.5,
@@ -12163,7 +12301,7 @@ export const armours: Armour[] =[
     "id": "1781100",
     "name": "Cuckoo Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bd/ER_Icon_Armor_Cuckoo_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Cuckoo_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 11,
@@ -12187,7 +12325,7 @@ export const armours: Armour[] =[
     "id": "1790000",
     "name": "Leyndell Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/1d/ER_Icon_Armor_Leyndell_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Leyndell_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4.4,
@@ -12211,7 +12349,7 @@ export const armours: Armour[] =[
     "id": "1790100",
     "name": "Leyndell Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c3/ER_Icon_Armor_Leyndell_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Leyndell_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 12.4,
@@ -12235,7 +12373,7 @@ export const armours: Armour[] =[
     "id": "1790200",
     "name": "Leyndell Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Leyndell_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Leyndell_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 3.1,
@@ -12259,7 +12397,7 @@ export const armours: Armour[] =[
     "id": "1790300",
     "name": "Leyndell Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/50/ER_Icon_Armor_Leyndell_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Leyndell_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 7.1,
@@ -12283,7 +12421,7 @@ export const armours: Armour[] =[
     "id": "1791100",
     "name": "Leyndell Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/90/ER_Icon_Armor_Leyndell_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Leyndell_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 12,
@@ -12307,7 +12445,7 @@ export const armours: Armour[] =[
     "id": "1800000",
     "name": "Redmane Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a0/ER_Icon_Armor_Redmane_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Redmane_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 5,
       "strike": 4,
@@ -12331,7 +12469,7 @@ export const armours: Armour[] =[
     "id": "1800100",
     "name": "Redmane Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/38/ER_Icon_Armor_Redmane_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Redmane_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.4,
@@ -12355,7 +12493,7 @@ export const armours: Armour[] =[
     "id": "1800200",
     "name": "Redmane Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ef/ER_Icon_Armor_Redmane_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Redmane_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.5,
       "strike": 2.8,
@@ -12379,7 +12517,7 @@ export const armours: Armour[] =[
     "id": "1800300",
     "name": "Redmane Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/78/ER_Icon_Armor_Redmane_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Redmane_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.5,
@@ -12403,7 +12541,7 @@ export const armours: Armour[] =[
     "id": "1801100",
     "name": "Redmane Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/47/ER_Icon_Armor_Redmane_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Redmane_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 11,
@@ -12427,7 +12565,7 @@ export const armours: Armour[] =[
     "id": "1810100",
     "name": "Mausoleum Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/08/ER_Icon_Armor_Mausoleum_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Mausoleum_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 11.4,
@@ -12451,7 +12589,7 @@ export const armours: Armour[] =[
     "id": "1810200",
     "name": "Mausoleum Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/98/ER_Icon_Armor_Mausoleum_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Mausoleum_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 2.8,
@@ -12475,7 +12613,7 @@ export const armours: Armour[] =[
     "id": "1810300",
     "name": "Mausoleum Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6e/ER_Icon_Armor_Mausoleum_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Mausoleum_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 6.5,
@@ -12499,7 +12637,7 @@ export const armours: Armour[] =[
     "id": "1811100",
     "name": "Mausoleum Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/07/ER_Icon_Armor_Mausoleum_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Mausoleum_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 11,
@@ -12523,7 +12661,7 @@ export const armours: Armour[] =[
     "id": "1820000",
     "name": "Haligtree Knight Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a0/ER_Icon_Armor_Haligtree_Knight_Helm.png/",
+    "image": "/equipment_images/armours/Haligtree_Knight_Helm.webp",
     "dmgNegation": {
       "physical": 4.8,
       "strike": 4.4,
@@ -12551,7 +12689,7 @@ export const armours: Armour[] =[
     "id": "1820100",
     "name": "Haligtree Knight Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/42/ER_Icon_Armor_Haligtree_Knight_Armor.png/",
+    "image": "/equipment_images/armours/Haligtree_Knight_Armor.webp",
     "dmgNegation": {
       "physical": 13.5,
       "strike": 12.4,
@@ -12575,7 +12713,7 @@ export const armours: Armour[] =[
     "id": "1820200",
     "name": "Haligtree Knight Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a5/ER_Icon_Armor_Haligtree_Knight_Gauntlets.png/",
+    "image": "/equipment_images/armours/Haligtree_Knight_Gauntlets.webp",
     "dmgNegation": {
       "physical": 3.3,
       "strike": 3.1,
@@ -12599,7 +12737,7 @@ export const armours: Armour[] =[
     "id": "1820300",
     "name": "Haligtree Knight Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/cf/ER_Icon_Armor_Haligtree_Knight_Greaves.png/",
+    "image": "/equipment_images/armours/Haligtree_Knight_Greaves.webp",
     "dmgNegation": {
       "physical": 7.7,
       "strike": 7.1,
@@ -12623,7 +12761,7 @@ export const armours: Armour[] =[
     "id": "1821100",
     "name": "Haligtree Knight Armor (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/9b/ER_Icon_Armor_Haligtree_Knight_Armor_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Haligtree_Knight_Armor_(Altered).webp",
     "dmgNegation": {
       "physical": 13.1,
       "strike": 12,
@@ -12647,7 +12785,7 @@ export const armours: Armour[] =[
     "id": "1830000",
     "name": "Foot Soldier Cap",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/9/90/ER_Icon_Armor_Foot_Soldier_Cap.png/",
+    "image": "/equipment_images/armours/Foot_Soldier_Cap.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.6,
@@ -12671,7 +12809,7 @@ export const armours: Armour[] =[
     "id": "1830100",
     "name": "Chain-Draped Tabard",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/5f/ER_Icon_Armor_Chain-Draped_Tabard.png/",
+    "image": "/equipment_images/armours/Chain-Draped_Tabard.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 10.2,
@@ -12695,7 +12833,7 @@ export const armours: Armour[] =[
     "id": "1830200",
     "name": "Foot Soldier Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e9/ER_Icon_Armor_Foot_Soldier_Gauntlets.png/",
+    "image": "/equipment_images/armours/Foot_Soldier_Gauntlets.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 2.3,
@@ -12719,7 +12857,7 @@ export const armours: Armour[] =[
     "id": "1830300",
     "name": "Foot Soldier Greaves",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b9/ER_Icon_Armor_Foot_Soldier_Greaves.png/",
+    "image": "/equipment_images/armours/Foot_Soldier_Greaves.webp",
     "dmgNegation": {
       "physical": 5.4,
       "strike": 5.8,
@@ -12743,7 +12881,7 @@ export const armours: Armour[] =[
     "id": "1840000",
     "name": "Foot Soldier Helmet",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/22/ER_Icon_Armor_Foot_Soldier_Helmet.png/",
+    "image": "/equipment_images/armours/Foot_Soldier_Helmet.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.4,
@@ -12767,7 +12905,7 @@ export const armours: Armour[] =[
     "id": "1840100",
     "name": "Foot Soldier Tabard",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/ac/ER_Icon_Armor_Foot_Soldier_Tabard.png/",
+    "image": "/equipment_images/armours/Foot_Soldier_Tabard.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 9.5,
@@ -12791,7 +12929,7 @@ export const armours: Armour[] =[
     "id": "1850000",
     "name": "Gilded Foot Soldier Cap",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/48/ER_Icon_Armor_Gilded_Foot_Soldier_Cap.png/",
+    "image": "/equipment_images/armours/Gilded_Foot_Soldier_Cap.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.8,
@@ -12815,7 +12953,7 @@ export const armours: Armour[] =[
     "id": "1850100",
     "name": "Leather-Draped Tabard",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/43/ER_Icon_Armor_Leather-Draped_Tabard.png/",
+    "image": "/equipment_images/armours/Leather-Draped_Tabard.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 10.9,
@@ -12839,7 +12977,7 @@ export const armours: Armour[] =[
     "id": "1860000",
     "name": "Foot Soldier Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/4d/ER_Icon_Armor_Foot_Soldier_Helm.png/",
+    "image": "/equipment_images/armours/Foot_Soldier_Helm.webp",
     "dmgNegation": {
       "physical": 3.6,
       "strike": 3.4,
@@ -12863,7 +13001,7 @@ export const armours: Armour[] =[
     "id": "1860100",
     "name": "Scarlet Tabard",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/32/ER_Icon_Armor_Scarlet_Tabard.png/",
+    "image": "/equipment_images/armours/Scarlet_Tabard.webp",
     "dmgNegation": {
       "physical": 10.2,
       "strike": 9.5,
@@ -12887,7 +13025,7 @@ export const armours: Armour[] =[
     "id": "1870100",
     "name": "Bloodsoaked Tabard",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a6/ER_Icon_Armor_Bloodsoaked_Tabard.png/",
+    "image": "/equipment_images/armours/Bloodsoaked_Tabard.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 9.5,
@@ -12911,7 +13049,7 @@ export const armours: Armour[] =[
     "id": "1880000",
     "name": "Sacred Crown Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c2/ER_Icon_Armor_Sacred_Crown_Helm.png/",
+    "image": "/equipment_images/armours/Sacred_Crown_Helm.webp",
     "dmgNegation": {
       "physical": 3.4,
       "strike": 3.8,
@@ -12939,7 +13077,7 @@ export const armours: Armour[] =[
     "id": "1880100",
     "name": "Ivory-Draped Tabard",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/2/23/ER_Icon_Armor_Ivory-Draped_Tabard.png/",
+    "image": "/equipment_images/armours/Ivory-Draped_Tabard.webp",
     "dmgNegation": {
       "physical": 9.5,
       "strike": 10.9,
@@ -12963,7 +13101,7 @@ export const armours: Armour[] =[
     "id": "1890000",
     "name": "Omensmirk Mask",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/b2/ER_Icon_Armor_Omensmirk_Mask.png/",
+    "image": "/equipment_images/armours/Omensmirk_Mask.webp",
     "dmgNegation": {
       "physical": 3.1,
       "strike": 2.8,
@@ -12991,7 +13129,7 @@ export const armours: Armour[] =[
     "id": "1890100",
     "name": "Omenkiller Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/07/ER_Icon_Armor_Omenkiller_Robe.png/",
+    "image": "/equipment_images/armours/Omenkiller_Robe.webp",
     "dmgNegation": {
       "physical": 8.8,
       "strike": 8,
@@ -13015,7 +13153,7 @@ export const armours: Armour[] =[
     "id": "1890200",
     "name": "Omenkiller Long Gloves",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/71/ER_Icon_Armor_Omenkiller_Long_Gloves.png/",
+    "image": "/equipment_images/armours/Omenkiller_Long_Gloves.webp",
     "dmgNegation": {
       "physical": 2.1,
       "strike": 1.9,
@@ -13039,7 +13177,7 @@ export const armours: Armour[] =[
     "id": "1890300",
     "name": "Omenkiller Boots",
     "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a6/ER_Icon_Armor_Omenkiller_Boots.png/",
+    "image": "/equipment_images/armours/Omenkiller_Boots.webp",
     "dmgNegation": {
       "physical": 5,
       "strike": 4.5,
@@ -13063,7 +13201,7 @@ export const armours: Armour[] =[
     "id": "1900000",
     "name": "Ash-of-War Scarab",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/cd/ER_Icon_Armor_Ash-of-War_Scarab.png/",
+    "image": "/equipment_images/armours/Ash-of-War_Scarab.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 4,
@@ -13098,7 +13236,7 @@ export const armours: Armour[] =[
     "id": "1901000",
     "name": "Incantation Scarab",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/d4/ER_Icon_Armor_Incantation_Scarab.png/",
+    "image": "/equipment_images/armours/Incantation_Scarab.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 4,
@@ -13133,7 +13271,7 @@ export const armours: Armour[] =[
     "id": "1902000",
     "name": "Glintstone Scarab",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/0/0c/ER_Icon_Armor_Glintstone_Scarab.png/",
+    "image": "/equipment_images/armours/Glintstone_Scarab.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 4,
@@ -13169,7 +13307,7 @@ export const armours: Armour[] =[
     "id": "1910000",
     "name": "Crimson Tear Scarab",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/af/ER_Icon_Armor_Crimson_Tear_Scarab.png/",
+    "image": "/equipment_images/armours/Crimson_Tear_Scarab.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 4,
@@ -13204,7 +13342,7 @@ export const armours: Armour[] =[
     "id": "1920000",
     "name": "Cerulean Tear Scarab",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e0/ER_Icon_Armor_Cerulean_Tear_Scarab.png/",
+    "image": "/equipment_images/armours/Cerulean_Tear_Scarab.webp",
     "dmgNegation": {
       "physical": 3.8,
       "strike": 4,
@@ -13239,7 +13377,7 @@ export const armours: Armour[] =[
     "id": "1930100",
     "name": "Deathbed Dress",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f1/ER_Icon_Armor_Deathbed_Dress.png/",
+    "image": "/equipment_images/armours/Deathbed_Dress.webp",
     "dmgNegation": {
       "physical": 0.6,
       "strike": 2.7,
@@ -13264,7 +13402,7 @@ export const armours: Armour[] =[
     "id": "1940000",
     "name": "Fia's Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/ec/ER_Icon_Armor_Fia%27s_Hood.png/",
+    "image": "/equipment_images/armours/Fia's_Hood.webp",
     "dmgNegation": {
       "physical": 1.4,
       "strike": 1.8,
@@ -13288,7 +13426,7 @@ export const armours: Armour[] =[
     "id": "1940100",
     "name": "Fia's Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/6/6f/ER_Icon_Armor_Fia%27s_Robe.png/",
+    "image": "/equipment_images/armours/Fia's_Robe.webp",
     "dmgNegation": {
       "physical": 5.3,
       "strike": 6.1,
@@ -13312,7 +13450,7 @@ export const armours: Armour[] =[
     "id": "1941100",
     "name": "Fia's Robe (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/5/50/ER_Icon_Armor_Fia%27s_Robe_%28Altered%29.png/",
+    "image": "/equipment_images/armours/Fia's_Robe_(Altered).webp",
     "dmgNegation": {
       "physical": 2.7,
       "strike": 4.2,
@@ -13336,7 +13474,7 @@ export const armours: Armour[] =[
     "id": "1980000",
     "name": "Highwayman Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/1/16/ER_Icon_Armor_Highwayman_Hood.png/",
+    "image": "/equipment_images/armours/Highwayman_Hood.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.6,
@@ -13360,7 +13498,7 @@ export const armours: Armour[] =[
     "id": "1980100",
     "name": "Highwayman Cloth Armor",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/7d/ER_Icon_Armor_Highwayman_Cloth_Armor.png/",
+    "image": "/equipment_images/armours/Highwayman_Cloth_Armor.webp",
     "dmgNegation": {
       "physical": 8,
       "strike": 10.2,
@@ -13384,7 +13522,7 @@ export const armours: Armour[] =[
     "id": "1980200",
     "name": "Highwayman Gauntlets",
     "category": "Arms",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/b/bd/ER_Icon_Armor_Highwayman_Gauntlets.png/",
+    "image": "/equipment_images/armours/Highwayman_Gauntlets.webp",
     "dmgNegation": {
       "physical": 1.9,
       "strike": 2.5,
@@ -13408,7 +13546,7 @@ export const armours: Armour[] =[
     "id": "1990000",
     "name": "High Page Hood",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3e/ER_Icon_Armor_High_Page_Hood.png/",
+    "image": "/equipment_images/armours/High_Page_Hood.webp",
     "dmgNegation": {
       "physical": 0.9,
       "strike": 1.8,
@@ -13432,7 +13570,7 @@ export const armours: Armour[] =[
     "id": "1990100",
     "name": "High Page Clothes",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e3/ER_Icon_Armor_High_Page_Clothes.png/",
+    "image": "/equipment_images/armours/High_Page_Clothes.webp",
     "dmgNegation": {
       "physical": 5.5,
       "strike": 6.9,
@@ -13456,7 +13594,7 @@ export const armours: Armour[] =[
     "id": "1991100",
     "name": "High Page Clothes (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/f/f3/ER_Icon_Armor_High_Page_Clothes_%28Altered%29.png/",
+    "image": "/equipment_images/armours/High_Page_Clothes_(Altered).webp",
     "dmgNegation": {
       "physical": 4.4,
       "strike": 6.3,
@@ -13480,7 +13618,7 @@ export const armours: Armour[] =[
     "id": "2000000",
     "name": "Rotten Duelist Helm",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/4/47/ER_Icon_Armor_Rotten_Duelist_Helm.png/",
+    "image": "/equipment_images/armours/Rotten_Duelist_Helm.webp",
     "dmgNegation": {
       "physical": 5.5,
       "strike": 4.6,
@@ -13505,7 +13643,7 @@ export const armours: Armour[] =[
     "id": "2000100",
     "name": "Rotten Gravekeeper Cloak",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/7/70/ER_Icon_Armor_Rotten_Gravekeeper_Cloak.png/",
+    "image": "/equipment_images/armours/Rotten_Gravekeeper_Cloak.webp",
     "dmgNegation": {
       "physical": 6.7,
       "strike": 6.7,
@@ -13528,8 +13666,7 @@ export const armours: Armour[] =[
   {
     "id": "2000300",
     "name": "Rotten Duelist Greaves",
-    "category": "Legs",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/d/dc/ER_Icon_Armor_Rotten_Duelist_Greaves.png/",
+    "image": "/equipment_images/armours/Rotten_Duelist_Greaves.webp",
     "dmgNegation": {
       "physical": 7.4,
       "strike": 6.2,
@@ -13548,13 +13685,14 @@ export const armours: Armour[] =[
     },
     "poise": 13,
     "effect": "The wearer becomes a slightly easier target for foes",
-    "weight": 7.3
+    "weight": 7.3,
+    "category": "Legs"
   },
   {
     "id": "2001100",
     "name": "Rotten Gravekeeper Cloak (Altered)",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/c/c9/ER_Icon_Armor_Rotten_Gravekeeper_Cloak_%28Altered%29_Type_B.png/",
+    "image": "/equipment_images/armours/Rotten_Gravekeeper_Cloak_(Altered).webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 6.1,
@@ -13579,7 +13717,7 @@ export const armours: Armour[] =[
     "id": "2010000",
     "name": "Mushroom Crown",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/a/a2/ER_Icon_Armor_Mushroom_Crown.png/",
+    "image": "/equipment_images/armours/Mushroom_Crown.webp",
     "dmgNegation": {
       "physical": 5.8,
       "strike": 5.9,
@@ -13604,7 +13742,7 @@ export const armours: Armour[] =[
     "id": "2020000",
     "name": "Black Dumpling",
     "category": "Head",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/e/e2/ER_Icon_Armor_Black_Dumpling.png/",
+    "image": "/equipment_images/armours/Black_Dumpling.webp",
     "dmgNegation": {
       "physical": 2.8,
       "strike": 3.1,
@@ -13629,7 +13767,7 @@ export const armours: Armour[] =[
     "id": "2030000",
     "name": "Lazuli Robe",
     "category": "Chest",
-    "image": "https://static.wikia.nocookie.net/eldenring/images/3/3d/ER_Icon_Armor_Lazuli_Robe.png/",
+    "image": "/equipment_images/armours/Lazuli_Robe.webp",
     "dmgNegation": {
       "physical": 6.1,
       "strike": 5.3,
