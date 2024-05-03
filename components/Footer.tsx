@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link"
 
 function Footer() {
@@ -11,23 +12,18 @@ function Footer() {
                     <br/>
                     <h4>Get in Touch:</h4>
                     <div className="contacts-container">
-                        <div>
-                            <i className="bi bi-discord"/>
-                            .shippi
-                        </div>
-                        <Link href="https://github.com/shippi" target="_blank">
-                            <i className="bi bi-github"/>
-                            /shippi
-                        </Link>
                         <Link href="https://www.reddit.com/user/shippiii/" target="_blank">
                             <i className="bi bi-reddit"/>
                             u/shippiii
                         </Link>
-
                     </div>
+                    <div style={{height: "20px"}}/>
+                    <small>
+                        Currently supports Elden Ring v1.10
+                    </small>
                 </div>
                 <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
-                Changelogs and Todos
+                <Link href={"/changelogs"}>Changelogs and Todos</Link>
                 <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
                 About
                 <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
@@ -35,6 +31,7 @@ function Footer() {
                 <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
                 Privacy
             </div>
+
         </div>
         </>
     )

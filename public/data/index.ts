@@ -13,7 +13,7 @@ import { attackElementsCorrect } from "./WeaponCalculations/attackElementCorrect
 import { calcCorrectGraph } from "./WeaponCalculations/calcCorrectGraph";
 import { multipliers } from "./WeaponCalculations/multipliers";
 import { weaponStats } from "./WeaponCalculations/weaponStats";
-
+import { changelogs } from "./changelogs";
 
 export {
     talismans,
@@ -30,5 +30,6 @@ export {
     attackElementsCorrect,
     calcCorrectGraph,
     multipliers,
-    weaponStats
+    weaponStats,
+    changelogs
 }

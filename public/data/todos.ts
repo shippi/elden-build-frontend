@@ -1,0 +1,5 @@
+export const todos = [
+    "Make the web application responsive",
+    "Implement effects and their changes for the following talismans: Blue Dancer Charm, Arrow String, and all the Scorpion Charms.",
+    "Create Terms and Privacy pages"
+]
