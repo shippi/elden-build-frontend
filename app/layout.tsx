@@ -1,10 +1,9 @@
 import './global.css'
-import { NavBar } from "@/components"
+import { Footer, NavBar } from "@/components"
 import { AuthContextProvider } from "@/context/AuthContext"
 
 export const metadata = {
   title: "Elden Builder",
-  visualViewport: "width=device-width, initial-scale=0.5"
 }
 
 export default function RootLayout({
@@ -16,8 +15,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AuthContextProvider>
-            <NavBar />  
+            <NavBar/>  
             {children}
+            <Footer/>
         </AuthContextProvider>
       </body>
     </html>

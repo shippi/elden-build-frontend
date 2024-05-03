@@ -47,6 +47,7 @@ import SortBy from "./UIElements/SortBy";
 import BuildsList from "./BuildsList";
 import BuildItem from "./UIElements/BuildItem";
 import Pagination from "./UIElements/Pagination";
+import Footer from "./Footer";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -98,5 +99,6 @@ export {
     SortBy,
     BuildsList,
     BuildItem,
-    Pagination
+    Pagination,
+    Footer
 }

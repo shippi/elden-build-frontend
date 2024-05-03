@@ -38,7 +38,8 @@ function Build({params: {id}}: Props) {
                 setLoading(false);
             })
         }
-
+        
+        setLoading(true);
         const timeout = setTimeout(() => {
             getBuild();
         }, 600);

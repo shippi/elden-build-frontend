@@ -1216,14 +1216,6 @@ export const talismans = [
       "weight": 0.7
     },
     {
-      "id": "6100",
-      "group": "6100",
-      "name": "Entwining Umbilical Cord",
-      "image": "/equipment_images/talismans/Entwining_Umbilical_Cord.webp",
-      "effect": "Changes demeanour of wearer's actions",
-      "weight": 0.5
-    },
-    {
       "id": "6110",
       "group": "6110",
       "name": "Ancestral Spirit's Horn",

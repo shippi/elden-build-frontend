@@ -8,14 +8,14 @@ function Loading({coverScreen} : Props) {
       {
         coverScreen ?
         <div className="loading-screen">
-          <div className="centered">
             <div className="loader">
               <span className="spinner"></span>
+              
             </div>
-          </div>
+            <div style={{height:"10vh"}}/>
         </div>
         :
-        <div className={"loading-container"}>
+        <div className="loading-container">
           <div className="loader">
             <span className="spinner"></span>
           </div>

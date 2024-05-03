@@ -75,7 +75,7 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
                 <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
 				        <SearchBar startSearch={search} submitSearch={submitSearch}/>
             </div>
-			<div style={{height: "24px", width:"100%"}}/>
+			<div style={{height: "40px", width:"100%"}}/>
 			{
 				isLoading ? 
 				<div style={{height: "80vh"}}><Loading/></div> :
@@ -84,13 +84,13 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
 			{
 				(buildsData.length > 0 && !isLoading) &&
 				<>
-				<div style={{height: "48px", width:"100%"}}/>
+				<div style={{height: "64px", width:"100%"}}/>
 				<Pagination 
 					numPages={pageCount} 
 					currPage={page || 1} 
 					onClick={paginationOnClick}
 				/>
-				<div style={{height: "128px", width:"100%"}}/>
+				<div style={{height: "64px", width:"100%"}}/>
 				</>  
 			}
 			

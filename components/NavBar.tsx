@@ -26,7 +26,7 @@ function NavBar() {
         <div className="navbar-buttons">
           <Link href="/builds" className={"navbar-btn" + (pathname == "/builds" ? " selected-page" : "")}>View Builds</Link>
           <Link href="/build-creator" className={"navbar-btn" + (pathname == "/build-creator" ? " selected-page" : "")}>Build Creator</Link>
-          <Link href="https://ko-fi.com/shippi" target=""className="navbar-btn">Donate</Link>
+          <Link href="https://ko-fi.com/shippi" target="_blank"className="navbar-btn">Donate</Link>
           {
             username ?
             <>
