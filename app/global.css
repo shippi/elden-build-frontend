@@ -571,6 +571,10 @@ input[type="checkbox"]:disabled {
   background-color: #1f1b14;
 }
 
+.footer a:hover {
+  color: var(--gold);
+}
+
 .footer * {
   font-family: "Inter", sans-serif !important;
 }
@@ -586,6 +590,27 @@ input[type="checkbox"]:disabled {
   min-width: 1500px;
 }
 
+.contact {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.contacts-container {
+  display: flex;
+  column-gap: 32px;
+}
+
+.contacts-container i {
+  font-size: 24px;
+}
+
+.contacts-container a,
+.contacts-container div {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
 
 /**/
 .user-dropdown-container {
