@@ -174,9 +174,9 @@ input[type="checkbox"]:disabled {
 }
 
 /*changelogs page styling*/
-.changelogs .page-content {
+.changelogs .page-content,
+.about .page-content {
   align-items: start;
-  min-height: 700px;
 }
 
 .changelogs .list {
@@ -184,6 +184,12 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   row-gap: 20px;
   padding: 20px;
+}
+
+/*about page styling*/
+.about p {
+  padding: 20px;
+  font-family: "Inter", sans-serif !important;
 }
 
 /**/
@@ -255,7 +261,7 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   align-items: center;
   width: 70%;
-  min-height: 93vh;
+  min-height: 1000px;
   margin: auto;
   min-width: 1500px;
 }

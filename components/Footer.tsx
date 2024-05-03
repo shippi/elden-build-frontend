@@ -25,8 +25,6 @@ function Footer() {
                 <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
                 <Link href={"/changelogs"}>Changelogs and Todos</Link>
                 <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
-                About
-                <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
                 Terms
                 <div style={{borderLeft: "1px solid gray", height:"20px"}}/>
                 Privacy
