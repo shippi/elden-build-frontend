@@ -48,6 +48,7 @@ import BuildsList from "./BuildsList";
 import BuildItem from "./UIElements/BuildItem";
 import Pagination from "./UIElements/Pagination";
 import Footer from "./Footer";
+import ResetPasswordModal from "./Modals/ResetPasswordModal";
 
 // index.ts file is used to export all components for ease of importing
 export {
@@ -100,5 +101,6 @@ export {
     BuildsList,
     BuildItem,
     Pagination,
-    Footer
+    Footer,
+    ResetPasswordModal
 }

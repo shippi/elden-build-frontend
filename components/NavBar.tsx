@@ -3,11 +3,11 @@ import { usePathname } from 'next/navigation'
 import Link from "next/link"
 import { AuthContext } from '@/context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
-import { LoginModal, SignUpModal, SignUpSuccessModal, UserDropdown } from '.';
+import { LoginModal, ResetPasswordModal, SignUpModal, SignUpSuccessModal, UserDropdown } from '.';
 
 function NavBar() {
   const pathname = usePathname();
-  const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, currentUser, username} = useContext(AuthContext);
+  const {signUpOpened, setSignUpOpened, signUpSuccessOpened, loginOpened, setLoginOpened, resetOpened, setResetOpened, currentUser, username} = useContext(AuthContext);
   const [userDropdownOpened, setUserDropdownOpened] = useState(false);
   
   // hook that closes the user dropdown if page or current user is changed
@@ -21,6 +21,7 @@ function NavBar() {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     {signUpOpened ? <SignUpModal/> : signUpSuccessOpened ? <SignUpSuccessModal/> : loginOpened && <LoginModal/>}
     {userDropdownOpened && <UserDropdown onClickOutside={() => setUserDropdownOpened(false)}/>}
+    {resetOpened && <ResetPasswordModal/>}
     <div className="navbar">
         <Link href="/" className="logo">ELDEN BUILDER</Link>
         <div className="navbar-buttons">
