@@ -8,7 +8,7 @@ import { delay } from "@/utils";
 import { useRouter } from "next/navigation";
 
 function LoginModal() {
-    const {setLoginOpened, setSignUpOpened} = useContext(AuthContext);
+    const {setLoginOpened, setSignUpOpened, setResetOpened} = useContext(AuthContext);
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [usernameInput, setUsernameInput] = useState<string>("");
     const [passwordInput, setPasswordInput] = useState<string>("");
@@ -28,7 +28,7 @@ function LoginModal() {
         e.preventDefault();
         setError("");
         setLoading(true);
-        delay(1000);
+        await delay(500);
         await signInWithEmailAndPassword(auth, usernameInput, passwordInput)
         .then(async res => {
             setLoginOpened(false);
@@ -59,7 +59,11 @@ function LoginModal() {
                         <input type="text" value={usernameInput} onChange={e => setUsernameInput(e.target.value)} required/>
                     </div>
                     <div className="form-group">
-                        <label>Password</label>
+                        <div>
+                            <label>Password</label>
+                            <span className="click-here" style={{fontSize: "12px", fontWeight: "500"}} onClick={() => { setLoginOpened(false); setResetOpened(true); }}>Forgot password?</span>
+                        </div>
+                        
                         <div className="password-container">
                             <input type={passwordVisible ? "text" : "password"} value={passwordInput} onChange={e => setPasswordInput(e.target.value)} required />
                             <i className={"fa" + (passwordVisible ? " fa-eye-slash" : " fa-eye")} aria-hidden="true" onClick={() => setPasswordVisible(!passwordVisible)}/>
@@ -68,7 +72,7 @@ function LoginModal() {
                     <span className="error">{error}</span>
                     <button type="submit" className={!(passwordInput && usernameInput) ? "disabled" : ""} disabled={loading}>{loading ? <span className="spinner"></span> : "Log In"}</button>
                     <div>
-                        Don't have an account? <span className="click-here" onClick={handleClick}>Click here to sign up.</span>
+                        Don't have an account? <span className="click-here" onClick={handleClick}>Sign up.</span>
                     </div>
                 </form>
 

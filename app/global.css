@@ -747,22 +747,24 @@ input[type="checkbox"]:disabled {
 
 .signup-form,
 .modal-content {
-
   display: flex;
   flex-direction: column;
   row-gap: 22px;
   padding: 0px 25px 25px 25px;
 }
+
 .modal-content {
   width: fit-content;
 }
+
 .click-here {
   color: var(--gold);
-  text-decoration: underline;
+
 }
 
 .click-here:hover {
   cursor: pointer;
+  color: var(--dark-gold);
 }
 
 .form-group {
@@ -861,6 +863,15 @@ input[type="checkbox"]:disabled {
   height: 33px;
   background-color: #121212;
   border: var(--grey-border);
+}
+
+.reset-message * ,
+.reset-message {
+  font-weight: 400;
+}
+
+.reset-message span {
+  font-weight: 500;
 }
 
 .build-name {
