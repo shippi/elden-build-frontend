@@ -1,6 +1,12 @@
 import { changelogs } from "@/public/data"
 import { todos } from "@/public/data/todos"
 
+import { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+  title: 'Elden Builder - Changelogs & Todos',
+};
+
 function Changelogs() {
   return (
     <div className="changelogs">

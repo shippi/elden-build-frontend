@@ -32,7 +32,9 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
 	const submitSearch = (search: string) => {
 		router.push(`/i/bookmarks?page=${page}&search=${search}`)
 	}
-
+	useEffect(() => {
+		document.title =  `Elden Builder - Bookmarks`
+	}, []);
 	useEffect(() => {
 		const getBuilds = async () => {
 			await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser?.uid}/bookmarks?page=${page}&search=${search}`, {

@@ -42,7 +42,9 @@ function BuildPage({ buildData } : Props) {
     const selectedBolts = build.selectedBolts.map((bolt: string) => getItemFromName(bolt, bolts));
     const selectedSpells = build.selectedSpells.map((spell: string) => getItemFromName(spell, spells));
     
-    useEffect(() => {
+    useEffect(() => {    
+        document.title =  `Elden Builder - ${name} - by ${creatorName}`
+
         const addView = async() => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${buildData.id}/view-count`, {
                 method: "POST",

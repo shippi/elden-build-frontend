@@ -35,6 +35,10 @@ function Builds({searchParams: {page, sort, search}} : Props) {
 	}
 
 	useEffect(() => {
+		document.title =  `Elden Builder - View Builds`
+	}, []);
+
+	useEffect(() => {
 		const getBuilds = async () => {
 			await fetch(process.env.NEXT_PUBLIC_API_URL + `builds?page=${page}&sort=${sort}&search=${search}`, {
 				method: "GET",
