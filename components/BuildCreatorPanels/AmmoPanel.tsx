@@ -23,7 +23,7 @@ function AmmoPanel() {
 
     return (
         <div>
-            <PanelTitle text="Ammo" img="icons/ammo.png"/>
+            <PanelTitle text="Ammo" img="/icons/ammo.png"/>
             <div className="ammo-panel">
                 
                 {

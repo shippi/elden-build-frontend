@@ -8,6 +8,7 @@ import DisplayPhysick from "./BuildsPanels/DisplayPhysick"
 import { crystalTears } from "@/public/data/Equipment/crystalTears"
 import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "@/context/AuthContext"
+import { useWindowSizeChange } from "@/hooks"
 
 interface Props {
     buildData: any
@@ -24,6 +25,8 @@ function BuildPage({ buildData } : Props) {
     const [likesCount, setLikesCount] = useState(buildData.likes || 0);
     const [liked, setLiked] = useState(buildData.liked || false);
     const [bookmarked, setBookmarked] = useState(buildData.bookmarked || false);
+
+    const [pageWidth, setPageWidth] = useState(0);
 
     const selectedClass = getItemFromName(build.selectedClass, classes);
     const selectedArmours = build.selectedArmours.map((armour: string) => getItemFromName(armour, armours));
@@ -54,8 +57,8 @@ function BuildPage({ buildData } : Props) {
         }, 5000);
       
         return () => clearTimeout(timeout);
-    }, [])
-    
+    }, []);
+
     const onLikeClicked = () => {
         const addLike = async() => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser.uid}/likes`, {

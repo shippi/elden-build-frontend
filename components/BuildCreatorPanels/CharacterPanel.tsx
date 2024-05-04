@@ -57,7 +57,7 @@ function CharacterPanel() {
       </div>
     </div>
     <div style={{height:"2vh"}}/>
-    <PanelTitle text="Attribute Points" img="icons/attribute-points.png"/>
+    <PanelTitle text="Attribute Points" img="/icons/attribute-points.png"/>
     <div className="character-panel">
       {/* div for modifying character stats */}
       <div className="character-stats">

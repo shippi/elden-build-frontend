@@ -35,7 +35,7 @@ function ArmourPanel() {
 
     return (
         <div>
-        <PanelTitle text="Armour" img="icons/armour.png"/>
+        <PanelTitle text="Armour" img="/icons/armour.png"/>
         <div className="armour-panel">
             {/* div for selecting chest armour */}
             <div>

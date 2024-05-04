@@ -19,7 +19,7 @@ function GreatRunesPanel() {
 
     return (
         <div>
-        <PanelTitle text={"Great Runes"} img="icons/great-runes.png" />
+        <PanelTitle text={"Great Runes"} img="/icons/great-runes.png" />
         <div className="great-runes-panel">
             <DropDown items={greatRunes} index={index} isNullable={true} onChange={handleIndexChange} hasImages={false} />
             <div className="active-effects" style={{marginTop: "15px"}}>

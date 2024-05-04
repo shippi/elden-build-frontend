@@ -19,7 +19,7 @@ function PhysickPanel() {
 
   return (
     <div>
-    <PanelTitle text="Flask of Wondrous Physick" img="icons/physick.png"/>
+    <PanelTitle text="Flask of Wondrous Physick" img="/icons/physick.png"/>
     <div className="physick-panel">
         {
           indices.map((i, j) => (

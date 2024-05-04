@@ -31,18 +31,20 @@ function DeleteButton() {
             setOldBuildName("");
             setSelectedIndex(-1);
             setSelectToggle(!selectToggle);
+            await delay(1);
+            setMessage("Build deleted succesfully!");
           }
           catch (error) {
             setIsError(true);
             setMessage("Server error.");
-            await delay(2510);
-            setSelectToggle(!selectToggle);
-            setSaveLoading(false);
           }
+          await delay(2510);
+          setSelectToggle(!selectToggle);
+          setSaveLoading(false);
         }
     
         setConfirmationOpen(true);
-        setConfirmationMessage(["Are you sure you want to delete the following build? (this action cannot be undone): ", 
+        setConfirmationMessage(["Are you sure you want to delete this build? (this action cannot be undone): ", 
                                 <><br/><br/><span className="build-name">{buildName}</span></>, ""]);
         setConfirmationFunction(() => deleteBuild);
     }

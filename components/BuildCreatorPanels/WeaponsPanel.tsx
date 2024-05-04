@@ -149,7 +149,7 @@ function WeaponsPanel() {
 
     return (
         <div>
-        <PanelTitle text="Weapons" img="icons/weapons.png"/>
+        <PanelTitle text="Weapons" img="/icons/weapons.png"/>
         <div className="weapons-panel">
             {/* div for selecting weapons*/}
                 <div className="selectors-container">

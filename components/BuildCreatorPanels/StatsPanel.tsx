@@ -21,7 +21,7 @@ function StatsPanel() {
 
   return (
     <div>
-    <PanelTitle text="Base Stats" img="icons/base-stats.png"/>
+    <PanelTitle text="Base Stats" img="/icons/base-stats.png"/>
     <div className="stats-panel">
       <div>
         <span>HP</span> {hp}

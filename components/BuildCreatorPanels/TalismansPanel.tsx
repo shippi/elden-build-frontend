@@ -18,7 +18,7 @@ function TalismansPanel() {
 
     return (
         <div>
-        <PanelTitle text="Talismans" img="icons/talismans.png"/>
+        <PanelTitle text="Talismans" img="/icons/talismans.png"/>
         <div className="talismans-panel">
         
             {/* div for selecting talismans*/}

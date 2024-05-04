@@ -324,7 +324,7 @@ input[type="checkbox"]:disabled {
 }
 
 .dropdown-container .dropdown ul {
-  box-shadow: 0 0 50px 1px rgba(128, 128, 128, 0.252);
+  /*box-shadow: 0 0 50px 1px rgba(128, 128, 128, 0.252);*/
   width: 180px;
   background-color: var(--bg-color);
   border: var(--grey-border);
@@ -654,6 +654,10 @@ input[type="checkbox"]:disabled {
   z-index: 5;
 }
 
+.user-dropdown * {
+  font-family: "Inter", "sans-serif";
+}
+
 .build-item .separator {
   width: 100%;
   height: 8px;
@@ -737,7 +741,7 @@ input[type="checkbox"]:disabled {
 
 .modal-container {
   padding: 10px;
-  width: 440px;
+  width: 450px;
   border: var(--grey-border);
   background-color: var(--bg-color);
 }
@@ -755,7 +759,7 @@ input[type="checkbox"]:disabled {
 }
 
 .modal-content {
-  width: fit-content;
+
 }
 
 .click-here {
@@ -876,10 +880,10 @@ input[type="checkbox"]:disabled {
 }
 
 .build-name {
+  word-wrap: break-word;
   font-size: 18px;
-  display: table;
-  margin: 0 auto;
   color: var(--gold);
+  max-width: 440px;
 }
 
 /*styling for build creator page*/
@@ -1075,6 +1079,7 @@ input[type="checkbox"]:disabled {
 
 /*styling for status modal*/
 .status-modal {
+  opacity: 0;
   top: 60px;
   left: 50%;
   transform: translate(-50%, 0);

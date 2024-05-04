@@ -19,7 +19,7 @@ function DefencesPanel() {
 
   return (
     <div>
-    <PanelTitle text="Defence/Damage Negation" img="icons/defence.png"/>
+    <PanelTitle text="Defence/Damage Negation" img="/icons/defence.png"/>
     <div className="defences-panel">
       <table>
         <thead>

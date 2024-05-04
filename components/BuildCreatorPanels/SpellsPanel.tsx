@@ -19,7 +19,7 @@ function SpellsPanel() {
   }
   return (
     <div>
-    <PanelTitle text="Spells" img="icons/spells.png"/>
+    <PanelTitle text="Spells" img="/icons/spells.png"/>
         <div className="spells-panel">
           {
             spellIndices.map((spellIndex, i) => {

@@ -12,7 +12,7 @@ function AttackPowerPanel() {
 
     return (
     <div>
-    <PanelTitle text="Attack Power/Spell Scaling" img="icons/attack-power.png"/>
+    <PanelTitle text="Attack Power/Spell Scaling" img="/icons/attack-power.png"/>
     
     <div className="attack-power-panel">
         {
