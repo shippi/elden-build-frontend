@@ -5,7 +5,7 @@ import { armours, arrows, ashes, bolts, classes, greatRunes, spells, talismans, 
 import { getItemFromName } from "@/helpers/BuildCreatorHelper";
 import { crystalTears } from "@/public/data/Equipment/crystalTears";
 import { FilePanelContext } from "@/context/FilePanelContext";
-import { BuildNameInput, ConfirmationModal, DeleteButton, DescriptionInput, NewButton, SaveButton, ShareLink, VisibilityToggle } from "@/components";
+import { BuildNameInput, ConfirmationModal, DeleteButton, DescriptionInput, NewButton, SaveButton, ShareLink, StatusModal, VisibilityToggle } from "@/components";
 
 function FilePanel() {
   const { setSelectedClass, setSelectedArmours, setSelectedTalismans, setSelectedWeapons, setSelectedAshes, setSelectedWepLvls, setSelectedAffinities, setSelectedRune, setSelectedTears, setSelectedArrows, setSelectedBolts, 
@@ -68,14 +68,16 @@ function FilePanel() {
   return (
     <>
     {confirmationOpen && <ConfirmationModal/>}
+    {/*<StatusModal success={false} message={"Build Successfully Saved"}/>*/}
     <div className="file-panel">
+      
+      {message && <StatusModal success={!isError} message={message}/>}
 			<BuildNameInput />
       <VisibilityToggle />
 			<NewButton />
 			<SaveButton />
 			<DeleteButton />
       <ShareLink />
-      {message && <div className="message" style={{color: isError ? "red" : " white"}}>{message}</div>}
     </div>
     
     <DescriptionInput />

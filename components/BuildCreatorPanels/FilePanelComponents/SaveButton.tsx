@@ -50,10 +50,10 @@ function SaveButton() {
           return;
         }
     
-        if (buildName.length < 3) {
+        if (buildName.length < 3 || buildName.length > 64) {
           await delay(1);
           setIsError(true);
-          setMessage("Save failed. Build name must be at least 3 characters long.");
+          setMessage("Save failed. Build name must be between 3-64 characters long.");
           await delay(2510);
           setSaveLoading(false);
           return;
@@ -163,6 +163,7 @@ function SaveButton() {
           characterStats: characterStats,
           isPublic: isPublic
         });
+        await delay(1);
         setSaveable(false);
         setMessage("Build saved succesfully!");
         await delay(2510);

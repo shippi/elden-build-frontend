@@ -183,7 +183,8 @@ input[type="checkbox"]:disabled {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  padding: 20px;
+  padding: 20px 20px 20px 36px;
+
 }
 
 /*about page styling*/
@@ -261,7 +262,7 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   align-items: center;
   width: 70%;
-  min-height: 1000px;
+  min-height: 500px;
   margin: auto;
   min-width: 1500px;
 }
@@ -1071,6 +1072,29 @@ input[type="checkbox"]:disabled {
   border-bottom: var(--grey-border);
 }
 
+
+/*styling for status modal*/
+.status-modal {
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  flex-direction: row;
+  font-family: "Inter", "sans-serif";
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  background-color: #121212;
+  padding: 12px;
+  height: fit-content;
+  border-radius: 5px;
+  animation: drop 2.8s cubic-bezier(0.05, 1, 0.05, 1);
+}
+
 /*general styling for panels*/
 .character-panel,
 .great-runes-panel,
@@ -1505,6 +1529,17 @@ button[type="submit"] .disabled:hover {
   }
 }
 
+@keyframes drop {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -2vh);
+  }
+  33%, 66% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
 @keyframes rotation {
   0% {
       transform: rotate(0deg);
@@ -1521,7 +1556,6 @@ button[type="submit"] .disabled:hover {
   }
   33%, 66% { 
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

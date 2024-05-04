@@ -10513,6 +10513,7 @@ export const armours: Armour[] =[
     "statChanges": {
       "intelligence": 2
     },
+    "effect": "Increases intelligence",
     "weight": 8.1
   },
   {
@@ -10540,6 +10541,7 @@ export const armours: Armour[] =[
     "statChanges": {
       "strength": 2
     },
+    "effect": "Increases strength",
     "weight": 8.1
   },
   {
@@ -10567,6 +10569,7 @@ export const armours: Armour[] =[
     "statChanges": {
       "dexterity": 2
     },
+    "effect": "Increases dexterity",
     "weight": 8.1
   },
   {
@@ -10594,6 +10597,7 @@ export const armours: Armour[] =[
     "statChanges": {
       "faith": 2
     },
+    "effect": "Increases faith",
     "weight": 8.1
   },
   {
@@ -10621,6 +10625,7 @@ export const armours: Armour[] =[
     "statChanges": {
       "endurance": 2
     },
+    "effect": "Increases endurance",
     "weight": 8.1
   },
   {
@@ -10648,6 +10653,7 @@ export const armours: Armour[] =[
     "statChanges": {
       "arcane": 2
     },
+    "effect": "Increases arcane",
     "weight": 8.1
   },
   {
