@@ -3,7 +3,7 @@
 import { FormEvent, useContext, useState } from "react";
 import ExitButton from "../UIElements/ExitButton";
 import { AuthContext } from "@/context/AuthContext";
-import { validateEmail } from "@/helpers/SignUpHelper";
+import { checkEmailExists, validateEmail } from "@/helpers/SignUpHelper";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { delay } from "@/utils";
 
@@ -13,13 +13,22 @@ function ResetPasswordModal() {
 	const [usernameInput, setUsernameInput] = useState<string>("");
 	const [submitLoading, setSubmitLoading] = useState(false);
 	const [submitSuccess, setSubmitSuccess] = useState(false);
+	const [error, setError] = useState("");
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
+		setError("");
 		setSubmitLoading(true);
 		await delay(500); 
-		sendPasswordResetEmail(auth, usernameInput)
+		const validity = await checkEmailExists(usernameInput);
+
+		if (!validity) {
+			setError("There is no existing user with that email.");
+			setSubmitLoading(false)
+			return;
+		}
+
+		await sendPasswordResetEmail(auth, usernameInput)
 		.then(() => {
 			setSubmitSuccess(true);
 		})
@@ -39,7 +48,8 @@ function ResetPasswordModal() {
         	<form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>
 				<div className="form-group">
 					<div><label>Email</label></div>
-					<input type="text" value={usernameInput} onChange={e => setUsernameInput(e.target.value)} required/>
+					<input type="text" value={usernameInput} onChange={ e => { setUsernameInput(e.target.value); setError("")} } required/>
+					<span className="error">{error}</span>
 				</div>
 				<button 
 					type="submit" 
