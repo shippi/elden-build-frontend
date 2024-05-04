@@ -8,6 +8,9 @@ import { useContext, useEffect } from 'react';
 function BuildCreator() {
     const { loadingBuild } = useContext(BuildCreatorContext);
 
+    useEffect(() => {
+        document.title =  "Elden Builder - Build Creator"
+    }, [])
 
     return (
         <div className="build-creator">
