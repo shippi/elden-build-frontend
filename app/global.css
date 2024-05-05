@@ -140,13 +140,13 @@ input[type="checkbox"]:disabled {
 }
 
 .hero h1 {
+  font-weight: 550;
   font-size: 5vw;
   animation: rise 1s;
 }
 .hero h1 span {
   font-family: "Optimus Princeps";
   font-size: 4.4vw;
-  
 }
 .hero p {
   font-size: 1.5vw;
