@@ -436,6 +436,13 @@ input[type="checkbox"]:disabled {
   border-radius: 4px;
 }
 
+.build-item .column-separator {
+  height: 100px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 30%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 70%, rgba(0,0,0,0)) 1;
+}
+
 .build-item:hover {
   background-color:#333333;
 }
@@ -491,6 +498,9 @@ input[type="checkbox"]:disabled {
 @media only screen and (max-width: 624px) {
   .build-item h3 {
     font-size: 18px;
+  }
+  .build-item .column-separator {
+    height: 140px;
   }
   .build-item {
     font-size: 14px;
@@ -686,7 +696,7 @@ input[type="checkbox"]:disabled {
 
 @media only screen and (max-width: 680px) {
   .navbar-buttons .sign-up,
-  .column-separator {
+  .navbar-buttons .column-separator {
     display: none;
   }
 
@@ -738,7 +748,6 @@ input[type="checkbox"]:disabled {
   padding: 60px 0;
   margin: auto;
   width: 70vw;
-  min-width: 1500px;
 }
 
 .contact {
@@ -763,6 +772,23 @@ input[type="checkbox"]:disabled {
   column-gap: 10px;
 }
 
+@media only screen and (max-width: 1500px) {
+  .footer-content{
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer-content{
+    column-gap: 12px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .footer {
+    display: none;
+  }
+}
 /**/
 .user-dropdown-container {
   position: absolute;

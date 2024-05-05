@@ -159,7 +159,7 @@ function BuildItem({ build } : Props) {
                         ))
                     }
                 </div>
-                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
+                <div className="column-separator"/>
                 <div className="talismans">
                     {
                         selectedTalismans.map((talisman: Talisman, i: number) => (
@@ -170,7 +170,7 @@ function BuildItem({ build } : Props) {
                         ))
                     }
                 </div>
-                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
+                <div className="column-separator"/>
                 <div className="weapons">
                     {
                         selectedWeapons.map((weapon: Weapon, i: number) => (
@@ -181,7 +181,7 @@ function BuildItem({ build } : Props) {
                         ))
                     }
                 </div>
-                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
+                <div className="column-separator"/>
                 <div className="spells">
                     {
                         selectedSpells.map((spell: Item, i: number) => (

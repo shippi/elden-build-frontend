@@ -18,7 +18,7 @@ export default function RootLayout({
             <NavBar/>  
             <div style={{height: "24px"}}/>
             {children}
-            {/*<Footer/>*/}
+            <Footer/>
         </AuthContextProvider>
       </body>
     </html>
