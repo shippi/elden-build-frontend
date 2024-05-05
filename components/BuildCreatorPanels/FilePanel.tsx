@@ -64,7 +64,7 @@ function FilePanel() {
       resetBuild();
     }
     setSaveable(false);
-    setTimeout(() => setLoadingBuild(false), 750);
+    setLoadingBuild(false);
   }, [selectToggle]);
 
   return (

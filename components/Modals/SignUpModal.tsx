@@ -43,8 +43,9 @@ function SignUpModal() {
     try {
       setError("");
       setLoading(true);
+      await delay(1000);
       await signup(emailInput, usernameInput, passwordInput);
-      delay(1000);
+      
       setSignUpOpened(false);
       setSignUpSuccessOpened(true);
     }

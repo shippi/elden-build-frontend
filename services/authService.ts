@@ -16,6 +16,9 @@ export async function signup(email: string, username: string, password: string) 
             username: username,
             password: password
         })
+    })
+    .then(res => {
+        if (!res.ok) throw Error;
     });
 }
 
