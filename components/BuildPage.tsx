@@ -69,7 +69,7 @@ function BuildPage({ buildData } : Props) {
                     "Authorization" : `Bearer ${currentUser.accessToken}` 
                 },
                 body: JSON.stringify({
-                    build_id: build.id
+                    build_id: buildData.id
                 })
             })
             .catch();
@@ -81,7 +81,7 @@ function BuildPage({ buildData } : Props) {
                     "Authorization" : `Bearer ${currentUser.accessToken}` 
                 },
                 body: JSON.stringify({
-                    build_id: build.id
+                    build_id: buildData.id
                 })
             })
             .catch();
@@ -109,19 +109,19 @@ function BuildPage({ buildData } : Props) {
                     "Authorization" : `Bearer ${currentUser.accessToken}` 
                 },
                 body: JSON.stringify({
-                    build_id: build.id
+                    build_id: buildData.id
                 })
             })
             .catch();
         }
         const removeBookmark = async() => {
-            await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser?.uid}/bookmarks`, {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `users/${currentUser.uid}/bookmarks`, {
                 method: "DELETE",
                 headers: {
                     "Authorization" : `Bearer ${currentUser.accessToken}` 
                 },
                 body: JSON.stringify({
-                    build_id: build.id
+                    build_id: buildData.id
                 })
             })
             .catch();
