@@ -11,6 +11,7 @@ function ConfirmationModal() {
         <div className="modal-container">
           <ExitButton onClick={() => setConfirmationOpen(false)}/>
           <br/>
+          <br/>
           <div className="modal-content" style={{textAlign: "center"}}>
             <div>
             {confirmationMessage}
