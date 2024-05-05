@@ -12,6 +12,11 @@ function NavBar() {
   const [displayIcon, setDisplayIcon] = useState(false);
   const [userDropdownOpened, setUserDropdownOpened] = useState(false);
   
+  useEffect(() => {
+    if (window.innerWidth < 530) setDisplayIcon(true);
+    else setDisplayIcon(false);
+  }, []);
+
   // hook that closes the user dropdown if page or current user is changed
   useEffect(() => {
     setUserDropdownOpened(false);
@@ -39,7 +44,7 @@ function NavBar() {
             <i className="fa fa-pencil-square-o"/>
           </Link>
           <Link href="https://ko-fi.com/shippi" target="_blank" className="donate navbar-btn">
-            <img src="/icons/kofi.svg" width={displayIcon ? "28px" : "24px"}/>
+            <img src="/icons/kofi.svg"/>
           </Link>
           {
             username ?
