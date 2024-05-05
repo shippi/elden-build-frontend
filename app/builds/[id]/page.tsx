@@ -15,7 +15,9 @@ function Build({params: {id}}: Props) {
     const { currentUser } = useContext(AuthContext);
     const [buildData, setBuildData] = useState<any>();
     const [loading, setLoading] = useState(true);
-    
+    useEffect(() => {
+		document.title =  `Elden Builder - View Builds`
+	}, []);
     useEffect(() => {
         const getBuild = async() => {
             await fetch(process.env.NEXT_PUBLIC_API_URL + `builds/${id}`, {
