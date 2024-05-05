@@ -12,7 +12,7 @@ function FilePanel() {
           setSelectedSpells, setCharacterStats, setIsPublic, loadingBuild, setLoadingBuild, setSaveable, saveId, setCurrentBuild, resetBuild } 
          = useContext(BuildCreatorContext);
  
-  const { saveLoading, message, setMessage, isError, setIsError, selectedIndex, setSelectedIndex, builds,  selectToggle, confirmationOpen} = useContext(FilePanelContext);
+  const { setBuildName, setDescription, saveLoading, message, setMessage, isError, setIsError, selectedIndex, setSelectedIndex, builds,  selectToggle, confirmationOpen } = useContext(FilePanelContext);
 
   useEffect(() => {
     setSelectedIndex(builds.findIndex((build: any) => build.id == saveId));
@@ -59,6 +59,8 @@ function FilePanel() {
       });
     }
     else {
+      setBuildName("");
+      setDescription("");
       resetBuild();
     }
     setSaveable(false);

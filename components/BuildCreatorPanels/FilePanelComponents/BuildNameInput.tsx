@@ -9,12 +9,12 @@ import { delay } from "@/utils";
 import { useRef, useEffect, useContext, useState } from "react";
 
 function BuildNameInput() {
-    const { buildName, setBuildName, setDescription, setSaveId, saveable, loadingBuild, setLoadingBuild } = useContext(BuildCreatorContext);
+    const { setSaveId, saveable, loadingBuild, setLoadingBuild } = useContext(BuildCreatorContext);
     const { currentUser } = useContext(AuthContext);
-    const { message, saveLoading, builds, oldBuildName, selectedIndex, selectToggle, 
-            setSelectedIndex, setOldBuildName, setSelectToggle, setConfirmationOpen, 
-            setConfirmationMessage, setConfirmationFunction, setBuilds, setSaveLoading, 
-            setIsError, setMessage, setOldDescription } = useContext(FilePanelContext);
+    const { buildName, setBuildName, setDescription, message, saveLoading, builds, oldBuildName, 
+            selectedIndex, selectToggle, setSelectedIndex, setOldBuildName, setSelectToggle, 
+            setConfirmationOpen, setConfirmationMessage, setConfirmationFunction, setBuilds, 
+            setSaveLoading, setIsError, setMessage, setOldDescription } = useContext(FilePanelContext);
 
     const [buildNameWidth, setBuildNameWidth] = useState("");
     const [loadOpen, setLoadOpen] = useState(false);

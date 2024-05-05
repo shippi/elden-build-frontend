@@ -8,7 +8,10 @@ export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) =>
 
     const [message, setMessage] = useState("");
     const [isError, setIsError] = useState(false);
-  
+
+    const [buildName, setBuildName] = useState("");
+    const [description, setDescription] = useState("");
+
     const [oldBuildName, setOldBuildName] = useState("");
     const [oldDescription, setOldDescription] = useState("");
     const [builds, setBuilds] = useState<any[]>([]);
@@ -28,6 +31,10 @@ export const FilePanelContextProvider = ({ children }: PropsWithChildren<{}>) =>
     }, [confirmationOpen]);
 
     const value = {
+        buildName,
+        setBuildName,
+        description,
+        setDescription,
         saveLoading,
         setSaveLoading,
         message,

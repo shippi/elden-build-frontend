@@ -8,10 +8,10 @@ import { useContext } from "react";
 
 function SaveButton() {
     const { selectedClass, selectedArmours, selectedTalismans, selectedWeapons, selectedAshes, selectedWepLvls, selectedAffinities, selectedRune, selectedTears, selectedArrows, selectedBolts, selectedSpells, characterStats,
-            isPublic, loadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild, buildName, description} 
+            isPublic, loadingBuild, saveable, setSaveable, saveId, setSaveId, setCurrentBuild } 
             = useContext(BuildCreatorContext);
     
-    const { oldBuildName, oldDescription, saveLoading, setSaveLoading, setIsError, setMessage, setOldBuildName, setOldDescription } = useContext(FilePanelContext);
+    const { oldBuildName, oldDescription, saveLoading, setSaveLoading, setIsError, setMessage, setOldBuildName, setOldDescription, buildName, description } = useContext(FilePanelContext);
     const { currentUser } = useContext(AuthContext);
 
     let uid = "";

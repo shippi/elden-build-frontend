@@ -1,8 +1,9 @@
 import BuildCreatorContext from "@/context/BuildCreatorContext"
+import { FilePanelContext } from "@/context/FilePanelContext";
 import { useContext } from "react"
 
 function DescriptionInput() {
-    const { description, setDescription } = useContext(BuildCreatorContext);
+    const { description, setDescription } = useContext(FilePanelContext);
 
     return (
         <div className="description-container">
