@@ -46,6 +46,11 @@
 html {
   background-color: var(--bg-color);
   height: fit-content;
+  
+}
+
+body {
+  min-width: 324px;
 }
 
 label {
@@ -529,10 +534,10 @@ input[type="checkbox"]:disabled {
 /*styling for the navbar component*/
 .navbar {
   min-height: 50px;
-  padding-top: 15px;
+  padding-top: 8px;
+  min-width: 324px;
   margin: auto;
   width: 70vw;
-  min-width: 1500px;
   display: flex;
   justify-content: space-between;
   flex-wrap: row;
@@ -542,6 +547,10 @@ input[type="checkbox"]:disabled {
 .navbar * {
   font-family: "Poppins", sans-serif;
   font-style: normal;
+}
+
+.navbar i {
+  font-size: 20px;
 }
 
 .navbar-buttons {
@@ -560,9 +569,10 @@ input[type="checkbox"]:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 30px;
-  margin-right: 10px;
-  padding: 0 10px 10px 10px;
+  margin-left: 16px;
+  margin-right: 8px;
+  padding: 0 8px 4px 8px;
+  column-gap: 8px;
   font-size: 15px;
 }
 
@@ -572,7 +582,7 @@ input[type="checkbox"]:disabled {
 }
 
 .navbar-btn:last-child {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .selected-page {
@@ -580,9 +590,76 @@ input[type="checkbox"]:disabled {
   border-bottom: 1px var(--dark-gold) solid;
 }
 
-.logo {
+.logo::after {
+  content: "Elden Builder";
   font-family: "Optimus Princeps";
-  font-size: 35px;
+  font-size: 40px;
+}
+
+.navbar-buttons .view-builds::after {
+  content: "View Builds";
+}
+
+.navbar-buttons .creator::after {
+  content: "Build Creator";
+}
+
+.navbar-buttons .donate::after {
+  content: "Donate";
+}
+
+.column-separator {
+  border-left: var(--grey-border);
+  height: 25px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .navbar {
+    width: 100vw;
+  }
+  .logo::after {
+    padding-left: 8px;
+  }
+}
+
+@media only screen and (max-width: 864px) {
+  .navbar {
+    padding-top: 4px;
+  }
+  .logo::after {
+    content: "EB";
+    padding-right: 8px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .logo::after {
+    font-size: 36px;
+  }
+
+  .navbar-buttons .sign-up,
+  .column-separator {
+    display: none;
+  }
+
+  .navbar-buttons .view-builds::after {
+    content: "View";
+  }
+  
+  .navbar-buttons .creator::after {
+    content: "Creator";
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .navbar-btn i {
+    font-size: 24px;
+  }
+  .navbar-buttons .view-builds::after,
+  .navbar-buttons .creator::after,
+  .navbar-buttons .donate::after  {
+    content: "";
+  }
 }
 
 /*footer styling*/
@@ -640,7 +717,6 @@ input[type="checkbox"]:disabled {
   height: 300px;
   top: 60px;
   width: 70vw;
-  min-width: 1500px;
   z-index: 5;
   left: 50%;
   transform: translateX(-50%);
@@ -675,10 +751,9 @@ input[type="checkbox"]:disabled {
   padding: 8px 0;
 }
 
-@media (max-width: 1500px) {
+@media only screen and (max-width: 1280px) {
   .user-dropdown-container {
-    transform: none;
-    left: 0;
+    width: 100vw;
   }
 }
 
