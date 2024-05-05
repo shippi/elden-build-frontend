@@ -139,7 +139,7 @@ function BuildItem({ build } : Props) {
             
             </h3>
             
-            <div style={{display: "flex"}}>
+            <div style={{display: "flex", flexWrap: "wrap"}}>
                 Created by <div style={{width: "5px"}}/>
                 <strong>
                 {creatorName}

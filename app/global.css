@@ -227,6 +227,7 @@ input[type="checkbox"]:disabled {
   flex-direction: row;
   background: linear-gradient(90deg, rgba(89,83,61,0.8) 50%, rgba(0,0,0,0) 100%);
   padding: 5px;
+  min-width: 324px;
   column-gap: 20px;
   align-items: center;
   width: 100%;
@@ -275,7 +276,7 @@ input[type="checkbox"]:disabled {
 
 .header .search-box {
   height: 30px;
-  width: 600px;
+  width: 50vw;
   padding: 0;
 }
 
@@ -355,6 +356,9 @@ input[type="checkbox"]:disabled {
 }
 
 @media only screen and (max-width: 624px) {
+  .header h1 {
+    font-size: 24px;
+  }
   .dropdown-container .dropdown {
     right: 10px;
   }  
@@ -415,6 +419,7 @@ input[type="checkbox"]:disabled {
 
 /**/
 .build-item div,
+.build-item strong,
 .build-item {
   font-family: "Inter", sans-serif !important;
 }
@@ -427,6 +432,7 @@ input[type="checkbox"]:disabled {
   border: var(--grey-border);
   padding: 16px;
   width: 600px;
+  min-width: 324px;
   border-radius: 4px;
 }
 
@@ -456,7 +462,7 @@ input[type="checkbox"]:disabled {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  column-gap: 16px;
+  column-gap: 8px;
   padding: 8px 0;
 }
 
@@ -468,28 +474,38 @@ input[type="checkbox"]:disabled {
 .talismans,
 .weapons,
 .spells {
-  display: flex;
-  flex-wrap: wrap;
-  width: 78px;
-  column-gap: 8px;
-  row-gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4px;
+  grid-auto-rows: 45px;
 }
 
 .weapons {
-  width: 121px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .spells {
-  width: 165px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media only screen and (max-width: 624px) {
   .build-item h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
   .build-item {
     font-size: 14px;
     width: calc(100vw - 12px);
+  }
+  .armours,
+  .talismans {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .weapons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .spells {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -662,9 +678,6 @@ input[type="checkbox"]:disabled {
 }
 
 @media only screen and (max-width: 864px) {
-  .navbar {
-    padding-top: 4px;
-  }
   .logo::after {
     content: "EB";
     padding-right: 8px;
