@@ -16,6 +16,7 @@ export default function RootLayout({
       <body>
         <AuthContextProvider>
             <NavBar/>  
+            <div style={{height: "24px"}}/>
             {children}
             {/*<Footer/>*/}
         </AuthContextProvider>

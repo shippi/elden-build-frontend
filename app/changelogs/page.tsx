@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 function Changelogs() {
   return (
     <div className="changelogs">
-        <div style={{height: "40px"}}/>
         <div className="page-content">
             <div className="header">
                 <h1>Changelogs</h1>

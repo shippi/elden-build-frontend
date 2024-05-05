@@ -69,7 +69,6 @@ function Likes({searchParams: {page, sort, search}} : Props) {
 
 	return (
     <div className="builds">
-      	<div style={{height: "40px"}}/>
       	<div className="page-content">
         	<div className="header unselectable">
                 <h1>LIKED BUILDS</h1>

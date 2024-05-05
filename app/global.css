@@ -67,6 +67,10 @@ h1 {
   font-size: 30px;
 }
 
+h3 {
+  font-family: 'Inter', sans-serif !important;
+}
+
 a:hover {
   cursor: pointer;
 }
@@ -358,6 +362,9 @@ input[type="checkbox"]:disabled {
     width: 100px;
     padding-right: 12px;
   }
+  .select, .header .search-box input[type="text"] {
+    font-size: 14px;
+  }
 }
 
 /**/
@@ -398,6 +405,11 @@ input[type="checkbox"]:disabled {
 @media only screen and (max-width: 1500px) {
   .page-content {
     width: 100vw;
+  }
+}
+
+@media only screen and (max-width: 624px) {
+  .page-content {
   }
 }
 
@@ -469,6 +481,16 @@ input[type="checkbox"]:disabled {
 
 .spells {
   width: 165px;
+}
+
+@media only screen and (max-width: 624px) {
+  .build-item h3 {
+    font-size: 16px;
+  }
+  .build-item {
+    font-size: 14px;
+    width: calc(100vw - 12px);
+  }
 }
 
 /**/

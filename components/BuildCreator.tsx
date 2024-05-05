@@ -14,7 +14,6 @@ function BuildCreator() {
 
     return (
         <div className="build-creator">
-            <div style={{height: "40px"}}></div>
             <div className="panels-container" style={{zIndex: "2"}}>
                 <h1>ELDEN RING BUILD CREATOR</h1>
                 <div style={{height: "20px", width:"100%"}}/>

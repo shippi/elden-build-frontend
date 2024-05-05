@@ -140,9 +140,7 @@ function BuildPage({ buildData } : Props) {
     }
 
     return (
-        <>
-        <div style={{height: "40px"}}></div>
-       
+        <>  
         <div className="build-page">
             <div className="panels-container">
             <div className="header">

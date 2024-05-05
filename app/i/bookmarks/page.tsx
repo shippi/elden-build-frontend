@@ -70,7 +70,6 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
 
 	return (
     <div className="builds">
-      	<div style={{height: "40px"}}/>
       	<div className="page-content">
         	<div className="header unselectable">
                 <h1>BOOKMARKED BUILDS</h1>
