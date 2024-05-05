@@ -1,7 +1,7 @@
 'use client'
 import { useClickOutside, useFocus, useWindowSizeChange } from '@/hooks';
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+
 interface Props {
     items: any[],
     index: number,
@@ -153,7 +153,7 @@ function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPag
                                     }
                                 }}
                             >
-                                {(item.image && hasImages) && <Image src={item.image} alt={item.name} width={item.image.includes("eldenring.fanapis.com") ? 24 : 35} height={35}/>}
+                                {(item.image && hasImages) && <img src={item.image} alt={item.name} width={item.image.includes("eldenring.fanapis.com") ? 24 : 35} height={35}/>}
                                 {
                                     item.name.length < 40 ?
                                     item.name 
