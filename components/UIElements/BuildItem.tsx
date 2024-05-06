@@ -125,7 +125,7 @@ function BuildItem({ build } : Props) {
     }
 
     return (
-        <Link href={`/builds/${build.id}`} target="_blank">
+        <Link href={`/builds/${build.id}`}>
         <div className="build-item">
             
             <h3>
