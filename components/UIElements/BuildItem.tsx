@@ -131,10 +131,7 @@ function BuildItem({ build } : Props) {
             <h3>
             
             {
-            build.name.length < 50 ?
-            build.name 
-            :
-            build.name.slice(0, 50) + "..."
+            build.name
             }
             
             </h3>
@@ -198,11 +195,25 @@ function BuildItem({ build } : Props) {
             <div className="analytics">
                 <div className="views">
                     <i className="fa fa-eye fa-lg"/> &nbsp; 
-                    <label>{viewCount.toLocaleString()}</label>
+                    <label>
+                    {
+                        Intl.NumberFormat('en-US', {
+                                notation: "compact",
+                                maximumFractionDigits: 1
+                                }).format(viewCount)
+                    }
+                    </label>
                 </div>
                 <div className="likes">
                     <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
-                    <label>{likesCount.toLocaleString()}</label>
+                    <label>
+                    {
+                        Intl.NumberFormat('en-US', {
+                                notation: "compact",
+                                maximumFractionDigits: 1
+                                }).format(likesCount)
+                    }
+                    </label>
                 </div>
                 <div>
                     <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>

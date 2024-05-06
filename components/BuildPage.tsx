@@ -141,11 +141,11 @@ function BuildPage({ buildData } : Props) {
     return (
         <>  
         <div className="build-page">
-            <div className="page-content">
-                <div className="header">
+            <div className="panels-container">
+			<div className="header">
                     <h1>{name}</h1> 
                     <div className="column-separator"/>
-                    <div className="creator-name">Created by <span style={{color:"gold"}}>{creatorName}</span></div>
+                    <div className="creator-name">created by <span style={{color:"gold"}}>{creatorName}</span></div>
                 
                     <div className="analytics">
                         <div className="views">
@@ -168,19 +168,13 @@ function BuildPage({ buildData } : Props) {
                                         maximumFractionDigits: 1
                                       }).format(likesCount)
                                 }
-                            </label>
+                            </label>	
                         </div>
                         <div>
                             <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            {
-                
-            }
-            <div className="panels-container">
                 {
                     description &&
                     <div>
@@ -192,7 +186,7 @@ function BuildPage({ buildData } : Props) {
             </div>
             
             <div className="panels-container">
-                <div className="subcontainer">
+                <div className="left-hand subcontainer">
                     <DisplayCharacter 
                         selectedClass={selectedClass} 
                         characterStats={characterStats}   
@@ -208,7 +202,7 @@ function BuildPage({ buildData } : Props) {
                         selectedTears={selectedTears}
                     />
                 </div>
-                <div className="subcontainer">
+                <div className="middle subcontainer">
                     <DisplayWeapons 
                         selectedWeapons={selectedWeapons} 
                         selectedAffinities={selectedAffinities} 
@@ -227,7 +221,7 @@ function BuildPage({ buildData } : Props) {
                     </div>
                 </div>
 
-                <div className="subcontainer">
+                <div className="right-hand subcontainer">
                     <DisplayStats
                         selectedClass={selectedClass} 
                         characterStats={characterStats}   

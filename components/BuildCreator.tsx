@@ -20,35 +20,33 @@ function BuildCreator() {
                 <FilePanelContextProvider>
                     <FilePanel/>
                 </FilePanelContextProvider>
-                <div className="separator" style={{width:"100%"}}/>
+
             </div>
             {
                 !loadingBuild ?
                 <>
                 <div className="panels-container">    
-                <div className="subcontainer">
+                <div className="left-hand subcontainer">
                     <CharacterPanel/>
                     <GreatRunesPanel/>
                     <PhysickPanel/>
                 </div>
-                <div className="subcontainer">
+                <div className="middle subcontainer">
                     <WeaponsPanel/>
                     <div className='subcontainer2'>
                         <ArmourPanel/>
                         <TalismansPanel/>
                     </div>
                 </div>
-                <div className="subcontainer" >
+                <div className="right-hand subcontainer" >
                     <StatsPanel/>
                     <AttackPowerPanel/>
                     <DefencesPanel/>
                 </div>
             </div>
-            <div className="separator" />
             <div className="bottom-panels-container">
-                <AmmoPanel/>
-                <div style={{width:"3vw"}}/>
                 <SpellsPanel/>
+                <AmmoPanel/>
             </div>
             <div style={{height:"30vh"}}/>
             </>:
