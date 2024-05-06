@@ -212,10 +212,6 @@ input[type="checkbox"]:disabled {
   height: 100%;
   margin: auto;
 
-  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
-  url('./../public/builder-bg.png');
-  background-position: top left;
-  background-size: 100%;
 }
 
 .build-page a:hover {
@@ -362,6 +358,9 @@ input[type="checkbox"]:disabled {
 }
 
 @media only screen and (max-width: 624px) {
+  .header {
+    column-gap: 8px;
+  }
   .header h1 {
     font-size: 24px;
   }
@@ -529,9 +528,25 @@ input[type="checkbox"]:disabled {
 }
 
 /**/
+.build-page .header {
+  column-gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 8px;
+  min-width: 324px;
+}
+.build-page h1 {
+  max-width: 40vw;
+  font-size: 24px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
+}
 .analytics {
   display: flex;
   justify-content: center;
+  column-gap: 28px;
+  padding-right: 4px;
 }
 
 .analytics * i {
@@ -542,9 +557,7 @@ input[type="checkbox"]:disabled {
 .views {
   display: flex;
   column-gap: 4px;
-  justify-content:flex-start;
   align-items: center;
-  width: 150px;
 }
 
 .fa-heart-o:hover,
@@ -570,6 +583,41 @@ input[type="checkbox"]:disabled {
 .fa-bookmark:hover {
   cursor: pointer;
   color:rgb(182, 125, 1);
+}
+
+@media only screen and (max-width: 860px) {
+
+}
+
+@media only screen and (max-width: 624px) {
+  .build-page .header {
+    row-gap: 2px;
+    justify-self: space-around ;
+    column-gap: 0;
+    background: linear-gradient(90deg, rgba(89,83,61,0.8) 50%, rgb(44, 42, 33) 100%);
+  }
+  .build-page .analytics {
+    width: 100%;
+    margin: auto;
+    padding: 4px 0 0 0;
+  }
+  .build-page h1 {
+    font-weight: 100;
+    max-width: 60vw;
+    font-size: 18px;
+  }
+  .creator-name::before {
+    content: ", "
+  }
+  .build-page .column-separator {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .build-page h1 {
+    max-width: 90vw;
+  }
 }
 
 /*pagination buttons tyling*/
@@ -1113,6 +1161,8 @@ input[type="checkbox"]:disabled {
 .separator {
   border-bottom: 1px grey solid;
 }
+
+
 
 /*styling for file panel*/
 .file-panel {

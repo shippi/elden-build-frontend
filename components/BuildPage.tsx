@@ -135,35 +135,46 @@ function BuildPage({ buildData } : Props) {
         else {
             addBookmark();
         }
-
         setBookmarked(!bookmarked);
     }
 
     return (
         <>  
         <div className="build-page">
-            <div className="panels-container">
-            <div className="header">
-                <h1>{name}</h1> 
-                <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-                <div>Created by <span style={{color:"gold"}}>{creatorName}</span></div>
+            <div className="page-content">
+                <div className="header">
+                    <h1>{name}</h1> 
+                    <div className="column-separator"/>
+                    <div className="creator-name">Created by <span style={{color:"gold"}}>{creatorName}</span></div>
                 
-                <div className="analytics">
-                    
-                <div className="views">
-                    <i className="fa fa-eye fa-lg"/> &nbsp; 
-                    <label style={{color: "white"}}>{viewCount.toLocaleString()}</label>
+                    <div className="analytics">
+                        <div className="views">
+                            <i className="fa fa-eye fa-lg"/> &nbsp; 
+                            <label style={{color: "white"}}>
+                            {
+                                    Intl.NumberFormat('en-US', {
+                                        notation: "compact",
+                                        maximumFractionDigits: 1
+                                      }).format(viewCount)
+                                }
+                            </label>
+                        </div>
+                        <div className="likes">
+                            <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
+                            <label style={{color: "white"}}>
+                                {
+                                    Intl.NumberFormat('en-US', {
+                                        notation: "compact",
+                                        maximumFractionDigits: 1
+                                      }).format(likesCount)
+                                }
+                            </label>
+                        </div>
+                        <div>
+                            <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>
+                        </div>
+                    </div>
                 </div>
-                <div className="likes">
-                    <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
-                    <label style={{color: "white"}}>{likesCount.toLocaleString()}</label>
-                </div>
-                <div>
-                    <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>
-                </div>
-            </div>
-            </div>
-            
             </div>
             
             {
