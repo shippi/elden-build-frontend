@@ -154,12 +154,7 @@ function DropDown({ items, index, isNullable, otherIndices, hasImages, scrollPag
                                 }}
                             >
                                 {(item.image && hasImages) && <img src={item.image} alt={item.name} width={item.image.includes("eldenring.fanapis.com") ? 24 : 35} height={35}/>}
-                                {
-                                    item.name.length < 40 ?
-                                    item.name 
-                                    :
-                                    item.name.slice(0, 40) + "..."
-                                }
+                                { item.name }
                             </li>
                         ))
                     }

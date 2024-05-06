@@ -182,7 +182,7 @@ function BuildPage({ buildData } : Props) {
                         <div className="description">{description}</div>
                     </div>
                 }
-                <div className="separator" style={{width: "100%"}}/>
+                <div className="separator"/>
             </div>
             
             <div className="panels-container">
@@ -251,22 +251,21 @@ function BuildPage({ buildData } : Props) {
                         selectedTears={selectedTears}                   
                     />
                 </div>
-                <div className="separator" style={{width: "100%"}}/>
-                <div className="bottom-panels-container">
-                    <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>
+            </div>
+            
+            <div className="bottom-panels-container">
+                <div className="separator"/>
+                <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>    
+                <DisplaySpells 
+                    selectedClass={selectedClass} 
+                    characterStats={characterStats}   
+                    selectedTalismans={selectedTalismans}   
+                    selectedArmours={selectedArmours}  
+                    greatRune={selectedRune}
+                    selectedTears={selectedTears}                         
+                    selectedSpells={selectedSpells}
+                />
                     
-                    <div style={{width:"3vw"}}/>
-                    <DisplaySpells 
-                        selectedClass={selectedClass} 
-                        characterStats={characterStats}   
-                        selectedTalismans={selectedTalismans}   
-                        selectedArmours={selectedArmours}  
-                        greatRune={selectedRune}
-                        selectedTears={selectedTears} 
-                        selectedSpells={selectedSpells}
-                    />
-                </div>
-                
             </div>
             <div style={{height:"5vw"}}/>
         </div>

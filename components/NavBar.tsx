@@ -57,7 +57,7 @@ function NavBar() {
                     <i className="bi bi-person" />
                     :
                     <>
-                    {username}
+                    <div className="username">{username}</div>
                     <div style={{width: "8px"}}/>
                     <i className={(!userDropdownOpened ? "" : "rotate") + " fa fa-angle-down"} aria-hidden="true"></i>
                     </>

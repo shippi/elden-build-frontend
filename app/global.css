@@ -149,17 +149,26 @@ input[type="checkbox"]:disabled {
 }
 
 .hero h1 {
-  font-weight: 550;
-  font-size: 5vw;
+  font-weight: 600;
+  font-size: 5rem;
   animation: rise 1s;
 }
 .hero h1 span {
+  font-weight: 500;
   font-family: "Optimus Princeps";
-  font-size: 4.4vw;
 }
 .hero p {
-  font-size: 1.5vw;
+  font-size: 1.5rem;
   animation: rise 1s;
+}
+
+@media only screen and (min-width: 850px) {
+  .hero h1 {
+    font-size: 7rem;
+  }
+  .hero p {
+    font-size: 3rem;
+  }
 }
 
 /**/
@@ -211,7 +220,11 @@ input[type="checkbox"]:disabled {
   width: 100%;
   height: 100%;
   margin: auto;
-
+  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
+  url('./../public/builder-bg.png');
+  background-position: top left;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .build-page a:hover {
@@ -398,6 +411,12 @@ input[type="checkbox"]:disabled {
   
 }
 
+a, li, .selected div, .creator-name, .username {
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
+}
+
 .list-item img {
   height: 35px;
   margin-right: 10px;
@@ -559,7 +578,7 @@ input[type="checkbox"]:disabled {
 .analytics {
   display: flex;
   justify-content: center;
-  column-gap: 28px;
+  column-gap: 36px;
   padding-right: 4px;
 }
 
@@ -600,7 +619,9 @@ input[type="checkbox"]:disabled {
 }
 
 @media only screen and (max-width: 860px) {
-
+  .creator-name {
+    max-width: 200px;
+  }
 }
 
 @media only screen and (max-width: 624px) {
@@ -608,7 +629,7 @@ input[type="checkbox"]:disabled {
     row-gap: 2px;
     justify-self: space-around ;
     column-gap: 0;
-    background: linear-gradient(90deg, rgba(89,83,61,0.8) 50%, rgb(44, 42, 33) 100%);
+    
   }
   .build-page .analytics {
     width: 100%;
@@ -759,14 +780,20 @@ input[type="checkbox"]:disabled {
   }
 }
 
-@media only screen and (max-width: 864px) {
+@media only screen and (max-width: 1050px) {
+  .username {
+    max-width: 180px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
   .logo::after {
     content: "EB";
     padding-right: 8px;
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 720px) {
   .navbar-buttons .sign-up,
   .navbar-buttons .column-separator {
     display: none;
@@ -781,7 +808,7 @@ input[type="checkbox"]:disabled {
   }
 }
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 650px) {
   .navbar-btn {
     padding-bottom: 4px;
   }
@@ -873,6 +900,7 @@ input[type="checkbox"]:disabled {
   height: 300px;
   top: 60px;
   width: 70vw;
+  min-width: 1500px;
   z-index: 5;
   left: 50%;
   transform: translateX(-50%);
@@ -905,6 +933,7 @@ input[type="checkbox"]:disabled {
 
 @media only screen and (max-width: 1500px) {
   .user-dropdown-container {
+    min-width: 324px;
     width: 100vw;
   }
 }
@@ -1121,11 +1150,11 @@ input[type="checkbox"]:disabled {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  /*background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
-  url('./../public/builder-bg.png');*/
+  background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
+  url('./../public/builder-bg.png');
   background-position: top left;
   background-size: 100%;
-  background-repeat: none;
+  background-repeat: no-repeat;
 }
 
 .build-creator h1 {
@@ -1168,12 +1197,12 @@ input[type="checkbox"]:disabled {
   column-gap: 40px;
 }
 
-.build-creator > .separator,
-.panels-container > .separator {
-  min-width: 1500px;
+.build-page .separator,
+.build-creator .separator,
+.panels-container .separator {
   height: 30px;
   margin-bottom: 30px;
-  width: 70%;
+  width: 100%;
 }
 
 .separator {
@@ -1185,8 +1214,17 @@ input[type="checkbox"]:disabled {
 .file-panel {
   display: flex;
   align-items: center;
-  column-gap: 30px;
+  flex-wrap: wrap;
+  column-gap: 28px;
+  row-gap: 20px;
   width: 100%;
+}
+
+.file-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 28px;
 }
 
 .file-panel button,
@@ -1224,7 +1262,9 @@ input[type="checkbox"]:disabled {
 
 .input-container {
   display: flex;
-  width: 300px;
+  width: 90vw;
+  min-width: 324px;
+  max-width: 500px;
 }
 
 .input-container button,
@@ -1256,20 +1296,10 @@ input[type="checkbox"]:disabled {
   color: var(--gold);
 }
 
-.message {
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  height: 35px;
-  font-size: 16px;
-  align-self: flex-end;
-  text-align: center;
-  animation: fadeInAndOut 2.8s cubic-bezier(0.05, 1, 0.05, 0.7);
-}
-
 .description-container {
   display: flex;
   flex-direction: column;
+
 }
 
 .description-container textarea {
@@ -1278,7 +1308,8 @@ input[type="checkbox"]:disabled {
   border: none;
   border-bottom: var(--grey-border);
   outline: none;
-  max-width: 80%;
+  max-width: 92vw;
+  min-width: 300px;
   padding: 7px;
 }
 
@@ -1290,20 +1321,22 @@ input[type="checkbox"]:disabled {
   display:flex;
   align-items: center;
   align-self: flex-end;
-
 }
 
 .link {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 240px;
+  min-width: 324px;
   padding: 5px;
   height: 35px;
   border-bottom: var(--grey-border);
 }
 
-
+@media only screen and (max-width: 436px) {
+  .build-creator h1 {
+    font-size: 24px;
+  }
+}
 /*styling for status modal*/
 .status-modal {
   opacity: 0;
@@ -1359,8 +1392,8 @@ input[type="checkbox"]:disabled {
 
 .talismans-panel,
 .armour-panel {
-  width: 17vw;
-  min-width: 324px;
+  width: 18vw;
+  min-width: 400px;
 }
 
 .character-panel,
@@ -1379,7 +1412,7 @@ input[type="checkbox"]:disabled {
 
 .ammo-panel {
   width: 13vw;
-  min-width: 340px;
+  min-width: 324px;
 }
 
 .selectors-container:last-child {
@@ -1401,7 +1434,6 @@ input[type="checkbox"]:disabled {
   margin-right: 8px;
 }
 
-/**/
 .spells-panel {
   display: flex;
   flex-wrap: wrap;
@@ -1415,31 +1447,42 @@ input[type="checkbox"]:disabled {
   min-width: 250px;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1520px) {
   .panels-container,
   .bottom-panels-container {
+    padding: 0 15px;
     width: 100vw;
     flex-wrap: wrap;
     min-width: 324px;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   
   .spells-panel .selector {
     width: calc(27vw + 5px);
     min-width: 0;
   }
+  .talismans-panel,
+  .armour-panel {
+    min-width: 300px;
+  }
 }
 
 
-@media only screen and (max-width: 1310px) {
-
+@media only screen and (max-width: 1360px) {
+  .build-page,
+  .build-creator,
+  .builds {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 70%, rgba(0,0,0,0) 90%, rgba(28,28,28,1) 100%), 
+    url('./../public/builder-bg.png');
+  }
   .bottom-panels-container {
-    width: 90vw;
-    justify-content:space-between;
-    min-width: 690px;
+    column-gap: 48px;
+    width: 100vw;
+    justify-content: flex-start;
+    min-width: 0;
   }
   .spells-panel .selector {
-    width: calc(22vw);
+    width: calc(24vw);
     min-width: 0;
   }
   .spells-panel {
@@ -1448,7 +1491,7 @@ input[type="checkbox"]:disabled {
   }
   .talismans-panel,
   .armour-panel {
-    width: calc(43vw + 2px);
+    width: calc(47vw);
   } 
   .ammo-panel {
     width: 35vw;
@@ -1459,7 +1502,7 @@ input[type="checkbox"]:disabled {
   .stats-panel,
   .defences-panel,
   .attack-power-panel {
-    width: 40vw;
+    width: 44vw;
   }
   .right-hand {
     order: -1;
@@ -1470,7 +1513,12 @@ input[type="checkbox"]:disabled {
 }
 
 @media only screen and (max-width: 970px) {
-
+  .build-page,
+  .build-creator,
+  .builds {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 80%, rgba(0,0,0,0) 95%, rgba(28,28,28,1) 100%), 
+    url('./../public/builder-bg.png');
+  }
   .spells-panel {
     width: 40vw;
     min-width: 0;
@@ -1484,8 +1532,17 @@ input[type="checkbox"]:disabled {
   }
 }
 
-@media only screen and (max-width: 700px) {
-  .selectors-container {
+@media only screen and (max-width: 750px) {
+  .build-page,
+  .build-creator,
+  .builds {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 94%, rgba(0,0,0,0) 97%, rgba(28,28,28,1) 100%), 
+    url('./../public/builder-bg.png');
+  }
+  .bottom-panels-container {
+    flex-direction: column;
+  }
+  .panel .selectors-container {
     border: none;
   }
   .weapons-panel {
@@ -1493,13 +1550,7 @@ input[type="checkbox"]:disabled {
     border-left-style: solid;
     border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 10%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 90%, rgba(0,0,0,0)) 1;
   }
-  .bottom-panels-container {
-    flex-direction: column;
-    display: flex;
-    align-items: space-around;
-    width: 95vw;
-    min-width: 0;
-  }
+
   .character-panel,
   .great-runes-panel,
   .physick-panel,
@@ -1516,6 +1567,11 @@ input[type="checkbox"]:disabled {
   .spells-panel .selector {
     width: 100%;
   }
+  .talismans-panel,
+  .armour-panel {
+    min-width: 324px;
+  }
+
   .weapons-panel {
     display: flex;
     flex-direction: column;
@@ -1523,6 +1579,7 @@ input[type="checkbox"]:disabled {
   .subcontainer2 {
     align-content: space-around;
     flex-direction: column;
+    row-gap: 2vh;
   }
 }
 /*styling for the character panel component*/
@@ -1598,14 +1655,17 @@ td {
 
 .ashes {
   width: 100%;
+  min-width: 150px;
 }
 
 .affinity {
   width: 45%;
+  min-width: 90px;
 }
 
 .levels {
   width: 33%;
+  min-width: 30px;
 }
 
 .affinity,

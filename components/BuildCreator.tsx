@@ -20,7 +20,7 @@ function BuildCreator() {
                 <FilePanelContextProvider>
                     <FilePanel/>
                 </FilePanelContextProvider>
-
+                <div className="separator"/>
             </div>
             {
                 !loadingBuild ?
@@ -44,9 +44,12 @@ function BuildCreator() {
                     <DefencesPanel/>
                 </div>
             </div>
+            
             <div className="bottom-panels-container">
-                <SpellsPanel/>
+            <div className="separator"/>
                 <AmmoPanel/>
+                <SpellsPanel/>
+                
             </div>
             <div style={{height:"30vh"}}/>
             </>:
