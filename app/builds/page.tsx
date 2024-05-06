@@ -69,7 +69,6 @@ function Builds({searchParams: {page, sort, search}} : Props) {
 
 	return (
     <div className="builds">
-      	<div style={{height: "40px"}}/>
       	<div className="page-content">
         	<div className="header unselectable">
 				<SearchBar startSearch={search} submitSearch={submitSearch}/>

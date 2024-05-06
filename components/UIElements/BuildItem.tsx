@@ -125,21 +125,18 @@ function BuildItem({ build } : Props) {
     }
 
     return (
-        <Link href={`/builds/${build.id}`} target="_blank">
+        <Link href={`/builds/${build.id}`}>
         <div className="build-item">
             
             <h3>
             
             {
-            build.name.length < 50 ?
-            build.name 
-            :
-            build.name.slice(0, 50) + "..."
+            build.name
             }
             
             </h3>
             
-            <div style={{display: "flex"}}>
+            <div style={{display: "flex", flexWrap: "wrap"}}>
                 Created by <div style={{width: "5px"}}/>
                 <strong>
                 {creatorName}
@@ -159,7 +156,7 @@ function BuildItem({ build } : Props) {
                         ))
                     }
                 </div>
-                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
+                <div className="column-separator"/>
                 <div className="talismans">
                     {
                         selectedTalismans.map((talisman: Talisman, i: number) => (
@@ -170,7 +167,7 @@ function BuildItem({ build } : Props) {
                         ))
                     }
                 </div>
-                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
+                <div className="column-separator"/>
                 <div className="weapons">
                     {
                         selectedWeapons.map((weapon: Weapon, i: number) => (
@@ -181,7 +178,7 @@ function BuildItem({ build } : Props) {
                         ))
                     }
                 </div>
-                <div style={{borderLeft: "1px solid gray", height:"80px"}}/>
+                <div className="column-separator"/>
                 <div className="spells">
                     {
                         selectedSpells.map((spell: Item, i: number) => (
@@ -198,11 +195,25 @@ function BuildItem({ build } : Props) {
             <div className="analytics">
                 <div className="views">
                     <i className="fa fa-eye fa-lg"/> &nbsp; 
-                    <label>{viewCount.toLocaleString()}</label>
+                    <label>
+                    {
+                        Intl.NumberFormat('en-US', {
+                                notation: "compact",
+                                maximumFractionDigits: 1
+                                }).format(viewCount)
+                    }
+                    </label>
                 </div>
                 <div className="likes">
                     <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
-                    <label>{likesCount.toLocaleString()}</label>
+                    <label>
+                    {
+                        Intl.NumberFormat('en-US', {
+                                notation: "compact",
+                                maximumFractionDigits: 1
+                                }).format(likesCount)
+                    }
+                    </label>
                 </div>
                 <div>
                     <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>

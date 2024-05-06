@@ -84,7 +84,7 @@ function BuildNameInput() {
     return (
         <div>
         <label>Build Name </label>
-        <div className="input-container" style={{width: "400px"}} ref={ref}>
+        <div className="input-container" ref={ref}>
           <input type="text" style={{marginTop: "5px"}} value={buildName} onChange={e => setBuildName(e.target.value)}/>
           <div className="load-container">
             {

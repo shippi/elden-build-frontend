@@ -46,6 +46,11 @@
 html {
   background-color: var(--bg-color);
   height: fit-content;
+  
+}
+
+body {
+  min-width: 324px;
 }
 
 label {
@@ -60,6 +65,10 @@ hr {
 
 h1 {
   font-size: 30px;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif !important;
 }
 
 a:hover {
@@ -140,17 +149,26 @@ input[type="checkbox"]:disabled {
 }
 
 .hero h1 {
-  font-weight: 550;
-  font-size: 5vw;
+  font-weight: 600;
+  font-size: 5rem;
   animation: rise 1s;
 }
 .hero h1 span {
+  font-weight: 500;
   font-family: "Optimus Princeps";
-  font-size: 4.4vw;
 }
 .hero p {
-  font-size: 1.5vw;
+  font-size: 1.5rem;
   animation: rise 1s;
+}
+
+@media only screen and (min-width: 850px) {
+  .hero h1 {
+    font-size: 7rem;
+  }
+  .hero p {
+    font-size: 3rem;
+  }
 }
 
 /**/
@@ -202,12 +220,11 @@ input[type="checkbox"]:disabled {
   width: 100%;
   height: 100%;
   margin: auto;
-  min-width: 1500px;
-
   background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 40%, rgba(0,0,0,0) 60%, rgba(28,28,28,1) 100%), 
   url('./../public/builder-bg.png');
   background-position: top left;
   background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .build-page a:hover {
@@ -219,11 +236,10 @@ input[type="checkbox"]:disabled {
   flex-direction: row;
   background: linear-gradient(90deg, rgba(89,83,61,0.8) 50%, rgba(0,0,0,0) 100%);
   padding: 5px;
+  min-width: 1500px;
   column-gap: 20px;
   align-items: center;
-
   width: 100%;
-  min-width: 1500px;
 }
 
 .header .analytics {
@@ -248,10 +264,14 @@ input[type="checkbox"]:disabled {
 }
 
 .description {
-  display: flex;
-  width: 800px;
-  align-self: flex-start;
+  width: 60vw;
   white-space: pre-line;
+}
+
+.build-container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
 }
 
 /**/
@@ -262,14 +282,14 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   align-items: center;
   width: 70%;
+  min-width: 1500px;
   min-height: 500px;
   margin: auto;
-  min-width: 1500px;
 }
 
 .header .search-box {
   height: 30px;
-  width: 600px;
+  width: 900px;
   padding: 0;
 }
 
@@ -348,6 +368,40 @@ input[type="checkbox"]:disabled {
   background-color: #333333;
 }
 
+@media only screen and (max-width: 1500px) {
+  .header {
+    min-width: 324px;
+  }
+  .header .search-box {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 624px) {
+  .header {
+    column-gap: 8px;
+  }
+  .header h1 {
+    font-size: 24px;
+  }
+  .dropdown-container .dropdown {
+    right: 10px;
+  }  
+  .select-container {
+    width: 100px;
+    padding-right: 12px;
+  }
+  .select, .header .search-box input[type="text"] {
+    font-size: 14px;
+  }
+  .header .search-box {
+    width: 90vw;
+  }
+  .description {
+    width: 95vw;
+  }
+}
+
 /**/
 .list-item {
   display: flex;
@@ -355,6 +409,12 @@ input[type="checkbox"]:disabled {
   font-size: 17px;
   padding-top: 6px;
   
+}
+
+a, li, .selected div, .creator-name, .username {
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
 }
 
 .list-item img {
@@ -375,16 +435,29 @@ input[type="checkbox"]:disabled {
   url('./../public/builder-bg.png');
   background-position: top left;
   background-size: 100%;
-  min-width: 1500px;
   background-repeat: no-repeat;
+
 }
 
 .builds .header {
   justify-content: center;
 }
 
+@media only screen and (max-width: 1500px) {
+  .page-content {
+    width: 100vw;
+    min-width: 324px;
+  }
+}
+
+@media only screen and (max-width: 624px) {
+  .page-content {
+  }
+}
+
 /**/
 .build-item div,
+.build-item strong,
 .build-item {
   font-family: "Inter", sans-serif !important;
 }
@@ -397,7 +470,15 @@ input[type="checkbox"]:disabled {
   border: var(--grey-border);
   padding: 16px;
   width: 600px;
+  min-width: 324px;
   border-radius: 4px;
+}
+
+.build-item .column-separator {
+  height: 100px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 30%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 70%, rgba(0,0,0,0)) 1;
 }
 
 .build-item:hover {
@@ -410,6 +491,9 @@ input[type="checkbox"]:disabled {
 
 .build-item h3 {
   padding-bottom: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
 }
 
 .build-item strong {
@@ -426,7 +510,7 @@ input[type="checkbox"]:disabled {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  column-gap: 16px;
+  column-gap: 8px;
   padding: 8px 0;
 }
 
@@ -438,25 +522,64 @@ input[type="checkbox"]:disabled {
 .talismans,
 .weapons,
 .spells {
-  display: flex;
-  flex-wrap: wrap;
-  width: 78px;
-  column-gap: 8px;
-  row-gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4px;
+  grid-auto-rows: 45px;
 }
 
 .weapons {
-  width: 121px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .spells {
-  width: 165px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media only screen and (max-width: 624px) {
+  .build-item h3 {
+    font-size: 18px;
+  }
+  .build-item .column-separator {
+    height: 140px;
+  }
+  .build-item {
+    font-size: 14px;
+    width: calc(100vw - 12px);
+  }
+  .armours,
+  .talismans {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .weapons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .spells {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /**/
+.build-page .header {
+  column-gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 8px;
+  min-width: 324px;
+}
+.build-page h1 {
+  max-width: 40vw;
+  font-size: 24px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
+}
 .analytics {
   display: flex;
   justify-content: center;
+  column-gap: 36px;
+  padding-right: 4px;
 }
 
 .analytics * i {
@@ -467,9 +590,7 @@ input[type="checkbox"]:disabled {
 .views {
   display: flex;
   column-gap: 4px;
-  justify-content:flex-start;
   align-items: center;
-  width: 150px;
 }
 
 .fa-heart-o:hover,
@@ -495,6 +616,43 @@ input[type="checkbox"]:disabled {
 .fa-bookmark:hover {
   cursor: pointer;
   color:rgb(182, 125, 1);
+}
+
+@media only screen and (max-width: 860px) {
+  .creator-name {
+    max-width: 200px;
+  }
+}
+
+@media only screen and (max-width: 624px) {
+  .build-page .header {
+    row-gap: 2px;
+    justify-self: space-around ;
+    column-gap: 0;
+    
+  }
+  .build-page .analytics {
+    width: 100%;
+    margin: auto;
+    padding: 4px 0 0 0;
+  }
+  .build-page h1 {
+    font-weight: 100;
+    max-width: 60vw;
+    font-size: 18px;
+  }
+  .creator-name::before {
+    content: ", "
+  }
+  .build-page .column-separator {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .build-page h1 {
+    max-width: 90vw;
+  }
 }
 
 /*pagination buttons tyling*/
@@ -529,10 +687,10 @@ input[type="checkbox"]:disabled {
 /*styling for the navbar component*/
 .navbar {
   min-height: 50px;
-  padding-top: 15px;
+  padding-top: 8px;
+  min-width: 1500px;
   margin: auto;
   width: 70vw;
-  min-width: 1500px;
   display: flex;
   justify-content: space-between;
   flex-wrap: row;
@@ -542,6 +700,10 @@ input[type="checkbox"]:disabled {
 .navbar * {
   font-family: "Poppins", sans-serif;
   font-style: normal;
+}
+
+.navbar i {
+  font-size: 20px;
 }
 
 .navbar-buttons {
@@ -560,9 +722,10 @@ input[type="checkbox"]:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 30px;
-  margin-right: 10px;
-  padding: 0 10px 10px 10px;
+  margin-left: 16px;
+  margin-right: 8px;
+  padding: 0 8px 8px 8px;
+  column-gap: 8px;
   font-size: 15px;
 }
 
@@ -572,7 +735,7 @@ input[type="checkbox"]:disabled {
 }
 
 .navbar-btn:last-child {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .selected-page {
@@ -580,9 +743,86 @@ input[type="checkbox"]:disabled {
   border-bottom: 1px var(--dark-gold) solid;
 }
 
-.logo {
+.logo::after {
+  content: "Elden Builder";
   font-family: "Optimus Princeps";
-  font-size: 35px;
+  font-size: 40px;
+}
+
+.navbar-buttons .view-builds::after {
+  content: "View Builds";
+}
+
+.navbar-buttons .creator::after {
+  content: "Build Creator";
+}
+
+.navbar-buttons .donate::after {
+  content: "Donate";
+}
+
+.column-separator {
+  border-left: var(--grey-border);
+  height: 25px;
+}
+
+.navbar a img {
+  width: 24px;
+}
+
+@media only screen and (max-width: 1500px) {
+  .navbar {
+    min-width: 324px;
+    width: 100vw;
+  }
+  .logo::after {
+    padding-left: 8px;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .username {
+    max-width: 180px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .logo::after {
+    content: "EB";
+    padding-right: 8px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .navbar-buttons .sign-up,
+  .navbar-buttons .column-separator {
+    display: none;
+  }
+
+  .navbar-buttons .view-builds::after {
+    content: "View";
+  }
+  
+  .navbar-buttons .creator::after {
+    content: "Creator";
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .navbar-btn {
+    padding-bottom: 4px;
+  }
+  .navbar-btn i {
+    font-size: 24px;
+  }
+  .navbar a img {
+    width: 28px;
+  }
+  .navbar-buttons .view-builds::after,
+  .navbar-buttons .creator::after,
+  .navbar-buttons .donate::after  {
+    content: "";
+  }
 }
 
 /*footer styling*/
@@ -598,7 +838,11 @@ input[type="checkbox"]:disabled {
 .footer * {
   font-family: "Inter", sans-serif !important;
 }
-
+.footer a {
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
+}
 .footer-content {
   display: flex;
   align-items: center;
@@ -607,7 +851,6 @@ input[type="checkbox"]:disabled {
   padding: 60px 0;
   margin: auto;
   width: 70vw;
-  min-width: 1500px;
 }
 
 .contact {
@@ -632,6 +875,23 @@ input[type="checkbox"]:disabled {
   column-gap: 10px;
 }
 
+@media only screen and (max-width: 1500px) {
+  .footer-content{
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .footer-content{
+    column-gap: 12px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .footer {
+    display: none;
+  }
+}
 /**/
 .user-dropdown-container {
   position: absolute;
@@ -654,10 +914,6 @@ input[type="checkbox"]:disabled {
   z-index: 5;
 }
 
-.user-dropdown * {
-  font-family: "Inter", "sans-serif";
-}
-
 .build-item .separator {
   width: 100%;
   height: 8px;
@@ -668,17 +924,17 @@ input[type="checkbox"]:disabled {
   list-style-type: none;
 }
 
-.user-dropdown ul li {
+.user-dropdown-container .dropdown ul * {
   font-size: 15px;
   font-weight: 500;
   font-family: "Inter", sans-serif !important;
-  padding: 8px 0;
+
 }
 
-@media (max-width: 1500px) {
+@media only screen and (max-width: 1500px) {
   .user-dropdown-container {
-    transform: none;
-    left: 0;
+    min-width: 324px;
+    width: 100vw;
   }
 }
 
@@ -898,8 +1154,7 @@ input[type="checkbox"]:disabled {
   url('./../public/builder-bg.png');
   background-position: top left;
   background-size: 100%;
-  min-width: 1500px;
-  background-repeat: none;
+  background-repeat: no-repeat;
 }
 
 .build-creator h1 {
@@ -942,24 +1197,34 @@ input[type="checkbox"]:disabled {
   column-gap: 40px;
 }
 
-.build-creator > .separator,
-.panels-container > .separator {
-  min-width: 1500px;
+.build-page .separator,
+.build-creator .separator,
+.panels-container .separator {
   height: 30px;
   margin-bottom: 30px;
-  width: 70%;
+  width: 100%;
 }
 
 .separator {
   border-bottom: 1px grey solid;
 }
 
+
 /*styling for file panel*/
 .file-panel {
   display: flex;
   align-items: center;
-  column-gap: 30px;
+  flex-wrap: wrap;
+  column-gap: 28px;
+  row-gap: 20px;
   width: 100%;
+}
+
+.file-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 28px;
 }
 
 .file-panel button,
@@ -997,7 +1262,9 @@ input[type="checkbox"]:disabled {
 
 .input-container {
   display: flex;
-  width: 300px;
+  width: 90vw;
+  min-width: 324px;
+  max-width: 500px;
 }
 
 .input-container button,
@@ -1029,20 +1296,10 @@ input[type="checkbox"]:disabled {
   color: var(--gold);
 }
 
-.message {
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  height: 35px;
-  font-size: 16px;
-  align-self: flex-end;
-  text-align: center;
-  animation: fadeInAndOut 2.8s cubic-bezier(0.05, 1, 0.05, 0.7);
-}
-
 .description-container {
   display: flex;
   flex-direction: column;
+
 }
 
 .description-container textarea {
@@ -1051,7 +1308,8 @@ input[type="checkbox"]:disabled {
   border: none;
   border-bottom: var(--grey-border);
   outline: none;
-  max-width: 80%;
+  max-width: 92vw;
+  min-width: 300px;
   padding: 7px;
 }
 
@@ -1063,20 +1321,22 @@ input[type="checkbox"]:disabled {
   display:flex;
   align-items: center;
   align-self: flex-end;
-
 }
 
 .link {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 240px;
+  min-width: 324px;
   padding: 5px;
   height: 35px;
   border-bottom: var(--grey-border);
 }
 
-
+@media only screen and (max-width: 436px) {
+  .build-creator h1 {
+    font-size: 24px;
+  }
+}
 /*styling for status modal*/
 .status-modal {
   opacity: 0;
@@ -1132,7 +1392,7 @@ input[type="checkbox"]:disabled {
 
 .talismans-panel,
 .armour-panel {
-  width: 17vw;
+  width: 18vw;
   min-width: 400px;
 }
 
@@ -1148,6 +1408,11 @@ input[type="checkbox"]:disabled {
 .attack-power-panel {
   width: 12.5vw;
   min-width: 250px
+}
+
+.ammo-panel {
+  width: 13vw;
+  min-width: 324px;
 }
 
 .selectors-container:last-child {
@@ -1169,6 +1434,154 @@ input[type="checkbox"]:disabled {
   margin-right: 8px;
 }
 
+.spells-panel {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  width: 40vw;
+  min-width: 900px;
+}
+
+.spells-panel .selector {
+  width: 12vw;
+  min-width: 250px;
+}
+
+@media only screen and (max-width: 1520px) {
+  .panels-container,
+  .bottom-panels-container {
+    padding: 0 15px;
+    width: 100vw;
+    flex-wrap: wrap;
+    min-width: 324px;
+    justify-content: space-between;
+  }
+  
+  .spells-panel .selector {
+    width: calc(27vw + 5px);
+    min-width: 0;
+  }
+  .talismans-panel,
+  .armour-panel {
+    min-width: 300px;
+  }
+}
+
+
+@media only screen and (max-width: 1360px) {
+  .build-page,
+  .build-creator,
+  .builds {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 70%, rgba(0,0,0,0) 90%, rgba(28,28,28,1) 100%), 
+    url('./../public/builder-bg.png');
+  }
+  .bottom-panels-container {
+    column-gap: 48px;
+    width: 100vw;
+    justify-content: flex-start;
+    min-width: 0;
+  }
+  .spells-panel .selector {
+    width: calc(24vw);
+    min-width: 0;
+  }
+  .spells-panel {
+    width: 55vw;
+    min-width: 324px;
+  }
+  .talismans-panel,
+  .armour-panel {
+    width: calc(47vw);
+  } 
+  .ammo-panel {
+    width: 35vw;
+  }
+  .character-panel,
+  .great-runes-panel,
+  .physick-panel,
+  .stats-panel,
+  .defences-panel,
+  .attack-power-panel {
+    width: 44vw;
+  }
+  .right-hand {
+    order: -1;
+  }
+  .left-hand {
+    order: -1;
+  }
+}
+
+@media only screen and (max-width: 970px) {
+  .build-page,
+  .build-creator,
+  .builds {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 80%, rgba(0,0,0,0) 95%, rgba(28,28,28,1) 100%), 
+    url('./../public/builder-bg.png');
+  }
+  .spells-panel {
+    width: 40vw;
+    min-width: 0;
+  }
+  .ammo-panel {
+    width: 40vw;
+  }
+  .spells-panel .selector {
+    width: calc(38vw);
+    min-width: 0;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .build-page,
+  .build-creator,
+  .builds {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 94%, rgba(0,0,0,0) 97%, rgba(28,28,28,1) 100%), 
+    url('./../public/builder-bg.png');
+  }
+  .bottom-panels-container {
+    flex-direction: column;
+  }
+  .panel .selectors-container {
+    border: none;
+  }
+  .weapons-panel {
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 10%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 90%, rgba(0,0,0,0)) 1;
+  }
+
+  .character-panel,
+  .great-runes-panel,
+  .physick-panel,
+  .stats-panel,
+  .defences-panel,
+  .attack-power-panel,
+  .talismans-panel,
+  .armour-panel,
+  .ammo-panel,
+  .spells-panel
+  {
+    width: 95vw;
+  }
+  .spells-panel .selector {
+    width: 100%;
+  }
+  .talismans-panel,
+  .armour-panel {
+    min-width: 324px;
+  }
+
+  .weapons-panel {
+    display: flex;
+    flex-direction: column;
+  } 
+  .subcontainer2 {
+    align-content: space-around;
+    flex-direction: column;
+    row-gap: 2vh;
+  }
+}
 /*styling for the character panel component*/
 .level-container {
   font-size: 15px;
@@ -1242,14 +1655,17 @@ td {
 
 .ashes {
   width: 100%;
+  min-width: 150px;
 }
 
 .affinity {
   width: 45%;
+  min-width: 90px;
 }
 
 .levels {
   width: 33%;
+  min-width: 30px;
 }
 
 .affinity,
@@ -1334,11 +1750,6 @@ td {
 }
 
 /**/
-.ammo-panel {
-  width: 13vw;
-  min-width: 340px;
-}
-
 .info {
   display: flex;
   justify-content: space-between;
@@ -1354,20 +1765,6 @@ td {
 
 .ammo-ap {
   color: var(--gold);
-}
-
-/**/
-.spells-panel {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 20px;
-  width: 40vw;
-  min-width: 1000px;
-}
-
-.spells-panel .selector {
-  width: 12vw;
-  min-width: 300px;
 }
 
 /*styling for dropdown component*/

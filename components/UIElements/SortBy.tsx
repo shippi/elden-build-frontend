@@ -1,8 +1,8 @@
 'use client'
 
-import { useClickOutside } from "@/hooks";
+import { useClickOutside, useWindowSizeChange } from "@/hooks";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
     selected?: string,
@@ -11,7 +11,9 @@ interface Props {
 
 function SortBy({ selected, search }: Props) {
     const [open, setOpen] = useState(false);
+    const [widthFlag, setWidthFlag] = useState(window.innerWidth <= 624);
     const selectRef = useRef(null);
+
     useClickOutside(selectRef, () => { setOpen(false) })
     switch (selected) {
         case "mostviewed":
@@ -24,10 +26,15 @@ function SortBy({ selected, search }: Props) {
             selected = "Trending"
     }
 
+    useWindowSizeChange(() => {
+        if (window.innerWidth <= 624) setWidthFlag(true);
+        else setWidthFlag(false);
+    });
+
     return (
         <div className="dropdown-container" ref={selectRef}>
         <div className="select-container unselectable" onClick={() => setOpen(!open)} >
-            <div className="select">{selected ? selected : "Sort By"}</div>
+            <div className="select">{selected && !widthFlag ? selected : "Sort By"}</div>
             <div className="select-icon">
                 <i className=" fa fa-angle-down" aria-hidden="true"/>
             </div>

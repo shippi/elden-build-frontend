@@ -56,7 +56,7 @@ function DefencesPanel() {
       </table>
       </div>
       <div style={{height:"2vh"}}/>
-      <PanelTitle text="Resistance" img="icons/resistance.png"/>
+      <PanelTitle text="Resistance" img="/icons/resistance.png"/>
       <div className="defences-panel">
       <table>
         <thead>

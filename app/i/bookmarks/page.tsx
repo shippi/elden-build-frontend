@@ -70,10 +70,9 @@ function Bookmarks({searchParams: {page, sort, search}} : Props) {
 
 	return (
     <div className="builds">
-      	<div style={{height: "40px"}}/>
       	<div className="page-content">
         	<div className="header unselectable">
-                <h1>BOOKMARKED BUILDS</h1>
+                <h1>Bookmarked</h1>
                 <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
 				        <SearchBar startSearch={search} submitSearch={submitSearch}/>
             </div>

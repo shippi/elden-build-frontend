@@ -135,43 +135,46 @@ function BuildPage({ buildData } : Props) {
         else {
             addBookmark();
         }
-
         setBookmarked(!bookmarked);
     }
 
     return (
-        <>
-        <div style={{height: "40px"}}></div>
-       
+        <>  
         <div className="build-page">
             <div className="panels-container">
-            <div className="header">
-                <h1>{name}</h1> 
-                <div style={{borderLeft: "1px solid grey", height:"25px"}}/>
-                <div>Created by <span style={{color:"gold"}}>{creatorName}</span></div>
+			<div className="header">
+                    <h1>{name}</h1> 
+                    <div className="column-separator"/>
+                    <div className="creator-name">created by <span style={{color:"gold"}}>{creatorName}</span></div>
                 
-                <div className="analytics">
-                    
-                <div className="views">
-                    <i className="fa fa-eye fa-lg"/> &nbsp; 
-                    <label style={{color: "white"}}>{viewCount.toLocaleString()}</label>
+                    <div className="analytics">
+                        <div className="views">
+                            <i className="fa fa-eye fa-lg"/> &nbsp; 
+                            <label style={{color: "white"}}>
+                            {
+                                    Intl.NumberFormat('en-US', {
+                                        notation: "compact",
+                                        maximumFractionDigits: 1
+                                      }).format(viewCount)
+                                }
+                            </label>
+                        </div>
+                        <div className="likes">
+                            <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
+                            <label style={{color: "white"}}>
+                                {
+                                    Intl.NumberFormat('en-US', {
+                                        notation: "compact",
+                                        maximumFractionDigits: 1
+                                      }).format(likesCount)
+                                }
+                            </label>	
+                        </div>
+                        <div>
+                            <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>
+                        </div>
+                    </div>
                 </div>
-                <div className="likes">
-                    <i className={liked ? "fa fa-heart" : "fa fa-heart-o"} onClick={onLikeClicked}/> &nbsp; 
-                    <label style={{color: "white"}}>{likesCount.toLocaleString()}</label>
-                </div>
-                <div>
-                    <i className={bookmarked ? "fa fa-bookmark": "fa fa-bookmark-o"} onClick={onBookmarkClicked}/>
-                </div>
-            </div>
-            </div>
-            
-            </div>
-            
-            {
-                
-            }
-            <div className="panels-container">
                 {
                     description &&
                     <div>
@@ -179,11 +182,11 @@ function BuildPage({ buildData } : Props) {
                         <div className="description">{description}</div>
                     </div>
                 }
-                <div className="separator" style={{width: "100%"}}/>
+                <div className="separator"/>
             </div>
             
             <div className="panels-container">
-                <div className="subcontainer">
+                <div className="left-hand subcontainer">
                     <DisplayCharacter 
                         selectedClass={selectedClass} 
                         characterStats={characterStats}   
@@ -199,7 +202,7 @@ function BuildPage({ buildData } : Props) {
                         selectedTears={selectedTears}
                     />
                 </div>
-                <div className="subcontainer">
+                <div className="middle subcontainer">
                     <DisplayWeapons 
                         selectedWeapons={selectedWeapons} 
                         selectedAffinities={selectedAffinities} 
@@ -218,7 +221,7 @@ function BuildPage({ buildData } : Props) {
                     </div>
                 </div>
 
-                <div className="subcontainer">
+                <div className="right-hand subcontainer">
                     <DisplayStats
                         selectedClass={selectedClass} 
                         characterStats={characterStats}   
@@ -248,22 +251,21 @@ function BuildPage({ buildData } : Props) {
                         selectedTears={selectedTears}                   
                     />
                 </div>
-                <div className="separator" style={{width: "100%"}}/>
-                <div className="bottom-panels-container">
-                    <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>
+            </div>
+            
+            <div className="bottom-panels-container">
+                <div className="separator"/>
+                <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>    
+                <DisplaySpells 
+                    selectedClass={selectedClass} 
+                    characterStats={characterStats}   
+                    selectedTalismans={selectedTalismans}   
+                    selectedArmours={selectedArmours}  
+                    greatRune={selectedRune}
+                    selectedTears={selectedTears}                         
+                    selectedSpells={selectedSpells}
+                />
                     
-                    <div style={{width:"3vw"}}/>
-                    <DisplaySpells 
-                        selectedClass={selectedClass} 
-                        characterStats={characterStats}   
-                        selectedTalismans={selectedTalismans}   
-                        selectedArmours={selectedArmours}  
-                        greatRune={selectedRune}
-                        selectedTears={selectedTears} 
-                        selectedSpells={selectedSpells}
-                    />
-                </div>
-                
             </div>
             <div style={{height:"5vw"}}/>
         </div>

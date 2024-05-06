@@ -75,10 +75,14 @@ function FilePanel() {
       
       {message && <StatusModal success={!isError} message={message}/>}
 			<BuildNameInput />
-      <VisibilityToggle />
-			<NewButton />
-			<SaveButton />
-			<DeleteButton />
+      <div className="file-buttons">
+        <VisibilityToggle />
+        <div className="file-buttons">
+			  <NewButton />
+			  <SaveButton />
+			  <DeleteButton />
+        </div>
+      </div>
       <ShareLink />
     </div>
     
