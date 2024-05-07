@@ -411,7 +411,7 @@ input[type="checkbox"]:disabled {
   
 }
 
-a, li, .selected div, .creator-name, .username {
+a, .dropdown li, .selected div, .creator-name, .username {
   text-overflow: ellipsis;
   overflow: hidden; 
   white-space: nowrap;
