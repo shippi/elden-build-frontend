@@ -47,7 +47,7 @@ function DisplayWeapons({selectedWeapons, selectedAffinities, selectedAshes, sel
                     </div>
                     {
                         <div className="weapon-options">
-                            <div style={{width: "fit-content"}}>
+                            <div className="ash-of-war">
                                 <label>Ash of War</label>
                                 { 
                                     selectedAshes[j] ? 

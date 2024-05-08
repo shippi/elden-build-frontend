@@ -1498,6 +1498,12 @@ a, .dropdown li, .selected div, .creator-name, .username {
   .attack-power-panel {
     width: 44vw;
   }
+  .middle {
+    padding-top: 20px;
+  }
+  .subcontainer {
+    padding-bottom: 20px;
+  }
   .right-hand {
     order: -1;
   }
@@ -1542,11 +1548,15 @@ a, .dropdown li, .selected div, .creator-name, .username {
     border: none;
   }
   .weapons-panel {
+    display: flex;
+    flex-direction: column;
     border-left-width: 3px;
     border-left-style: solid;
     border-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(107,106,101,0.5) 10%, rgba(143,141,132,0.8) 50%, rgba(107,106,101,0.5) 90%, rgba(0,0,0,0)) 1;
   }
-
+  .selectors-container {
+    border: none;
+  }
   .character-panel,
   .great-runes-panel,
   .physick-panel,
@@ -1567,17 +1577,26 @@ a, .dropdown li, .selected div, .creator-name, .username {
   .armour-panel {
     min-width: 324px;
   }
-
-  .weapons-panel {
-    display: flex;
-    flex-direction: column;
-  } 
   .subcontainer2 {
     align-content: space-around;
     flex-direction: column;
     row-gap: 2vh;
   }
+  .build-page .weapon-options {
+    column-gap: 30px;
+  }
 }
+
+@media only screen and (max-width: 405px) {
+  .ash-of-war {
+    max-width: 45vw;
+  }
+
+  .build-page .weapon-options {
+    column-gap: 20px;
+  }
+}
+
 /*styling for the character panel component*/
 .level-container {
   font-size: 15px;
