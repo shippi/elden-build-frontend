@@ -17,7 +17,7 @@ function AttackPowerPanel() {
     <div className="attack-power-panel">
         {
             selectedWeapons.map((weapon: Weapon, i: number) => {
-                const attackPower = calculateAttackPower(weapon, selectedAffinities[i], selectedWepLvls[i], totalStats)
+                const attackPower = calculateAttackPower(weapon, selectedAffinities[i], selectedWepLvls[i], totalStats, selectedTalismans, tearActivated && selectedTears);
                 return (
                     <div key={i}>
                         <span className="attack-power" data-alt={attackPower.attackPowerAlt}>
