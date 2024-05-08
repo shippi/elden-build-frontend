@@ -4,9 +4,9 @@ import { FilePanelContext } from "@/context/FilePanelContext";
 import { useContext, useEffect, useRef, useState } from "react"
 
 function NewButton() {
-	const { buildName, loadingBuild, setLoadingBuild, saveable } = useContext(BuildCreatorContext);
+	const { loadingBuild, setLoadingBuild, saveable } = useContext(BuildCreatorContext);
 
-	const { saveLoading, setOldBuildName, setSelectedIndex, setSelectToggle, selectToggle, 
+	const { buildName, saveLoading, setOldBuildName, setSelectedIndex, setSelectToggle, selectToggle, 
 			selectedIndex, oldBuildName, setConfirmationOpen, setConfirmationMessage, 
 			setConfirmationFunction } = useContext(FilePanelContext);
 
@@ -32,9 +32,9 @@ function NewButton() {
     }
 
 	useEffect(() => {
-		if (selectedIndex > -1) setDisabled(false);
+		if (selectedIndex > -1 || oldBuildName != buildName || saveable) setDisabled(false);
 		else setDisabled(true);
-	}, [selectedIndex])
+	}, [selectedIndex, buildName, saveable])
 	
 	return (
     	<button onClick={handleNew} className={disabled || loadingBuild || saveLoading ? "disabled" : ""}>New</button>

@@ -26,6 +26,10 @@ function SortBy({ selected, search }: Props) {
             selected = "Trending"
     }
 
+    useEffect(() => {
+        setWidthFlag(window.innerWidth <= 624);
+    }, []);
+
     useWindowSizeChange(() => {
         if (window.innerWidth <= 624) setWidthFlag(true);
         else setWidthFlag(false);

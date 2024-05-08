@@ -436,7 +436,6 @@ a, .dropdown li, .selected div, .creator-name, .username {
   background-position: top left;
   background-size: 100%;
   background-repeat: no-repeat;
-
 }
 
 .builds .header {
@@ -447,11 +446,6 @@ a, .dropdown li, .selected div, .creator-name, .username {
   .page-content {
     width: 100vw;
     min-width: 324px;
-  }
-}
-
-@media only screen and (max-width: 624px) {
-  .page-content {
   }
 }
 
@@ -889,7 +883,7 @@ a, .dropdown li, .selected div, .creator-name, .username {
 
 @media only screen and (max-width: 400px) {
   .footer {
-    display: none;
+   
   }
 }
 /**/
@@ -1012,10 +1006,6 @@ a, .dropdown li, .selected div, .creator-name, .username {
   flex-direction: column;
   row-gap: 22px;
   padding: 0px 25px 25px 25px;
-}
-
-.modal-content {
-
 }
 
 .click-here {
@@ -1324,6 +1314,7 @@ a, .dropdown li, .selected div, .creator-name, .username {
 }
 
 .link {
+  background-color: #121212;
   display: flex;
   align-items: center;
   min-width: 324px;
@@ -1335,6 +1326,10 @@ a, .dropdown li, .selected div, .creator-name, .username {
 @media only screen and (max-width: 436px) {
   .build-creator h1 {
     font-size: 24px;
+  }
+  .link {
+    min-width: 0;
+    width: 81.5vw;
   }
 }
 /*styling for status modal*/
@@ -1470,9 +1465,8 @@ a, .dropdown li, .selected div, .creator-name, .username {
 
 @media only screen and (max-width: 1360px) {
   .build-page,
-  .build-creator,
-  .builds {
-    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 70%, rgba(0,0,0,0) 90%, rgba(28,28,28,1) 100%), 
+  .build-creator {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 75%, rgba(0,0,0,0) 90%, rgba(28,28,28,1) 100%), 
     url('./../public/builder-bg.png');
   }
   .bottom-panels-container {
@@ -1514,9 +1508,12 @@ a, .dropdown li, .selected div, .creator-name, .username {
 
 @media only screen and (max-width: 970px) {
   .build-page,
-  .build-creator,
+  .build-creator {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 87%, rgba(0,0,0,0) 95%, rgba(28,28,28,1) 100%), 
+    url('./../public/builder-bg.png');
+  }
   .builds {
-    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 80%, rgba(0,0,0,0) 95%, rgba(28,28,28,1) 100%), 
+    background-image: linear-gradient(0deg, rgb(59, 56, 47) 0%, rgba(31,26,8,1) 70%, rgba(0,0,0,0) 80%, rgba(28,28,28,1) 100%), 
     url('./../public/builder-bg.png');
   }
   .spells-panel {
@@ -1534,9 +1531,8 @@ a, .dropdown li, .selected div, .creator-name, .username {
 
 @media only screen and (max-width: 750px) {
   .build-page,
-  .build-creator,
-  .builds {
-    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 94%, rgba(0,0,0,0) 97%, rgba(28,28,28,1) 100%), 
+  .build-creator {
+    background-image: linear-gradient(0deg, rgba(22,18,7,1) 0%, rgba(31,26,8,1) 95%, rgba(0,0,0,0) 97%, rgba(28,28,28,1) 100%), 
     url('./../public/builder-bg.png');
   }
   .bottom-panels-container {

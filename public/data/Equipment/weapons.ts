@@ -3761,8 +3761,7 @@ export const weapons = [
     "weight": 2,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "30030000",
@@ -3788,8 +3787,7 @@ export const weapons = [
     "weight": 3.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "30060000",
@@ -3802,8 +3800,7 @@ export const weapons = [
     "weight": 5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "30070000",
@@ -3855,8 +3852,7 @@ export const weapons = [
     "weight": 2,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "30110000",
@@ -3882,8 +3878,7 @@ export const weapons = [
     "weight": 3,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "30130000",
@@ -3909,8 +3904,7 @@ export const weapons = [
     "weight": 3,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "30150000",
@@ -3968,8 +3962,7 @@ export const weapons = [
     "weight": 4.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31010000",
@@ -3983,7 +3976,6 @@ export const weapons = [
     "changeAffinity": true,
     "unique": false,
     "defaultSkill": "No Skill",
-    "disableAsh": true,
     "effect": "Causes blood loss buildup"
   },
   {
@@ -3998,7 +3990,6 @@ export const weapons = [
     "changeAffinity": true,
     "unique": false,
     "defaultSkill": "No Skill",
-    "disableAsh": true,
     "effect": "Causes blood loss buildup"
   },
   {
@@ -4012,8 +4003,7 @@ export const weapons = [
     "weight": 6,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31040000",
@@ -4054,8 +4044,7 @@ export const weapons = [
     "weight": 3.5,
     "changeAffinity": false,
     "unique": true,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31070000",
@@ -4094,8 +4083,7 @@ export const weapons = [
     "weight": 4.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31100000",
@@ -4121,8 +4109,7 @@ export const weapons = [
     "weight": 7,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31140000",
@@ -4164,8 +4151,7 @@ export const weapons = [
     "weight": 4.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31230000",
@@ -4191,8 +4177,7 @@ export const weapons = [
     "weight": 3.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31250000",
@@ -4283,8 +4268,7 @@ export const weapons = [
     "weight": 3.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "31320000",
@@ -4323,8 +4307,7 @@ export const weapons = [
     "weight": 3,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32000000",
@@ -4350,8 +4333,7 @@ export const weapons = [
     "weight": 17,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32030000",
@@ -4419,8 +4401,7 @@ export const weapons = [
     "weight": 12.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32120000",
@@ -4461,8 +4442,7 @@ export const weapons = [
     "weight": 11.5,
     "changeAffinity": false,
     "unique": true,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32150000",
@@ -4568,8 +4548,7 @@ export const weapons = [
     "weight": 14,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32240000",
@@ -4582,8 +4561,7 @@ export const weapons = [
     "weight": 15,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32250000",
@@ -4596,8 +4574,7 @@ export const weapons = [
     "weight": 15,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32260000",
@@ -4610,8 +4587,7 @@ export const weapons = [
     "weight": 17,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32270000",
@@ -4624,8 +4600,7 @@ export const weapons = [
     "weight": 17.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32280000",
@@ -4638,8 +4613,7 @@ export const weapons = [
     "weight": 18.5,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32290000",
@@ -4652,8 +4626,7 @@ export const weapons = [
     "weight": 8,
     "changeAffinity": true,
     "unique": false,
-    "defaultSkill": "No Skill",
-    "disableAsh": true
+    "defaultSkill": "No Skill"
   },
   {
     "id": "32300000",
