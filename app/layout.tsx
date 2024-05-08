@@ -4,6 +4,7 @@ import { AuthContextProvider } from "@/context/AuthContext"
 
 export const metadata = {
   title: "Elden Builder",
+  description: "Plan, create, and share character builds for Elden Ring. A build calculator is featured that includes all the stats that you would see in-game, such as: base stats, attack power and spell scaling, defense, resistance, etc."
 }
 
 export default function RootLayout({
