@@ -186,14 +186,16 @@ function calculateFinalAttackValue(base: number, bonus: number, type?: string, t
     if (talismans) {
         talismans.forEach(talisman => {
             if (talisman?.statChanges && type + "Dmg" in talisman.statChanges) {
-                finalAttack *= talisman.statChanges[type + "Dmg" as keyof typeof talisman.statChanges];
+                const multiplier = talisman.statChanges[type + "Dmg" as keyof typeof talisman.statChanges];
+                finalAttack *= multiplier ? multiplier : 1;
             }
         });
     }
     if (crystalTears) {
         crystalTears.forEach(crystalTear => {
             if (crystalTear?.statChanges && type + "Dmg" in crystalTear.statChanges) {
-                finalAttack *= crystalTear.statChanges[type + "Dmg" as keyof typeof crystalTear.statChanges];
+                const multiplier = crystalTear.statChanges[type + "Dmg" as keyof typeof crystalTear.statChanges];
+                finalAttack *= multiplier ? multiplier : 1;
             }
         });
     }
