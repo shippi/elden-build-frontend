@@ -1,4 +1,4 @@
-import { Weapon, CharacterStats, requiredAttributes } from "@/helpers/types";
+import { Weapon, CharacterStats, requiredAttributes, Talisman } from "@/helpers/types";
 import { weaponStats, multipliers, calcCorrectGraph, attackElementsCorrect } from "@/public/data";
 import { WEAPON_STATS_NAMES } from "./consts";
 
@@ -11,7 +11,7 @@ import { WEAPON_STATS_NAMES } from "./consts";
  * @param stats 
  * @returns 
  */
-export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats) {
+export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: number, stats: CharacterStats, talismans?: Talisman[]) {
     if (!weapon) return { finalAttackValues: [0], attackPowerAlt: null, sorceryScaling: 0 };
 
     var weaponName = weapon.name;
@@ -69,8 +69,8 @@ export function calculateAttackPower(weapon: Weapon, affinity: string, wepLvl: n
             if (weaponReqs && baseValues[i]) {
                 
                 const bonusAttackTypeValue = calculateBonusAttack(attackElementId, adjustedBaseValues[i], attackTypes[i], adjustedScalingValues, correctGraphIds[i], stats, weaponReqs); 
-                const finalAttackTypeValue = adjustedBaseValues[i] + bonusAttackTypeValue;
-                attackPowerAlt += "\n • " + (attackTypes[i].charAt(0).toUpperCase() + attackTypes[i].slice(1)) + ": " + adjustedBaseValues[i].toFixed(0) + " + (" + bonusAttackTypeValue.toFixed(0) + ")"
+                const finalAttackTypeValue = calculateFinalAttackValue(adjustedBaseValues[i], bonusAttackTypeValue, attackTypes[i], talismans);
+                attackPowerAlt += "\n • " + (attackTypes[i].charAt(0).toUpperCase() + attackTypes[i].slice(1)) + ": " + adjustedBaseValues[i].toFixed(0) + " + (" + Math.floor(finalAttackTypeValue - adjustedBaseValues[i]) + ")"
                 finalAttackValues.push(finalAttackTypeValue);
             }
             else {
@@ -179,6 +179,18 @@ export function calculateSorceryScaling(attackElementId: string, attackType: str
         }
     }
     return Math.floor(total);
+}
+
+function calculateFinalAttackValue(base: number, bonus: number, type?: string, talismans?: Talisman[]) {
+    let finalAttack = base + bonus;
+    if (talismans) {
+        talismans.forEach(talisman => {
+            if (talisman?.statChanges && type + "Dmg" in talisman.statChanges) {
+                finalAttack *= talisman.statChanges[type + "Dmg" as keyof typeof talisman.statChanges];
+            }
+        });
+    }
+    return finalAttack;
 }
 
 /**
