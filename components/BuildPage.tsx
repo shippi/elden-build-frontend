@@ -185,7 +185,7 @@ function BuildPage({ buildData } : Props) {
                 <div className="separator"/>
             </div>
             
-            <div className="panels-container">
+            <div className="panels-container" style={{padding: "0 20px"}}>
                 <div className="left-hand subcontainer">
                     <DisplayCharacter 
                         selectedClass={selectedClass} 
@@ -252,9 +252,10 @@ function BuildPage({ buildData } : Props) {
                     />
                 </div>
             </div>
-            
-            <div className="bottom-panels-container">
+            <div className="panels-container">
                 <div className="separator"/>
+            </div>
+            <div className="bottom-panels-container" style={{padding: "0 20px"}}>
                 <DisplayAmmo selectedArrows={selectedArrows} selectedBolts={selectedBolts}/>    
                 <DisplaySpells 
                     selectedClass={selectedClass} 

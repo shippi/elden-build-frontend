@@ -7,5 +7,9 @@ export const changelogs = [
         date: "8th May 2024",
         changes: ["Fixed issue with not being able to switch Ashes of War on shields that start with 'No Skill'.",
             "Scorpion Charms and *-Shrouding Cracked Tears are now part of AR calculation."]
+    },
+    {
+        date: "31st May 2024",
+        changes: ["Small changes to build creator and build page."]
     }
 ]

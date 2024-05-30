@@ -1048,6 +1048,10 @@ a, .dropdown li, .selected div, .creator-name, .username {
   border-bottom: var(--grey-border);
 }
 
+.file-panel input[type="text"] {
+  background-color: var(--bg-color);
+}
+
 .form-group input[type="text"]:focus,
 .form-group input[type="password"]:focus, 
 .file-panel input[type="text"]:focus,
@@ -1154,6 +1158,7 @@ a, .dropdown li, .selected div, .creator-name, .username {
 }
 
 .panels-container {
+  background-color:#1212129F;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1163,17 +1168,18 @@ a, .dropdown li, .selected div, .creator-name, .username {
 }
 
 .bottom-panels-container {
+  background-color:#1212129F;
   display: flex;
   flex-wrap: wrap;
   align-self: center;
   width: 70%;
   min-width: 1500px;
+
 }
 
 .subcontainer {
   display: flex;
   flex-direction: column;
-
   row-gap: 40px;
 }
 
@@ -1191,8 +1197,10 @@ a, .dropdown li, .selected div, .creator-name, .username {
 .build-creator .separator,
 .panels-container .separator {
   height: 30px;
+  margin: 0 20px;
   margin-bottom: 30px;
   width: 100%;
+  
 }
 
 .separator {
@@ -1208,6 +1216,7 @@ a, .dropdown li, .selected div, .creator-name, .username {
   column-gap: 28px;
   row-gap: 20px;
   width: 100%;
+  padding: 0 20px;
 }
 
 .file-buttons {
@@ -1289,12 +1298,11 @@ a, .dropdown li, .selected div, .creator-name, .username {
 .description-container {
   display: flex;
   flex-direction: column;
-
+  padding: 0 20px;
 }
 
 .description-container textarea {
-  background-color: #121212;
-  
+  background-color: var(--bg-color);
   border: none;
   border-bottom: var(--grey-border);
   outline: none;
@@ -1314,7 +1322,7 @@ a, .dropdown li, .selected div, .creator-name, .username {
 }
 
 .link {
-  background-color: #121212;
+  background-color: var(--bg-color);
   display: flex;
   align-items: center;
   min-width: 324px;
@@ -1443,6 +1451,16 @@ a, .dropdown li, .selected div, .creator-name, .username {
 }
 
 @media only screen and (max-width: 1520px) {
+  .build-page .separator,
+  .build-creator .separator,
+  .panels-container .separator {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .file-panel,
+  .description-container {
+    padding: 0;
+  }
   .panels-container,
   .bottom-panels-container {
     padding: 0 15px;

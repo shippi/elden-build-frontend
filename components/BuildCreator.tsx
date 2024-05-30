@@ -25,28 +25,30 @@ function BuildCreator() {
             {
                 !loadingBuild ?
                 <>
-                <div className="panels-container">    
-                <div className="left-hand subcontainer">
-                    <CharacterPanel/>
-                    <GreatRunesPanel/>
-                    <PhysickPanel/>
-                </div>
-                <div className="middle subcontainer">
-                    <WeaponsPanel/>
-                    <div className='subcontainer2'>
-                        <ArmourPanel/>
-                        <TalismansPanel/>
+                <div className="panels-container" style={{padding: "0 20px"}}>    
+                    <div className="left-hand subcontainer">
+                        <CharacterPanel/>
+                        <GreatRunesPanel/>
+                        <PhysickPanel/>
+                    </div>
+                    <div className="middle subcontainer">
+                        <WeaponsPanel/>
+                        <div className='subcontainer2'>
+                            <ArmourPanel/>
+                            <TalismansPanel/>
+                        </div>
+                    </div>
+                    <div className="right-hand subcontainer" >
+                        <StatsPanel/>
+                        <AttackPowerPanel/>
+                        <DefencesPanel/>
                     </div>
                 </div>
-                <div className="right-hand subcontainer" >
-                    <StatsPanel/>
-                    <AttackPowerPanel/>
-                    <DefencesPanel/>
-                </div>
+            <div className="panels-container">
+                <div className="separator"/>
             </div>
+            <div className="bottom-panels-container" style={{padding: "0 20px"}}>
             
-            <div className="bottom-panels-container">
-            <div className="separator"/>
                 <AmmoPanel/>
                 <SpellsPanel/>
                 
