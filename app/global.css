@@ -1385,6 +1385,10 @@ a, .dropdown li, .selected div, .creator-name, .username {
   align-self: baseline;
 }
 
+.description {
+  margin-left: 20px;
+}
+
 .weapons-panel {
   background: linear-gradient(90deg, rgba(25,22,17,0.75) 0%, rgba(0,0,0,0) 70%);
 }
@@ -1477,6 +1481,10 @@ a, .dropdown li, .selected div, .creator-name, .username {
   .talismans-panel,
   .armour-panel {
     min-width: 300px;
+  }
+
+  .description {
+    margin: 0;
   }
 }
 
